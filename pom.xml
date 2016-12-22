@@ -208,7 +208,7 @@
 					<artifactId>maven-war-plugin</artifactId>
 					<version>${maven-war-plugin.version}</version>
 					<configuration>
-						<warName>obcism</warName>
+						<warName>audNorka</warName>
 					</configuration>
 				</plugin>
 				<plugin>
