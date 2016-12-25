@@ -7,11 +7,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="<%=baseUrl%>/static/lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
-<title>首页</title>
+<title>团队列表</title>
 </head>
 <body>
   <div class="container">
-    <center>项目列表</center>
+    <center>团队列表</center>
     <ul style="display: in-line">
       <li><a href="<%=baseUrl%>/client/projects">项目案例</a></li>
       <li><a href="<%=baseUrl%>/client/teams">团队介绍</a></li>
@@ -19,11 +19,11 @@
       <li><a href="<%=baseUrl%>/client/aboutUs">关于AUD</a></li>
       <li><a href="<%=baseUrl%>/client/jobs">招聘</a></li>
     </ul>
-    <h1>项目列表</h1>
+    <h1>团队列表</h1>
     <ul>
-      <li><a href="<%=baseUrl%>/client/projects/123">项目一</a></li>
-      <li><a href="<%=baseUrl%>/client/projects/123">项目二</a></li>
-      <li><a href="<%=baseUrl%>/client/projects/123">项目三</a></li>
+      <li><a href="<%=baseUrl%>/client/teams/123">团队成员一</a></li>
+      <li><a href="<%=baseUrl%>/client/teams/123">团队成员二</a></li>
+      <li><a href="<%=baseUrl%>/client/teams/123">团队成员三</a></li>
     </ul>
   </div>
 </body>
