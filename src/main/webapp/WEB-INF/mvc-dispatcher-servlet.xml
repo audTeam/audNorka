@@ -33,6 +33,7 @@
 	<mvc:resources location="/" mapping="/**/*.css" />
 	<mvc:resources location="/" mapping="/**/*.js" />
 	<mvc:resources location="/" mapping="/**/*.woff"/>
+	<mvc:resources location="/" mapping="/**/*.woff2"/>
 	<mvc:resources location="/" mapping="/**/*.ttf"/>
 
     <mvc:annotation-driven/>  
