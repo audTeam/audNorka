@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="<%=baseUrl%>/static/lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
-<title>关于我们</title>
+<title>招聘列表</title>
 </head>
 <body>
   <div class="container">
@@ -19,7 +19,12 @@
       <li><a href="<%=baseUrl%>/client/aboutUs">关于AUD</a></li>
       <li><a href="<%=baseUrl%>/client/jobs">招聘</a></li>
     </ul>
-    <h1>关于我们</h1>
+    <h1>招聘列表</h1>
+    <ul>
+      <li><a href="<%=baseUrl%>/client/jobs/123">招聘一</a></li>
+      <li><a href="<%=baseUrl%>/client/jobs/123">招聘二</a></li>
+      <li><a href="<%=baseUrl%>/client/jobs/123">招聘三</a></li>
+    </ul>
   </div>
 </body>
 <script type="text/javascript" src="<%=baseUrl%>/static/lib/bower_components/jquery/dist/jquery.min.js"></script>

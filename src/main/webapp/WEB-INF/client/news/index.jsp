@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="<%=baseUrl%>/static/lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
-<title>关于我们</title>
+<title>新闻动态</title>
 </head>
 <body>
   <div class="container">
@@ -19,7 +19,12 @@
       <li><a href="<%=baseUrl%>/client/aboutUs">关于AUD</a></li>
       <li><a href="<%=baseUrl%>/client/jobs">招聘</a></li>
     </ul>
-    <h1>关于我们</h1>
+    <h1>新闻列表</h1>
+    <ul>
+      <li><a href="<%=baseUrl%>/client/news/123">新闻一</a></li>
+      <li><a href="<%=baseUrl%>/client/news/123">新闻二</a></li>
+      <li><a href="<%=baseUrl%>/client/news/123">新闻三</a></li>
+    </ul>
   </div>
 </body>
 <script type="text/javascript" src="<%=baseUrl%>/static/lib/bower_components/jquery/dist/jquery.min.js"></script>

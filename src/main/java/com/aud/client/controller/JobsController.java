@@ -5,11 +5,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/client/aboutUs")
-public class AboutUsController {
-
+@RequestMapping("/client/jobs")
+public class JobsController {
 	@RequestMapping(value="", method=RequestMethod.GET)
-	public String show(){
-		return "client/aboutUs/show";
+	public String index(){
+		return "client/jobs/index";
 	}
+	
+	@RequestMapping(value="/{jobId}", method=RequestMethod.GET)
+	public String show(){
+		return "client/jobs/show";
+	}
+	
 }
