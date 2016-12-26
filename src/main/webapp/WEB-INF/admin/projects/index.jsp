@@ -34,8 +34,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Page Header
-        <small>Optional description</small>
+                   项目列表
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
@@ -49,7 +48,10 @@
       <!-- Your Page Content Here -->
       <div class="box">
         <div class="box-body">
-          44444444444444
+          <ul>
+            <li><a href="<%=baseUrl%>/admin/projects/123">项目一</a></li>
+            <li><a href="<%=baseUrl%>/admin/projects/123">项目二</a></li>
+          </ul>
         </div>
       </div>
 
