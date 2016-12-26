@@ -43,6 +43,7 @@
       <li><a href="#"><i class="fa fa-newspaper-o" aria-hidden="true"></i>新闻动态</span></a></li>
       <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i><span>招聘信息</span></a></li>
       <li><a href="#"><i class="fa fa-link"></i><span>关于AUD</span></a></li>
+      <li><a href="<%=baseUrl%>/admin/ued/new"><i class="fa fa-newspaper-o" aria-hidden="true"></i>ued测试</span></a></li>
       <!-- <li class="treeview">
         <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
           <span class="pull-right-container">

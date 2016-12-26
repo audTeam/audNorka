@@ -35,6 +35,7 @@
 	<mvc:resources location="/" mapping="/**/*.woff"/>
 	<mvc:resources location="/" mapping="/**/*.woff2"/>
 	<mvc:resources location="/" mapping="/**/*.ttf"/>
+	<mvc:resources mapping="/ueditor/**" location="/ueditor/" />
 
     <mvc:annotation-driven/>  
     <context:annotation-config/>
