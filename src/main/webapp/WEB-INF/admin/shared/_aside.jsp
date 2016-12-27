@@ -36,25 +36,13 @@
     <ul class="sidebar-menu">
       <li class="header">HEADER</li>
       <!-- Optionally, you can add icons to the links -->
-      <li class="active">
-        <a href="<%=baseUrl%>/admin/projects"><i class="fa fa-bars" aria-hidden="true"></i><span>项目案例</span></a>
-      </li>
+      <li><a href="<%=baseUrl%>/admin/navMenus/new"><i class="fa fa-bars" aria-hidden="true"></i><span>二级导航</span></a></li>
+      <li><a href="<%=baseUrl%>/admin/projects"><i class="fa fa-line-chart" aria-hidden="true"></i><span>项目列表</span></a></li>
       <li><a href="<%=baseUrl%>/admin/teams"><i class="fa fa-users" aria-hidden="true"></i><span>团队介绍</span></a></li>
       <li><a href="#"><i class="fa fa-newspaper-o" aria-hidden="true"></i>新闻动态</span></a></li>
       <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i><span>招聘信息</span></a></li>
       <li><a href="#"><i class="fa fa-link"></i><span>关于AUD</span></a></li>
       <li><a href="<%=baseUrl%>/admin/ued/new"><i class="fa fa-newspaper-o" aria-hidden="true"></i>ued测试</span></a></li>
-      <!-- <li class="treeview">
-        <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
-        </a>
-        <ul class="treeview-menu">
-          <li><a href="#">Link in level 2</a></li>
-          <li><a href="#">Link in level 2</a></li>
-        </ul>
-      </li>-->
     </ul>
     <!-- /.sidebar-menu -->
   </section>

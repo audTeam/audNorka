@@ -1,0 +1,34 @@
+package com.aud.admin.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.aud.mapper.NavMenuMapper;
+import com.aud.pojo.NavMenu;
+
+@Controller
+@RequestMapping("/admin/navMenus")
+public class NavMenusController {
+	@Autowired NavMenuMapper navMenuMapper;
+	
+	@RequestMapping(value="", method=RequestMethod.GET)
+	public String index(ModelMap model){
+		model.addAttribute("navMenus", this.navMenuMapper.all());
+		return "admin/navMenus/index";
+	}
+
+	@RequestMapping(value="/new", method=RequestMethod.GET)
+	public String newPage(){
+		return "admin/navMenus/new";
+	}
+
+	@RequestMapping(value="", method=RequestMethod.POST)
+	public String create(NavMenu navMenu){
+		System.out.println("---------navMenu: "+navMenu);
+		this.navMenuMapper.insertSelective(navMenu);
+		return "redirect:/admin/navMenus";
+	}
+}
