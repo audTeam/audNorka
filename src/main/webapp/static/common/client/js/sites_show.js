@@ -35,4 +35,8 @@ $(function(){
 	    $(".nav_two .ul_two").removeClass("current")
 	    $(".ul_one>li>a>span").removeClass("active")
 	})
+	$(".dropdown-toggle").hover(function () {
+    $(this).css({"color":"#f00"});
+	},function () {
+    $(this).css({"color":"#999"});
 });
