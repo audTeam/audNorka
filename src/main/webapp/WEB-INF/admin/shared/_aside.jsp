@@ -36,7 +36,7 @@
     <ul class="sidebar-menu">
       <li class="header">HEADER</li>
       <!-- Optionally, you can add icons to the links -->
-      <li><a href="<%=baseUrl%>/admin/navMenus/new"><i class="fa fa-bars" aria-hidden="true"></i><span>二级导航</span></a></li>
+      <li><a href="<%=baseUrl%>/admin/navMenus"><i class="fa fa-bars" aria-hidden="true"></i><span>二级导航</span></a></li>
       <li><a href="<%=baseUrl%>/admin/projects"><i class="fa fa-line-chart" aria-hidden="true"></i><span>项目列表</span></a></li>
       <li><a href="<%=baseUrl%>/admin/teams"><i class="fa fa-users" aria-hidden="true"></i><span>团队介绍</span></a></li>
       <li><a href="#"><i class="fa fa-newspaper-o" aria-hidden="true"></i>新闻动态</span></a></li>

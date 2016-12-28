@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <%String baseUrl = request.getContextPath(); %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +34,7 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>新增导航</h1>
+      <h1>更新导航</h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
         <li class="active">Here</li>
@@ -49,7 +48,8 @@
           <div class="row">
             <div class="col-md-8">
               <c:import url="_form.jsp">
-                <c:param name="actionUrl" value="${pageContext.request.contextPath }/admin/navMenus" />
+                <c:param name="actionUrl" value="${pageContext.request.contextPath}/admin/navMenus/${navMenu.id}" />
+                <c:param name="method" value="PATCH" />
               </c:import>
             </div>
           </div>

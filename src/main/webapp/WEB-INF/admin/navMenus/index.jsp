@@ -52,21 +52,26 @@
           </div>
           <div class="row">
             <div class="col-md-12">
-              <table class="table table-strip">
+              <table class="table table-striped table-hover">
                 <tr>
                   <td>#</td>
                   <td>一级导航</td>
                   <td>二级导航</td>
+                  <td></td>
                   <td>操作</td>
                 </tr>
-                <c:forEach var="menu" items="${navMenus}" >
+                <c:forEach items="${navMenus}" varStatus="i" var="menu" >
                   <tr>
-                    <td>${menu.id}</td>
-                    <td>一级导航</td>
+                    <td>${i.index+1}</td>
+                    <td>
+                      <c:if test="${menu.parentnav=='1'}">项目案例</c:if>
+                      <c:if test="${menu.parentnav=='2'}">团队管理</c:if>
+                      <c:if test="${menu.parentnav=='3'}">新闻动态</c:if>
+                    </td>
                     <td>${menu.name}<td>
                     <td>
                       <a href="<%=baseUrl%>/admin/navMenus/${menu.id}/edit" class="btn btn-info">编辑</a>
-                      <form action="<%=baseUrl%>/admin/navMenus/${menu.id}/edit">
+                      <form style="display: inline-block;" method="POST" action="<%=baseUrl%>/admin/navMenus/${menu.id}">
                         <input type="hidden" name="_name" method="DELETE">
                         <button class="btn btn-danger">删除</button>
                       </form>

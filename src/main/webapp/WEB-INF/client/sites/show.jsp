@@ -98,7 +98,7 @@
     </header>
     <div class="main container">
         <section>
-            <img src="images/pic3_03.png" alt="pic"  class="img-responsive">
+            <img src="<%=baseUrl%>/static/common/client/images/sites/pic3_03.png" alt="pic"  class="img-responsive">
         </section>
         <section class="part_two">
             <div class="row">
