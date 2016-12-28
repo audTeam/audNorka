@@ -50,7 +50,7 @@
                 <div class="form-group">
                   <label class="col-md-4 control-label">一级导航</label>
                   <div class="col-md-8">
-                    <select class="form-control" name="parentNav">
+                    <select class="form-control" name="parentnav">
                       <option value="1">项目案例</option>
                       <option value="2">团队管理</option>
                       <option value="3">新闻动态</option>
