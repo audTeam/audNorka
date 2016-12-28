@@ -1,10 +1,13 @@
 ul{
     list-style-type: none;
 }
-.AudIndex{
-    width: 1010px;
-    margin: 0 auto;
+@media screen and (min-width: 1200px) {
+    .container{
+        padding-left: 94px;
+        padding-right: 95px;
+    }
 }
+
 .navbar-brand{
     padding:0;
     height:auto;
@@ -26,11 +29,11 @@ ul{
 }
 
 
-.ul_two>li>a{
+.nav_two .ul_two>li>a{
     padding-top: 0;
     padding-bottom: 0;
     line-height: 26px;
-    color:#fff !important;
+    color:#fff;
 }
 .ul_two{
     width: 60%;
@@ -41,7 +44,6 @@ ul{
 }
 .current{
     display: block;
-
 }
 .ul_one li span{
     padding: 20px 20px;
@@ -99,4 +101,24 @@ footer .list-one ul li a{
     padding-top: 4px;
     padding-left: 8px;
     color: #fff;
+}
+
+.ul-two{
+    position: relative;
+}
+.ul-three{
+    width: 150px;
+    position: absolute;
+    background-color: #ca3727;
+    display: none;
+
+}
+.ul-three li{
+    float: none;
+}
+.current2{
+    display: block;
+}
+.active2{
+    color:#00b3ee !important;
 }
