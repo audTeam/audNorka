@@ -38,5 +38,5 @@ $(function(){
 	$(".dropdown-toggle").hover(function () {
     $(this).css({"color":"#f00"});
 	},function () {
-    $(this).css({"color":"#999"});
+    $(this).css({"color":"#999"})});
 });

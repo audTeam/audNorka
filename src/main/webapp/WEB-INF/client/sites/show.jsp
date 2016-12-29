@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="<%=baseUrl%>/static/lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/sites_show.css">
 <title>首页</title>
@@ -52,6 +53,15 @@
                         <li><a href="<%=baseUrl%>/client/news"><span data-tag="2">新闻动态</span></a></li>
                         <li><a href="<%=baseUrl%>/client/aboutUs"><span data-tag="3">关于AUD</span></a></li>
                         <li><a href="<%=baseUrl%>/client/jobs"><span data-tag="4">招聘信息</span></a></li>
+                    </ul>
+                </div>
+                <div class="btn-group change-language">
+                    <button type="button" class="btn btn-default btn-xs dropdown-toggle btn-language" data-toggle="dropdown">
+                        	简体中文 <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">简体中文</a></li>
+                        <li><a href="#">English</a></li>
                     </ul>
                 </div>
             </nav>
@@ -118,7 +128,36 @@
     </header>
     <div class="main container">
         <section>
-            <img src="<%=baseUrl%>/static/common/client/images/sites/pic3_03.png" alt="pic"  class="img-responsive">
+        	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <img src="<%=baseUrl%>/static/common/client/images/sites/pic3_03.png" alt="pic" class="img-responsive">
+                    </div>
+                    <div class="item">
+                        <img src="<%=baseUrl%>/static/common/client/images/sites/pic3_03.png" alt="pic" class="img-responsive">
+                    </div>
+                    <div class="item">
+                        <img src="<%=baseUrl%>/static/common/client/images/sites/pic3_03.png" alt="pic" class="img-responsive">
+                    </div>
+                </div>
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
         </section>
         <section class="part_two">
             <div class="row">

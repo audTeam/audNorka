@@ -108,7 +108,7 @@ footer .list-one ul li a{
 .search-input input{
     border-radius:10px;
     height: 20px;
-    width: 160px;
+    width: 130px;
 }
 .search-input label{
     margin: 0;
@@ -125,6 +125,7 @@ footer .list-one ul li a{
     position: absolute;
     background-color: #ca3727;
     display: none;
+    z-index:2000;
 
 }
 .ul-three li{
@@ -157,4 +158,12 @@ footer .list-one ul li a{
 .dropdown-menu>li>a:hover{
     background-color: #ca3727;
     color: #999;
+}
+.change-language{
+    position: absolute;
+    right: 1%;
+    top:16px;
+}
+.btn-language{
+    border-radius:20px;
 }
