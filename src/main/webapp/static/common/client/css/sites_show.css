@@ -109,6 +109,7 @@ footer .list-one ul li a{
     border-radius:10px;
     height: 20px;
     width: 130px;
+    line-height:20px;
 }
 .search-input label{
     margin: 0;
@@ -128,14 +129,19 @@ footer .list-one ul li a{
     z-index:2000;
 
 }
-.ul-three li{
+.ul-three>li>a{
     float: none;
+    color:#fff;
+}
+.ul-three>li>a:hover{
+	background-color:#fff;
+	color:#ca3727;
 }
 .current2{
     display: block;
 }
 .active2{
-    color:#00b3ee !important;
+    color:#ffcc00 !important;
 }
 .Main-me{
     position: absolute;
@@ -150,14 +156,14 @@ footer .list-one ul li a{
     color: #999;
 }
 .dropdown-menu li{
-    color: #999;
+    color: #ca3727;
 }
 .dropdown-menu li a{
     color: #ca3727;
 }
 .dropdown-menu>li>a:hover{
     background-color: #ca3727;
-    color: #999;
+    color: #fff;
 }
 .change-language{
     position: absolute;
