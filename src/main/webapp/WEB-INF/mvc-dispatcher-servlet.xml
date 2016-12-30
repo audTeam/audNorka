@@ -23,6 +23,24 @@
 			<value>.jsp</value>
 		</property>
 	</bean>
+	<!-- 文件上传的配置 -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 指定所上传文件的总大小不能超过200KB。注意maxUploadSize属性的限制不是针对单个文件，而是所有文件的容量之和 -->
+		<property name="maxUploadSize" value="200000" />
+	</bean>
+
+	<!-- 该异常是SpringMVC在检查上传的文件信息时抛出来的，而且此时还没有进入到Controller方法中 -->
+	<bean id="exceptionResolver"
+		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<!-- 遇到MaxUploadSizeExceededException异常时，自动跳转到WebContent目录下的error.jsp页面 -->
+				<prop
+					key="org.springframework.web.multipart.MaxUploadSizeExceededException">error</prop>
+			</props>
+		</property>
+	</bean>
 
 	<!-- 静态资源配置 -->
 	<mvc:resources location="/" mapping="/**/*.html" />
@@ -32,11 +50,11 @@
 	<mvc:resources location="/" mapping="/**/*.ico" />
 	<mvc:resources location="/" mapping="/**/*.css" />
 	<mvc:resources location="/" mapping="/**/*.js" />
-	<mvc:resources location="/" mapping="/**/*.woff"/>
-	<mvc:resources location="/" mapping="/**/*.woff2"/>
-	<mvc:resources location="/" mapping="/**/*.ttf"/>
+	<mvc:resources location="/" mapping="/**/*.woff" />
+	<mvc:resources location="/" mapping="/**/*.woff2" />
+	<mvc:resources location="/" mapping="/**/*.ttf" />
 	<mvc:resources mapping="/ueditor/**" location="/ueditor/" />
 
-    <mvc:annotation-driven/>  
-    <context:annotation-config/>
+	<mvc:annotation-driven />
+	<context:annotation-config />
 </beans>
