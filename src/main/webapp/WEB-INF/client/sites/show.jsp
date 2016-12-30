@@ -139,13 +139,13 @@
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
                     <div class="item active">
-                        <img src="<%=baseUrl%>/static/common/client/images/sites/pic3_03.png" alt="pic" class="img-responsive">
+                        <img src="<%=baseUrl%>/static/common/client/images/sites/01.jpg" alt="pic" class="img-responsive">
                     </div>
                     <div class="item">
-                        <img src="<%=baseUrl%>/static/common/client/images/sites/pic3_03.png" alt="pic" class="img-responsive">
+                        <img src="<%=baseUrl%>/static/common/client/images/sites/02.jpg" alt="pic" class="img-responsive">
                     </div>
                     <div class="item">
-                        <img src="<%=baseUrl%>/static/common/client/images/sites/pic3_03.png" alt="pic" class="img-responsive">
+                        <img src="<%=baseUrl%>/static/common/client/images/sites/03.jpg" alt="pic" class="img-responsive">
                     </div>
                 </div>
                 <!-- Controls -->
