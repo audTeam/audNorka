@@ -18,7 +18,7 @@
         <section class="part-one">
             <img src="<%=baseUrl%>/static/common/client/images/city-design/pic.jpg" alt="pic" class="img-responsive">
             <div class="city-title">
-                <h1>塔楼</h1>
+                <h1>城市设计</h1>
                 <h4>以综合耐久、深谋远虑的规划方案勾画绿色永续的建筑环境</h4>
             </div>
         </section>
@@ -30,7 +30,7 @@
                 <p>帕金斯威尔的跨专业综合协作型城市设计团队善于将公共空间、多种用途和难忘的环境结合到特色鲜明的场所模式当中。我们凭借长期积累  帕金斯威尔的跨专业综合协作型城市设计团队善于将公共空间、多种用途和难忘的环境结合到特色鲜明的场所模式当中。我们凭借长期积累</p>
             </div>
             <div class="row relative-case">
-                <div class="col-sm-12"><a href="#">相关案例</a></div>
+                <div class="col-sm-12">相关案例</div>
                 <div class="col-sm-3"><a href="<%=baseUrl%>/client/projects/navMenus/1/projects/1"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic1_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
                 <div class="col-sm-3"><a href="<%=baseUrl%>/client/projects/navMenus/1/projects/1"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic2_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
                 <div class="col-sm-3"><a href="<%=baseUrl%>/client/projects/navMenus/1/projects/1"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic3_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
