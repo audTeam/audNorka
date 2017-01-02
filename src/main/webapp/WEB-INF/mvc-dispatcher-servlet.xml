@@ -23,6 +23,7 @@
 			<value>.jsp</value>
 		</property>
 	</bean>
+	
 	<!-- 文件上传的配置 -->
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

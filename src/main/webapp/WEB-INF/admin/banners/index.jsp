@@ -59,14 +59,14 @@
                 <tr>
                   <td>#</td>
                   <td>名字</td>
-                  <td>图片</td>
+                  <td>链接</td>
                   <td>操作</td>
                 </tr>
                 <c:forEach var="banner" items="${banners }">
                   <tr>
                     <td>${banner.id}</td>
                     <td>${banner.name}</td>
-                    <td>${banner.imgUrl}</td>
+                    <td><a href="${banner.url}">banner链接</a></td>
                     <td>
                       <a class="btn btn-info" href="<%=baseUrl%>/admin/banners/${banner.id}/edit">编辑</a>
                       <form action="<%=baseUrl%>/admin/banners/${banner.id}" method="POST" style="display: inline;">

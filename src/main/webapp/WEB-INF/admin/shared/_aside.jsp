@@ -40,7 +40,7 @@
       <li><a href="<%=baseUrl%>/admin/navMenus"><i class="fa fa-bars" aria-hidden="true"></i><span>二级导航</span></a></li>
       <li><a href="<%=baseUrl%>/admin/projects"><i class="fa fa-line-chart" aria-hidden="true"></i><span>项目列表</span></a></li>
       <li><a href="<%=baseUrl%>/admin/teams"><i class="fa fa-users" aria-hidden="true"></i><span>团队介绍</span></a></li>
-      <li><a href="#"><i class="fa fa-newspaper-o" aria-hidden="true"></i>新闻动态</span></a></li>
+      <li><a href="<%=baseUrl%>/admin/news"><i class="fa fa-newspaper-o" aria-hidden="true"></i>新闻动态</span></a></li>
       <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i><span>招聘信息</span></a></li>
       <li><a href="#"><i class="fa fa-link"></i><span>关于AUD</span></a></li>
       <li><a href="<%=baseUrl%>/admin/ued/new"><i class="fa fa-newspaper-o" aria-hidden="true"></i>ued测试</span></a></li>

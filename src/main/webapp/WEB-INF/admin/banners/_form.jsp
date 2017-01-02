@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<form class="form-horizontal" method="POST" action="${param.actionUrl}" enctype="multipart/form-data">
+<form class="form-horizontal" method="POST" action="${param.actionUrl}" id="uploadForm" enctype="multipart/form-data">
   <c:if test="${param.method=='PATCH'}">
     <input type="hidden" name="_method" value="PATCH">
     <input type="hidden" name="id" value="${banner.id}">
@@ -19,16 +19,20 @@
       <input type="text" name="url" value="${banner.url }" class="form-control"> 
     </div>
   </div>
+  <c:if test="${banner.imgUrl != null}">
   <div class="form-group">
     <label class="col-md-4 control-label">图片</label>
     <div class="col-md-8">
-      <input type="text" name="imgUrl" value="${banner.imgUrl }" class="form-control"> 
+      <img alt="banner图片" class="img-responsive" src="${pageContext.request.contextPath}/${banner.imgUrl}">
     </div>
   </div>
+  </c:if>
   <div class="form-group">
     <label class="col-md-4 control-label">图片文件</label>
-    <div class="col-md-8">
-      <input type="file" name="myfiles" class="form-control"/>
+    <div id="uploadFileDiv" class="col-md-8">
+      <input id="pdFile" name="file" type="file">
+      <div id="fileError" class="help-block"></div>
+      <br />
     </div>
   </div>
   <div class="row">
