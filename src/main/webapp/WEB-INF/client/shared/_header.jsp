@@ -14,27 +14,27 @@
                       <ul class="dropdown-menu" role="menu">
                          <li>项目案例</li>
                          <li>--城市设计</li>
-                         <li><a href="#">--城市绿地竞赛</a></li>
-                         <li><a href="#">--中信泰富神州半岛</a></li>
+                         <li><a href="<%=baseUrl%>/client/projects/1">--城市绿地竞赛</a></li>
+                         <li><a href="<%=baseUrl%>/client/projects/1">--中信泰富神州半岛</a></li>
                          <li>--城市综合体</li>
-                         <li><a href="#">--昆明山水新城</a></li>
-                         <li><a href="#">--南京永嘉</a></li>
+                         <li><a href="<%=baseUrl%>/client/projects/1">--昆明山水新城</a></li>
+                         <li><a href="<%=baseUrl%>/client/projects/1">--南京永嘉</a></li>
                          <li>--塔楼</li>
-                         <li><a href="#">--HRB tower</a></li>
-                         <li><a href="#">--百荣百尚——雅加达</a></li>
+                         <li><a href="<%=baseUrl%>/client/projects/1">--HRB tower</a></li>
+                         <li><a href="<%=baseUrl%>/client/projects/1">--百荣百尚——雅加达</a></li>
                          <li>--室内设计</li>
-                         <li><a href="#">--华润萧山万象会</a></li>
-                         <li><a href="#">--哈尔滨欢乐颂</a></li>
+                         <li><a href="<%=baseUrl%>/client/projects/1">--华润萧山万象会</a></li>
+                         <li><a href="<%=baseUrl%>/client/projects/1">--哈尔滨欢乐颂</a></li>
                          <li>团队介绍</li>
-                         <li><a href="#">--建筑设计团队</a></li>
-                         <li><a href="#">--室内设计团队</a></li>
+                         <li><a href="<%=baseUrl%>/client/projects/1">--建筑设计团队</a></li>
+                         <li><a href="<%=baseUrl%>/client/projects/1">--室内设计团队</a></li>
                          <li>新闻动态</li>
-                         <li><a href="#">--Ongoing项目</a></li>
-                         <li><a href="#">--公司动态</a></li>
+                         <li><a href="<%=baseUrl%>/client/projects/1">--Ongoing项目</a></li>
+                         <li><a href="<%=baseUrl%>/client/projects/1">--公司动态</a></li>
                          <li>关于AUD</li>
-                         <li><a href="#">--公司历史介绍</a></li>
-                         <li><a href="#">--公司服务范围</a></li>
-                         <li><a href="#">--联系我们</a></li>
+                         <li><a href="<%=baseUrl%>/client/projects/1">--公司历史介绍</a></li>
+                         <li><a href="<%=baseUrl%>/client/projects/1">--公司服务范围</a></li>
+                         <li><a href="<%=baseUrl%>/client/projects/1">--联系我们</a></li>
                          <li>招聘信息</li>
                        </ul>
                 </div>
@@ -68,29 +68,29 @@
                             <li>
                                 <a href="#" class="second-nav">城市设计</a>
                                 <ul class="nav ul-three">
-                                    <li><a href="#">城市绿地竞赛</a></li>
-                                    <li><a href="#">中信泰富神州半岛</a></li>
+                                    <li><a href="<%=baseUrl%>/client/projects/1">城市绿地竞赛</a></li>
+                                    <li><a href="<%=baseUrl%>/client/projects/1">中信泰富神州半岛</a></li>
                                 </ul>
                             </li>
                             <li>
                                 <a href="#" class="second-nav">城市综合体</a>
                                 <ul class="nav ul-three">
-                                    <li><a href="#">昆明山水新城</a></li>
-                                    <li><a href="#">南京永嘉</a></li>
+                                    <li><a href="<%=baseUrl%>/client/projects/1">昆明山水新城</a></li>
+                                    <li><a href="<%=baseUrl%>/client/projects/1">南京永嘉</a></li>
                                 </ul>
                             </li>
                             <li>
                                 <a href="#" class="second-nav">塔楼</a>
                                 <ul class="nav ul-three">
-                                    <li><a href="#">HRB tower</a></li>
-                                    <li><a href="#">百荣百尚——雅加达</a></li>
+                                    <li><a href="<%=baseUrl%>/client/projects/1">HRB tower</a></li>
+                                    <li><a href="<%=baseUrl%>/client/projects/1">百荣百尚——雅加达</a></li>
                                 </ul>
                             </li>
                             <li>
                                 <a href="#" class="second-nav">室内设计</a>
                                 <ul class="nav ul-three">
-                                    <li><a href="#">华润萧山万象会</a></li>
-                                    <li><a href="#">哈尔滨欢乐颂</a></li>
+                                    <li><a href="<%=baseUrl%>/client/projects/1">华润萧山万象会</a></li>
+                                    <li><a href="<%=baseUrl%>/client/projects/1">哈尔滨欢乐颂</a></li>
                                 </ul>
                             </li>
                         </ul>
