@@ -7,7 +7,7 @@
         <div class="container">
             <nav class="navbar navbar-default nav_one" role="navigation">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#"><img alt="Brand" src="<%=baseUrl%>/static/common/client/images/sites/pic1_02.png"></a>
+                    <a class="navbar-brand" href="<%= baseUrl%>/sites"><img alt="Brand" src="<%=baseUrl%>/static/common/client/images/sites/pic1_02.png"></a>
                 </div>
                 <div class=" Main-me">
                    <div class="dropdown-toggle" data-toggle="dropdown">Main-me</div>
@@ -60,7 +60,7 @@
 
             <nav class="navbar navbar-default nav_two" role="navigation">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="#">
+                        <a class="navbar-brand" href="<%=baseUrl%>/client">
                             <img width="112px" alt="Brand" src="<%=baseUrl%>/static/common/client/images/sites/pic2_03.png">
                         </a>
                     </div>
