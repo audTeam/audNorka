@@ -26,8 +26,8 @@
                          <li><a href="<%=baseUrl%>/client/projects/1">--华润萧山万象会</a></li>
                          <li><a href="<%=baseUrl%>/client/projects/1">--哈尔滨欢乐颂</a></li>
                          <li>团队介绍</li>
-                         <li><a href="<%=baseUrl%>/client/projects/1">--建筑设计团队</a></li>
-                         <li><a href="<%=baseUrl%>/client/projects/1">--室内设计团队</a></li>
+                         <li><a href="<%=baseUrl%>/client/teams/1">--建筑设计团队</a></li>
+                         <li><a href="<%=baseUrl%>/client/teams/1">--室内设计团队</a></li>
                          <li>新闻动态</li>
                          <li><a href="<%=baseUrl%>/client/projects/1">--Ongoing项目</a></li>
                          <li><a href="<%=baseUrl%>/client/projects/1">--公司动态</a></li>
@@ -95,8 +95,8 @@
                             </li>
                         </ul>
                         <ul class="nav navbar-nav ul_two" data-tag="2">
-                            <li><a href="#" class="second-nav">建筑设计团队</a></li>
-                            <li><a href="#" class="second-nav">室内设计团队</a></li>
+                            <li><a href="<%=baseUrl%>/client/teams/1" class="second-nav">建筑设计团队</a></li>
+                            <li><a href="<%=baseUrl%>/client/teams/1" class="second-nav">室内设计团队</a></li>
                         </ul>
                         <ul class="nav navbar-nav ul_two" data-tag="3">
                             <li><a href="#" class="second-nav">Ongoing项目</a></li>
