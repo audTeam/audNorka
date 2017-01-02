@@ -13,10 +13,14 @@ public class ProjectsController {
 	public String index(){
 		return "client/projects/index";
 	}
-	
-	@RequestMapping(value="/{projectId}", method=RequestMethod.GET)
-	public String show(@PathVariable("projectId") String projectId){
-		return "client/projects/show";
+
+	@RequestMapping(value="/navMenus/{navMenuId}/projects/{projectId}", method=RequestMethod.GET)
+	public String showCaseDetail(@PathVariable("navMenuId") String navMenuId){
+		return "client/projects/caseDetail";
 	}
 	
+	@RequestMapping(value="/{navMenuId}", method=RequestMethod.GET)
+	public String show(@PathVariable("navMenuId") String navMenuId){
+		return "client/projects/show";
+	}
 }

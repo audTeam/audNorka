@@ -46,7 +46,9 @@
                 <tr>
                   <td>#</td>
                   <td>标题</td>
-                  <td></td>
+                  <td>发布日期</td>
+                  <td>浏览量</td>
+                  <td>操作</td>
                 </tr>
                 <c:forEach var="new" items="${news}">
                   <tr></tr>

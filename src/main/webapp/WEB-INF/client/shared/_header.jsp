@@ -41,7 +41,7 @@
                 <div id="topBar" class="collapse navbar-collapse" >
                     <ul class="nav navbar-nav ul_one">
                         <li><a href="<%=baseUrl%>/client/projects"><span data-tag="0">项目案例</span></a></li>
-                        <li><a href="<%=baseUrl%>/client/teams"><span data-tag="1">团队介绍</span></a></li>
+                        <li><a href="#"><span data-tag="1">团队介绍</span></a></li>
                         <li><a href="<%=baseUrl%>/client/news"><span data-tag="2">新闻动态</span></a></li>
                         <li><a href="<%=baseUrl%>/client/aboutUs"><span data-tag="3">关于AUD</span></a></li>
                         <li><a href="<%=baseUrl%>/client/jobs"><span data-tag="4">招聘信息</span></a></li>
@@ -66,28 +66,28 @@
                     </div>
                         <ul class="nav navbar-nav ul_two" data-tag="1">
                             <li>
-                                <a href="#" class="second-nav">城市设计</a>
+                                <a href="<%=baseUrl%>/client/projects/1" class="second-nav">城市设计</a>
                                 <ul class="nav ul-three">
                                     <li><a href="<%=baseUrl%>/client/projects/1">城市绿地竞赛</a></li>
                                     <li><a href="<%=baseUrl%>/client/projects/1">中信泰富神州半岛</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="#" class="second-nav">城市综合体</a>
+                                <a href="<%=baseUrl%>/client/projects/1" class="second-nav">城市综合体</a>
                                 <ul class="nav ul-three">
                                     <li><a href="<%=baseUrl%>/client/projects/1">昆明山水新城</a></li>
                                     <li><a href="<%=baseUrl%>/client/projects/1">南京永嘉</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="#" class="second-nav">塔楼</a>
+                                <a href="<%=baseUrl%>/client/projects/1" class="second-nav">塔楼</a>
                                 <ul class="nav ul-three">
                                     <li><a href="<%=baseUrl%>/client/projects/1">HRB tower</a></li>
                                     <li><a href="<%=baseUrl%>/client/projects/1">百荣百尚——雅加达</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="#" class="second-nav">室内设计</a>
+                                <a href="<%=baseUrl%>/client/projects/1" class="second-nav">室内设计</a>
                                 <ul class="nav ul-three">
                                     <li><a href="<%=baseUrl%>/client/projects/1">华润萧山万象会</a></li>
                                     <li><a href="<%=baseUrl%>/client/projects/1">哈尔滨欢乐颂</a></li>

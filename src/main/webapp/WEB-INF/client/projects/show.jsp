@@ -31,18 +31,18 @@
             </div>
             <div class="row relative-case">
                 <div class="col-sm-12"><a href="#">相关案例</a></div>
-                <div class="col-sm-3"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic1_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
-                <div class="col-sm-3"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic2_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
-                <div class="col-sm-3"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic3_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
-                <div class="col-sm-3"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic4_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
-                <div class="col-sm-3"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic1_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
-                <div class="col-sm-3"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic2_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
-                <div class="col-sm-3"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic3_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
-                <div class="col-sm-3"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic4_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
-                <div class="col-sm-3"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic1_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
-                <div class="col-sm-3"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic2_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
-                <div class="col-sm-3"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic3_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
-                <div class="col-sm-3"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic4_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
+                <div class="col-sm-3"><a href="<%=baseUrl%>/client/projects/navMenus/1/projects/1"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic1_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
+                <div class="col-sm-3"><a href="<%=baseUrl%>/client/projects/navMenus/1/projects/1"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic2_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
+                <div class="col-sm-3"><a href="<%=baseUrl%>/client/projects/navMenus/1/projects/1"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic3_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
+                <div class="col-sm-3"><a href="<%=baseUrl%>/client/projects/navMenus/1/projects/1"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic4_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
+                <div class="col-sm-3"><a href="<%=baseUrl%>/client/projects/navMenus/1/projects/1"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic1_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
+                <div class="col-sm-3"><a href="<%=baseUrl%>/client/projects/navMenus/1/projects/1"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic2_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
+                <div class="col-sm-3"><a href="<%=baseUrl%>/client/projects/navMenus/1/projects/1"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic3_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
+                <div class="col-sm-3"><a href="<%=baseUrl%>/client/projects/navMenus/1/projects/1"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic4_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
+                <div class="col-sm-3"><a href="<%=baseUrl%>/client/projects/navMenus/1/projects/1"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic1_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
+                <div class="col-sm-3"><a href="<%=baseUrl%>/client/projects/navMenus/1/projects/1"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic2_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
+                <div class="col-sm-3"><a href="<%=baseUrl%>/client/projects/navMenus/1/projects/1"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic3_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
+                <div class="col-sm-3"><a href="<%=baseUrl%>/client/projects/navMenus/1/projects/1"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic4_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
                 <div class="col-sm-12"><a href="<%=baseUrl%>/client/projects" class="btn btn-default btn-lg pull-right" role="button">查看更多</a></div>
             </div>
         </section>

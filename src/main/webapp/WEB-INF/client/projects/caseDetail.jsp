@@ -69,21 +69,21 @@
 
                 <div class="col-sm-12 col-lg-4">
                    <ul class="nav more-case">
-                       <li><a href="#">更多案例</a></li>
+                       <li><a href="<%=baseUrl%>/client/projects">更多案例</a></li>
                        <li class="clearfix">
-                           <div class="col-xs-5 case-pic"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/case-details/case1_03.png" alt="pic" class="img-responsive"></a></div>
+                           <div class="col-xs-5 case-pic"><a href="<%=baseUrl%>/client/projects/navMenus/1/projects/1"><img src="<%=baseUrl%>/static/common/client/images/case-details/case1_03.png" alt="pic" class="img-responsive"></a></div>
                            <div class="col-xs-7 case-text" style="font-size: 12px;"><a href="#">微软公司泰唔士河谷园区分部</a></div>
                        </li>
                        <li class="clearfix">
-                           <div class="col-xs-5 case-pic"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/case-details/case2_03.png" alt="pic" class="img-responsive"></a></div>
+                           <div class="col-xs-5 case-pic"><a href="<%=baseUrl%>/client/projects/navMenus/1/projects/1"><img src="<%=baseUrl%>/static/common/client/images/case-details/case2_03.png" alt="pic" class="img-responsive"></a></div>
                            <div class="col-xs-7 case-text" style="font-size: 12px;"><a href="#">安理国际律师事务所</a></div>
                        </li>
                        <li class="clearfix">
-                           <div class="col-xs-5 case-pic"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/case-details/case3_03.png" alt="pic" class="img-responsive"></a></div>
+                           <div class="col-xs-5 case-pic"><a href="<%=baseUrl%>/client/projects/navMenus/1/projects/1"><img src="<%=baseUrl%>/static/common/client/images/case-details/case3_03.png" alt="pic" class="img-responsive"></a></div>
                            <div class="col-xs-7 case-text" style="font-size: 12px;"><a href="#">微软公司泰唔士河谷园区分部</a></div>
                        </li>
                        <li class="clearfix">
-                           <div class="col-xs-5 case-pic"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/case-details/case4_03.png" alt="pic" class="img-responsive"></a></div>
+                           <div class="col-xs-5 case-pic"><a href="<%=baseUrl%>/client/projects/navMenus/1/projects/1"><img src="<%=baseUrl%>/static/common/client/images/case-details/case4_03.png" alt="pic" class="img-responsive"></a></div>
                            <div class="col-xs-7 case-text" style="font-size: 12px;"><a href="#">安理国际律师事务所</a></div>
                        </li>
                    </ul>
