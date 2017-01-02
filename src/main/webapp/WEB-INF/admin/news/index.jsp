@@ -35,7 +35,25 @@
       <!-- Your Page Content Here -->
       <div class="box">
         <div class="box-body">
-          44444444444444
+          <div class="row">
+            <div class="col-md-12">
+              <a href="<%= baseUrl%>/admin/news/new" class="btn btn-info col-md-offset-10">发布新闻</a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <table class="table table-striped table-hover">
+                <tr>
+                  <td>#</td>
+                  <td>标题</td>
+                  <td></td>
+                </tr>
+                <c:forEach var="new" items="${news}">
+                  <tr></tr>
+                </c:forEach>
+              </table>
+            </div> 
+          </div>
         </div>
       </div>
 
