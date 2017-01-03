@@ -96,8 +96,8 @@ ul{
     color:#fff;
 }
 .ul-three>li>a:hover{
-    background-color:#fff;
-    color:#ca3727;
+   background-color:transparent;
+   color:#ffcc00;
 }
 .current2{
     display: block;
