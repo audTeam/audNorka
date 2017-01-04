@@ -18,6 +18,7 @@ public class Utils {
 			String fileName = file.getOriginalFilename();
 			String imagePath = path + "\\" + time + "\\" + fileName;
 			File folder = new File(path + "\\" + time);
+			System.out.println("---------存储的文件路径： "+path + "\\" + time);
 			// 如果文件夹不存在则创建
 			if (!folder.exists() && !folder.isDirectory()) {
 				folder.mkdir();

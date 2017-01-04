@@ -13,7 +13,12 @@ public class Banner {
         return id;
     }
 
-    public void setId(Integer id) {
+    @Override
+		public String toString() {
+			return "Banner [id=" + id + ", name=" + name + ", url=" + url + ", imgUrl=" + imgUrl + "]";
+		}
+
+		public void setId(Integer id) {
         this.id = id;
     }
 

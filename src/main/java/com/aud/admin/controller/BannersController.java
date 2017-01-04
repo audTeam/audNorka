@@ -37,6 +37,7 @@ public class BannersController {
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public String create(Banner banner, MultipartFile file, HttpServletRequest request)
 	    throws IllegalStateException, IOException {
+		System.out.println("banner: "+banner);
 		banner.setImgUrl(Utils.saveFile(file, request, "upload/img/banner/"));
 		this.bannerMapper.insertSelective(banner);
 		return "redirect:/admin/banners";
