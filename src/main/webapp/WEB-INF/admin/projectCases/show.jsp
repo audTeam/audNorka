@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%String baseUrl = request.getContextPath(); %>
 <!DOCTYPE html>
 <html>
@@ -22,7 +22,7 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>导航菜单</h1>
+      <h1>${navMenu.name}详情</h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
         <li class="active">Here</li>
@@ -31,11 +31,26 @@
 
     <!-- Main content -->
     <section class="content">
+
+      <!-- Your Page Content Here -->
       <div class="box">
         <div class="box-body">
           <div class="row">
-            <div class="col-md-12 text-right">
-              <a class="btn btn-info" href="<%=baseUrl%>/admin/navMenus/new">新增</a>
+            <div class="col-md-2">名称：</div>
+            <div class="col-md-8">${navMenu.name}</div>
+            <div class="col-md-12"><hr></div>
+            <div class="col-md-2">简介：</div>
+            <div class="col-md-8">${navMenu.navMenuDesc}</div>
+            <div class="col-md-12"><hr></div>
+            <div class="col-md-2">内容：</div>
+            <div class="col-md-8">${navMenu.content}</div>
+            <div class="col-md-12"><hr></div>
+            <div class="col-md-2">图片：</div>
+            <div class="col-md-8"><img alt="图片" class="img-responsive" src="${pageContext.request.contextPath}/${navMenu.imgUrl}"></div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <a class="btn btn-default col-md-offset-8" href="${pageContext.request.contextPath}/admin/projectCases/${navMenu.id}/projects/new">新增案例</a>
             </div>
           </div>
           <div class="row">
@@ -43,25 +58,17 @@
               <table class="table table-striped table-hover">
                 <tr>
                   <td>#</td>
-                  <td>一级导航</td>
-                  <td>二级导航</td>
-                  <td></td>
+                  <td>项目名称</td>
                   <td>操作</td>
                 </tr>
-                <c:forEach items="${navMenus}" varStatus="i" var="menu" >
+                <c:forEach var="project" items="${projects}">
                   <tr>
-                    <td>${i.index+1}</td>
+                    <td>${project.id}</td>
+                    <td>${project.zhName}</td>
                     <td>
-                      <c:if test="${menu.parentNav=='1'}">项目案例</c:if>
-                      <c:if test="${menu.parentNav=='2'}">团队管理</c:if>
-                      <c:if test="${menu.parentNav=='3'}">新闻动态</c:if>
-                    </td>
-                    <td>${menu.name}<td>
-                    <td>
-                      <a href="<%=baseUrl%>/admin/navMenus/${menu.id}/edit" class="btn btn-info">编辑</a>
-                      <form style="display: inline-block;" method="POST" action="<%=baseUrl%>/admin/navMenus/${menu.id}">
-                        <input type="hidden" name="_name" method="DELETE">
-                        <button class="btn btn-danger">删除</button>
+                      <form style="display: inline-block;" action="${pageContext.request.contextPath}/admin/projectCases/${navMenu.id}/projects/${project.id}" method="post">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button class="btn btn-danger" type="submit">删除</button>
                       </form>
                     </td>
                   </tr>
@@ -83,6 +90,8 @@
 <!-- ./wrapper -->
 
 <!-- REQUIRED JS SCRIPTS -->
+
 <c:import url="../shared/_javascript.jsp"></c:import>
+
 </body>
 </html>

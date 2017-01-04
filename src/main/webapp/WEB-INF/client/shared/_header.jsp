@@ -65,34 +65,16 @@
                         </a>
                     </div>
                         <ul class="nav navbar-nav ul_two" data-tag="1">
+                          <c:forEach var="projectNavMenu" items="${projectNavMenus}">
                             <li>
-                                <a href="<%=baseUrl%>/client/projects/1" class="second-nav">城市设计</a>
+                                <a href="<%=baseUrl%>/client/projectCases/${projectNavMenu.secondNavMenu.id}" class="second-nav">${projectNavMenu.secondNavMenu.name}</a>
                                 <ul class="nav ul-three">
-                                    <li><a href="<%=baseUrl%>/client/projects/navMenus/1/projects/1">城市绿地竞赛</a></li>
-                                    <li><a href="<%=baseUrl%>/client/projects/navMenus/1/projects/1">中信泰富神州半岛</a></li>
+                                    <c:forEach var="thridNavMenu" items="${projectNavMenu.thridNavMenu }">
+                                      <li><a href="<%=baseUrl%>/client/projects/${thridNavMenu.id}">${thridNavMenu.zhName}</a></li>
+                                    </c:forEach>
                                 </ul>
                             </li>
-                            <li>
-                                <a href="<%=baseUrl%>/client/projects/1" class="second-nav">城市综合体</a>
-                                <ul class="nav ul-three">
-                                    <li><a href="<%=baseUrl%>/client/projects/navMenus/1/projects/1">昆明山水新城</a></li>
-                                    <li><a href="<%=baseUrl%>/client/projects/navMenus/1/projects/1">南京永嘉</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="<%=baseUrl%>/client/projects/1" class="second-nav">塔楼</a>
-                                <ul class="nav ul-three">
-                                    <li><a href="<%=baseUrl%>/client/projects/navMenus/1/projects/1">HRB tower</a></li>
-                                    <li><a href="<%=baseUrl%>/client/projects/navMenus/1/projects/1">百荣百尚——雅加达</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="<%=baseUrl%>/client/projects/1" class="second-nav">室内设计</a>
-                                <ul class="nav ul-three">
-                                    <li><a href="<%=baseUrl%>/client/projects/navMenus/1/projects/1">华润萧山万象会</a></li>
-                                    <li><a href="<%=baseUrl%>/client/projects/navMenus/1/projects/1">哈尔滨欢乐颂</a></li>
-                                </ul>
-                            </li>
+                          </c:forEach>
                         </ul>
                         <ul class="nav navbar-nav ul_two" data-tag="2">
                             <li><a href="<%=baseUrl%>/client/teams/1" class="second-nav">建筑设计团队</a></li>

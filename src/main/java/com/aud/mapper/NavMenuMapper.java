@@ -17,5 +17,7 @@ public interface NavMenuMapper {
 
     int updateByPrimaryKey(NavMenu record);
     
+    List<NavMenu> allNavMenuByParentNav(int parentNav);
+    
     List<NavMenu> all();
 }

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%String baseUrl = request.getContextPath(); %>
 <!DOCTYPE html>
 <html>
@@ -22,7 +22,7 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>导航菜单</h1>
+      <h1>案例分类列表</h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
         <li class="active">Here</li>
@@ -31,43 +31,37 @@
 
     <!-- Main content -->
     <section class="content">
+
+      <!-- Your Page Content Here -->
       <div class="box">
         <div class="box-body">
           <div class="row">
-            <div class="col-md-12 text-right">
-              <a class="btn btn-info" href="<%=baseUrl%>/admin/navMenus/new">新增</a>
+            <div class="col-md-12">
+              <a href="<%=baseUrl%>/admin/projectCases/new" class="btn btn-info col-md-offset-10">新增分类</a>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-12">
-              <table class="table table-striped table-hover">
+          <div class="col-md-12">
+            <table class="table table-striped table-hover">
+              <tr>
+                <td>#</td>
+                <td>分类名称</td>
+                <td>分类简介</td>
+                <td>操作</td>
+              </tr>
+              <c:forEach var="navMenu" items="${navMenus}">
                 <tr>
-                  <td>#</td>
-                  <td>一级导航</td>
-                  <td>二级导航</td>
-                  <td></td>
-                  <td>操作</td>
+                  <td>${navMenu.id}</td>
+                  <td>${navMenu.name}</td>
+                  <td>${navMenu.navMenuDesc}</td>
+                  <td>
+                    <a href="<%=baseUrl%>/admin/projectCases/${navMenu.id}" class="btn btn-default">查看详情</a>
+                    <form action="<%=baseUrl%>/admin/projectCases/${navMenu.id}" style="display: inline-block;" method="post">
+                      <input type="hidden" name="_method" value="DELETE">
+                      <button class="btn btn-danger" type="submit">删除</button>
+                    </form>
                 </tr>
-                <c:forEach items="${navMenus}" varStatus="i" var="menu" >
-                  <tr>
-                    <td>${i.index+1}</td>
-                    <td>
-                      <c:if test="${menu.parentNav=='1'}">项目案例</c:if>
-                      <c:if test="${menu.parentNav=='2'}">团队管理</c:if>
-                      <c:if test="${menu.parentNav=='3'}">新闻动态</c:if>
-                    </td>
-                    <td>${menu.name}<td>
-                    <td>
-                      <a href="<%=baseUrl%>/admin/navMenus/${menu.id}/edit" class="btn btn-info">编辑</a>
-                      <form style="display: inline-block;" method="POST" action="<%=baseUrl%>/admin/navMenus/${menu.id}">
-                        <input type="hidden" name="_name" method="DELETE">
-                        <button class="btn btn-danger">删除</button>
-                      </form>
-                    </td>
-                  </tr>
-                </c:forEach>
-              </table>
-            </div>
+              </c:forEach>
+            </table>
           </div>
         </div>
       </div>
@@ -83,6 +77,8 @@
 <!-- ./wrapper -->
 
 <!-- REQUIRED JS SCRIPTS -->
+
 <c:import url="../shared/_javascript.jsp"></c:import>
+
 </body>
 </html>

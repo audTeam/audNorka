@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%String baseUrl = request.getContextPath(); %>
 <!DOCTYPE html>
 <html>
@@ -22,7 +22,7 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>导航菜单</h1>
+      <h1>新增案例分类</h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
         <li class="active">Here</li>
@@ -31,42 +31,15 @@
 
     <!-- Main content -->
     <section class="content">
+
+      <!-- Your Page Content Here -->
       <div class="box">
         <div class="box-body">
           <div class="row">
-            <div class="col-md-12 text-right">
-              <a class="btn btn-info" href="<%=baseUrl%>/admin/navMenus/new">新增</a>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <table class="table table-striped table-hover">
-                <tr>
-                  <td>#</td>
-                  <td>一级导航</td>
-                  <td>二级导航</td>
-                  <td></td>
-                  <td>操作</td>
-                </tr>
-                <c:forEach items="${navMenus}" varStatus="i" var="menu" >
-                  <tr>
-                    <td>${i.index+1}</td>
-                    <td>
-                      <c:if test="${menu.parentNav=='1'}">项目案例</c:if>
-                      <c:if test="${menu.parentNav=='2'}">团队管理</c:if>
-                      <c:if test="${menu.parentNav=='3'}">新闻动态</c:if>
-                    </td>
-                    <td>${menu.name}<td>
-                    <td>
-                      <a href="<%=baseUrl%>/admin/navMenus/${menu.id}/edit" class="btn btn-info">编辑</a>
-                      <form style="display: inline-block;" method="POST" action="<%=baseUrl%>/admin/navMenus/${menu.id}">
-                        <input type="hidden" name="_name" method="DELETE">
-                        <button class="btn btn-danger">删除</button>
-                      </form>
-                    </td>
-                  </tr>
-                </c:forEach>
-              </table>
+            <div class="col-md-8">
+              <c:import url="_form.jsp">
+                <c:param name="actionUrl" value="${pageContext.request.contextPath}/admin/projectCases"></c:param>
+              </c:import>
             </div>
           </div>
         </div>
@@ -83,6 +56,9 @@
 <!-- ./wrapper -->
 
 <!-- REQUIRED JS SCRIPTS -->
+
 <c:import url="../shared/_javascript.jsp"></c:import>
+<script src="<%=baseUrl%>/static/common/admin/js/banner_image_upload.js" type="text/javascript"></script>
+
 </body>
 </html>

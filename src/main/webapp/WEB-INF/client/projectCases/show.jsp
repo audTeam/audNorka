@@ -9,36 +9,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="<%=baseUrl%>/static/lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/shared_show.css">
-<link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/all-case.css">
-<title>城市设计全部案例</title>
+<link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/city-design.css">
+<title>${navMenu.name}</title>
 </head>
 <body>
     <jsp:include page="../shared/_header.jsp"></jsp:include>
     <div class="main container">
         <section class="part-one">
-            <div class="row all-case">
-                <div class="col-sm-12">城市设计全部案例</div>
+            <img src="<%=baseUrl%>/${navMenu.imgUrl}" alt="pic" class="img-responsive">
+            <div class="city-title">
+                <h1>${navMenu.name}</h1>
+                <h4>${navMenu.navMenuDesc}</h4>
+            </div>
+        </section>
+        <section class="part-two">
+            <div class="city-design-content">
+                <p>${navMenu.content}</p>
+            </div>
+            <div class="row relative-case">
+                <div class="col-sm-12">相关案例</div>
                 <c:forEach var="project" items="${projects}">
                   <div class="col-sm-3">
                     <a href="<%=baseUrl%>/client/projects/${project.id}">
                       <img src="<%=baseUrl%>/static/common/client/images/city-design/pic1_03.png" alt="pic" class="img-responsive">
                       <p>${project.zhName}</p>
                     </a>
-                  </div>                
+                  </div>
                 </c:forEach>
-                <div class="col-sm-12 hidden">
-                    <nav class="pull-right">
-                        <ul class="pagination">
-                            <li class="disabled"><a href="#">&laquo;</a></li>
-                            <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">&raquo;</a></li>
-                        </ul>
-                    </nav>
-                </div>
+                <div class="col-sm-12"><a href="<%=baseUrl%>/client/projects" class="btn btn-default btn-lg pull-right" role="button">查看更多</a></div>
             </div>
         </section>
     </div>

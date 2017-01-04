@@ -7,14 +7,15 @@ public class NavMenu {
 
     private String lang;
 
-    private Integer parentnav;
-    
-    @Override
-		public String toString() {
-			return "NavMenu [id=" + id + ", name=" + name + ", lang=" + lang + ", parentnav=" + parentnav + "]";
-		}
+    private Integer parentNav;
 
-		public Integer getId() {
+    private String navMenuDesc;
+
+    private String content;
+
+    private String imgUrl;
+
+    public Integer getId() {
         return id;
     }
 
@@ -38,11 +39,35 @@ public class NavMenu {
         this.lang = lang == null ? null : lang.trim();
     }
 
-    public Integer getParentnav() {
-        return parentnav;
+    public Integer getParentNav() {
+        return parentNav;
     }
 
-    public void setParentnav(Integer parentnav) {
-        this.parentnav = parentnav;
+    public void setParentNav(Integer parentNav) {
+        this.parentNav = parentNav;
+    }
+
+    public String getNavMenuDesc() {
+        return navMenuDesc;
+    }
+
+    public void setNavMenuDesc(String navMenuDesc) {
+        this.navMenuDesc = navMenuDesc == null ? null : navMenuDesc.trim();
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content == null ? null : content.trim();
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl == null ? null : imgUrl.trim();
     }
 }

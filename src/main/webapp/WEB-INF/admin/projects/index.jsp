@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%String baseUrl = request.getContextPath(); %>
 <!DOCTYPE html>
 <html>
@@ -9,19 +10,7 @@
   <title>AUD管理系统</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.6 -->
-  <link rel="stylesheet" href="<%=baseUrl%>/static/lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="<%=baseUrl%>/static/lib/bower_components/font-awesome/css/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="<%=baseUrl%>/static/lib/bower_components/Ionicons/css/ionicons.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="<%=baseUrl%>/static/lib/bower_components/AdminLTE/dist/css/AdminLTE.min.css">
-  <link rel="stylesheet" href="<%=baseUrl%>/static/lib/bower_components/AdminLTE/dist/css/skins/skin-blue.min.css">
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
+  <c:import url="../shared/_stylesheet.jsp"></c:import>
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -33,9 +22,7 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>
-                   项目列表
-      </h1>
+      <h1>案例分类列表</h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
         <li class="active">Here</li>
@@ -48,10 +35,29 @@
       <!-- Your Page Content Here -->
       <div class="box">
         <div class="box-body">
-          <ul>
-            <li><a href="<%=baseUrl%>/admin/projects/123">项目一</a></li>
-            <li><a href="<%=baseUrl%>/admin/projects/123">项目二</a></li>
-          </ul>
+          <div class="row">
+            <div class="col-md-12">
+              <a href="<%=baseUrl%>/admin/projects/cases" class="btn btn-info col-md-offset-10">新增分类</a>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <table class="table table-striped table-hover">
+              <tr>
+                <td>#</td>
+                <td>分类名称</td>
+                <td>分类简介</td>
+                <td>操作</td>
+              </tr>
+              <c:forEach var="navMenu" items="${navMenus}">
+                <tr>
+                  <td>${navMenu.id}</td>
+                  <td>${navMenu.name}</td>
+                  <td>${navMenu.nav_menu_desc}</td>
+                  <td><a href="<%=baseUrl%>/admin/projects/cases/${navMenu.id}" </td>
+                </tr>
+              </c:forEach>
+            </table>
+          </div>
         </div>
       </div>
 
@@ -67,12 +73,7 @@
 
 <!-- REQUIRED JS SCRIPTS -->
 
-<!-- jQuery 2.2.3 -->
-<script type="text/javascript" src="<%=baseUrl%>/static/lib/bower_components/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap 3.3.6 -->
-<script type="text/javascript" src="<%=baseUrl%>/static/lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- AdminLTE App -->
-<script src="<%=baseUrl%>/static/lib/bower_components/AdminLTE/dist/js/app.min.js"></script>
+<c:import url="../shared/_javascript.jsp"></c:import>
 
 </body>
 </html>

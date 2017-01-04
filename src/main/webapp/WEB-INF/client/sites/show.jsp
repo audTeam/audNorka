@@ -26,15 +26,16 @@
 
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
-                    <div class="item active">
-                        <img src="<%=baseUrl%>/static/common/client/images/sites/01.jpg" alt="pic" class="img-responsive">
+                  <c:forEach var="banner" items="${banners}" varStatus="status">
+                    <c:if test="${status.index==0}">
+                      <div class="item active">
+                    </c:if>
+                    <c:if test="${status.index!=0}">
+                      <div class="item">
+                    </c:if>
+                        <img src="<%=baseUrl%>/${banner.imgUrl }" alt="pic" class="img-responsive">
                     </div>
-                    <div class="item">
-                        <img src="<%=baseUrl%>/static/common/client/images/sites/02.jpg" alt="pic" class="img-responsive">
-                    </div>
-                    <div class="item">
-                        <img src="<%=baseUrl%>/static/common/client/images/sites/03.jpg" alt="pic" class="img-responsive">
-                    </div>
+                  </c:forEach>
                 </div>
                 <!-- Controls -->
                 <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">

@@ -5,19 +5,25 @@
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="lang" property="lang" jdbcType="VARCHAR" />
-    <result column="parentNav" property="parentnav" jdbcType="INTEGER" />
+    <result column="parent_nav" property="parentNav" jdbcType="INTEGER" />
+    <result column="nav_menu_desc" property="navMenuDesc" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="img_url" property="imgUrl" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, name, lang, parentNav
+    id, name, lang, parent_nav, nav_menu_desc, content, img_url
   </sql>
+  <select id="allNavMenuByParentNav" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select * from navmenus where parent_nav = #{parent_nav,jdbcType=INTEGER}
+  </select>
+  <select id="all" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select * from navmenus
+  </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from navmenus
     where id = #{id,jdbcType=INTEGER}
-  </select>
-  <select id="all" resultMap="BaseResultMap">
-    select * from navmenus
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from navmenus
@@ -25,9 +31,11 @@
   </delete>
   <insert id="insert" parameterType="com.aud.pojo.NavMenu" >
     insert into navmenus (id, name, lang, 
-      parentNav)
+      parent_nav, nav_menu_desc, content, 
+      img_url)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{lang,jdbcType=VARCHAR}, 
-      #{parentnav,jdbcType=INTEGER})
+      #{parentNav,jdbcType=INTEGER}, #{navMenuDesc,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
+      #{imgUrl,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.aud.pojo.NavMenu" >
     insert into navmenus
@@ -41,8 +49,17 @@
       <if test="lang != null" >
         lang,
       </if>
-      <if test="parentnav != null" >
-        parentNav,
+      <if test="parentNav != null" >
+        parent_nav,
+      </if>
+      <if test="navMenuDesc != null" >
+        nav_menu_desc,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="imgUrl != null" >
+        img_url,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -55,8 +72,17 @@
       <if test="lang != null" >
         #{lang,jdbcType=VARCHAR},
       </if>
-      <if test="parentnav != null" >
-        #{parentnav,jdbcType=INTEGER},
+      <if test="parentNav != null" >
+        #{parentNav,jdbcType=INTEGER},
+      </if>
+      <if test="navMenuDesc != null" >
+        #{navMenuDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="imgUrl != null" >
+        #{imgUrl,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -69,8 +95,17 @@
       <if test="lang != null" >
         lang = #{lang,jdbcType=VARCHAR},
       </if>
-      <if test="parentnav != null" >
-        parentNav = #{parentnav,jdbcType=INTEGER},
+      <if test="parentNav != null" >
+        parent_nav = #{parentNav,jdbcType=INTEGER},
+      </if>
+      <if test="navMenuDesc != null" >
+        nav_menu_desc = #{navMenuDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="imgUrl != null" >
+        img_url = #{imgUrl,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -79,7 +114,10 @@
     update navmenus
     set name = #{name,jdbcType=VARCHAR},
       lang = #{lang,jdbcType=VARCHAR},
-      parentNav = #{parentnav,jdbcType=INTEGER}
+      parent_nav = #{parentNav,jdbcType=INTEGER},
+      nav_menu_desc = #{navMenuDesc,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      img_url = #{imgUrl,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

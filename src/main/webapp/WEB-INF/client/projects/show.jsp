@@ -9,41 +9,77 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="<%=baseUrl%>/static/lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/shared_show.css">
-<link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/city-design.css">
-<title>塔楼</title>
+<link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/case-details.css">
+<title>案例详情</title>
 </head>
 <body>
     <jsp:include page="../shared/_header.jsp"></jsp:include>
     <div class="main container">
-        <section class="part-one">
-            <img src="<%=baseUrl%>/static/common/client/images/city-design/pic.jpg" alt="pic" class="img-responsive">
-            <div class="city-title">
-                <h1>城市设计</h1>
-                <h4>以综合耐久、深谋远虑的规划方案勾画绿色永续的建筑环境</h4>
+        <section>
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <img src="<%=baseUrl%>/static/common/client/images/sites/01.jpg" alt="pic" class="img-responsive">
+                </div>
+                <div class="item">
+                    <img src="<%=baseUrl%>/static/common/client/images/sites/02.jpg" alt="pic" class="img-responsive">
+                </div>
+                <div class="item">
+                    <img src="<%=baseUrl%>/static/common/client/images/sites/03.jpg" alt="pic" class="img-responsive">
+                </div>
             </div>
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
         </section>
-        <section class="part-two">
-            <div class="city-design-content">
-                <p>帕金斯威尔的跨专业综合协作型城市设计团队善于将公共空间、 多种用途和难忘的环境结合到特色鲜明的场所模式当中。 我们凭借长期积累帕金斯威尔的跨专业综合协作型城市设计团队善于将公共空间、 多种用途和难忘的环境结合到特色鲜明的场所模式当中。我们凭借长期积累</p>
-                <p>帕金斯威尔的跨专业综合协作型城市设计团队善于将公共空间、多种用途和难忘的环境结合到特色鲜明的场所模式当中。我们凭借长期积累  帕金斯威尔的跨专业综合协作型城市设计团队善于将公共空间、多种用途和难忘的环境结合到特色鲜明的场所模式当中。我们凭借长期积累</p>
-                <p>帕金斯威尔的跨专业综合协作型城市设计团队善于将公共空间、多种用途和难忘的环境结合到特色鲜明的场所模式当中。我们凭借长期积  帕金斯威尔的跨专业综合协作型城市设计团队善于将公共空间、多种用途和难忘的环境结合到特色鲜明的场所模式当中。我们凭借长期积累</p>
-                <p>帕金斯威尔的跨专业综合协作型城市设计团队善于将公共空间、多种用途和难忘的环境结合到特色鲜明的场所模式当中。我们凭借长期积累  帕金斯威尔的跨专业综合协作型城市设计团队善于将公共空间、多种用途和难忘的环境结合到特色鲜明的场所模式当中。我们凭借长期积累</p>
-            </div>
-            <div class="row relative-case">
-                <div class="col-sm-12">相关案例</div>
-                <div class="col-sm-3"><a href="<%=baseUrl%>/client/projects/navMenus/1/projects/1"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic1_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
-                <div class="col-sm-3"><a href="<%=baseUrl%>/client/projects/navMenus/1/projects/1"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic2_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
-                <div class="col-sm-3"><a href="<%=baseUrl%>/client/projects/navMenus/1/projects/1"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic3_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
-                <div class="col-sm-3"><a href="<%=baseUrl%>/client/projects/navMenus/1/projects/1"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic4_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
-                <div class="col-sm-3"><a href="<%=baseUrl%>/client/projects/navMenus/1/projects/1"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic1_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
-                <div class="col-sm-3"><a href="<%=baseUrl%>/client/projects/navMenus/1/projects/1"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic2_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
-                <div class="col-sm-3"><a href="<%=baseUrl%>/client/projects/navMenus/1/projects/1"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic3_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
-                <div class="col-sm-3"><a href="<%=baseUrl%>/client/projects/navMenus/1/projects/1"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic4_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
-                <div class="col-sm-3"><a href="<%=baseUrl%>/client/projects/navMenus/1/projects/1"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic1_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
-                <div class="col-sm-3"><a href="<%=baseUrl%>/client/projects/navMenus/1/projects/1"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic2_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
-                <div class="col-sm-3"><a href="<%=baseUrl%>/client/projects/navMenus/1/projects/1"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic3_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
-                <div class="col-sm-3"><a href="<%=baseUrl%>/client/projects/navMenus/1/projects/1"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic4_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
-                <div class="col-sm-12"><a href="<%=baseUrl%>/client/projects" class="btn btn-default btn-lg pull-right" role="button">查看更多</a></div>
+        <section class="part_two">
+            <div class="row">
+                <div class="col-sm-12 col-lg-8">
+                    <div class="title">
+                        <h2>${project.zhName}</h2>
+                        <h3>${project.cnName}</h3>
+                        <h4>${project.address}</h4>
+                    </div>
+                    <div class="content">
+                        <p>${project.content}</p>
+                    </div>
+                    <div class="design">
+                        <h4><a href="#">设计师</a></h4>
+                        <div class="col-sm-4 design-pic"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/case-details/case5_03.png" alt="pic" class="img-responsive"><p>Leo Alvorea</p><p>景观设计</p></a></div>
+                        <div class="col-sm-4 design-pic"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/case-details/case6_05.png" alt="pic" class="img-responsive"><p>Janice Barnes</p><p>规划 + 战略</p></a></div>
+                        <div class="col-sm-4 design-pic"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/case-details/case7_05.png" alt="pic" class="img-responsive"><p>Carolyn BaRoss</p><p>室内医疗设计</p></a></div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-lg-4">
+                   <ul class="nav more-case">
+                       <li><a href="<%=baseUrl%>/client/projects">更多案例</a></li>
+                       <c:forEach var="project" items="${projects}">
+                         <li class="clearfix">
+                           <div class="col-xs-5 case-pic">
+                             <a href="<%=baseUrl%>/client/projects/${project.id}">
+                               <img src="<%=baseUrl%>/static/common/client/images/case-details/case1_03.png" alt="pic" class="img-responsive"></a>
+                             </div>
+                             <div class="col-xs-7 case-text" style="font-size: 12px;"><a href="<%=baseUrl%>/client/projects/${project.id}">${project.zhName}</a></div>
+                         </li>
+                       </c:forEach>
+                   </ul>
+                </div>
             </div>
         </section>
     </div>
