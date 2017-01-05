@@ -8,34 +8,35 @@
     <input type="hidden" name="id" value="${navMenu.id}">
   </c:if>
   <div class="form-group">
-    <label class="col-md-4 control-label">案例分类名称</label>
-    <div class="col-md-8">
+    <label class="col-md-3 control-label">案例分类名称</label>
+    <div class="col-md-9">
       <input class="form-control" type="text" name="name" value="${navMenu.name}">
     </div>
   </div>
   <div class="form-group">
-    <label class="col-md-4 control-label">案例简介</label>
-    <div class="col-md-8">
+    <label class="col-md-3 control-label">案例简介</label>
+    <div class="col-md-9">
       <textarea class="form-control" rows="3" name="navMenuDesc">${navMenu.navMenuDesc}</textarea>
     </div>
   </div>
   <div class="form-group">
-    <label class="col-md-4 control-label">案例分类描述</label>
-    <div class="col-md-8">
-      <textarea class="form-control" rows="3" name="content">${navMenu.content}</textarea>
+    <label class="col-md-3 control-label">案例分类描述</label>
+    <div class="col-md-9">
+      <script id="container" name="content" type="text/plain" name="content">${navMenu.content}</script>
+      <!-- <textarea class="form-control" rows="3" name="content"></textarea> -->
     </div>
   </div>
   <c:if test="${navMenu.imgUrl != null}">
-  <div class="form-group">
-    <label class="col-md-4 control-label">图片</label>
-    <div class="col-md-8">
-      <img alt="banner图片" class="img-responsive" src="${pageContext.request.contextPath}/${navMenu.imgUrl}">
+    <div class="form-group">
+      <label class="col-md-3 control-label">图片</label>
+      <div class="col-md-9">
+        <img alt="banner图片" class="img-responsive" src="${pageContext.request.contextPath}/${navMenu.imgUrl}">
+      </div>
     </div>
-  </div>
   </c:if>
   <div class="form-group">
-    <label class="col-md-4 control-label">图片文件</label>
-    <div id="uploadFileDiv" class="col-md-8">
+    <label class="col-md-3 control-label">图片文件</label>
+    <div id="uploadFileDiv" class="col-md-9">
       <input id="pdFile" name="file" type="file">
       <div id="fileError" class="help-block"></div>
     </div>

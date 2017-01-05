@@ -33,6 +33,6 @@ public class UEditorController {
 
 	@RequestMapping(value="/new", method=RequestMethod.GET)
 	public String newPage(){
-		return "admin/ued/newPage";
+		return "admin/ued/new";
 	}
 }
