@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%String baseUrl = request.getContextPath(); %>
 <!DOCTYPE html>
 <html>
@@ -9,19 +10,7 @@
   <title>AUD管理系统</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.6 -->
-  <link rel="stylesheet" href="<%=baseUrl%>/static/lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="<%=baseUrl%>/static/lib/bower_components/font-awesome/css/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="<%=baseUrl%>/static/lib/bower_components/Ionicons/css/ionicons.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="<%=baseUrl%>/static/lib/bower_components/AdminLTE/dist/css/AdminLTE.min.css">
-  <link rel="stylesheet" href="<%=baseUrl%>/static/lib/bower_components/AdminLTE/dist/css/skins/skin-blue.min.css">
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
+  <c:import url="../shared/_stylesheet.jsp"></c:import>
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -46,7 +35,36 @@
       <!-- Your Page Content Here -->
       <div class="box">
         <div class="box-body">
-          44444444444444
+          <div class="row">
+            <div class="col-md-12">
+              <a class="btn btn-default col-md-offset-10" href="<%=baseUrl%>/admin/teams/new">新增</a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <table class="table table-striped table-hover">
+                <tr>
+                  <td>#</td>
+                  <td>名称</td>
+                  <td>操作</td>
+                </tr>
+                <c:forEach var="team" items="${teams}" varStatus="status">
+                  <tr>
+                    <td>${status.index+1}</td>
+                    <td>${team.name}</td>
+                    <td>
+                      <a class="btn btn-default" href="<%=baseUrl%>/admin/teams/${team.id}/edit">编辑</a>
+                      <a class="btn btn-info" href="<%=baseUrl%>/admin/teams/${team.id}">团队成员管理</a>
+                      <form action="<%=baseUrl%>/admin/teams/${team.id}" method="post" style="display: inline-block;">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button class="btn btn-danger" type="submit">删除</button>
+                      </form>
+                    </td>
+                  </tr>
+                </c:forEach>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -62,12 +80,7 @@
 
 <!-- REQUIRED JS SCRIPTS -->
 
-<!-- jQuery 2.2.3 -->
-<script type="text/javascript" src="<%=baseUrl%>/static/lib/bower_components/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap 3.3.6 -->
-<script type="text/javascript" src="<%=baseUrl%>/static/lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- AdminLTE App -->
-<script src="<%=baseUrl%>/static/lib/bower_components/AdminLTE/dist/js/app.min.js"></script>
+<c:import url="../shared/_javascript.jsp"></c:import>
 
 </body>
 </html>

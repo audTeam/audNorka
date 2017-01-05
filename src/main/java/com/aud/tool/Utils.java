@@ -8,24 +8,30 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.web.multipart.MultipartFile;
 
 public class Utils {
-	public static String saveFile(MultipartFile file, HttpServletRequest request, String baseUrl) throws IllegalStateException, IOException{
+	public static String saveFile(MultipartFile file, HttpServletRequest request)
+	    throws IllegalStateException, IOException {
 		if (file.isEmpty()) {
 			System.out.println("文件未上传!");
 			return "";
-		} else {
-			String time = String.valueOf(System.currentTimeMillis());
-			String path = request.getSession().getServletContext().getRealPath(baseUrl);
-			String fileName = file.getOriginalFilename();
-			String imagePath = path + "\\" + time + "\\" + fileName;
-			File folder = new File(path + "\\" + time);
-			System.out.println("---------存储的文件路径： "+path + "\\" + time);
-			// 如果文件夹不存在则创建
-			if (!folder.exists() && !folder.isDirectory()) {
-				folder.mkdir();
-			}
-			File localFile = new File(imagePath);
+		}
+		
+		String path = null;// 文件路径
+		String type = null;// 文件类型
+		String fileName = file.getOriginalFilename();// 文件原名称
+		type = fileName.indexOf(".") != -1 ? fileName.substring(fileName.lastIndexOf(".") + 1, fileName.length()) : null;
+		if ("GIF".equals(type.toUpperCase()) || "PNG".equals(type.toUpperCase()) || "JPG".equals(type.toUpperCase())) {
+			// 项目在容器中实际发布运行的根路径
+			String realPath = request.getSession().getServletContext().getRealPath("/");
+			// 自定义的文件名称
+			String trueFileName = String.valueOf(System.currentTimeMillis()) + fileName;
+			// 设置存放图片文件的路径
+			path = realPath + /* System.getProperty("file.separator")+ */trueFileName;
+			System.out.println("--------文件存储路径： "+path);
+			File localFile = new File(path);
 			file.transferTo(localFile);
-			return baseUrl+"/"+time+"/"+fileName;
+			return trueFileName;
+		}else{
+			return "";
 		}
 	}
 }

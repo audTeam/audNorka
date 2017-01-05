@@ -13,7 +13,7 @@
 <title>设计团队</title>
 </head>
 <body>
-    <jsp:include page="../shared/_header.jsp"></jsp:include>
+    <jsp:include page="../../shared/_header.jsp"></jsp:include>
     <div class="main container">
         <section class="part-one">
             <div class="row">
@@ -90,7 +90,7 @@
             </div>
         </section>
     </div>
-    <jsp:include page="../shared/_footer.jsp"></jsp:include>
+    <jsp:include page="../../shared/_footer.jsp"></jsp:include>
 </body>
 <script type="text/javascript" src="<%=baseUrl%>/static/lib/bower_components/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="<%=baseUrl%>/static/lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>

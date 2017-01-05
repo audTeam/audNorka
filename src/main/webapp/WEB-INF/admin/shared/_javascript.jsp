@@ -8,5 +8,3 @@
 <script type="text/javascript" src="<%=baseUrl%>/static/lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<%=baseUrl%>/static/lib/bower_components/AdminLTE/dist/js/app.min.js"></script>
-<script src="<%=baseUrl%>/static/lib/bower_components/bootstrap-fileinput/js/fileinput.min.js" type="text/javascript"></script>
-<script src="<%=baseUrl%>/static/lib/bower_components/bootstrap-fileinput/js/locales/zh.js"  type="text/javascript"></script>

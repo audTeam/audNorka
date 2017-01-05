@@ -33,12 +33,13 @@ public class BannersController {
 		model.addAttribute("banners", this.bannerMapper.all());
 		return "admin/banners/index";
 	}
-	
+
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public String create(Banner banner, MultipartFile file, HttpServletRequest request)
 	    throws IllegalStateException, IOException {
 		System.out.println("banner: "+banner);
-		banner.setImgUrl(Utils.saveFile(file, request, "upload/img/banner/"));
+		//, "upload/img/banner/"
+		banner.setImgUrl(Utils.saveFile(file, request));
 		this.bannerMapper.insertSelective(banner);
 		return "redirect:/admin/banners";
 	}
@@ -51,7 +52,7 @@ public class BannersController {
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.PATCH)
 	public String update(Banner banner, MultipartFile file, HttpServletRequest request, ModelMap model) throws IllegalStateException, IOException {
-		banner.setImgUrl(Utils.saveFile(file, request, "upload/img/banner/"));
+		banner.setImgUrl(Utils.saveFile(file, request));
 		this.bannerMapper.updateByPrimaryKeySelective(banner);
 		return "redirect:/admin/banners";
 	}

@@ -53,7 +53,7 @@ public class ProjectCasesController {
 
 	@RequestMapping(value = "", method=RequestMethod.POST)
 	public String create(NavMenu navMenu, MultipartFile file, HttpServletRequest request) throws IllegalStateException, IOException{
-		navMenu.setImgUrl(Utils.saveFile(file, request, "upload/img/projectCase/"));
+		navMenu.setImgUrl(Utils.saveFile(file, request));
 		navMenu.setParentNav(1);
 		navMenu.setLang("zh");
 
