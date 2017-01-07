@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.aud.mapper.NavMenuMapper;
+import com.aud.mapper.TeamMemberMapper;
 import com.aud.pojo.NavMenu;
 
 @Controller("adminTeams")
@@ -15,7 +16,7 @@ import com.aud.pojo.NavMenu;
 public class TeamsController {
 	@Autowired
 	private NavMenuMapper navMenuMapper;
-	
+
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public String delete(@PathVariable("id") int id) {
 		this.navMenuMapper.deleteByPrimaryKey(id);

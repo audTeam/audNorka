@@ -37,7 +37,7 @@
       <li class="header">HEADER</li>
       <!-- Optionally, you can add icons to the links -->
       <li><a href="<%=baseUrl%>/admin/banners"><i class="fa fa-bars" aria-hidden="true"></i><span>banner设置</span></a></li>
-      <li><a href="<%=baseUrl%>/admin/navMenus"><i class="fa fa-bars" aria-hidden="true"></i><span>二级导航</span></a></li>
+      <li class="hidden"><a href="<%=baseUrl%>/admin/navMenus"><i class="fa fa-bars" aria-hidden="true"></i><span>二级导航</span></a></li>
       <li><a href="<%=baseUrl%>/admin/projectCases"><i class="fa fa-line-chart" aria-hidden="true"></i><span>案例管理</span></a></li>
       <%-- <li class="treeview">
         <a href="#"><span>案例管理</span>
