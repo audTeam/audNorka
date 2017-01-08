@@ -22,12 +22,12 @@ public class TeamMembersController {
 	public String index(@PathVariable("teamId") int teamId, ModelMap model){
     model.addAttribute("team", this.navMenuMapper.selectByPrimaryKey(teamId));
     model.addAttribute("teamMembers", this.teamMemberMapper.getTeamMemberByTeamId(teamId));
-		return "client/teamMembers/index";
+		return "admin/teamMembers/index";
 	}
 
 	@RequestMapping(value="/new", method=RequestMethod.GET)
 	public String newPage(@PathVariable("teamId") int teamId, ModelMap model){
 		model.addAttribute("team", this.navMenuMapper.selectByPrimaryKey(teamId));
-		return "client/teamMembers/new";
+		return "adminteamMembers/new";
 	}
 }

@@ -27,6 +27,8 @@ public class TeamMember {
 
     private Integer navMenuId;
 
+    private String honor;
+
     private String brief;
 
     public Integer getId() {
@@ -123,6 +125,14 @@ public class TeamMember {
 
     public void setNavMenuId(Integer navMenuId) {
         this.navMenuId = navMenuId;
+    }
+
+    public String getHonor() {
+        return honor;
+    }
+
+    public void setHonor(String honor) {
+        this.honor = honor == null ? null : honor.trim();
     }
 
     public String getBrief() {

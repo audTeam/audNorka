@@ -19,5 +19,5 @@ public interface TeamMemberMapper {
 
     int updateByPrimaryKey(TeamMember record);
     
-    List<TeamMember> getTeamMemberByTeamId(Integer teamId);
+    List<TeamMember> getTeamMemberByTeamId(int teamId);
 }
