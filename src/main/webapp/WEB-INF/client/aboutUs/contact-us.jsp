@@ -20,31 +20,31 @@
             <div class="col-sm-8">
                 <form class="form-horizontal">
                     <div class="form-group">
-                        <label for="name" class="col-sm-2 control-label">姓名</label>
-                        <div class="col-sm-6">
+                        <label for="name" class="col-sm-1 control-label input-text">姓名</label>
+                        <div class="col-sm-7">
                             <input type="text" class="form-control" id="name" placeholder="姓名">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="tel" class="col-sm-2 control-label">电话</label>
-                        <div class="col-sm-6">
+                        <label for="tel" class="col-sm-1 control-label input-text">电话</label>
+                        <div class="col-sm-7">
                             <input type="text" class="form-control" id="tel" placeholder="电话" >
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="email" class="col-sm-2 control-label">邮箱</label>
-                        <div class="col-sm-6">
+                        <label for="email" class="col-sm-1 control-label input-text">邮箱</label>
+                        <div class="col-sm-7">
                             <input type="text" class="form-control" id="email" placeholder="邮箱">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="message" class="col-sm-2 control-label">留言</label>
-                        <div class="col-sm-10">
+                        <label for="message" class="col-sm-1 control-label input-text">留言</label>
+                        <div class="col-sm-11">
                             <textarea type="text" class="form-control" id="message" rows="7"></textarea>
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-2">
+                        <div class="col-sm-offset-1 col-sm-2">
                             <button type="submit" class="btn btn-default">　清空　</button>
                         </div>
                         <div class="col-sm-4">

@@ -26,7 +26,7 @@
             <div class="col-sm-9">
                 <ul class="nav more-case">
                     <li class="clearfix">
-                        <div class="col-xs-4 case-pic"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/news/news-pic1_03.png" alt="pic" class="img-responsive"></a></div>
+                        <div class="col-xs-4 case-pic"><a href="<%=baseUrl%>/client/news/1"><img src="<%=baseUrl%>/static/common/client/images/news/news-pic1_03.png" alt="pic" class="img-responsive"></a></div>
                         <div class="col-xs-8 case-text">
                             <p class="date">12.02.16</p>
                             <h4>Perkins+Will Celebrates Dpening Evergreen Transit Line</h4>
@@ -36,7 +36,7 @@
                         </div>
                     </li>
                     <li class="clearfix">
-                        <div class="col-xs-4 case-pic"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/news/news-pic2_03.png" alt="pic" class="img-responsive"></a></div>
+                        <div class="col-xs-4 case-pic"><a href="<%=baseUrl%>/client/news/1"><img src="<%=baseUrl%>/static/common/client/images/news/news-pic2_03.png" alt="pic" class="img-responsive"></a></div>
                         <div class="col-xs-8 case-text">
                             <p class="date">12.02.16</p>
                             <h4>Perkins+Will设计的浙北医学中心项目赢得中国十佳医院大奖</h4>
@@ -46,7 +46,7 @@
                         </div>
                     </li>
                     <li class="clearfix">
-                        <div class="col-xs-4 case-pic"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/news/news-pic3_03.png" alt="pic" class="img-responsive"></a></div>
+                        <div class="col-xs-4 case-pic"><a href="<%=baseUrl%>/client/news/1"><img src="<%=baseUrl%>/static/common/client/images/news/news-pic3_03.png" alt="pic" class="img-responsive"></a></div>
                         <div class="col-xs-8 case-text">
                             <p class="date">12.02.16</p>
                             <h4>perkins+will首获生态建筑挑战认证</h4>
@@ -56,7 +56,7 @@
                         </div>
                     </li>
                     <li class="clearfix">
-                        <div class="col-xs-4 case-pic"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/news/news-pic1_03.png" alt="pic" class="img-responsive"></a></div>
+                        <div class="col-xs-4 case-pic"><a href="<%=baseUrl%>/client/news/1"><img src="<%=baseUrl%>/static/common/client/images/news/news-pic1_03.png" alt="pic" class="img-responsive"></a></div>
                         <div class="col-xs-8 case-text">
                             <p class="date">12.02.16</p>
                             <h4>perkins+will首获生态建筑挑战认证</h4>
