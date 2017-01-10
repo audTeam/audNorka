@@ -8,6 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="<%=baseUrl%>/static/lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="<%=baseUrl%>/static/lib/bower_components/font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/shared_show.css">
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/contact-us.css">
 <title>联系我们</title>
@@ -56,6 +57,8 @@
                 <img src="<%=baseUrl%>/static/common/client/images/contact-us/contact_03.png" alt="pic" class="img-responsive">
                 <p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span><span>ADD:中国.广东揭阳人民政府左侧酒店五楼M1156间</span></p>
                 <p><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span><span>PHONE:4000-123-456</span></p>
+                <p><i class="fa fa-volume-control-phone asome" aria-hidden="true"></i><span>TEL:+86-11111-2222</span></p>
+                <p><i class="fa fa-qq asome" aria-hidden="true"></i><span>QQ:1111111111</span></p>
             </div>
         </div>
 

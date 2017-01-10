@@ -9,6 +9,9 @@
 .main .info p span:nth-child(1){
     padding-right: 10px;
 }
+.main .info p .asome{
+    padding-right: 10px;
+}
 .main .info p span{
     font-size:12px;
     font-weight: bold;

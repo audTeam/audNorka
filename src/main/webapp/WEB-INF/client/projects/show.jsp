@@ -60,9 +60,9 @@
                     </div>
                     <div class="design">
                         <h4><a href="#">设计师</a></h4>
-                        <div class="col-sm-4 design-pic"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/case-details/case5_03.png" alt="pic" class="img-responsive"><p>Leo Alvorea</p><p>景观设计</p></a></div>
-                        <div class="col-sm-4 design-pic"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/case-details/case6_05.png" alt="pic" class="img-responsive"><p>Janice Barnes</p><p>规划 + 战略</p></a></div>
-                        <div class="col-sm-4 design-pic"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/case-details/case7_05.png" alt="pic" class="img-responsive"><p>Carolyn BaRoss</p><p>室内医疗设计</p></a></div>
+                        <div class="col-sm-4 design-pic"><a href="<%=baseUrl%>/client/persons/1"><img src="<%=baseUrl%>/static/common/client/images/case-details/case5_03.png" alt="pic" class="img-responsive"><p>Leo Alvorea</p><p>景观设计</p></a></div>
+                        <div class="col-sm-4 design-pic"><a href="<%=baseUrl%>/client/persons/1"><img src="<%=baseUrl%>/static/common/client/images/case-details/case6_05.png" alt="pic" class="img-responsive"><p>Janice Barnes</p><p>规划 + 战略</p></a></div>
+                        <div class="col-sm-4 design-pic"><a href="<%=baseUrl%>/client/persons/1"><img src="<%=baseUrl%>/static/common/client/images/case-details/case7_05.png" alt="pic" class="img-responsive"><p>Carolyn BaRoss</p><p>室内医疗设计</p></a></div>
                     </div>
                 </div>
 
