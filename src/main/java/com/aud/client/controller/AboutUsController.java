@@ -12,4 +12,14 @@ public class AboutUsController {
 	public String show(){
 		return "client/aboutUs/show";
 	}
+
+	@RequestMapping(value="/service", method=RequestMethod.GET)
+	public String showService(){
+		return "client/aboutUs/service";
+	}
+
+	@RequestMapping(value="/contactUs", method=RequestMethod.GET)
+	public String showContactUs(){
+		return "client/aboutUs/contact-us";
+	}
 }

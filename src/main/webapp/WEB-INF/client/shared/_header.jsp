@@ -28,9 +28,9 @@
           <li><a href="<%=baseUrl%>/client/projects/1">--Ongoing项目</a></li>
           <li><a href="<%=baseUrl%>/client/projects/1">--公司动态</a></li>
           <li>关于AUD</li>
-          <li><a href="<%=baseUrl%>/client/projects/1">--公司历史介绍</a></li>
-          <li><a href="<%=baseUrl%>/client/projects/1">--公司服务范围</a></li>
-          <li><a href="<%=baseUrl%>/client/projects/1">--联系我们</a></li>
+          <li><a href="<%=baseUrl%>/client/aboutUs">--公司历史介绍</a></li>
+          <li><a href="<%=baseUrl%>/client/aboutUs/service">--公司服务范围</a></li>
+          <li><a href="<%=baseUrl%>/client/aboutUs/contactUs">--联系我们</a></li>
           <li>招聘信息</li>
         </ul>
       </div>
@@ -78,9 +78,9 @@
         <li><a href="#" class="second-nav">公司动态</a></li>
       </ul>
       <ul class="nav navbar-nav ul_two" data-tag="4">
-        <li><a href="#" class="second-nav">公司历史介绍</a></li>
-        <li><a href="#" class="second-nav">公司服务范围</a></li>
-        <li><a href="#" class="second-nav">联系我们</a></li>
+        <li><a href="<%=baseUrl%>/client/aboutUs" class="second-nav">公司历史介绍</a></li>
+        <li><a href="<%=baseUrl%>/client/aboutUs/service" class="second-nav">公司服务范围</a></li>
+        <li><a href="<%=baseUrl%>/client/aboutUs/contactUs" class="second-nav">联系我们</a></li>
       </ul>
       <form class="search-form">
         <div class="search-input clearfix">
