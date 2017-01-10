@@ -17,7 +17,7 @@
     <div class="main container">
         <section class="part-one">
             <div class="row all-case">
-                <div class="col-sm-12">城市设计全部案例</div>
+                <div class="col-sm-12">全部案例</div>
                 <c:forEach var="project" items="${projects}">
                   <div class="col-sm-3">
                     <a href="<%=baseUrl%>/client/projects/${project.id}">

@@ -9,22 +9,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="<%=baseUrl%>/static/lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/shared_show.css">
-<link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/job-info.css">
-<title>招聘信息</title>
+<link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/service.css">
+<title>服务范围</title>
 </head>
 <body>
 <jsp:include page="../shared/_header.jsp"></jsp:include>
 <div class="main container">
         <section class="part-one">
-            <img src="<%=baseUrl%>/static/common/client/images/company-introduce/company_03.png" alt="pic" class="img-responsive">
+            <img src="<%=baseUrl%>/static/common/client/images/service/service_03.png" alt="pic" class="img-responsive">
         </section>
         <section class="part-two">
-            <div class="job-info-content">
-                <h3>招聘信息</h3>
+            <div class="service-content">
+                <h3>服务范围</h3>
                 <p>帕金斯威尔的跨专业综合协作型城市设计团队善于将公共空间、 多种用途和难忘的环境结合到特色鲜明的场所模式当中。 我们凭借长期积累帕金斯威尔的跨专业综合协作型城市设计团队善于将公共空间、 多种用途和难忘的环境结合到特色鲜明的场所模式当中。我们凭借长期积累</p>
                 <p>帕金斯威尔的跨专业综合协作型城市设计团队善于将公共空间、多种用途和难忘的环境结合到特色鲜明的场所模式当中。我们凭借长期积累  帕金斯威尔的跨专业综合协作型城市设计团队善于将公共空间、多种用途和难忘的环境结合到特色鲜明的场所模式当中。我们凭借长期积累</p>
                 <p>帕金斯威尔的跨专业综合协作型城市设计团队善于将公共空间、多种用途和难忘的环境结合到特色鲜明的场所模式当中。我们凭借长期积  帕金斯威尔的跨专业综合协作型城市设计团队善于将公共空间、多种用途和难忘的环境结合到特色鲜明的场所模式当中。我们凭借长期积累</p>
-                <p>帕金斯威尔的跨专业综合协作型城市设计团队善于将公共空间、多种用途和难忘的环境结合到特色鲜明的场所模式当中。我们凭借长期积累  帕金斯威尔的跨专业综合协作型城市设计团队善于将公共空间、多种用途和难忘的环境结合到特色鲜明的场所模式当中。我们凭借长期积累</p>
             </div>
         </section>
     </div>
