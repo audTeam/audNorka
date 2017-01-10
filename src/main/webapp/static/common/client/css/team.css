@@ -11,7 +11,7 @@
 .part-one .team div>a{
     color: #999;
 }
-.part-one .team div:nth-child(1)>a{
+.part-one .team div:nth-child(1){
     color: #000;
     font-weight: bold;
 }
