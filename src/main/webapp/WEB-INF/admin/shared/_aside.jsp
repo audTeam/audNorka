@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <% String baseUrl = request.getContextPath(); %>
 
 <!-- Left side column. contains the logo and sidebar -->
@@ -31,14 +34,24 @@
       </div>
     </form>
     <!-- /.search form -->
-
+    <c:set var="currentUrl" value="${pageContext.request.requestURL }" />
     <!-- Sidebar Menu -->
     <ul class="sidebar-menu">
       <li class="header">HEADER</li>
       <!-- Optionally, you can add icons to the links -->
-      <li><a href="<%=baseUrl%>/admin/banners"><i class="fa fa-bars" aria-hidden="true"></i><span>banner设置</span></a></li>
+      <li <c:if test="${fn:contains(currentUrl, 'banners')}">class="active"</c:if> >
+        <a href="<%=baseUrl%>/admin/banners">
+          <i class="fa fa-bars" aria-hidden="true"></i>
+          <span>banner设置</span>
+        </a>
+      </li>
       <li class="hidden"><a href="<%=baseUrl%>/admin/navMenus"><i class="fa fa-bars" aria-hidden="true"></i><span>二级导航</span></a></li>
-      <li><a href="<%=baseUrl%>/admin/projectCases"><i class="fa fa-line-chart" aria-hidden="true"></i><span>案例管理</span></a></li>
+      <li <c:if test="${fn:contains(currentUrl, 'projectCases')}">class="active"</c:if> >
+        <a href="<%=baseUrl%>/admin/projectCases">
+          <i class="fa fa-line-chart" aria-hidden="true"></i>
+          <span>案例管理</span>
+        </a>
+      </li>
       <%-- <li class="treeview">
         <a href="#"><span>案例管理</span>
           <span class="pull-right-container">
@@ -51,8 +64,17 @@
           <li><a href="#">Link in level 2</a></li>
         </ul>
       </li> --%>
-      <li><a href="<%=baseUrl%>/admin/teams"><i class="fa fa-users" aria-hidden="true"></i><span>团队介绍</span></a></li>
-      <li><a href="<%=baseUrl%>/admin/news"><i class="fa fa-newspaper-o" aria-hidden="true"></i>新闻动态</span></a></li>
+      <li <c:if test="${fn:contains(currentUrl, 'teams')}">class="active"</c:if> >
+        <a href="<%=baseUrl%>/admin/teams"><i class="fa fa-users" aria-hidden="true"></i>
+          <span>团队介绍</span>
+        </a>
+      </li>
+      <li <c:if test="${fn:contains(currentUrl, 'news')}">class="active"</c:if> >
+        <a href="<%=baseUrl%>/admin/news">
+          <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+          <span>新闻动态</span>
+        </a>
+      </li>
       <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i><span>招聘信息</span></a></li>
       <li><a href="#"><i class="fa fa-link"></i><span>关于AUD</span></a></li>
       <li><a href="<%=baseUrl%>/admin/ued/new"><i class="fa fa-newspaper-o" aria-hidden="true"></i>ued测试</span></a></li>

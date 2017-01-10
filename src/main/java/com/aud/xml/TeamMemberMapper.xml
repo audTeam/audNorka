@@ -15,19 +15,21 @@
     <result column="lang" property="lang" jdbcType="VARCHAR" />
     <result column="nav_menu_id" property="navMenuId" jdbcType="INTEGER" />
     <result column="honor" property="honor" jdbcType="VARCHAR" />
+    <result column="good_at" property="goodAt" jdbcType="VARCHAR" />
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="com.aud.pojo.TeamMember" extends="BaseResultMap" >
     <result column="brief" property="brief" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
     id, name, position, zh_address, cn_address, phone_number, img_url, card, created_at, 
-    updated_at, lang, nav_menu_id, honor
+    updated_at, lang, nav_menu_id, honor, good_at
   </sql>
   <sql id="Blob_Column_List" >
     brief
   </sql>
-  <select id="getTeamMemberByTeamId" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer">
-    select * from team_members
+  <select id="getTeamMemberByTeamId" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select *
+    from team_members
     where nav_menu_id = #{teamId,jdbcType=INTEGER}
   </select>
   <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
@@ -47,12 +49,14 @@
       zh_address, cn_address, phone_number, 
       img_url, card, created_at, 
       updated_at, lang, nav_menu_id, 
-      honor, brief)
+      honor, good_at, brief
+      )
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{position,jdbcType=VARCHAR}, 
       #{zhAddress,jdbcType=VARCHAR}, #{cnAddress,jdbcType=VARCHAR}, #{phoneNumber,jdbcType=VARCHAR}, 
       #{imgUrl,jdbcType=VARCHAR}, #{card,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
       #{updatedAt,jdbcType=TIMESTAMP}, #{lang,jdbcType=VARCHAR}, #{navMenuId,jdbcType=INTEGER}, 
-      #{honor,jdbcType=VARCHAR}, #{brief,jdbcType=LONGVARCHAR})
+      #{honor,jdbcType=VARCHAR}, #{goodAt,jdbcType=VARCHAR}, #{brief,jdbcType=LONGVARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.aud.pojo.TeamMember" >
     insert into team_members
@@ -95,6 +99,9 @@
       </if>
       <if test="honor != null" >
         honor,
+      </if>
+      <if test="goodAt != null" >
+        good_at,
       </if>
       <if test="brief != null" >
         brief,
@@ -140,6 +147,9 @@
       <if test="honor != null" >
         #{honor,jdbcType=VARCHAR},
       </if>
+      <if test="goodAt != null" >
+        #{goodAt,jdbcType=VARCHAR},
+      </if>
       <if test="brief != null" >
         #{brief,jdbcType=LONGVARCHAR},
       </if>
@@ -184,6 +194,9 @@
       <if test="honor != null" >
         honor = #{honor,jdbcType=VARCHAR},
       </if>
+      <if test="goodAt != null" >
+        good_at = #{goodAt,jdbcType=VARCHAR},
+      </if>
       <if test="brief != null" >
         brief = #{brief,jdbcType=LONGVARCHAR},
       </if>
@@ -204,6 +217,7 @@
       lang = #{lang,jdbcType=VARCHAR},
       nav_menu_id = #{navMenuId,jdbcType=INTEGER},
       honor = #{honor,jdbcType=VARCHAR},
+      good_at = #{goodAt,jdbcType=VARCHAR},
       brief = #{brief,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -220,7 +234,8 @@
       updated_at = #{updatedAt,jdbcType=TIMESTAMP},
       lang = #{lang,jdbcType=VARCHAR},
       nav_menu_id = #{navMenuId,jdbcType=INTEGER},
-      honor = #{honor,jdbcType=VARCHAR}
+      honor = #{honor,jdbcType=VARCHAR},
+      good_at = #{goodAt,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -29,6 +29,8 @@ public class TeamMember {
 
     private String honor;
 
+    private String goodAt;
+
     private String brief;
 
     public Integer getId() {
@@ -133,6 +135,14 @@ public class TeamMember {
 
     public void setHonor(String honor) {
         this.honor = honor == null ? null : honor.trim();
+    }
+
+    public String getGoodAt() {
+        return goodAt;
+    }
+
+    public void setGoodAt(String goodAt) {
+        this.goodAt = goodAt == null ? null : goodAt.trim();
     }
 
     public String getBrief() {

@@ -20,11 +20,12 @@ public class TeamsController {
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public String delete(@PathVariable("id") int id) {
 		this.navMenuMapper.deleteByPrimaryKey(id);
-		return "redirect:/admin/teams/edit";
+		return "redirect:/admin/teams";
 	}
 	
 	@RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
-	public String edit(@PathVariable("id") int id) {
+	public String edit(@PathVariable("id") int id, ModelMap model) {
+		model.addAttribute("team", this.navMenuMapper.selectByPrimaryKey(id));
 		return "admin/teams/edit";
 	}
 
@@ -38,11 +39,17 @@ public class TeamsController {
 		model.addAttribute("teams", this.navMenuMapper.allNavMenuByParentNav(2));
 		return "admin/teams/index";
 	}
+
+	@RequestMapping(value = "/{id}", method = RequestMethod.PATCH)
+	public String update(NavMenu navMenu) {
+		this.navMenuMapper.updateByPrimaryKeySelective(navMenu);
+		return "redirect:/admin/teams";
+	}
 	
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public String create(NavMenu navMenu) {
 		navMenu.setParentNav(2);
 		this.navMenuMapper.insertSelective(navMenu);
-		return "admin/teams";
+		return "redirect:/admin/teams";
 	}
 }

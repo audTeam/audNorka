@@ -36,14 +36,33 @@
       <div class="box">
         <div class="box-body">
           <div class="row">
+           <div class="col-md-12">
+             <a class="btn btn-default col-md-offset-10" href="<%=baseUrl%>/admin/teams/${team.id}/teamMembers/new">新增用户</a>
+           </div>
+          </div>
+          <div class="row">
             <div class="col-md-12">
               <table class="table table-striped table-hover">
                 <tr>
                   <td>#</td>
                   <td>名字</td>
                   <td>擅长领域</td>
-                  
+                  <td>操作</td>
                 </tr>
+                <c:forEach var="teamMember" items="${teamMembers}">
+                  <tr>
+                    <td>${teamMember.id}</td>
+                    <td>${teamMember.name}</td>
+                    <td>${teamMember.goodAt}</td>
+                    <td>
+                      <a href="<%=baseUrl%>/admin/teams/${team.id}/teamMembers/${teamMember.id}/edit" class="btn btn-default">编辑</a>
+                      <form action="<%=baseUrl%>/admin/teams/${team.id}/teamMembers/${teamMember.id}" method="POST" style="display: inline-block;">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit" class="btn btn-danger">删除</button>
+                      </form>
+                    </td>
+                  </tr>
+                </c:forEach>
               </table>
             </div>
           </div>
