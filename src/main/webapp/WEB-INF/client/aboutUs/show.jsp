@@ -28,7 +28,8 @@
             </div>
             <div class="vedio">
                 <h3>宣传视频</h3>
-                <video src="<%=baseUrl%>/static/common/client/images/company-introduce/。。mp4" controls width="100%"></video>
+                <embed src='http://player.youku.com/player.php/sid/XNDM5NTg5MTQ4/v.swf' allowFullScreen='true' quality='high' width='1000' height='400' align='middle' allowScriptAccess='always' type='application/x-shockwave-flash'></embed>
+                <%-- <video src="<%=baseUrl%>/static/common/client/images/company-introduce/。。mp4" controls width="100%"></video> --%>
             </div>
             <div class="row">
                 <h3 class="col-sm-12">合作伙伴</h3>
