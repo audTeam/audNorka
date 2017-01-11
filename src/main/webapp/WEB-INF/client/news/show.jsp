@@ -30,22 +30,22 @@
             </div>
             <div class="col-sm-4">
                 <ul class="nav more-case">
-                    <li><a href="#">更多案例</a></li>
+                    <li><a href="#">更多新闻</a></li>
                     <li class="clearfix">
-                        <div class="col-xs-5 case-pic"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/news-detail/news-detail-pic2_06.png" alt="pic" class="img-responsive"></a></div>
-                        <div class="col-xs-7 case-text"><a href="#">perkins+will首获生态建筑挑战认证</a></div>
+                        <div class="col-xs-5 case-pic"><a href="<%=baseUrl%>/client/news/1"><img src="<%=baseUrl%>/static/common/client/images/news-detail/news-detail-pic2_06.png" alt="pic" class="img-responsive"></a></div>
+                        <div class="col-xs-7 case-text"><a href="<%=baseUrl%>/client/news/1">perkins+will首获生态建筑挑战认证</a></div>
                     </li>
                     <li class="clearfix">
-                        <div class="col-xs-5 case-pic"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/news-detail/news-detail-pic3_07.png" alt="pic" class="img-responsive"></a></div>
-                        <div class="col-xs-7 case-text"><a href="#">perkins+will首获生态建筑挑战认证</a></div>
+                        <div class="col-xs-5 case-pic"><a href="<%=baseUrl%>/client/news/1"><img src="<%=baseUrl%>/static/common/client/images/news-detail/news-detail-pic3_07.png" alt="pic" class="img-responsive"></a></div>
+                        <div class="col-xs-7 case-text"><a href="<%=baseUrl%>/client/news/1">perkins+will首获生态建筑挑战认证</a></div>
                     </li>
                     <li class="clearfix">
-                        <div class="col-xs-5 case-pic"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/news-detail/news-detail-pic2_06.png" alt="pic" class="img-responsive"></a></div>
-                        <div class="col-xs-7 case-text"><a href="#">perkins+will首获生态建筑挑战认证</a></div>
+                        <div class="col-xs-5 case-pic"><a href="<%=baseUrl%>/client/news/1"><img src="<%=baseUrl%>/static/common/client/images/news-detail/news-detail-pic2_06.png" alt="pic" class="img-responsive"></a></div>
+                        <div class="col-xs-7 case-text"><a href="<%=baseUrl%>/client/news/1">perkins+will首获生态建筑挑战认证</a></div>
                     </li>
                     <li class="clearfix">
-                        <div class="col-xs-5 case-pic"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/news-detail/news-detail-pic3_07.png" alt="pic" class="img-responsive"></a></div>
-                        <div class="col-xs-7 case-text"><a href="#">perkins+will首获生态建筑挑战认证</a></div>
+                        <div class="col-xs-5 case-pic"><a href="<%=baseUrl%>/client/news/1"><img src="<%=baseUrl%>/static/common/client/images/news-detail/news-detail-pic3_07.png" alt="pic" class="img-responsive"></a></div>
+                        <div class="col-xs-7 case-text"><a href="<%=baseUrl%>/client/news/1">perkins+will首获生态建筑挑战认证</a></div>
                     </li>
                 </ul>
             </div>

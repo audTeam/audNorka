@@ -25,8 +25,8 @@
           <li><a href="<%=baseUrl%>/client/teams/1">--建筑设计团队</a></li>
           <li><a href="<%=baseUrl%>/client/teams/1">--室内设计团队</a></li>
           <li>新闻动态</li>
-          <li><a href="<%=baseUrl%>/client/projects/1">--Ongoing项目</a></li>
-          <li><a href="<%=baseUrl%>/client/projects/1">--公司动态</a></li>
+          <li><a href="<%=baseUrl%>/client/news">--项目动态</a></li>
+          <li><a href="<%=baseUrl%>/client/news">--公司动态</a></li>
           <li>关于AUD</li>
           <li><a href="<%=baseUrl%>/client/aboutUs">--公司历史介绍</a></li>
           <li><a href="<%=baseUrl%>/client/aboutUs/service">--公司服务范围</a></li>
@@ -74,8 +74,8 @@
         <li><a href="<%=baseUrl%>/client/teams/1" class="second-nav">室内设计团队</a></li>
       </ul>
       <ul class="nav navbar-nav ul_two" data-tag="3">
-        <li><a href="#" class="second-nav">Ongoing项目</a></li>
-        <li><a href="#" class="second-nav">公司动态</a></li>
+        <li><a href="<%=baseUrl%>/client/news" class="second-nav">项目动态</a></li>
+        <li><a href="<%=baseUrl%>/client/news" class="second-nav">公司动态</a></li>
       </ul>
       <ul class="nav navbar-nav ul_two" data-tag="4">
         <li><a href="<%=baseUrl%>/client/aboutUs" class="second-nav">公司历史介绍</a></li>
