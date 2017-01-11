@@ -1,0 +1,13 @@
+$(function(){
+  $("#docFile").fileinput({
+    showPreview : true,
+    allowedFileExtensions : [ "jpg", "png", "gif", "doc", "docx"],
+    elErrorContainer : "#docFileError",
+    browseClass : "btn btn-success",
+    browseLabel : "浏览文件",
+    browseIcon : '<i class="glyphicon glyphicon-search"></i>',
+    removeClass : "btn btn-danger",
+    removeLabel : "删除",
+    removeIcon : '<i class="glyphicon glyphicon-trash"></i>'
+  });
+});

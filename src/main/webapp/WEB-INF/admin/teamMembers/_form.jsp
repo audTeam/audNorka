@@ -60,6 +60,13 @@
     </div>
   </div>
   <div class="form-group">
+    <label class="col-md-4 control-label">个人名片</label>
+    <div id="docFileDiv" class="col-md-8">
+      <input id="docFile" name="personFile" type="file">
+      <div id="docFileError" class="help-block"></div>
+    </div>
+  </div>
+  <div class="form-group">
     <label class="control-label col-md-4">简介</label>
     <div class="col-md-8">
       <textarea rows="10" class="form-control" name="brief">${teamMember.brief}</textarea>

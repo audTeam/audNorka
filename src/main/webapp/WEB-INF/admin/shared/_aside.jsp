@@ -70,7 +70,7 @@
         </a>
       </li>
       <li <c:if test="${fn:contains(currentUrl, 'news')}">class="active"</c:if> >
-        <a href="<%=baseUrl%>/admin/news">
+        <a href="<%=baseUrl%>/admin/newsCategories">
           <i class="fa fa-newspaper-o" aria-hidden="true"></i>
           <span>新闻动态</span>
         </a>

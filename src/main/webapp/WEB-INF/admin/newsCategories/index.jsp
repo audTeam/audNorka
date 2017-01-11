@@ -22,7 +22,7 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>新增成员</h1>
+      <h1>新闻分类列表</h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
         <li class="active">Here</li>
@@ -36,10 +36,34 @@
       <div class="box">
         <div class="box-body">
           <div class="row">
-            <div class="col-md-8">
-              <c:import url="_form.jsp">
-                <c:param name="actionUrl" value="${pageContext.request.contextPath}/admin/teams/${team.id}/teamMembers"></c:param>
-              </c:import>
+            <div class="col-md-12">
+              <a href="<%=baseUrl%>/admin/newsCategories/new" class="col-md-offset-10 btn btn-default">新增</a>
+            </div>
+            <div class="col-md-12">
+              <table class="table table-striped table-hover">
+                <tr>
+                  <td>#</td>
+                  <td>标题</td>
+                  <td>发布时间</td>
+                  <td>浏览次数</td>
+                  <td>操作</td>
+                </tr>
+                <c:forEach var="categoryNew" items="${categoryNew}" >
+                  <tr>
+                    <td>${categoryNew.id}</td>
+                    <td>${categoryNew.title}</td>
+                    <td>${categoryNew.readCount}</td>
+                    <td>${categoryNew.publishedAt}</td>
+                    <td>
+                      <a href="<%=baseUrl%>/admin/newsCategories/${categoryNew.id}/edit" class="btn btn-default">编辑</a>
+                      <form action="<%=baseUrl%>/admin/newsCategories/${categoryNew.id}" method="POST">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button class="btn btn-danger" type="submit">删除</button>
+                      </form>
+                    </td>
+                  </tr>
+                </c:forEach>
+              </table>
             </div>
           </div>
         </div>
@@ -58,8 +82,6 @@
 <!-- REQUIRED JS SCRIPTS -->
 
 <c:import url="../shared/_javascript.jsp"></c:import>
-<script src="<%=baseUrl%>/static/common/admin/js/image_upload.js" type="text/javascript"></script>
-<script src="<%=baseUrl%>/static/common/admin/js/file_upload.js" type="text/javascript"></script>
 
 </body>
 </html>

@@ -34,15 +34,16 @@ public class TeamMembersController {
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	public String index(@PathVariable("teamId") int teamId, @PathVariable("id") int id) {
+	public String delete(@PathVariable("teamId") int teamId, @PathVariable("id") int id) {
 		this.teamMemberMapper.deleteByPrimaryKey(id);
 		return "redirect:/admin/teams/" + teamId + "/teamMembers";
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.POST)
-	public String create(@PathVariable("teamId") int teamId, TeamMember teamMember, MultipartFile file, HttpServletRequest request)
+	public String create(@PathVariable("teamId") int teamId, TeamMember teamMember, MultipartFile file, MultipartFile personFile, HttpServletRequest request)
 			throws IllegalStateException, IOException {
 		teamMember.setImgUrl(Utils.saveFile(file, request));
+		teamMember.setCard(Utils.saveFile(personFile, request));
 		teamMember.setNavMenuId(teamId);
 		teamMember.setLang("zh");
 		teamMember.setCreatedAt(new Date());

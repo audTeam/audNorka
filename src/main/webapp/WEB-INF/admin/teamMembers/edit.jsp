@@ -60,5 +60,6 @@
 
 <c:import url="../shared/_javascript.jsp"></c:import>
 <script src="<%=baseUrl%>/static/common/admin/js/image_upload.js" type="text/javascript"></script>
+<script src="<%=baseUrl%>/static/common/admin/js/file_upload.js" type="text/javascript"></script>
 </body>
 </html>
