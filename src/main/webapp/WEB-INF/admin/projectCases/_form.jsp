@@ -22,8 +22,8 @@
   <div class="form-group">
     <label class="col-md-3 control-label">案例分类描述</label>
     <div class="col-md-9">
-      <!-- <script id="container" name="content" type="text/plain" name="content">${navMenu.content}</script> -->
-      <textarea class="form-control" rows="3" name="content"></textarea>
+      <script id="container" name="content" type="text/plain" name="content">${navMenu.content}</script>
+      <!-- <textarea class="form-control" rows="3" name="content"></textarea> -->
     </div>
   </div>
   <c:if test="${navMenu.imgUrl != null}">

@@ -48,15 +48,15 @@
                   <td>浏览次数</td>
                   <td>操作</td>
                 </tr>
-                <c:forEach var="categoryNew" items="${categoryNew}" >
+                <c:forEach var="newsCategory" items="${newsCategories}" >
                   <tr>
-                    <td>${categoryNew.id}</td>
-                    <td>${categoryNew.title}</td>
-                    <td>${categoryNew.readCount}</td>
-                    <td>${categoryNew.publishedAt}</td>
+                    <td>${newsCategory.id}</td>
+                    <td>${newsCategory.title}</td>
+                    <td>${newsCategory.readCount}</td>
+                    <td>${newsCategory.publishedAt}</td>
                     <td>
-                      <a href="<%=baseUrl%>/admin/newsCategories/${categoryNew.id}/edit" class="btn btn-default">编辑</a>
-                      <form action="<%=baseUrl%>/admin/newsCategories/${categoryNew.id}" method="POST">
+                      <a href="<%=baseUrl%>/admin/newsCategories/${newsCategory.id}/edit" class="btn btn-default">编辑</a>
+                      <form action="<%=baseUrl%>/admin/newsCategories/${newsCategory.id}" method="POST">
                         <input type="hidden" name="_method" value="DELETE">
                         <button class="btn btn-danger" type="submit">删除</button>
                       </form>

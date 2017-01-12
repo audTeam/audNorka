@@ -1,6 +1,8 @@
 $(function(){
   $("#pdFile").fileinput({
     showPreview : true,
+    showUpload : false,
+    showRemove : false,
     allowedFileExtensions : [ "jpg", "png", "gif"],
     elErrorContainer : "#fileError",
     browseClass : "btn btn-success",

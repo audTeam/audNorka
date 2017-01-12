@@ -21,14 +21,14 @@
   </div>
   <c:if test="${banner.imgUrl != null}">
   <div class="form-group">
-    <label class="col-md-4 control-label">图片</label>
+    <label class="col-md-4 control-label">头图图片</label>
     <div class="col-md-8">
       <img alt="banner图片" class="img-responsive" src="${pageContext.request.contextPath}/${banner.imgUrl}">
     </div>
   </div>
   </c:if>
   <div class="form-group">
-    <label class="col-md-4 control-label">图片文件</label>
+    <label class="col-md-4 control-label">头图图片</label>
     <div id="uploadFileDiv" class="col-md-8">
       <input id="pdFile" name="file" type="file">
       <div id="fileError" class="help-block"></div>

@@ -1,6 +1,8 @@
 $(function(){
   $("#docFile").fileinput({
     showPreview : true,
+    showUpload : false,
+    showRemove : false,
     allowedFileExtensions : [ "jpg", "png", "gif", "doc", "docx"],
     elErrorContainer : "#docFileError",
     browseClass : "btn btn-success",

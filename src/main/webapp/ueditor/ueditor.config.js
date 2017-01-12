@@ -30,22 +30,76 @@
         UEDITOR_HOME_URL: URL
 
         // 服务器统一请求接口路径
-        , serverUrl: "http://127.0.0.1:8080/audNorka/ueditor/jsp/controller.jsp"
+        , serverUrl: URL+"jsp/controller.jsp"
 
         //工具栏上的所有的功能按钮和下拉框，可以在new编辑器的实例时选择自己需要的重新定义
-        , toolbars: [[
-            'fullscreen', 'source', '|', 'undo', 'redo', '|',
-            'bold', 'italic', 'underline', 'fontborder', 'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch', 'autotypeset', 'blockquote', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'selectall', 'cleardoc', '|',
-            'rowspacingtop', 'rowspacingbottom', 'lineheight', '|',
-            'customstyle', 'paragraph', 'fontfamily', 'fontsize', '|',
-            'directionalityltr', 'directionalityrtl', 'indent', '|',
-            'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 'touppercase', 'tolowercase', '|',
-            'link', 'unlink', 'anchor', '|', 'imagenone', 'imageleft', 'imageright', 'imagecenter', '|',
-            'simpleupload', 'insertimage','emotion', 'scrawl', 'insertvideo', 'music', 'attachment', 'map', 'gmap', 'insertframe', 'insertcode', 'webapp', 'pagebreak', 'template', 'background', '|',
-            'horizontal', 'date', 'time', 'spechars', 'snapscreen', 'wordimage', '|',
-            'inserttable', 'deletetable', 'insertparagraphbeforetable', 'insertrow', 'deleterow', 'insertcol', 'deletecol', 'mergecells', 'mergeright', 'mergedown', 'splittocells', 'splittorows', 'splittocols', 'charts', '|',
-            'print', 'preview', 'searchreplace', 'drafts', 'help'
-        ]]
+        ,
+	    toolbars: [
+	        [
+	            'anchor', //锚点
+	            'undo', //撤销
+	            'simpleupload', //单图上传
+	            'redo', //重做
+	            'bold', //加粗
+	            'indent', //首行缩进
+	            'italic', //斜体
+	            'underline', //下划线
+	            'strikethrough', //删除线
+	            'subscript', //下标
+	            'fontborder', //字符边框
+	            'superscript', //上标
+	            'formatmatch', //格式刷
+	            'blockquote', //引用
+	            'pasteplain', //纯文本粘贴模式
+	            'selectall', //全选
+	            'preview', //预览
+	            'horizontal', //分隔线
+	            'removeformat', //清除格式
+	            'unlink', //取消链接
+	            'inserttitle', //插入标题
+	            'cleardoc', //清空文档
+	            'insertparagraphbeforetable', //"表格前插入行"
+	            'insertcode', //代码语言
+	            'fontfamily', //字体
+	            'fontsize', //字号
+	            'paragraph', //段落格式
+	            'link', //超链接
+	            'emotion', //表情
+	            'spechars', //特殊字符
+	            'searchreplace', //查询替换
+	            'justifyleft', //居左对齐
+	            'justifyright', //居右对齐
+	            'justifycenter', //居中对齐
+	            'justifyjustify', //两端对齐
+	            'forecolor', //字体颜色
+	            'backcolor', //背景色
+	            'insertorderedlist', //有序列表
+	            'insertunorderedlist', //无序列表
+	            'fullscreen', //全屏
+	            'directionalityltr', //从左向右输入
+	            'directionalityrtl', //从右向左输入
+	            'rowspacingtop', //段前距
+	            'rowspacingbottom', //段后距
+	            'pagebreak', //分页
+	            'imagenone', //默认
+	            'imageleft', //左浮动
+	            'imageright', //右浮动
+	            'attachment', //附件
+	            'imagecenter', //居中
+	            'wordimage', //图片转存
+	            'lineheight', //行间距
+	            'edittip ', //编辑提示
+	            'customstyle', //自定义标题
+	            'autotypeset', //自动排版
+	            'touppercase', //字母大写
+	            'tolowercase', //字母小写
+	            'background', //背景
+	            'template', //模板
+	            'scrawl', //涂鸦
+	            'inserttable', //插入表格
+	            'drafts', // 从草稿箱加载
+	        ]
+	    ]
         //当鼠标放在工具栏上时显示的tooltip提示,留空支持自动多语言配置，否则以配置值为准
         //,labelMap:{
         //    'anchor':'', 'undo':''
