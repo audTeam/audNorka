@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.aud.mapper.BannerMapper;
 import com.aud.pojo.Banner;
 import com.aud.tool.Utils;
+import com.google.gson.Gson;
 
 @Controller
 @RequestMapping("/admin/banners")
@@ -30,7 +31,8 @@ public class BannersController {
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String index(ModelMap model) {
-		model.addAttribute("banners", this.bannerMapper.all());
+		System.out.println("--------------this.bannerMapper.all(1, 2): "+new Gson().toJson(this.bannerMapper.all(1, 2)));
+		model.addAttribute("banners", this.bannerMapper.all(1, 2));
 		return "admin/banners/index";
 	}
 

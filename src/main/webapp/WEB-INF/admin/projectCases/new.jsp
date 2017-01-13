@@ -59,9 +59,6 @@
 
 <c:import url="../shared/_javascript.jsp"></c:import>
 <script src="<%=baseUrl%>/static/common/admin/js/banner_image_upload.js" type="text/javascript"></script>
-<script src="<%=baseUrl%>/ueditor/ueditor.config.js"></script>
-<script src="<%=baseUrl%>/ueditor/ueditor.all.min.js"></script>
-<script src="<%=baseUrl%>/ueditor/lang/zh-cn/zh-cn.js"></script>
 <script type="text/javascript">
    var editor = UE.getEditor('container');
 </script>

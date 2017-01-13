@@ -43,20 +43,17 @@
               <table class="table table-striped table-hover">
                 <tr>
                   <td>#</td>
-                  <td>标题</td>
-                  <td>发布时间</td>
-                  <td>浏览次数</td>
+                  <td>新闻类型</td>
                   <td>操作</td>
                 </tr>
                 <c:forEach var="newsCategory" items="${newsCategories}" >
                   <tr>
                     <td>${newsCategory.id}</td>
-                    <td>${newsCategory.title}</td>
-                    <td>${newsCategory.readCount}</td>
-                    <td>${newsCategory.publishedAt}</td>
+                    <td>${newsCategory.name}</td>
                     <td>
                       <a href="<%=baseUrl%>/admin/newsCategories/${newsCategory.id}/edit" class="btn btn-default">编辑</a>
-                      <form action="<%=baseUrl%>/admin/newsCategories/${newsCategory.id}" method="POST">
+                      <a href="<%=baseUrl%>/admin/newsCategories/${newsCategory.id}/news/new" class="btn btn-info">发布新闻</a>
+                      <form action="<%=baseUrl%>/admin/newsCategories/${newsCategory.id}" method="POST" style="display: inline-block;" >
                         <input type="hidden" name="_method" value="DELETE">
                         <button class="btn btn-danger" type="submit">删除</button>
                       </form>

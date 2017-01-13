@@ -2,9 +2,15 @@ package com.aud.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.aud.pojo.Banner;
 
 public interface BannerMapper {
+
+    List<Banner> all(@Param("pageNum") int pageNum, 
+            @Param("pageSize") int pageSize);
+
 	List<Banner> all();
 	
 	int deleteByPrimaryKey(Integer id);

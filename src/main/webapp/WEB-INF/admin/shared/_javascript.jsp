@@ -10,3 +10,7 @@
 <script src="<%=baseUrl%>/static/lib/bower_components/AdminLTE/dist/js/app.min.js"></script>
 <script src="<%=baseUrl%>/static/lib/bower_components/bootstrap-fileinput/js/fileinput.min.js" type="text/javascript"></script>
 <script src="<%=baseUrl%>/static/lib/bower_components/bootstrap-fileinput/js/locales/zh.js"  type="text/javascript"></script>
+
+<script src="<%=baseUrl%>/ueditor/ueditor.config.js"></script>
+<script src="<%=baseUrl%>/ueditor/ueditor.all.min.js"></script>
+<script src="<%=baseUrl%>/ueditor/lang/zh-cn/zh-cn.js"></script>
