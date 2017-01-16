@@ -41,11 +41,11 @@
 			    <a href="<%=baseUrl%>/admin/jobs/new" class="btn btn-default text-right">新增</a>
               </c:if>
 			  <c:if test="${job!=null}">
-			    <a href="<%=baseUrl%>/admin/jobs/${job.id}" class="btn btn-default text-right">编辑</a>
+			    <a href="<%=baseUrl%>/admin/jobs/${job.id}/edit" class="btn btn-default text-right">编辑</a>
               </c:if>
             </div>
             <div class="col-md-12">
-              <h1 class="text-center">${job.title}</h1>
+              <h1 class="text-center">招聘信息</h1>
               <p>${job.content}</p>
             </div>
           </div>

@@ -22,7 +22,7 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>招聘详情</h1>
+      <h1>编辑招聘</h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
         <li class="active">Here</li>
@@ -37,16 +37,10 @@
         <div class="box-body">
           <div class="row">
             <div class="col-md-12">
-              <c:if test="${job == null}">
-			    <a href="<%=baseUrl%>/admin/jobs/new" class="btn btn-default">新增</a>
-              </c:if>
-			  <c:if test="${job!=null}">
-			    <a href="<%=baseUrl%>/admin/jobs/${job.id}" class="btn btn-default">编辑</a>
-              </c:if>
-            </div>
-            <div class="col-md-12">
-              <h1 class="text-center">${job.title}</h1>
-              <p>${job.content}</p>
+              <c:import url="_form.jsp">
+                <c:param name="actionUrl" value="${pageContext.request.contextPath}/admin/jobs/${job.id}"></c:param>
+                <c:param name="method" value="PATCH"></c:param>
+              </c:import>
             </div>
           </div>
         </div>
@@ -65,6 +59,8 @@
 <!-- REQUIRED JS SCRIPTS -->
 
 <c:import url="../shared/_javascript.jsp"></c:import>
-
+<script type="text/javascript">
+   var editor = UE.getEditor('container');
+</script>
 </body>
 </html>

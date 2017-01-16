@@ -19,7 +19,7 @@ public class JobsController {
 	private JobMapper jobMapper;
 
 	@RequestMapping(value = "", method = RequestMethod.GET)
-	public String index(ModelMap model) {
+	public String show(ModelMap model) {
 		if (this.jobMapper.all().size() >0 ) {
 			model.addAttribute("job", this.jobMapper.all().get(0));
 		} else {
@@ -32,16 +32,22 @@ public class JobsController {
 	public String newPage() {
 		return "admin/jobs/new";
 	}
+	
+	@RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
+	public String edit(@PathVariable("id") int id, ModelMap model) {
+		model.addAttribute("job", this.jobMapper.selectByPrimaryKey(id));
+		return "admin/jobs/edit";
+	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.PATCH)
 	public String update(@PathVariable("id") int id, Job job) {
 		this.jobMapper.updateByPrimaryKeySelective(job);
-		return "redirect:/admin/jobs/new";
+		return "redirect:/admin/jobs";
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public String create(Job job) {
 		this.jobMapper.insertSelective(job);
-		return "admin/jobs/new";
+		return "redirect:/admin/jobs";
 	}
 }

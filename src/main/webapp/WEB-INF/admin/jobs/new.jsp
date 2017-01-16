@@ -35,7 +35,13 @@
       <!-- Your Page Content Here -->
       <div class="box">
         <div class="box-body">
-          44444444444444
+          <div class="row">
+            <div class="col-md-12">
+              <c:import url="_form.jsp">
+                <c:param name="actionUrl" value="${pageContext.request.contextPath}/admin/jobs"></c:param>
+              </c:import>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -52,6 +58,8 @@
 <!-- REQUIRED JS SCRIPTS -->
 
 <c:import url="../shared/_javascript.jsp"></c:import>
-
+<script type="text/javascript">
+   var editor = UE.getEditor('container');
+</script>
 </body>
 </html>
