@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%-- <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt " %> --%>
-
 <%String baseUrl = request.getContextPath(); %>
 <!DOCTYPE html>
 <html>
@@ -24,7 +22,7 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>新闻动态</h1>
+      <h1>发布招聘</h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
         <li class="active">Here</li>
@@ -37,32 +35,7 @@
       <!-- Your Page Content Here -->
       <div class="box">
         <div class="box-body">
-          <div class="row">
-            <div class="col-md-12">
-              <a href="<%= baseUrl%>/admin/newsCategories/${newsCategory.id}/news/new" class="btn btn-info col-md-offset-10">发布新闻</a>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <table class="table table-striped table-hover">
-                <tr>
-                  <td>#</td>
-                  <td>标题</td>
-                  <td>发布日期</td>
-                  <td>操作</td>
-                </tr>
-                <c:forEach var="newItem" items="${news}">
-                  <tr>
-                    <td>${newItem.id}</td>
-                    <td>${newItem.title}</td>
-                    <%-- <td><fmt:formatDate value="${newItem.publishAt}" type="both" /></td> --%>
-                    <td>${newItem.publishAt}</td>
-                    <td><a href="">编辑</a>/<a href="">删除</a></td>
-                  </tr>
-                </c:forEach>
-              </table>
-            </div> 
-          </div>
+          44444444444444
         </div>
       </div>
 

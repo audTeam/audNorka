@@ -75,7 +75,7 @@
           <span>新闻动态</span>
         </a>
       </li>
-      <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i><span>招聘信息</span></a></li>
+      <li><a href="<%=baseUrl%>/admin/jobs"><i class="fa fa-search" aria-hidden="true"></i><span>招聘信息</span></a></li>
       <li><a href="#"><i class="fa fa-link"></i><span>关于AUD</span></a></li>
     </ul>
     <!-- /.sidebar-menu -->
