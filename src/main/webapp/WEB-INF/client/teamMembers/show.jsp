@@ -78,7 +78,7 @@
             </div>
         </section>
     </div>
-    <jsp:include page="../../shared/_footer.jsp"></jsp:include>
+    <jsp:include page="../shared/_footer.jsp"></jsp:include>
 </body>
 <script type="text/javascript" src="<%=baseUrl%>/static/lib/bower_components/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="<%=baseUrl%>/static/lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
