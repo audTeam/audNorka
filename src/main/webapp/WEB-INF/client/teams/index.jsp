@@ -17,8 +17,7 @@
   <div class="main container">
     <section class="part-one">
       <div class="row team">
-        <div class="col-sm-12">${team.name}</div>
-
+        <div class="col-sm-12">所有成员</div>
         <c:forEach var="teamMember" items="${teamMembers}">
 	      <div class="col-sm-3">
 	        <a href="<%=baseUrl%>/client/teams/${teamMember.navMenuId}/teamMembers/${teamMember.id}">

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("/client/persons")
-public class PersonsController {
+public class PersonsController extends BaseController {
 	@RequestMapping(value="", method=RequestMethod.GET)
 	public String index(){
 		return "";

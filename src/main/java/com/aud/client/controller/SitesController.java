@@ -19,7 +19,7 @@ import com.aud.pojo.NavMenu;
 
 @Controller
 @RequestMapping("/sites")
-public class SitesController {
+public class SitesController extends BaseController {
 	@Autowired
 	private BannerMapper bannerMapper;
 	@Autowired
@@ -31,18 +31,6 @@ public class SitesController {
 	public String show(ModelMap model){
 
 		model.addAttribute("banners", this.bannerMapper.all());
-		List<NavMenu> projectNavMenus = this.navMenuMapper.allNavMenuByParentNav(1);
-		Iterator<NavMenu> iter = projectNavMenus.iterator();
-		List<Map<String, Object>> projectMenus = new ArrayList<Map<String, Object>>();
-
-		while(iter.hasNext()){
-			Map<String, Object> item = new HashMap<String, Object>();
-			NavMenu navMenu = iter.next();
-			item.put("secondNavMenu", navMenu);
-			item.put("thridNavMenu", projectMapper.getByNavMenuId(navMenu.getId()));
-			projectMenus.add(item);
-		}
-		model.addAttribute("projectNavMenus", projectMenus);
 
 		return "client/sites/show";
 	}

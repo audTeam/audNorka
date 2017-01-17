@@ -10,7 +10,7 @@ import com.aud.mapper.JobMapper;
 
 @Controller
 @RequestMapping("/client/jobs")
-public class JobsController {
+public class JobsController extends BaseController{
 	@Autowired
 	private JobMapper jobMapper;
 

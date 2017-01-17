@@ -27,6 +27,10 @@
   <sql id="Blob_Column_List" >
     brief
   </sql>
+  <select id="all" resultMap="ResultMapWithBLOBs">
+    select *
+    from team_members
+  </select>
   <select id="getTeamMemberByTeamId" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
     select *
     from team_members
