@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50624
 File Encoding         : 65001
 
-Date: 2017-01-13 17:46:34
+Date: 2017-01-17 23:35:07
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -28,6 +28,33 @@ CREATE TABLE `banners` (
 ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
+-- Table structure for history_introduces
+-- ----------------------------
+DROP TABLE IF EXISTS `history_introduces`;
+CREATE TABLE `history_introduces` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `company_history` varchar(6000) DEFAULT NULL,
+  `cooperation_company` varchar(6000) DEFAULT NULL,
+  `vedeo` varchar(255) DEFAULT NULL,
+  `head_img` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for jobs
+-- ----------------------------
+DROP TABLE IF EXISTS `jobs`;
+CREATE TABLE `jobs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `content` varchar(20000) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `img_url` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
 -- Table structure for navmenus
 -- ----------------------------
 DROP TABLE IF EXISTS `navmenus`;
@@ -40,7 +67,7 @@ CREATE TABLE `navmenus` (
   `content` varchar(10000) DEFAULT NULL,
   `img_url` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for news
@@ -49,15 +76,15 @@ DROP TABLE IF EXISTS `news`;
 CREATE TABLE `news` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
-  `content` mediumblob NOT NULL,
-  `published_at` datetime(6) NOT NULL,
-  `head_img` varchar(500) NOT NULL,
+  `content` mediumblob,
+  `publish_at` timestamp(6) NULL DEFAULT NULL,
+  `head_img` varchar(500) DEFAULT NULL,
   `sub_title` varchar(255) DEFAULT NULL,
   `navmenue_id` int(11) DEFAULT NULL,
   `read_count` int(11) DEFAULT '0',
   `active` varchar(1) DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for projects
@@ -96,7 +123,18 @@ CREATE TABLE `team_members` (
   `honor` varchar(500) DEFAULT NULL,
   `good_at` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for team_member_projects
+-- ----------------------------
+DROP TABLE IF EXISTS `team_member_projects`;
+CREATE TABLE `team_member_projects` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `team_member_id` int(11) DEFAULT NULL,
+  `project_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for users
