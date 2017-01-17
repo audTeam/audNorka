@@ -2,7 +2,10 @@ package com.aud.mapper;
 
 import java.util.List;
 
+<<<<<<< HEAD
 import com.aud.pojo.NavMenu;
+=======
+>>>>>>> 04c2c69578540d168f5425df197c9f6c7ad5e2ae
 import com.aud.pojo.News;
 
 public interface NewsMapper {
@@ -21,4 +24,6 @@ public interface NewsMapper {
     int updateByPrimaryKeyWithBLOBs(News record);
 
     int updateByPrimaryKey(News record);
+    
+    List<News> selectByNewsCategoryId(int categoryId);
 }

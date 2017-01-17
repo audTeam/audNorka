@@ -52,18 +52,6 @@
           <span>案例管理</span>
         </a>
       </li>
-      <%-- <li class="treeview">
-        <a href="#"><span>案例管理</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
-        </a>
-        <ul class="treeview-menu">
-          <li><a href="#">Link in level 2</a></li>
-          <li><a href="<%=baseUrl%>/admin/projects"><span>项目列表</span></a></li>
-          <li><a href="#">Link in level 2</a></li>
-        </ul>
-      </li> --%>
       <li <c:if test="${fn:contains(currentUrl, 'teams')}">class="active"</c:if> >
         <a href="<%=baseUrl%>/admin/teams"><i class="fa fa-users" aria-hidden="true"></i>
           <span>团队介绍</span>
@@ -75,8 +63,19 @@
           <span>新闻动态</span>
         </a>
       </li>
-      <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i><span>招聘信息</span></a></li>
-      <li><a href="#"><i class="fa fa-link"></i><span>关于AUD</span></a></li>
+      <li><a href="<%=baseUrl%>/admin/jobs"><i class="fa fa-search" aria-hidden="true"></i><span>招聘信息</span></a></li>
+      <li class="treeview">
+        <a href="#"><i class="fa fa-link"></i><span>关于AUD</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="<%=baseUrl%>/admin/projects"><span>公司历史介绍</span></a></li>
+          <li><a href="<%=baseUrl%>/admin/projects"><span>公司服务范围</span></a></li>
+          <li><a href="<%=baseUrl%>/admin/projects"><span>留言管理</span></a></li>
+        </ul>
+      </li>
     </ul>
     <!-- /.sidebar-menu -->
   </section>

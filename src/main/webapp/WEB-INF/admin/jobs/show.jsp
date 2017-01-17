@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%-- <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt " %> --%>
-
 <%String baseUrl = request.getContextPath(); %>
 <!DOCTYPE html>
 <html>
@@ -24,7 +22,7 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>新闻动态</h1>
+      <h1>招聘详情</h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
         <li class="active">Here</li>
@@ -39,40 +37,17 @@
         <div class="box-body">
           <div class="row">
             <div class="col-md-12">
-              <a href="<%= baseUrl%>/admin/newsCategories/${newsCategory.id}/news/new" class="btn btn-info col-md-offset-10">发布新闻</a>
+              <c:if test="${job == null}">
+			    <a href="<%=baseUrl%>/admin/jobs/new" class="btn btn-default text-right">新增</a>
+              </c:if>
+			  <c:if test="${job!=null}">
+			    <a href="<%=baseUrl%>/admin/jobs/${job.id}/edit" class="btn btn-default text-right">编辑</a>
+              </c:if>
             </div>
-          </div>
-          <div class="row">
             <div class="col-md-12">
-              <table class="table table-striped table-hover">
-                <tr>
-                  <td>#</td>
-                  <td>标题</td>
-                  <td>发布日期</td>
-                  <td>操作</td>
-                </tr>
-<<<<<<< HEAD
-                <c:forEach var="new" items="${news}">
-                <tr>
-                  <td>${new.id}</td>
-                  <td>${new.title}</td>
-                  <td>${new.published_at}</td>
-                  <td>${new.read_count}</td>
-                  <td>删除</td>
-                </tr>
-=======
-                <c:forEach var="newItem" items="${news}">
-                  <tr>
-                    <td>${newItem.id}</td>
-                    <td>${newItem.title}</td>
-                    <%-- <td><fmt:formatDate value="${newItem.publishAt}" type="both" /></td> --%>
-                    <td>${newItem.publishAt}</td>
-                    <td><a href="">编辑</a>/<a href="">删除</a></td>
-                  </tr>
->>>>>>> 04c2c69578540d168f5425df197c9f6c7ad5e2ae
-                </c:forEach>
-              </table>
-            </div> 
+              <h1 class="text-center">招聘信息</h1>
+              <p>${job.content}</p>
+            </div>
           </div>
         </div>
       </div>

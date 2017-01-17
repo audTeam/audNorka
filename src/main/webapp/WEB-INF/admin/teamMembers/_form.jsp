@@ -44,6 +44,14 @@
       <input type="text" class="form-control" name="goodAt" value="${teamMember.goodAt}">
     </div>
   </div>
+  <div class="form-group">
+    <label class="control-label col-md-4">参与的项目</label>
+    <div class="col-md-8">
+      <c:forEach var="project" items="${projects}">
+        <div><input type="checkbox" name="projectIds" value="${project.id}">${project.zhName}</div>
+      </c:forEach>
+    </div>
+  </div>
   <c:if test="${teamMember.imgUrl != null}">
     <div class="form-group">
       <label class="col-md-4 control-label">头像</label>

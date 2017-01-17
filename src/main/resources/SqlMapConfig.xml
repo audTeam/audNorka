@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<!-- 将数据库连接数据抽取到属性文件中方便测试 -->
+<!-- <properties resource="/WEB-INF/classes/jdbc.properties"></properties> -->
+<!-- 别名的定义 -->
+<typeAliases>
+	<!-- 批量定义别名 ，指定包名，自动扫描包中的类，别名即为类名，首字母大小写无所谓-->
+	<package name="com.aud.pojo"/>
+</typeAliases>
+<plugins>
+    <!-- com.github.pagehelper为PageHelper类所在包名 -->
+    <plugin interceptor="com.github.pagehelper.PageInterceptor">
+        <!-- 使用下面的方式配置参数，后面会有所有的参数介绍 -->
+        <property name="helperDialect" value="mysql"/>
+        <property name="reasonable" value="true"/>
+        <property name="params" value="count=countSql"/>
+        <property name="autoRuntimeDialect" value="true"/>
+    </plugin>
+</plugins>
+<!-- 数据库连接用数据库连接池 -->
+<mappers>
+	<!-- 通过扫描包的方式来进行批量加载映射文件 -->
+	<package name="com.aud.mapper"/>
+</mappers>
+</configuration>

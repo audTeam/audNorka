@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aud.mapper.HistoryIntroduceMapper" >
+  <resultMap id="BaseResultMap" type="com.aud.pojo.HistoryIntroduce" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="company_history" property="companyHistory" jdbcType="VARCHAR" />
+    <result column="cooperation_company" property="cooperationCompany" jdbcType="VARCHAR" />
+    <result column="video" property="video" jdbcType="VARCHAR" />
+    <result column="head_img" property="headImg" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, company_history, cooperation_company, video, head_img
+  </sql>
+
+  <select id="all" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from history_introduces
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from history_introduces
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from history_introduces
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.aud.pojo.HistoryIntroduce" >
+    insert into history_introduces (id, company_history, cooperation_company, 
+      video, head_img)
+    values (#{id,jdbcType=INTEGER}, #{companyHistory,jdbcType=VARCHAR}, #{cooperationCompany,jdbcType=VARCHAR}, 
+      #{video,jdbcType=VARCHAR}, #{headImg,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aud.pojo.HistoryIntroduce" >
+    insert into history_introduces
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="companyHistory != null" >
+        company_history,
+      </if>
+      <if test="cooperationCompany != null" >
+        cooperation_company,
+      </if>
+      <if test="video != null" >
+        video,
+      </if>
+      <if test="headImg != null" >
+        head_img,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="companyHistory != null" >
+        #{companyHistory,jdbcType=VARCHAR},
+      </if>
+      <if test="cooperationCompany != null" >
+        #{cooperationCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="video != null" >
+        #{video,jdbcType=VARCHAR},
+      </if>
+      <if test="headImg != null" >
+        #{headImg,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.aud.pojo.HistoryIntroduce" >
+    update history_introduces
+    <set >
+      <if test="companyHistory != null" >
+        company_history = #{companyHistory,jdbcType=VARCHAR},
+      </if>
+      <if test="cooperationCompany != null" >
+        cooperation_company = #{cooperationCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="video != null" >
+        video = #{video,jdbcType=VARCHAR},
+      </if>
+      <if test="headImg != null" >
+        head_img = #{headImg,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.aud.pojo.HistoryIntroduce" >
+    update history_introduces
+    set company_history = #{companyHistory,jdbcType=VARCHAR},
+      cooperation_company = #{cooperationCompany,jdbcType=VARCHAR},
+      video = #{video,jdbcType=VARCHAR},
+      head_img = #{headImg,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

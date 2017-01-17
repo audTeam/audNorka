@@ -15,7 +15,7 @@ import com.google.gson.Gson;
 
 @Controller
 @RequestMapping("/client/news")
-public class NewsController {
+public class NewsController extends BaseController {
 
 	@Autowired
 	private BannerMapper bannerMapper;

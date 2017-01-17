@@ -22,7 +22,7 @@ import com.google.gson.Gson;
 
 @Controller
 @RequestMapping("/client/projects")
-public class ProjectsController {
+public class ProjectsController extends BaseController {
 	@Autowired
 	private BannerMapper bannerMapper;
 	@Autowired
@@ -32,6 +32,7 @@ public class ProjectsController {
 
 	@RequestMapping(value="", method=RequestMethod.GET)
 	public String index(ModelMap model){
+<<<<<<< HEAD
 		model.addAttribute("banners", this.bannerMapper.all());
 		List<NavMenu> projectNavMenus = this.navMenuMapper.allNavMenuByParentNav(1);
 		
@@ -47,8 +48,9 @@ public class ProjectsController {
 			projectMenus.add(item);
 		}
 		model.addAttribute("projectNavMenus", projectMenus);
+=======
+>>>>>>> 04c2c69578540d168f5425df197c9f6c7ad5e2ae
 		model.addAttribute("projects", this.projectMapper.all());
-
 		return "client/projects/index";
 	}
 
@@ -59,20 +61,6 @@ public class ProjectsController {
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public String show(@PathVariable("id") int id, ModelMap model){
-		model.addAttribute("banners", this.bannerMapper.all());
-		List<NavMenu> projectNavMenus = this.navMenuMapper.allNavMenuByParentNav(1);
-		Iterator<NavMenu> iter = projectNavMenus.iterator();
-		List<Map<String, Object>> projectMenus = new ArrayList<Map<String, Object>>();
-
-		while(iter.hasNext()){
-			Map<String, Object> item = new HashMap<String, Object>();
-			NavMenu navMenu = iter.next();
-			item.put("secondNavMenu", navMenu);
-			item.put("thridNavMenu", projectMapper.getByNavMenuId(navMenu.getId()));
-			projectMenus.add(item);
-		}
-		model.addAttribute("projectNavMenus", projectMenus);
-		
 		Project project = this.projectMapper.selectByPrimaryKey(id);
 		model.addAttribute("project", project);
 		model.addAttribute("projects", this.projectMapper.getByNavMenuId(project.getNavMenuId()));

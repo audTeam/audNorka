@@ -22,8 +22,9 @@
           </c:forEach>
 
           <li>团队介绍</li>
-          <li><a href="<%=baseUrl%>/client/teams/1">--建筑设计团队</a></li>
-          <li><a href="<%=baseUrl%>/client/teams/1">--室内设计团队</a></li>
+          <c:forEach var="team" items="${teams}">
+            <li><a href="${pageContext.request.contextPath}/client/teams/${team.id}/teamMembers" class="second-nav">${team.name}</a></li>
+          </c:forEach>
           <li>新闻动态</li>
           <li><a href="<%=baseUrl%>/client/news">--项目动态</a></li>
           <li><a href="<%=baseUrl%>/client/news">--公司动态</a></li>
@@ -37,7 +38,11 @@
       <div id="topBar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav ul_one">
           <li><a href="<%=baseUrl%>/client/projects"><span data-tag="0">项目案例</span></a></li>
+<<<<<<< HEAD
           <li><a href="<%=baseUrl%>/client/teams""><span data-tag="1">团队介绍</span></a></li>
+=======
+          <li><a href="<%=baseUrl%>/client/teams"><span data-tag="1">团队介绍</span></a></li>
+>>>>>>> 04c2c69578540d168f5425df197c9f6c7ad5e2ae
           <li><a href="<%=baseUrl%>/client/news"><span data-tag="2">新闻动态</span></a></li>
           <li><a href="<%=baseUrl%>/client/aboutUs"><span data-tag="3">关于AUD</span></a></li>
           <li><a href="<%=baseUrl%>/client/jobs"><span data-tag="4">招聘信息</span></a></li>
@@ -70,11 +75,17 @@
         </c:forEach>
       </ul>
       <ul class="nav navbar-nav ul_two" data-tag="2">
+<<<<<<< HEAD
         <c:forEach var="teamsNavMenu" items="${teamsNavMenus}">
         	<li><a href="<%=baseUrl%>/client/teams" class="second-nav">${teamsNavMenu.name}</a>
         </c:forEach>
         <!-- <li><a href="<%=baseUrl%>/client/teams/1" class="second-nav">建筑设计团队</a></li>
         <li><a href="<%=baseUrl%>/client/teams/1" class="second-nav">室内设计团队</a></li> -->
+=======
+        <c:forEach var="team" items="${teams}">
+          <li><a href="${pageContext.request.contextPath}/client/teams/${team.id}/teamMembers" class="second-nav">${team.name}</a></li>
+        </c:forEach>
+>>>>>>> 04c2c69578540d168f5425df197c9f6c7ad5e2ae
       </ul>
       <ul class="nav navbar-nav ul_two" data-tag="3">
         <c:forEach var="newsNavMenu" items="${newsNavMenus}">

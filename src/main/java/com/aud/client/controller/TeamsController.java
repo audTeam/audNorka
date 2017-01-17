@@ -1,8 +1,11 @@
 package com.aud.client.controller;
 
+<<<<<<< HEAD
 
 import java.util.List;
 
+=======
+>>>>>>> 04c2c69578540d168f5425df197c9f6c7ad5e2ae
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -10,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+<<<<<<< HEAD
 import com.aud.mapper.BannerMapper;
 import com.aud.mapper.NavMenuMapper;
 import com.aud.pojo.NavMenu;
@@ -46,4 +50,20 @@ public class TeamsController {
 	public String show(@PathVariable("personId") String personId){
 		return "client/teams/show";
 	}
+=======
+import com.aud.mapper.NavMenuMapper;
+import com.aud.mapper.TeamMemberMapper;
+
+@Controller("clientTeams")
+@RequestMapping("/client/teams")
+public class TeamsController extends BaseController{
+	@Autowired
+	private TeamMemberMapper teamMemberMapper;
+
+	@RequestMapping(value="", method=RequestMethod.GET)
+	public String index(ModelMap model){
+		model.addAttribute("teamMembers", this.teamMemberMapper.all());
+		return "client/teams/index";
+	}
+>>>>>>> 04c2c69578540d168f5425df197c9f6c7ad5e2ae
 }

@@ -18,11 +18,18 @@
   <sql id="Blob_Column_List" >
     content
   </sql>
+<<<<<<< HEAD
   
   <select id="allNewsParentNav" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select * from news where navmenue_id = #{navmenue_id,jdbcType=INTEGER}
   </select>
   
+=======
+  <select id="selectByNewsCategoryId" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select * from news
+    where navmenue_id = #{navmenue_id,jdbcType=INTEGER}
+  </select>
+>>>>>>> 04c2c69578540d168f5425df197c9f6c7ad5e2ae
   <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />

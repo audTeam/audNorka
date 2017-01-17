@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("/admin/users")
-public class UsersController {
+public class UsersController extends BaseController {
 	
 	@RequestMapping(value="", method=RequestMethod.POST)
 	public String create(){

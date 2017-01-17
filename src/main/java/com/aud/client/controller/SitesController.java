@@ -20,7 +20,7 @@ import com.google.gson.Gson;
 
 @Controller
 @RequestMapping("/sites")
-public class SitesController {
+public class SitesController extends BaseController {
 	@Autowired
 	private BannerMapper bannerMapper;
 	@Autowired
@@ -32,6 +32,7 @@ public class SitesController {
 	public String show(ModelMap model){
 
 		model.addAttribute("banners", this.bannerMapper.all());
+<<<<<<< HEAD
 		List<NavMenu> projectNavMenus = this.navMenuMapper.allNavMenuByParentNav(1);
 		List<NavMenu> teamsNavMenus = this.navMenuMapper.allNavMenuByParentNav(2);
 		List<NavMenu> newsNavMenus = this.navMenuMapper.allNavMenuByParentNav(3);
@@ -49,6 +50,8 @@ public class SitesController {
 		model.addAttribute("projectNavMenus", projectMenus);
 		model.addAttribute("teamsNavMenus", teamsNavMenus);
 		model.addAttribute("newsNavMenus", newsNavMenus);
+=======
+>>>>>>> 04c2c69578540d168f5425df197c9f6c7ad5e2ae
 
 		return "client/sites/show";
 	}

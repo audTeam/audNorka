@@ -20,4 +20,9 @@ public interface TeamMemberMapper {
     int updateByPrimaryKey(TeamMember record);
     
     List<TeamMember> getTeamMemberByTeamId(int teamId);
+    
+    List<TeamMember> all(); 
+    
+    int getMaxId(); 
+
 }
