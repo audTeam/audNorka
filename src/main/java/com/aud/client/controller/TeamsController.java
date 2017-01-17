@@ -14,20 +14,11 @@ import com.aud.mapper.TeamMemberMapper;
 @RequestMapping("/client/teams")
 public class TeamsController extends BaseController{
 	@Autowired
-	private NavMenuMapper navMenuMapper;
-	@Autowired
 	private TeamMemberMapper teamMemberMapper;
 
 	@RequestMapping(value="", method=RequestMethod.GET)
 	public String index(ModelMap model){
 		model.addAttribute("teamMembers", this.teamMemberMapper.all());
 		return "client/teams/index";
-	}
-	
-	@RequestMapping(value="/{id}", method=RequestMethod.GET)
-	public String show(@PathVariable("id") int id, ModelMap model){
-		model.addAttribute("teamMembers", this.teamMemberMapper.getTeamMemberByTeamId(id));
-		model.addAttribute("team", this.navMenuMapper.selectByPrimaryKey(id));
-		return "client/teams/show";
 	}
 }

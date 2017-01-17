@@ -13,48 +13,36 @@
 <title>设计团队</title>
 </head>
 <body>
-    <jsp:include page="../../shared/_header.jsp"></jsp:include>
+    <jsp:include page="../shared/_header.jsp"></jsp:include>
     <div class="main container">
         <section class="part-one">
             <div class="row">
                 <div class="col-sm-12 col-lg-8 designer-desc">
                     <div class="col-sm-7">
-                        <img src="<%=baseUrl%>/static/common/client/images/designer/designer_03.png" alt="pic" class="img-responsive">
+                        <img src="${pageContext}/${teamMember.imgUrl}" alt="pic" class="img-responsive">
                     </div>
                     <div class="col-sm-5 designer-detail">
-                        <h3>吕羽（James Lu）</h3>
-                        <h4>LEED AP美国城市土地学会会员</h4>
-                        <p>中国区总经理、董事</p>
-                        <p>Shanghai</p>
-                        <p>+86-2122113300</p>
+                        <h3>${teamMember.name}</h3>
+                        <h4>${teamMember.honor}</h4>
+                        <p>${teamMember.position}</p>
+                        <p>${teamMember.zhAddress}</p>
+                        <p>${teamMember.phoneNumber}</p>
                         <p>download vCard</p>
                     </div>
                     <div class="content col-sm-12">
-                        <p>城市更新的成功和可持续型城市的形成需要文化领域、环保领域和经济领域的响应。我们的城市建筑师与不同领域的设计专业人士紧密合作，力城市更新的成功和可持续型城市的形成需要文化领域、环保领域和经济领域的响应。</p>
-                        <p>城市更新的成功和可持续型城市的形成需要文化领域、环保领域和经济领域的响应。我们的城市建筑师与不同领域的设计专业人士紧密合作，力城市更新的成功和可持续型城市的形成需要文化领域、环保</p>
-                        <p>城市更新的成功和可持续型城市的形成需要文化领域、环保领域和经济领域的响应。我们的城市建筑师与不同领域的设计专业人士紧密合作，力城市更新的成功和可持续型城市的形成需要文化领域、环保领域</p>
+                        <p>${teamMember.brief}</p>
                     </div>
                 </div>
 
                 <div class="col-sm-12 col-lg-4">
                     <ul class="nav more-case">
-                        <li><a href="#">更多</a></li>
-                        <li class="clearfix">
-                            <div class="col-xs-5 case-pic"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/designer/case5_03.png" alt="pic" class="img-responsive"></a></div>
-                            <div class="col-xs-7 case-text"><a href="#"><p>Leo Alvorea</p><p>景观设计</p></a></div>
-                        </li>
-                        <li class="clearfix">
-                            <div class="col-xs-5 case-pic"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/designer/case6_05.png" alt="pic" class="img-responsive"></a></div>
-                            <div class="col-xs-7 case-text"><a href="#"><p>Leo Alvorea</p><p>景观设计</p></a></div>
-                        </li>
-                        <li class="clearfix">
-                            <div class="col-xs-5 case-pic"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/designer/case7_05.png" alt="pic" class="img-responsive"></a></div>
-                            <div class="col-xs-7 case-text"><a href="#"><p>Leo Alvorea</p><p>景观设计</p></a></div>
-                        </li>
-                        <li class="clearfix">
-                            <div class="col-xs-5 case-pic"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/designer/case6_05.png" alt="pic" class="img-responsive"></a></div>
-                            <div class="col-xs-7 case-text"><a href="#"><p>Leo Alvorea</p><p>景观设计</p></a></div>
-                        </li>
+                        <li><a href="${pageContext.request.contextPath}/client/teams/${teamMember.navMenuId}/teamMembers">更多</a></li>
+                        <c:forEach var="teamMember" items="${teamMembers}">
+                          <li class="clearfix">
+                            <div class="col-xs-5 case-pic"><a href="#"><img src="${pageContext.request.contextPath}/${teamMember.imgUrl}" alt="pic" class="img-responsive"></a></div>
+                            <div class="col-xs-7 case-text"><a href="#"><p>${teamMember.name}</p><p>${teamMember.goodAt}</p></a></div>
+                          </li>
+                        </c:forEach>
                     </ul>
                 </div>
             </div>

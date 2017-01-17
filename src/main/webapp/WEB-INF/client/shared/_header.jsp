@@ -23,7 +23,7 @@
 
           <li>团队介绍</li>
           <c:forEach var="team" items="${teams}">
-            <li><a href="${pageContext.request.contextPath}/client/teams/${team.id}" class="second-nav">${team.name}</a></li>
+            <li><a href="${pageContext.request.contextPath}/client/teams/${team.id}/teamMembers" class="second-nav">${team.name}</a></li>
           </c:forEach>
           <li>新闻动态</li>
           <li><a href="<%=baseUrl%>/client/news">--项目动态</a></li>
@@ -72,7 +72,7 @@
       </ul>
       <ul class="nav navbar-nav ul_two" data-tag="2">
         <c:forEach var="team" items="${teams}">
-          <li><a href="${pageContext.request.contextPath}/client/teams/${team.id}" class="second-nav">${team.name}</a></li>
+          <li><a href="${pageContext.request.contextPath}/client/teams/${team.id}/teamMembers" class="second-nav">${team.name}</a></li>
         </c:forEach>
       </ul>
       <ul class="nav navbar-nav ul_two" data-tag="3">
