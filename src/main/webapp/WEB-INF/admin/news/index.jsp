@@ -51,7 +51,13 @@
                   <td>操作</td>
                 </tr>
                 <c:forEach var="new" items="${news}">
-                  <tr></tr>
+                <tr>
+                  <td>${new.id}</td>
+                  <td>${new.title}</td>
+                  <td>${new.published_at}</td>
+                  <td>${new.read_count}</td>
+                  <td>删除</td>
+                </tr>
                 </c:forEach>
               </table>
             </div> 

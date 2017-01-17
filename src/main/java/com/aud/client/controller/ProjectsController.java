@@ -18,6 +18,7 @@ import com.aud.mapper.NavMenuMapper;
 import com.aud.mapper.ProjectMapper;
 import com.aud.pojo.NavMenu;
 import com.aud.pojo.Project;
+import com.google.gson.Gson;
 
 @Controller
 @RequestMapping("/client/projects")
@@ -33,6 +34,8 @@ public class ProjectsController {
 	public String index(ModelMap model){
 		model.addAttribute("banners", this.bannerMapper.all());
 		List<NavMenu> projectNavMenus = this.navMenuMapper.allNavMenuByParentNav(1);
+		
+		System.out.println("---------------projectNavMenus:"+new Gson().toJson(projectNavMenus));
 		Iterator<NavMenu> iter = projectNavMenus.iterator();
 		List<Map<String, Object>> projectMenus = new ArrayList<Map<String, Object>>();
 

@@ -18,6 +18,11 @@
   <sql id="Blob_Column_List" >
     content
   </sql>
+  
+  <select id="allNewsParentNav" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select * from news where navmenue_id = #{navmenue_id,jdbcType=INTEGER}
+  </select>
+  
   <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />

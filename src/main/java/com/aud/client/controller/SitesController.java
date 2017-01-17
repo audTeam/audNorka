@@ -16,6 +16,7 @@ import com.aud.mapper.BannerMapper;
 import com.aud.mapper.NavMenuMapper;
 import com.aud.mapper.ProjectMapper;
 import com.aud.pojo.NavMenu;
+import com.google.gson.Gson;
 
 @Controller
 @RequestMapping("/sites")
@@ -32,6 +33,9 @@ public class SitesController {
 
 		model.addAttribute("banners", this.bannerMapper.all());
 		List<NavMenu> projectNavMenus = this.navMenuMapper.allNavMenuByParentNav(1);
+		List<NavMenu> teamsNavMenus = this.navMenuMapper.allNavMenuByParentNav(2);
+		List<NavMenu> newsNavMenus = this.navMenuMapper.allNavMenuByParentNav(3);
+		System.out.println("---------------:"+new Gson().toJson(teamsNavMenus));
 		Iterator<NavMenu> iter = projectNavMenus.iterator();
 		List<Map<String, Object>> projectMenus = new ArrayList<Map<String, Object>>();
 
@@ -43,6 +47,8 @@ public class SitesController {
 			projectMenus.add(item);
 		}
 		model.addAttribute("projectNavMenus", projectMenus);
+		model.addAttribute("teamsNavMenus", teamsNavMenus);
+		model.addAttribute("newsNavMenus", newsNavMenus);
 
 		return "client/sites/show";
 	}

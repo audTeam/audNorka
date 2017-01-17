@@ -18,7 +18,7 @@ import com.aud.mapper.TeamMemberMapper;
 import com.aud.pojo.TeamMember;
 import com.aud.tool.Utils;
 
-@Controller("adminTeamMembers")
+//@Controller("adminTeamMembers")
 @RequestMapping("/admin/teams/{teamId}/teamMembers")
 public class TeamMembersController {
 	@Autowired
@@ -39,7 +39,7 @@ public class TeamMembersController {
 		return "redirect:/admin/teams/" + teamId + "/teamMembers";
 	}
 
-	@RequestMapping(value = "", method = RequestMethod.POST)
+	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String create(@PathVariable("teamId") int teamId, TeamMember teamMember, MultipartFile file, MultipartFile personFile, HttpServletRequest request)
 			throws IllegalStateException, IOException {
 		teamMember.setImgUrl(Utils.saveFile(file, request));
@@ -52,7 +52,7 @@ public class TeamMembersController {
 		return "redirect:/admin/teams/" + teamMember.getNavMenuId() + "/teamMembers";
 	}
 
-	@RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
+	@RequestMapping(value = "/{id}/edit", method = RequestMethod.POST)
 	public String edit(@PathVariable("teamId") int teamId, @PathVariable("id") int id, ModelMap model) {
 		model.addAttribute("team", this.navMenuMapper.selectByPrimaryKey(teamId));
 		model.addAttribute("teamMember", this.teamMemberMapper.selectByPrimaryKey(id));

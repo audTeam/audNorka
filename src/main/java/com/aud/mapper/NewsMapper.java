@@ -1,5 +1,8 @@
 package com.aud.mapper;
 
+import java.util.List;
+
+import com.aud.pojo.NavMenu;
 import com.aud.pojo.News;
 
 public interface NewsMapper {
@@ -8,6 +11,8 @@ public interface NewsMapper {
     int insert(News record);
 
     int insertSelective(News record);
+    
+    List<News> allNewsParentNav(int newsCategoryId);
 
     News selectByPrimaryKey(Integer id);
 
