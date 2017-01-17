@@ -27,6 +27,9 @@
   <sql id="Blob_Column_List" >
     brief
   </sql>
+  <select id="getMaxId" resultType="java.lang.Integer">
+    select id from team_members ORDER BY id DESC limit 0,1
+  </select>
   <select id="all" resultMap="ResultMapWithBLOBs">
     select *
     from team_members
@@ -62,7 +65,7 @@
       #{honor,jdbcType=VARCHAR}, #{goodAt,jdbcType=VARCHAR}, #{brief,jdbcType=LONGVARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.aud.pojo.TeamMember" >
+  <insert id="insertSelective" parameterType="com.aud.pojo.TeamMember" keyProperty="id" >
     insert into team_members
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >

@@ -1,5 +1,5 @@
 driver=com.mysql.jdbc.Driver
-url=jdbc:mysql://127.0.0.1:3306/sspring1
+url=jdbc:mysql://127.0.0.1:3306/auddb?useUnicode=true&characterEncoding=GBK&useFastDateParsing=false
 username=yuanlunchuan
 password=5yuanlunchuan
 initialSize=0

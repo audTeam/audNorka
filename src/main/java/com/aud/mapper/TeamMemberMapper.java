@@ -21,5 +21,8 @@ public interface TeamMemberMapper {
     
     List<TeamMember> getTeamMemberByTeamId(int teamId);
     
-    List<TeamMember> all();    
+    List<TeamMember> all(); 
+    
+    int getMaxId(); 
+
 }
