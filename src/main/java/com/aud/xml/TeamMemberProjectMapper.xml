@@ -9,6 +9,12 @@
   <sql id="Base_Column_List" >
     id, team_member_id, project_id
   </sql>
+  <select id="selectByTeamMemberId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from team_member_projects
+    where team_member_id = #{team_member_id,jdbcType=INTEGER}
+  </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />

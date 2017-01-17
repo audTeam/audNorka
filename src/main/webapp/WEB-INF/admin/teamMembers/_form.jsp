@@ -47,8 +47,19 @@
   <div class="form-group">
     <label class="control-label col-md-4">参与的项目</label>
     <div class="col-md-8">
+      <c:set var="hasFind" value="false"></c:set>
       <c:forEach var="project" items="${projects}">
-        <div><input type="checkbox" name="projectIds" value="${project.id}">${project.zhName}</div>
+        <c:forEach var="teamMemberProject" items="${teamMemberProjects}">
+          <c:if test="${teamMemberProject.projectId==project.id}">
+            <c:set var="hasFind" value="true"></c:set>
+          </c:if>
+        </c:forEach>
+        <c:if test="${hasFind==true}">
+          <div><input type="checkbox" name="projectIds" value="${project.id}" checked="checked">${project.zhName}</div>
+        </c:if>
+        <c:if test="${hasFind==false}">
+          <div><input type="checkbox" name="projectIds" value="${project.id}">${project.zhName}</div>
+        </c:if>
       </c:forEach>
     </div>
   </div>

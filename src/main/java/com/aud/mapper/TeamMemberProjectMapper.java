@@ -1,5 +1,7 @@
 package com.aud.mapper;
 
+import java.util.List;
+
 import com.aud.pojo.TeamMemberProject;
 
 public interface TeamMemberProjectMapper {
@@ -14,4 +16,6 @@ public interface TeamMemberProjectMapper {
     int updateByPrimaryKeySelective(TeamMemberProject record);
 
     int updateByPrimaryKey(TeamMemberProject record);
+    
+    List<TeamMemberProject> selectByTeamMemberId(int teamMemBerId);
 }

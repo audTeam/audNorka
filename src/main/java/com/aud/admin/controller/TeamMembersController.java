@@ -20,6 +20,7 @@ import com.aud.mapper.TeamMemberProjectMapper;
 import com.aud.pojo.TeamMember;
 import com.aud.pojo.TeamMemberProject;
 import com.aud.tool.Utils;
+import com.google.gson.Gson;
 
 @Controller("adminTeamMembers")
 @RequestMapping("/admin/teams/{teamId}/teamMembers")
@@ -71,6 +72,9 @@ public class TeamMembersController {
 	public String edit(@PathVariable("teamId") int teamId, @PathVariable("id") int id, ModelMap model) {
 		model.addAttribute("team", this.navMenuMapper.selectByPrimaryKey(teamId));
 		model.addAttribute("teamMember", this.teamMemberMapper.selectByPrimaryKey(id));
+		model.addAttribute("projects", this.projectMapper.all());
+		System.out.println("---------this.teamMemberProjectMapper.selectByTeamMemberId(id): "+new Gson().toJson(this.teamMemberProjectMapper.selectByTeamMemberId(id)));
+        model.addAttribute("teamMemberProjects", this.teamMemberProjectMapper.selectByTeamMemberId(id));
 		return "admin/teamMembers/edit";
 	}
 	
