@@ -38,11 +38,7 @@
           <div class="row">
             <div class="col-md-12">
               <c:import url="_form.jsp">
-<<<<<<< HEAD
                 <c:param name="actionUrl" value="${pageContext.request.contextPath}/admin/newsCategories/${newsCategoryId}/news"></c:param>
-=======
-                <c:param name="actionUrl" value="${pageContext.request.contextPath}/admin/newsCategories/${newsCategory.id}/news"></c:param>
->>>>>>> 04c2c69578540d168f5425df197c9f6c7ad5e2ae
               </c:import>
             </div>
           </div>

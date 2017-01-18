@@ -14,8 +14,8 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
-  <jsp:include page="../shared/_header.jsp"></jsp:include>
-  <jsp:include page="../shared/_aside.jsp"></jsp:include>
+  <jsp:include page="shared/_header.jsp"></jsp:include>
+  <jsp:include page="shared/_aside.jsp"></jsp:include>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -38,8 +38,8 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <jsp:include page="../shared/_footer.jsp"></jsp:include>
-  <jsp:include page="../shared/_left_aside.jsp"></jsp:include>
+  <jsp:include page="shared/_footer.jsp"></jsp:include>
+  <jsp:include page="shared/_left_aside.jsp"></jsp:include>
   <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
