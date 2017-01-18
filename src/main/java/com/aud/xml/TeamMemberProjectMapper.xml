@@ -6,14 +6,29 @@
     <result column="team_member_id" property="teamMemberId" jdbcType="INTEGER" />
     <result column="project_id" property="projectId" jdbcType="INTEGER" />
   </resultMap>
+  
+  <resultMap id="teamMemberAndProject" type="com.aud.pojo.TeamMemberProject">
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="team_member_id" property="teamMemberId" jdbcType="INTEGER" />
+    <result column="project_id" property="projectId" jdbcType="INTEGER" />
+    <association property="project" javaType="com.aud.pojo.Project">
+      <id column="project_id" property="id" jdbcType="INTEGER" />
+      <result column="zh_name" property="zhName" jdbcType="VARCHAR" />
+      <result column="cn_name" property="cnName" jdbcType="VARCHAR" />
+      <result column="address" property="address" jdbcType="VARCHAR" />
+      <result column="content" property="content" jdbcType="VARCHAR" />
+      <result column="lang" property="lang" jdbcType="VARCHAR" />
+      <result column="nav_menu_id" property="navMenuId" jdbcType="INTEGER" />
+      <result column="img_urls" property="imgUrls" jdbcType="LONGVARCHAR" />
+    </association>
+  </resultMap>
   <sql id="Base_Column_List" >
     id, team_member_id, project_id
   </sql>
-  <select id="selectByTeamMemberId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from team_member_projects
-    where team_member_id = #{team_member_id,jdbcType=INTEGER}
+  <select id="selectByTeamMemberId" resultMap="teamMemberAndProject" parameterType="java.lang.Integer" >
+    select t.id, t.team_member_id, t.project_id, p.id project_id, p.zh_name, p.cn_name, p.address, p.content, p.lang, p.nav_menu_id, p.img_urls
+    from team_member_projects t INNER JOIN projects p ON t.project_id=p.id
+    where t.team_member_id = #{team_member_id,jdbcType=INTEGER}
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 

@@ -19,7 +19,7 @@
             <div class="row">
                 <div class="col-sm-12 col-lg-8 designer-desc">
                     <div class="col-sm-7">
-                        <img src="${pageContext}/${teamMember.imgUrl}" alt="pic" class="img-responsive">
+                        <img src="${pageContext.request.contextPath}/${teamMember.imgUrl}" alt="pic" class="img-responsive">
                     </div>
                     <div class="col-sm-5 designer-detail">
                         <h3>${teamMember.name}</h3>
@@ -49,20 +49,16 @@
         </section>
         <section class="part-two">
             <div class="row all-case">
-                <div class="col-sm-12"><a href="#">参与设计案例</a></div>
-                <div class="col-sm-3"><a href="<%=baseUrl%>/client/projects/3"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic1_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
-                <div class="col-sm-3"><a href="<%=baseUrl%>/client/projects/3"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic2_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
-                <div class="col-sm-3"><a href="<%=baseUrl%>/client/projects/3"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic3_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
-                <div class="col-sm-3"><a href="<%=baseUrl%>/client/projects/3"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic4_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
-                <div class="col-sm-3"><a href="<%=baseUrl%>/client/projects/3"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic1_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
-                <div class="col-sm-3"><a href="<%=baseUrl%>/client/projects/3"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic2_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
-                <div class="col-sm-3"><a href="<%=baseUrl%>/client/projects/3"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic3_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
-                <div class="col-sm-3"><a href="<%=baseUrl%>/client/projects/3"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic4_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
-                <div class="col-sm-3"><a href="<%=baseUrl%>/client/projects/3"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic1_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
-                <div class="col-sm-3"><a href="<%=baseUrl%>/client/projects/3"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic2_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
-                <div class="col-sm-3"><a href="<%=baseUrl%>/client/projects/3"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic3_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
-                <div class="col-sm-3"><a href="<%=baseUrl%>/client/projects/3"><img src="<%=baseUrl%>/static/common/client/images/city-design/pic4_03.png" alt="pic" class="img-responsive"><p>九寨白河谷生态旅游度假区概念规划 + 城市设计</p></a></div>
-                <div class="col-sm-12">
+                <div class="col-sm-12"><span>参与设计案例</span></div>
+                <c:forEach var="project" items="${projects}">
+                  <div class="col-sm-3">
+                    <a href="${pageContext.request.contextPath}/client/projects/${project.project.id}">
+                      <img src="${pageContext.request.contextPath}/${project.project.imgUrls}" alt="pic" class="img-responsive">
+                      <p>${project.project.zhName}</p>
+                    </a>
+                  </div>
+                </c:forEach>
+                <div class="col-sm-12 hidden">
                     <nav class="pull-right">
                         <ul class="pagination">
                             <li class="disabled"><a href="#">&laquo;</a></li>
