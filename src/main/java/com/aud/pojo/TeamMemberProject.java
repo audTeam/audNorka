@@ -6,8 +6,18 @@ public class TeamMemberProject {
     private Integer teamMemberId;
 
     private Integer projectId;
+    
+    private Project project;
 
-    public Integer getId() {
+    public Project getProject() {
+		return project;
+	}
+
+	public void setProject(Project project) {
+		this.project = project;
+	}
+
+	public Integer getId() {
         return id;
     }
 

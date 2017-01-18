@@ -36,7 +36,7 @@
       <div class="box">
         <div class="box-body">
           <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
               <c:import url="_form.jsp">
                 <c:param name="actionUrl" value="${pageContext.request.contextPath}/admin/projectCases/${menu.id}/projects"></c:param>
               </c:import>
@@ -58,6 +58,7 @@
 <!-- REQUIRED JS SCRIPTS -->
 
 <c:import url="../shared/_javascript.jsp"></c:import>
+<script src="<%=baseUrl%>/static/common/admin/js/multi_image_upload.js" type="text/javascript"></script>
 
 </body>
 </html>
