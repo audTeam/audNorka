@@ -60,10 +60,14 @@
                         <p>${project.content}</p>
                     </div>
                     <div class="design">
-                        <h4><a href="#">设计师</a></h4>
-                        <c:forEach var="teamMember" items="${teamMembercollection}">
-                        <div class="col-sm-4 design-pic"><a href="${pageContext.request.contextPath }/${teamMember.imgUrl}"><img src="<%=baseUrl%>/static/common/client/images/case-details/case5_03.png" alt="pic" class="img-responsive">
-                        <p>${teamMember.name}</p><p>${teamMember.goodAt}</p></a></div>
+                        <h4>设计师</h4>
+                        <c:forEach var="teamMembera" items="${teamMembercollection}">
+                          <c:set var="teamMember" value="${teamMembera.teamMember}"></c:set>
+                          <div class="col-sm-4 design-pic">
+                            <a href="${pageContext.request.contextPath }/client/teams/${teamMember.navMenuId}/teamMembers/${teamMember.id}">
+                            <img src="${pageContext.request.contextPath }/${teamMember.imgUrl}" alt="pic" class="img-responsive">
+                            <p>${teamMember.name}</p><p>${teamMember.goodAt}</p></a>
+                          </div>
                         </c:forEach>
                     </div>
                 </div>

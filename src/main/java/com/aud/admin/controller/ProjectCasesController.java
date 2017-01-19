@@ -46,6 +46,7 @@ public class ProjectCasesController {
 	@RequestMapping(value = "/{id}", method=RequestMethod.DELETE)
 	public String delete(@PathVariable("id") int id){
 		this.navMenuMapper.deleteByPrimaryKey(id);
+		this.projectMapper.deleteByNavMenuId(id);
 		return "redirect:/admin/projectCases";
 	}
 

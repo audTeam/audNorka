@@ -51,6 +51,10 @@
     from projects
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <delete id="deleteByNavMenuId" parameterType="java.lang.Integer">
+    delete from projects
+    where nav_menu_id = #{id,jdbcType=INTEGER}
+  </delete>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from projects
     where id = #{id,jdbcType=INTEGER}

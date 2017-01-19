@@ -6,6 +6,8 @@ import com.aud.pojo.TeamMemberProject;
 
 public interface TeamMemberProjectMapper {
     int deleteByPrimaryKey(Integer id);
+    
+    int deletedByTeamMemberId(int teamMemberId);
 
     int insert(TeamMemberProject record);
 

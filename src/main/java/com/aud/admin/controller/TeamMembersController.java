@@ -39,6 +39,16 @@ public class TeamMembersController {
         this.teamMemberMapper.deleteByPrimaryKey(id);
         return "redirect:/admin/teams/" + teamId + "/teamMembers";
     }
+
+    @RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
+    public String edit(@PathVariable("teamId") int teamId, @PathVariable("id") int id, ModelMap model) {
+        model.addAttribute("team", this.navMenuMapper.selectByPrimaryKey(teamId));
+        model.addAttribute("teamMember", this.teamMemberMapper.selectByPrimaryKey(id));
+        model.addAttribute("projects", this.projectMapper.all());
+        model.addAttribute("teamMemberProjects", this.teamMemberProjectMapper.selectByTeamMemberId(id));
+        return "admin/teamMembers/edit";
+    }
+
     @RequestMapping(value = "", method = RequestMethod.POST)
     public String create(@PathVariable("teamId") int teamId, TeamMember teamMember, MultipartFile file, MultipartFile personFile, HttpServletRequest request, int[] projectIds)
             throws IllegalStateException, IOException {
@@ -49,6 +59,7 @@ public class TeamMembersController {
         teamMember.setCreatedAt(new Date());
         this.teamMemberMapper.insertSelective(teamMember);
         int userId = this.teamMemberMapper.getMaxId();
+
         for(int projectId : projectIds){
             TeamMemberProject relation = new TeamMemberProject();
             relation.setProjectId(projectId);
@@ -57,20 +68,18 @@ public class TeamMembersController {
         }
         return "redirect:/admin/teams/" + teamMember.getNavMenuId() + "/teamMembers";
     }
-    @RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
-    public String edit(@PathVariable("teamId") int teamId, @PathVariable("id") int id, ModelMap model) {
-        model.addAttribute("team", this.navMenuMapper.selectByPrimaryKey(teamId));
-        model.addAttribute("teamMember", this.teamMemberMapper.selectByPrimaryKey(id));
-        model.addAttribute("projects", this.projectMapper.all());
-        System.out.println("---------this.teamMemberProjectMapper.selectByTeamMemberId(id): "+new Gson().toJson(this.teamMemberProjectMapper.selectByTeamMemberId(id)));
-        model.addAttribute("teamMemberProjects", this.teamMemberProjectMapper.selectByTeamMemberId(id));
-        return "admin/teamMembers/edit";
-    }
-    
+
     @RequestMapping(value = "/{id}", method = RequestMethod.PATCH)
-    public String update(@PathVariable("teamId") int teamId, @PathVariable("id") int id, TeamMember teamMember) {
+    public String update(@PathVariable("teamId") int teamId, @PathVariable("id") int id, TeamMember teamMember, int[] projectIds) {
         teamMember.setUpdatedAt(new Date());
         this.teamMemberMapper.updateByPrimaryKeySelective(teamMember);
+        
+        for(int projectId : projectIds){
+            TeamMemberProject relation = new TeamMemberProject();
+            relation.setProjectId(projectId);
+            relation.setTeamMemberId(id);
+            this.teamMemberProjectMapper.insertSelective(relation);
+        }
         return "redirect:/admin/teams/" + teamId + "/teamMembers";
     }
     @RequestMapping(value = "/new", method = RequestMethod.GET)

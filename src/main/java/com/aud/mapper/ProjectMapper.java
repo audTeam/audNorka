@@ -8,6 +8,8 @@ public interface ProjectMapper {
 	  List<Project> all();
 
     int deleteByPrimaryKey(Integer id);
+    
+    int deleteByNavMenuId(int id);
 
     int insert(Project record);
 
