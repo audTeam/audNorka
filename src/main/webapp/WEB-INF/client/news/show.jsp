@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <% String baseUrl = request.getContextPath(); %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
@@ -20,33 +21,24 @@
                 <img src="<%=baseUrl%>/static/common/client/images/news-detail/news-detail-pic1_03.png" alt="pic" class="img-responsive">
             </div>
             <div class="col-sm-6">
-                <h3>Perkins+Will设计的浙北医学中心项目赢得中国十佳医院大奖</h3>
-                <p>城市更新的成功和可持续型城市的形成需要文化领域、环保领域和经济领域的响应。我们的城市建筑师与不同领域的设计专业人士紧密合作，力城市更新的成功和可持续型城市的形成需要文化领域、环保领域和经济领域的响应。</p>
-                <p>城市更新的成功和可持续型城市的形成需要文化领域、环保领域和经济领域的响应。我们的城市建筑师与不同领域的设计专业人士紧密合作，力城市更新的成功和可持续型城市的形成需要文化领域、环保领域和经济领域的响应。</p>
-                <p>城市更新的成功和可持续型城市的形成需要文化领域、环保领域和经济领域的响应。我们的城市建筑师与不同领域的设计专业人士紧密合作，力城市更新的成功和可持续型城市的形成需要文化领域、环保领域和经济领域的响应。</p>
-                <p>城市更新的成功和可持续型城市的形成需要文化领域、环保领域和经济领域的响应。我们的城市建筑师与不同领域的设计专业人士紧密合作，力城市更新的成功和可持续型城市的形成需要文化领域、环保领域和经济领域的响应。</p>
-                <p>城市更新的成功和可持续型城市的形成需要文化领域、环保领域和经济领域的响应。我们的城市建筑师与不同领域的设计专业人士紧密合作，力城市更新的成功和可持续型城市的形成需要文化领域、环保领域和经济领域的响应。</p>
-                <p>如需更多详情，请发邮件至:<a href="#">info.china@perkinswill.com</a></p>
+                <h3>${newItem.title}</h3>
+                <p>${newItem.content}</p>
             </div>
             <div class="col-sm-4">
                 <ul class="nav more-case">
                     <li><a href="#">更多新闻</a></li>
-                    <li class="clearfix">
-                        <div class="col-xs-5 case-pic"><a href="<%=baseUrl%>/client/news/1"><img src="<%=baseUrl%>/static/common/client/images/news-detail/news-detail-pic2_06.png" alt="pic" class="img-responsive"></a></div>
-                        <div class="col-xs-7 case-text"><a href="<%=baseUrl%>/client/news/1">perkins+will首获生态建筑挑战认证</a></div>
-                    </li>
-                    <li class="clearfix">
-                        <div class="col-xs-5 case-pic"><a href="<%=baseUrl%>/client/news/1"><img src="<%=baseUrl%>/static/common/client/images/news-detail/news-detail-pic3_07.png" alt="pic" class="img-responsive"></a></div>
-                        <div class="col-xs-7 case-text"><a href="<%=baseUrl%>/client/news/1">perkins+will首获生态建筑挑战认证</a></div>
-                    </li>
-                    <li class="clearfix">
-                        <div class="col-xs-5 case-pic"><a href="<%=baseUrl%>/client/news/1"><img src="<%=baseUrl%>/static/common/client/images/news-detail/news-detail-pic2_06.png" alt="pic" class="img-responsive"></a></div>
-                        <div class="col-xs-7 case-text"><a href="<%=baseUrl%>/client/news/1">perkins+will首获生态建筑挑战认证</a></div>
-                    </li>
-                    <li class="clearfix">
-                        <div class="col-xs-5 case-pic"><a href="<%=baseUrl%>/client/news/1"><img src="<%=baseUrl%>/static/common/client/images/news-detail/news-detail-pic3_07.png" alt="pic" class="img-responsive"></a></div>
-                        <div class="col-xs-7 case-text"><a href="<%=baseUrl%>/client/news/1">perkins+will首获生态建筑挑战认证</a></div>
-                    </li>
+                    <c:forEach var="newsItem" items="${news}">
+                      <li class="clearfix">
+                        <div class="col-xs-5 case-pic">
+                          <a href="${pageContext.request.contextPath}/client/newsCategories/${newsNavMenu.id}/news">
+                            <img src="${pageContext.request.contextPath}/${newsItem.headImg}" alt="pic" class="img-responsive">
+                          </a>
+                        </div>
+                        <div class="col-xs-7 case-text">
+                          <a href="${pageContext.request.contextPath}/client/newsCategories/${newsNavMenu.id}/news">${newsItem.title}</a>
+                        </div>
+                      </li>
+                    </c:forEach>
                 </ul>
             </div>
         </div>

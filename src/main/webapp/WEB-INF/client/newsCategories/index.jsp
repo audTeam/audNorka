@@ -34,7 +34,7 @@
                   <c:forEach var="newItem" items="${news}">
                     <li class="clearfix">
                         <div class="col-xs-4 case-pic">
-                          <a href="<%=baseUrl%>/client/news/1">
+                          <a href="<%=baseUrl%>/client/newsCategories/${newItem.navmenueId}/news/${newItem.id}">
                             <img src="${pageContext.request.contextPath}/${newItem.headImg}" alt="pic" class="img-responsive">
                           </a>
                         </div>
@@ -49,7 +49,7 @@
                   </c:forEach>
                 </ul>
             </div>
-            <div class="col-sm-12">
+            <div class="col-sm-12 hidden">
                 <nav class="pull-right">
                     <ul class="pagination">
                         <li class="disabled"><a href="#">&laquo;</a></li>

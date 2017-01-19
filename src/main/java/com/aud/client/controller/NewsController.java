@@ -16,17 +16,14 @@ import com.aud.pojo.NavMenu;
 import com.google.gson.Gson;
 
 @Controller
-@RequestMapping("/client/news")
+@RequestMapping("/client/newsCategories/{newsCategoryId}/news")
 public class NewsController extends BaseController {
-
-	@Autowired
-	private BannerMapper bannerMapper;
 	@Autowired
 	private NavMenuMapper navMenuMapper;
 	@Autowired
 	private NewsMapper newsMapper;
 
-	@RequestMapping(value="/{id}", method=RequestMethod.GET)
+/*	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public String index(@PathVariable("id") int id, ModelMap model){
 		model.addAttribute("banners", this.bannerMapper.all());
 		List<NavMenu> newsNavMenus = this.navMenuMapper.allNavMenuByParentNav(3);
@@ -34,10 +31,12 @@ public class NewsController extends BaseController {
 		model.addAttribute("news", this.newsMapper.selectByNewsCategoryId(id));
 		model.addAttribute("newsCategory", this.navMenuMapper.selectByPrimaryKey(id));
 		return "client/news/index";
-	}
+	}*/
 	
-	@RequestMapping(value="/{newsId}/", method=RequestMethod.GET)
-	public String show(){
+	@RequestMapping(value="/{id}", method=RequestMethod.GET)
+	public String show(@PathVariable("newsCategoryId") int newsCategoryId, @PathVariable("id") int id, ModelMap model){
+		model.addAttribute("newItem", this.newsMapper.selectByPrimaryKey(id));
+		model.addAttribute("news", this.newsMapper.selectByNewsCategoryId(newsCategoryId));
 		return "client/news/show";
 	}
 }
