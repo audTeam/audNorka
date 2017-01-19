@@ -34,12 +34,16 @@ public class BannersController {
 		model.addAttribute("banners", this.bannerMapper.all(1, 2));
 		return "admin/banners/index";
 	}
+	
+	@RequestMapping(value = "/{id}", method = RequestMethod.POST)
+	public String testClass(){
+		System.out.println("---------123");
+		return "redirect:/admin/banners";
+	}
 
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public String create(Banner banner, MultipartFile file, HttpServletRequest request)
 	    throws IllegalStateException, IOException {
-		System.out.println("banner: "+banner);
-		//, "upload/img/banner/"
 		banner.setImgUrl(Utils.saveFile(file, request));
 		this.bannerMapper.insertSelective(banner);
 		return "redirect:/admin/banners";

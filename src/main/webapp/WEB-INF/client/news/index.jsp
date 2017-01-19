@@ -25,14 +25,14 @@
             </div>
             <div class="col-sm-9">
                 <ul class="nav more-case">
-                  <c:forEach var="new" items="${news}">
+                  <c:forEach var="newItem" items="${news}">
                     <li class="clearfix">
-                        <div class="col-xs-4 case-pic"><a href="<%=baseUrl%>/client/news/1"><img src="${pageContext.request.contextPath}/${new.headImg}" alt="pic" class="img-responsive"></a></div>
+                        <div class="col-xs-4 case-pic"><a href="<%=baseUrl%>/client/news/1"><img src="${pageContext.request.contextPath}/${newItem.headImg}" alt="pic" class="img-responsive"></a></div>
                         <div class="col-xs-8 case-text">
                             <p class="date">12.0.6</p>
-                            <h4>${new.title}</h4>
+                            <h4>${newItem.title}</h4>
                             <div class="text">
-                                <p>${new.subTitle}</p>
+                                <p>${newItem.subTitle}</p>
                             </div>
                         </div>
                     </li>

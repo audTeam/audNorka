@@ -8,25 +8,18 @@
     <result column="head_img" property="headImg" jdbcType="VARCHAR" />
     <result column="sub_title" property="subTitle" jdbcType="VARCHAR" />
     <result column="navmenue_id" property="navmenueId" jdbcType="INTEGER" />
-  </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.aud.pojo.News" extends="BaseResultMap" >
-    <result column="content" property="content" jdbcType="LONGVARBINARY" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, title, publish_at, head_img, sub_title, navmenue_id
+    id, title, publish_at, head_img, sub_title, navmenue_id, content
   </sql>
-  <sql id="Blob_Column_List" >
-    content
-  </sql>
-  <select id="selectByNewsCategoryId" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+  <select id="selectByNewsCategoryId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select * from news
     where navmenue_id = #{navmenue_id,jdbcType=INTEGER}
   </select>
-  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
     from news
     where id = #{id,jdbcType=INTEGER}
   </select>
@@ -40,7 +33,7 @@
       content)
     values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{publishAt,jdbcType=TIMESTAMP}, 
       #{headImg,jdbcType=VARCHAR}, #{subTitle,jdbcType=VARCHAR}, #{navmenueId,jdbcType=INTEGER}, 
-      #{content,jdbcType=LONGVARBINARY})
+      #{content,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.aud.pojo.News" >
     insert into news
@@ -87,7 +80,7 @@
         #{navmenueId,jdbcType=INTEGER},
       </if>
       <if test="content != null" >
-        #{content,jdbcType=LONGVARBINARY},
+        #{content,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -110,7 +103,7 @@
         navmenue_id = #{navmenueId,jdbcType=INTEGER},
       </if>
       <if test="content != null" >
-        content = #{content,jdbcType=LONGVARBINARY},
+        content = #{content,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -122,7 +115,7 @@
       head_img = #{headImg,jdbcType=VARCHAR},
       sub_title = #{subTitle,jdbcType=VARCHAR},
       navmenue_id = #{navmenueId,jdbcType=INTEGER},
-      content = #{content,jdbcType=LONGVARBINARY}
+      content = #{content,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.aud.pojo.News" >

@@ -26,7 +26,6 @@ public class NewsController extends BaseController {
 	@Autowired
 	private NewsMapper newsMapper;
 
-	
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public String index(@PathVariable("id") int id, ModelMap model){
 		model.addAttribute("banners", this.bannerMapper.all());

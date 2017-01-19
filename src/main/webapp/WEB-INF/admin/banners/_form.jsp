@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<form class="form-horizontal" method="POST" action="${param.actionUrl}" id="uploadForm" enctype="multipart/form-data">
+<form class="form-horizontal" method="post" action="${param.actionUrl}" id="uploadForm" enctype="multipart/form-data">
   <c:if test="${param.method=='PATCH'}">
     <input type="hidden" name="_method" value="PATCH">
     <input type="hidden" name="id" value="${banner.id}">
@@ -13,12 +13,12 @@
       <input type="text" name="name" value="${banner.name}" class="form-control">
     </div>
   </div>
-  <div class="form-group">
+ <!--   <div class="form-group">
     <label class="col-md-4 control-label">链接</label>
     <div class="col-md-8">
       <input type="text" name="url" value="${banner.url }" class="form-control"> 
     </div>
-  </div>
+  </div> -->
   <c:if test="${banner.imgUrl != null}">
   <div class="form-group">
     <label class="col-md-4 control-label">图片</label>

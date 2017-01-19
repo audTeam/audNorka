@@ -16,12 +16,12 @@ public class News {
 
 	private Integer navmenueId;
 
-	private byte[] content;
+	private String content;
 
 	@Override
 	public String toString() {
 		return "News [id=" + id + ", title=" + title + ", publishAt=" + publishAt + ", headImg=" + headImg
-				+ ", subTitle=" + subTitle + ", navmenueId=" + navmenueId + ", content=" + Arrays.toString(content)
+				+ ", subTitle=" + subTitle + ", navmenueId=" + navmenueId + ", content=" + content
 				+ "]";
 	}
 
@@ -73,11 +73,11 @@ public class News {
 		this.navmenueId = navmenueId;
 	}
 
-	public byte[] getContent() {
+	public String getContent() {
 		return content;
 	}
 
-	public void setContent(byte[] content) {
+	public void setContent(String content) {
 		this.content = content;
 	}
 }
