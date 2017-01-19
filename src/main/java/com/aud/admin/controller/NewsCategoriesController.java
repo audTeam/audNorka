@@ -31,6 +31,7 @@ public class NewsCategoriesController {
 	public String create(NavMenu navMenu){
 		navMenu.setParentNav(3);
 		navMenu.setLang("zh");
+		System.out.println("----------navMenu: " + navMenu);
 		this.navMenuMapper.insertSelective(navMenu);
 		return "redirect:/admin/newsCategories";
 	}

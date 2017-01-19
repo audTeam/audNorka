@@ -68,7 +68,6 @@
           </div>
         </div>
       </div>
-
     </section>
     <!-- /.content -->
   </div>
@@ -78,7 +77,6 @@
   <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
-
 <!-- REQUIRED JS SCRIPTS -->
 
 <c:import url="../shared/_javascript.jsp"></c:import>

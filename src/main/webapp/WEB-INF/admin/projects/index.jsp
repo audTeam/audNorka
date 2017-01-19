@@ -53,7 +53,7 @@
                   <td>${navMenu.id}</td>
                   <td>${navMenu.name}</td>
                   <td>${navMenu.nav_menu_desc}</td>
-                  <td><a href="<%=baseUrl%>/admin/projects/cases/${navMenu.id}" </td>
+                  <td><a href="<%=baseUrl%>/admin/projects/cases/${navMenu.id}"></a> </td>
                 </tr>
               </c:forEach>
             </table>

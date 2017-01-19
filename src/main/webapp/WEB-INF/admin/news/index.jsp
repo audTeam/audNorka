@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%-- <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt " %> --%>
-
 <%String baseUrl = request.getContextPath(); %>
 <!DOCTYPE html>
 <html>
@@ -14,12 +13,10 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <c:import url="../shared/_stylesheet.jsp"></c:import>
 </head>
-
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
   <jsp:include page="../shared/_header.jsp"></jsp:include>
   <jsp:include page="../shared/_aside.jsp"></jsp:include>
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -30,10 +27,8 @@
         <li class="active">Here</li>
       </ol>
     </section>
-
     <!-- Main content -->
     <section class="content">
-
       <!-- Your Page Content Here -->
       <div class="box">
         <div class="box-body">
@@ -65,7 +60,6 @@
           </div>
         </div>
       </div>
-
     </section>
     <!-- /.content -->
   </div>
@@ -75,10 +69,7 @@
   <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
-
 <!-- REQUIRED JS SCRIPTS -->
-
 <c:import url="../shared/_javascript.jsp"></c:import>
-
 </body>
 </html>

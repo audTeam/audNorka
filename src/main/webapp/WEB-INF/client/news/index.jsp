@@ -20,51 +20,23 @@
                 <ul class="nav news-tag">
                     <li><a href="#" class="news-active">最新动态<span>></span></a></li>
                     <li><a href="#">项目动态<span>></span></a></li>
-                    <li><a href="#">公司动态<span>></span></a></li>
+                    <li><a href="<%=baseUrl%>/client/news/1">公司动态<span>></span></a></li>
                 </ul>
             </div>
             <div class="col-sm-9">
                 <ul class="nav more-case">
+                  <c:forEach var="new" items="${news}">
                     <li class="clearfix">
-                        <div class="col-xs-4 case-pic"><a href="<%=baseUrl%>/client/news/1"><img src="<%=baseUrl%>/static/common/client/images/news/news-pic1_03.png" alt="pic" class="img-responsive"></a></div>
+                        <div class="col-xs-4 case-pic"><a href="<%=baseUrl%>/client/news/1"><img src="${pageContext.request.contextPath}/${new.headImg}" alt="pic" class="img-responsive"></a></div>
                         <div class="col-xs-8 case-text">
-                            <p class="date">12.02.16</p>
-                            <h4>Perkins+Will Celebrates Dpening Evergreen Transit Line</h4>
+                            <p class="date">12.0.6</p>
+                            <h4>${new.title}</h4>
                             <div class="text">
-                                <p>市更新的成功和可持续型城市的形成需要文化领域、环保领域和经济领域的响应。我们的城市建筑师与不同领域的设计专业市更新的成功和可持续型城市的形成需要文化领域、环保领域和经济领域的响应。我们的城市建筑师与不同领域的设计</p>
+                                <p>${new.subTitle}</p>
                             </div>
                         </div>
                     </li>
-                    <li class="clearfix">
-                        <div class="col-xs-4 case-pic"><a href="<%=baseUrl%>/client/news/1"><img src="<%=baseUrl%>/static/common/client/images/news/news-pic2_03.png" alt="pic" class="img-responsive"></a></div>
-                        <div class="col-xs-8 case-text">
-                            <p class="date">12.02.16</p>
-                            <h4>Perkins+Will设计的浙北医学中心项目赢得中国十佳医院大奖</h4>
-                            <div class="text">
-                            <p>市更新的成功和可持续型城市的形成需要文化领域、环保领域和经济领域的响应。我们的城市建筑师与不同领域的设计专业</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="clearfix">
-                        <div class="col-xs-4 case-pic"><a href="<%=baseUrl%>/client/news/1"><img src="<%=baseUrl%>/static/common/client/images/news/news-pic3_03.png" alt="pic" class="img-responsive"></a></div>
-                        <div class="col-xs-8 case-text">
-                            <p class="date">12.02.16</p>
-                            <h4>perkins+will首获生态建筑挑战认证</h4>
-                            <div class="text">
-                                <p>市更新的成功和可持续型城市的形成需要文化领域、环保领域和经济领域的响应。我们的城市建筑师与不同领域的设计专业</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="clearfix">
-                        <div class="col-xs-4 case-pic"><a href="<%=baseUrl%>/client/news/1"><img src="<%=baseUrl%>/static/common/client/images/news/news-pic1_03.png" alt="pic" class="img-responsive"></a></div>
-                        <div class="col-xs-8 case-text">
-                            <p class="date">12.02.16</p>
-                            <h4>perkins+will首获生态建筑挑战认证</h4>
-                            <div class="text">
-                                <p>市更新的成功和可持续型城市的形成需要文化领域、环保领域和经济领域的响应。我们的城市建筑师与不同领域的设计专业</p>
-                            </div>
-                        </div>
-                    </li>
+                    </c:forEach>
                 </ul>
             </div>
             <div class="col-sm-12">
