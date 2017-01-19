@@ -18,10 +18,12 @@
         <section class="part-one">
             <div class="row all-case">
                 <div class="col-sm-12">全部案例</div>
-                <c:forEach var="project" items="${projects}">
+                <c:forEach var="item" items="${collection}">
+                  <c:set var="project" value="${item.project}"></c:set>
+                  <c:set var="imageUrl" value="${item.images[0].imgUrl}"></c:set>
                   <div class="col-sm-3">
                     <a href="<%=baseUrl%>/client/projects/${project.id}">
-                      <img src="<%=baseUrl%>/static/common/client/images/city-design/pic1_03.png" alt="pic" class="img-responsive">
+                      <img src="${pageContext.request.contextPath }/${imageUrl}" alt="pic" class="img-responsive">
                       <p>${project.zhName}</p>
                     </a>
                   </div>                

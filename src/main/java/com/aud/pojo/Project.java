@@ -1,5 +1,7 @@
 package com.aud.pojo;
 
+import java.util.List;
+
 public class Project {
     private Integer id;
 
@@ -16,8 +18,18 @@ public class Project {
     private Integer navMenuId;
 
     private String imgUrls;
+    
+    private List<Image> images;
 
-    public Integer getId() {
+    public List<Image> getImages() {
+		return images;
+	}
+
+	public void setImages(List<Image> images) {
+		this.images = images;
+	}
+
+	public Integer getId() {
         return id;
     }
 

@@ -9,6 +9,10 @@
   <sql id="Base_Column_List" >
     id, img_url, resource_id
   </sql>
+  <select id="selectByResourceId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select * from images
+    where resource_id = #{resourceId,jdbcType=INTEGER}
+  </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />

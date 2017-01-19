@@ -18,4 +18,6 @@ public interface TeamMemberProjectMapper {
     int updateByPrimaryKey(TeamMemberProject record);
     
     List<TeamMemberProject> selectByTeamMemberId(int teamMemBerId);
+    
+    List<TeamMemberProject> selectByProjectId(int projectId);
 }

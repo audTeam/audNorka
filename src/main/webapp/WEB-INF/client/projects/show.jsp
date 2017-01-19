@@ -26,15 +26,16 @@
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
-                <div class="item active">
-                    <img src="<%=baseUrl%>/static/common/client/images/sites/01.jpg" alt="pic" class="img-responsive">
-                </div>
-                <div class="item">
-                    <img src="<%=baseUrl%>/static/common/client/images/sites/02.jpg" alt="pic" class="img-responsive">
-                </div>
-                <div class="item">
-                    <img src="<%=baseUrl%>/static/common/client/images/sites/03.jpg" alt="pic" class="img-responsive">
-                </div>
+                <c:forEach var="image" items="${images}" varStatus="status">
+                  <c:if test="${status.index==0}">
+                    <div class="item active">
+                  </c:if>
+                  <c:if test="${status.index!=0}">
+                    <div class="item">
+                  </c:if>
+                    <img src="${pageContext.request.contextPath}/${image.imgUrl}" alt="pic" class="img-responsive">
+                  </div>
+                </c:forEach>
             </div>
             <!-- Controls -->
             <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
@@ -60,20 +61,23 @@
                     </div>
                     <div class="design">
                         <h4><a href="#">设计师</a></h4>
-                        <div class="col-sm-4 design-pic"><a href="<%=baseUrl%>/client/persons/1"><img src="<%=baseUrl%>/static/common/client/images/case-details/case5_03.png" alt="pic" class="img-responsive"><p>Leo Alvorea</p><p>景观设计</p></a></div>
-                        <div class="col-sm-4 design-pic"><a href="<%=baseUrl%>/client/persons/1"><img src="<%=baseUrl%>/static/common/client/images/case-details/case6_05.png" alt="pic" class="img-responsive"><p>Janice Barnes</p><p>规划 + 战略</p></a></div>
-                        <div class="col-sm-4 design-pic"><a href="<%=baseUrl%>/client/persons/1"><img src="<%=baseUrl%>/static/common/client/images/case-details/case7_05.png" alt="pic" class="img-responsive"><p>Carolyn BaRoss</p><p>室内医疗设计</p></a></div>
+                        <c:forEach var="teamMember" items="${teamMembercollection}">
+                        <div class="col-sm-4 design-pic"><a href="${pageContext.request.contextPath }/${teamMember.imgUrl}"><img src="<%=baseUrl%>/static/common/client/images/case-details/case5_03.png" alt="pic" class="img-responsive">
+                        <p>${teamMember.name}</p><p>${teamMember.goodAt}</p></a></div>
+                        </c:forEach>
                     </div>
                 </div>
 
                 <div class="col-sm-12 col-lg-4">
                    <ul class="nav more-case">
                        <li><a href="<%=baseUrl%>/client/projects">更多案例</a></li>
-                       <c:forEach var="project" items="${projects}">
+                       <c:forEach var="item" items="${collection}">
+                         <c:set var="project" value="${item.project}"></c:set>
+                         <c:set var="imageUrl" value="${item.images[0].imgUrl}"></c:set>
                          <li class="clearfix">
                            <div class="col-xs-5 case-pic">
                              <a href="<%=baseUrl%>/client/projects/${project.id}">
-                               <img src="<%=baseUrl%>/static/common/client/images/case-details/case1_03.png" alt="pic" class="img-responsive"></a>
+                               <img src="${pageContext.request.contextPath }/${imageUrl}" alt="pic" class="img-responsive">
                              </div>
                              <div class="col-xs-7 case-text" style="font-size: 12px;"><a href="<%=baseUrl%>/client/projects/${project.id}">${project.zhName}</a></div>
                          </li>

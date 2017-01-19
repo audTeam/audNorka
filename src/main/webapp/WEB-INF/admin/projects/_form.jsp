@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%String baseUrl = request.getContextPath(); %>
 
-<form action="${param.actionUrl}" method="POST" class="form-horizontal" id="ffAdd">
+<form action="${param.actionUrl}" method="POST" class="form-horizontal">
   <input type="hidden" name="navMenuId" value="${menu.id}">
   <div class="form-group">
     <label class="control-label col-md-2">案例中文名称</label>
@@ -19,7 +19,7 @@
   </div>
   <div class="form-group">
     <label for="" class="col-md-2 control-label">项目图片</label>
-    <div class="col-md-10">
+    <div class="col-md-10" id="imgUrls">
       <input id="imgUrl" type="file" multiple class="file-loading form-control">
       <p class="help-block">支持jpg、jpeg、png、gif格式，大小不超过2.0M</p>
     </div>

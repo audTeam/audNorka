@@ -14,10 +14,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.aud.mapper.NavMenuMapper;
 import com.aud.mapper.ProjectMapper;
-import com.aud.pojo.Banner;
 import com.aud.pojo.NavMenu;
 import com.aud.tool.Utils;
-import com.google.gson.Gson;
 
 @Controller
 @RequestMapping("/admin/projectCases")
@@ -48,7 +46,7 @@ public class ProjectCasesController {
 	@RequestMapping(value = "/{id}", method=RequestMethod.DELETE)
 	public String delete(@PathVariable("id") int id){
 		this.navMenuMapper.deleteByPrimaryKey(id);
-		return "admin/projectCases/new";
+		return "redirect:/admin/projectCases";
 	}
 
 	@RequestMapping(value = "", method=RequestMethod.POST)

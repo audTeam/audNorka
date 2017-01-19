@@ -30,6 +30,10 @@
     from team_member_projects t INNER JOIN projects p ON t.project_id=p.id
     where t.team_member_id = #{team_member_id,jdbcType=INTEGER}
   </select>
+  <select id="selectByProjectId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select * from team_member_projects
+    where project_id = #{projectId,jdbcType=INTEGER}
+  </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />

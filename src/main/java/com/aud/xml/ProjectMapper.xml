@@ -13,8 +13,25 @@
   <resultMap id="ResultMapWithBLOBs" type="com.aud.pojo.Project" extends="BaseResultMap" >
     <result column="img_urls" property="imgUrls" jdbcType="LONGVARCHAR" />
   </resultMap>
-  <select id="all" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+  <resultMap id="projectAndImage"  type="com.aud.pojo.Project">
+	<id column="id" property="id" jdbcType="INTEGER" />
+	<result column="zh_name" property="zhName" jdbcType="VARCHAR" />
+	<result column="cn_name" property="cnName" jdbcType="VARCHAR" />
+	<result column="address" property="address" jdbcType="VARCHAR" />
+	<result column="content" property="content" jdbcType="VARCHAR" />
+	<result column="lang" property="lang" jdbcType="VARCHAR" />
+	<result column="nav_menu_id" property="navMenuId" jdbcType="INTEGER" />
+    <collection property="images" javaType="com.aud.pojo.Image" column="resource_id">
+	  <id column="image_id" property="id" jdbcType="INTEGER" />
+	  <result column="img_url" property="imgUrl" jdbcType="VARCHAR" />
+    </collection>
+  </resultMap>
+  <select id="getMaxId" resultType="java.lang.Integer">
+    select id from projects ORDER BY id DESC LIMIT 0, 1
+  </select>
+  <select id="all" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select * from projects
+    <!-- select * from projects INNER JOIN images ON projects.id=images.resource_id -->
   </select>
   <select id="getByNavMenuId" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
     select * from projects

@@ -1,5 +1,7 @@
 package com.aud.mapper;
 
+import java.util.List;
+
 import com.aud.pojo.Image;
 
 public interface ImageMapper {
@@ -14,4 +16,6 @@ public interface ImageMapper {
     int updateByPrimaryKeySelective(Image record);
 
     int updateByPrimaryKey(Image record);
+    
+    List<Image> selectByResourceId(int resourceId);
 }

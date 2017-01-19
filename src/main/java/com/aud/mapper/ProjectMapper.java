@@ -22,4 +22,6 @@ public interface ProjectMapper {
     int updateByPrimaryKey(Project record);
     
     List<Project> getByNavMenuId(int nav_menu_id);
+    
+    int getMaxId();
 }
