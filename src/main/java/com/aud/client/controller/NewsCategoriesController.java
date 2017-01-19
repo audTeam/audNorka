@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -15,17 +16,18 @@ import com.google.gson.Gson;
 
 @Controller("clientNews")
 @RequestMapping("/client/newsCategories")
-public class NewsCategoriesController {
+public class NewsCategoriesController extends BaseController {
 	@Autowired
 	private NavMenuMapper navMenuMapper;
 	@Autowired
 	private NewsMapper newsMapper;
 
-	@RequestMapping(value = "", method = RequestMethod.GET)
-	public String index(ModelMap model) {
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	public String index(@PathVariable("id") int newsCategoryId,ModelMap model) {
 		List<NavMenu> newsNavMenus = this.navMenuMapper.allNavMenuByParentNav(3);
 		model.addAttribute("newsNavMenus", newsNavMenus);
-		model.addAttribute("news", this.newsMapper.selectByNewsCategoryId(newsNavMenus.get(0).getId()));
+		model.addAttribute("news", this.newsMapper.selectByNewsCategoryId(newsCategoryId));
+		//model.addAttribute("news", this.newsMapper.selectByNewsCategoryId(newsNavMenus.get(0).getId()));
 		return "client/newsCategories/index";
 	}
 }

@@ -39,7 +39,7 @@
         <ul class="nav navbar-nav ul_one">
           <li><a href="<%=baseUrl%>/client/projects"><span data-tag="0">项目案例</span></a></li>
           <li><a href="<%=baseUrl%>/client/teams"><span data-tag="1">团队介绍</span></a></li>
-          <li><a href="<%=baseUrl%>/client/news/15"><span data-tag="2">新闻动态</span></a></li>
+          <li><a href="<%=baseUrl%>/client/newsCategories/15"><span data-tag="2">新闻动态</span></a></li>
           <li><a href="<%=baseUrl%>/client/aboutUs"><span data-tag="3">关于AUD</span></a></li>
           <li><a href="<%=baseUrl%>/client/jobs"><span data-tag="4">招聘信息</span></a></li>
         </ul>
@@ -71,15 +71,15 @@
         </c:forEach>
       </ul>
       <ul class="nav navbar-nav ul_two" data-tag="2">
-        <c:forEach var="teamsNavMenu" items="${teamsNavMenus}">
-        	<li><a href="<%=baseUrl%>/client/teams" class="second-nav">${teamsNavMenu.name}</a>
+        <c:forEach var="teamsNavMenus" items="${teamsNavMenus}">
+        	<li><a href="<%=baseUrl%>/client/teams" class="second-nav">${teamsNavMenus.name}</a>
         </c:forEach>
         <!-- <li><a href="<%=baseUrl%>/client/teams/1" class="second-nav">建筑设计团队</a></li>
         <li><a href="<%=baseUrl%>/client/teams/1" class="second-nav">室内设计团队</a></li> -->
       </ul>
       <ul class="nav navbar-nav ul_two" data-tag="3">
         <c:forEach var="newsNavMenu" items="${newsNavMenus}">
-        	<li><a href="<%=baseUrl%>/client/news/${newsNavMenu.id}" class="second-nav">${newsNavMenu.name}</a>
+        	<li><a href="<%=baseUrl%>/client/newsCategories/${newsNavMenu.id}" class="second-nav">${newsNavMenu.name}</a>
         </c:forEach>
        <!--  <li><a href="<%=baseUrl%>/client/news" class="second-nav">项目动态</a></li>
         <li><a href="<%=baseUrl%>/client/news" class="second-nav">公司动态</a></li> -->

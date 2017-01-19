@@ -25,7 +25,8 @@ public class BaseController {
 
 	@ModelAttribute
 	public void setNavMenus(ModelMap model) {
-		model.addAttribute("teams", this.navMenuMapper.allNavMenuByParentNav(2));
+		model.addAttribute("teamsNavMenus", this.navMenuMapper.allNavMenuByParentNav(2));
+		model.addAttribute("newsNavMenus", this.navMenuMapper.allNavMenuByParentNav(3));
 
 		//获取项目列表
 		List<NavMenu> projectNavMenus = this.navMenuMapper.allNavMenuByParentNav(1);

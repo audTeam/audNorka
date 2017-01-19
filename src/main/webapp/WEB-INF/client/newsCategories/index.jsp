@@ -21,10 +21,10 @@
                 <ul class="nav news-tag">
                    <c:forEach var="newsNavMenu" items="${newsNavMenus}" varStatus="status">
                      <c:if test="${status.index==0}">
-                       <li><a href="${pageContext.request.contextPath}/client/newsCategories/${newsNavMenu.id}/news" class="news-active">${newsNavMenu.name}<span>></span></a></li>
+                       <li><a href="${pageContext.request.contextPath}/client/newsCategories/${newsNavMenu.id}" class="news-active">${newsNavMenu.name}<span>></span></a></li>
                      </c:if>
                      <c:if test="${status.index!=0}">
-                       <li><a href="${pageContext.request.contextPath}/client/newsCategories/${newsNavMenu.id}/news">${newsNavMenu.name}<span>></span></a></li>
+                       <li><a href="${pageContext.request.contextPath}/client/newsCategories/${newsNavMenu.id}">${newsNavMenu.name}<span>></span></a></li>
                      </c:if>
                    </c:forEach>
                 </ul>
@@ -39,7 +39,7 @@
                           </a>
                         </div>
                         <div class="col-xs-8 case-text">
-                            <p class="date">${newItem.publishAt}</p>
+                            <p class="date">17-1-19</p>
                             <h4>${newItem.title}</h4>
                             <div class="text">
                                 <p>${newItem.subTitle}</p>

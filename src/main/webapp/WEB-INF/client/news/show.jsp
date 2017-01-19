@@ -30,12 +30,12 @@
                     <c:forEach var="newsItem" items="${news}">
                       <li class="clearfix">
                         <div class="col-xs-5 case-pic">
-                          <a href="${pageContext.request.contextPath}/client/newsCategories/${newsNavMenu.id}/news">
+                          <a href="<%=baseUrl%>/client/newsCategories/${newsItem.navmenueId}/news/${newsItem.id}">
                             <img src="${pageContext.request.contextPath}/${newsItem.headImg}" alt="pic" class="img-responsive">
                           </a>
                         </div>
                         <div class="col-xs-7 case-text">
-                          <a href="${pageContext.request.contextPath}/client/newsCategories/${newsNavMenu.id}/news">${newsItem.title}</a>
+                          <a href="<%=baseUrl%>/client/newsCategories/${newsItem.navmenueId}/news/${newsItem.id}">${newsItem.title}</a>
                         </div>
                       </li>
                     </c:forEach>
