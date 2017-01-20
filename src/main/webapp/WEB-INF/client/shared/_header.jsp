@@ -26,8 +26,9 @@
             <li><a href="${pageContext.request.contextPath}/client/teams/${team.id}/teamMembers" class="second-nav">${team.name}</a></li>
           </c:forEach>
           <li>新闻动态</li>
-          <li><a href="<%=baseUrl%>/client/news">--项目动态</a></li>
-          <li><a href="<%=baseUrl%>/client/news">--公司动态</a></li>
+          <c:forEach var="newsNavMenu" items="${newsNavMenus}">
+        	<li><a href="<%=baseUrl%>/client/newsCategories/${newsNavMenu.id}" class="second-nav">${newsNavMenu.name}</a>
+          </c:forEach>
           <li>关于AUD</li>
           <li><a href="<%=baseUrl%>/client/aboutUs">--公司历史介绍</a></li>
           <li><a href="<%=baseUrl%>/client/aboutUs/service">--公司服务范围</a></li>
@@ -39,7 +40,7 @@
         <ul class="nav navbar-nav ul_one">
           <li><a href="<%=baseUrl%>/client/projects"><span data-tag="0">项目案例</span></a></li>
           <li><a href="<%=baseUrl%>/client/teams"><span data-tag="1">团队介绍</span></a></li>
-          <li><a href="<%=baseUrl%>/client/newsCategories/15"><span data-tag="2">新闻动态</span></a></li>
+          <li><a href="<%=baseUrl%>/client/newsCategories/${newsNavMenus[0].id}"><span data-tag="2">新闻动态</span></a></li>
           <li><a href="<%=baseUrl%>/client/aboutUs"><span data-tag="3">关于AUD</span></a></li>
           <li><a href="<%=baseUrl%>/client/jobs"><span data-tag="4">招聘信息</span></a></li>
         </ul>
@@ -74,15 +75,11 @@
         <c:forEach var="teamsNavMenus" items="${teamsNavMenus}">
         	<li><a href="<%=baseUrl%>/client/teams" class="second-nav">${teamsNavMenus.name}</a>
         </c:forEach>
-        <!-- <li><a href="<%=baseUrl%>/client/teams/1" class="second-nav">建筑设计团队</a></li>
-        <li><a href="<%=baseUrl%>/client/teams/1" class="second-nav">室内设计团队</a></li> -->
       </ul>
       <ul class="nav navbar-nav ul_two" data-tag="3">
         <c:forEach var="newsNavMenu" items="${newsNavMenus}">
         	<li><a href="<%=baseUrl%>/client/newsCategories/${newsNavMenu.id}" class="second-nav">${newsNavMenu.name}</a>
         </c:forEach>
-       <!--  <li><a href="<%=baseUrl%>/client/news" class="second-nav">项目动态</a></li>
-        <li><a href="<%=baseUrl%>/client/news" class="second-nav">公司动态</a></li> -->
       </ul>
       <ul class="nav navbar-nav ul_two" data-tag="4">
         <li><a href="<%=baseUrl%>/client/aboutUs" class="second-nav">公司历史介绍</a></li>

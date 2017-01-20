@@ -18,7 +18,7 @@
 <div class="main container">
         <div class="row">
             <div class="col-sm-2">
-                <img src="<%=baseUrl%>/static/common/client/images/news-detail/news-detail-pic1_03.png" alt="pic" class="img-responsive">
+                <img src="${pageContext.request.contextPath}/${newItem.headImg}" alt="pic" class="img-responsive">
             </div>
             <div class="col-sm-6">
                 <h3>${newItem.title}</h3>
@@ -26,7 +26,7 @@
             </div>
             <div class="col-sm-4">
                 <ul class="nav more-case">
-                    <li><a href="#">更多新闻</a></li>
+                    <li><a href="${pageContext.request.contextPath}/client/news">更多新闻</a></li>
                     <c:forEach var="newsItem" items="${news}">
                       <li class="clearfix">
                         <div class="col-xs-5 case-pic">
