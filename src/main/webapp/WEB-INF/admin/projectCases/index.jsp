@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%String baseUrl = request.getContextPath(); %>
 <!DOCTYPE html>
 <html>
@@ -52,11 +53,19 @@
                 <tr>
                   <td>${navMenu.id}</td>
                   <td>${navMenu.name}</td>
-                  <td>${navMenu.navMenuDesc}</td>
                   <td>
+                    <c:if test="${fn:length(navMenu.navMenuDesc)>12 }">  
+                      ${fn:substring(navMenu.navMenuDesc, 0, 12)}......  
+                    </c:if>  
+                    <c:if test="${fn:length(navMenu.navMenuDesc)<=12 }">  
+                      ${navMenu.navMenuDesc }  
+                     </c:if>
+                  </td>
+                  <td>
+                    <a href="<%=baseUrl%>/admin/projectCases/${navMenu.id}/edit" class="btn btn-default">编辑</a>
                     <a href="<%=baseUrl%>/admin/projectCases/${navMenu.id}" class="btn btn-default">查看详情</a>
-                    <form action="<%=baseUrl%>/admin/projectCases/${navMenu.id}" style="display: inline-block;" method="post">
-                      <input type="hidden" name="_method" value="DELETE">
+                    <form action="<%=baseUrl%>/admin/projectCases/${navMenu.id}/delete" style="display: inline-block;" method="post">
+                      <!-- <input type="hidden" name="_method" value="DELETE"> -->
                       <button class="btn btn-danger" type="submit">删除</button>
                     </form>
                 </tr>

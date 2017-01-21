@@ -4,7 +4,7 @@
 
 <form class="form-horizontal" method="POST" action="${param.actionUrl}" id="uploadForm" enctype="multipart/form-data">
   <c:if test="${param.method=='PATCH'}">
-    <input type="hidden" name="_method" value="PATCH">
+    <input name="_method" value="PATCH" type="hidden">
     <input type="hidden" name="id" value="${navMenu.id}">
   </c:if>
   <div class="form-group">

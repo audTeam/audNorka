@@ -4,6 +4,10 @@
 <%String baseUrl = request.getContextPath(); %>
 
 <form action="${param.actionUrl}" method="POST" class="form-horizontal">
+  <c:if test="${param.method=='PATCH'}">
+    <!-- <input type="hidden" name="_method" value="PUT"> -->
+    <input type="hidden" name="id" value="${project.id}">
+  </c:if>
   <input type="hidden" name="navMenuId" value="${menu.id}">
   <div class="form-group">
     <label class="control-label col-md-2">案例中文名称</label>
@@ -21,6 +25,9 @@
     <label for="" class="col-md-2 control-label">项目图片</label>
     <div class="col-md-10" id="imgUrls">
       <input id="imgUrl" type="file" multiple class="file-loading form-control">
+      <c:forEach var="image" items="${images}">
+        <input type='hidden' name='imgUrls' class="imagePaths" data-image-path="${pageContext.request.contextPath}/${image.imgUrl}" value="${image.imgUrl}">
+      </c:forEach>
       <p class="help-block">支持jpg、jpeg、png、gif格式，大小不超过2.0M</p>
     </div>
   </div>  

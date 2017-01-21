@@ -50,9 +50,14 @@
                   <tr>
                     <td>${newItem.id}</td>
                     <td>${newItem.title}</td>
-                    <%-- <td><fmt:formatDate value="${newItem.publishAt}" type="both" /></td> --%>
+                    <!-- <td><fmt:formatDate value="${newItem.publishAt}" type="both" /></td>  -->
                     <td>${newItem.publishAt}</td>
-                    <td><a href="">编辑</a>/<a href="">删除</a></td>
+                    <td>
+                      <a class="btn btn-default" href="${pageContext.request.contextPath}/admin/newsCategories/${newItem.navmenueId}/news/${newItem.id}/edit">编辑</a>
+                      <form action="${pageContext.request.contextPath}/admin/newsCategories/${newItem.navmenueId}/news/${newItem.id}" method="post" style="display: inline-block;">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit" class="btn btn-danger">删除</button>
+                      </form>
                   </tr>
                 </c:forEach>
               </table>

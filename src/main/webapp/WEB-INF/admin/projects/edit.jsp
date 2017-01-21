@@ -22,10 +22,7 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>
-        Page Header
-        <small>Optional description</small>
-      </h1>
+      <h1>编辑项目</h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
         <li class="active">Here</li>
@@ -38,7 +35,14 @@
       <!-- Your Page Content Here -->
       <div class="box">
         <div class="box-body">
-          44444444444444
+          <div class="row">
+            <div class="col-md-12">
+              <c:import url="_form.jsp">
+                <c:param name="actionUrl" value="${pageContext.request.contextPath}/admin/projectCases/${project.navMenuId}/projects/${project.id}/update"></c:param>
+                <c:param name="method" value="PATCH"></c:param>
+              </c:import>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -55,6 +59,7 @@
 <!-- REQUIRED JS SCRIPTS -->
 
 <c:import url="../shared/_javascript.jsp"></c:import>
+<script src="<%=baseUrl%>/static/common/admin/js/multi_image_upload.js" type="text/javascript"></script>
 
 </body>
 </html>

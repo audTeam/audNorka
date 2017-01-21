@@ -28,10 +28,18 @@ public class NewsController {
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String index(@PathVariable("newsCategoryId") int id, ModelMap model) {
         model.addAttribute("news", this.newsMapper.selectByNewsCategoryId(id));
-        System.out.println("-------news:"+new Gson().toJson(this.newsMapper.selectByNewsCategoryId(id)));
-        System.out.println("-------newsCategory:"+new Gson().toJson(this.navMenuMapper.selectByPrimaryKey(id)));
         model.addAttribute("newsCategory", this.navMenuMapper.selectByPrimaryKey(id));
         return "admin/news/index";
+    }
+    @RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
+    public String edit(@PathVariable("id") int id, ModelMap model) {
+        model.addAttribute("news", this.newsMapper.selectByPrimaryKey(id));
+        return "admin/news/edit";
+    }
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public String delete(@PathVariable("newsCategoryId") int newsCategoryId, @PathVariable("id") int id, ModelMap model) {
+        this.newsMapper.deleteByPrimaryKey(id);
+        return "redirect:/admin/newsCategories/"+newsCategoryId+"/news";
     }
     @RequestMapping(value = "/new", method = RequestMethod.GET)
     public String newPage(@PathVariable("newsCategoryId") int newsCategoryId, ModelMap model) {
@@ -47,9 +55,5 @@ public class NewsController {
         news.setHeadImg(Utils.saveFile(file, request));
         this.newsMapper.insertSelective(news);
         return "redirect:/admin/newsCategories/"+id+"/news";
-    }
-    @RequestMapping(value = "/{newsId}", method = RequestMethod.GET)
-    public String show() {
-        return "admin/news/show";
     }
 }

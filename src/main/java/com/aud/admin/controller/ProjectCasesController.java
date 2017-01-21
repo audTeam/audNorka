@@ -31,6 +31,12 @@ public class ProjectCasesController {
 		model.addAttribute("projects", this.projectMapper.getByNavMenuId(id));
 		return "admin/projectCases/show";
 	}
+	
+	@RequestMapping(value = "/{id}/edit", method=RequestMethod.GET)
+	public String edit(@PathVariable("id") int id, ModelMap model){
+		model.addAttribute("navMenu", this.navMenuMapper.selectByPrimaryKey(id));
+		return "admin/projectCases/edit";
+	}
 
 	@RequestMapping(value = "", method=RequestMethod.GET)
 	public String index(ModelMap model){
@@ -43,10 +49,19 @@ public class ProjectCasesController {
 		return "admin/projectCases/new";
 	}
 	
-	@RequestMapping(value = "/{id}", method=RequestMethod.DELETE)
+	@RequestMapping(value = "/{id}/delete", method=RequestMethod.POST)
 	public String delete(@PathVariable("id") int id){
 		this.navMenuMapper.deleteByPrimaryKey(id);
 		this.projectMapper.deleteByNavMenuId(id);
+		return "redirect:/admin/projectCases";
+	}
+	
+	@RequestMapping(value = "/{id}/update", method=RequestMethod.POST)
+	public String update(NavMenu navMenu, MultipartFile file, HttpServletRequest request) throws IllegalStateException, IOException{
+		if(!file.isEmpty()){
+			navMenu.setImgUrl(Utils.saveFile(file, request));	
+		}
+		this.navMenuMapper.updateByPrimaryKeySelective(navMenu);
 		return "redirect:/admin/projectCases";
 	}
 

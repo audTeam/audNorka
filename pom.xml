@@ -14,13 +14,22 @@
 		<servlet-api.version>3.0.1</servlet-api.version>
 		<servlet.jsp-api.version>2.2.1</servlet.jsp-api.version>
 		<spring.version>4.0.2.RELEASE</spring.version>
-		<springsecurity.version>3.1.4</springsecurity.version>
 		<mybatis-generator.version>1.3.3</mybatis-generator.version>
 		<maven-war-plugin.version>2.6</maven-war-plugin.version>
 		<maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
 		<maven-eclipse-plugin.version>2.10</maven-eclipse-plugin.version>
 	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>com.mchange</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>0.9.5.2</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.annotation</groupId>
+			<artifactId>jsr250-api</artifactId>
+			<version>1.0</version>
+		</dependency>
 		<dependency>
 			<groupId>com.github.pagehelper</groupId>
 			<artifactId>pagehelper</artifactId>

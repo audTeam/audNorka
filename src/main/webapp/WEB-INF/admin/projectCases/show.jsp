@@ -66,6 +66,7 @@
                     <td>${project.id}</td>
                     <td>${project.zhName}</td>
                     <td>
+                      <a class="btn btn-info" href="<%=baseUrl%>/admin/projectCases/${project.navMenuId}/projects/${project.id}/edit">编辑</a>
                       <form style="display: inline-block;" action="${pageContext.request.contextPath}/admin/projectCases/${navMenu.id}/projects/${project.id}" method="post">
                         <input type="hidden" name="_method" value="DELETE">
                         <button class="btn btn-danger" type="submit">删除</button>

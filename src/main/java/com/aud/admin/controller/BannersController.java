@@ -34,12 +34,6 @@ public class BannersController {
 		model.addAttribute("banners", this.bannerMapper.all(1, 2));
 		return "admin/banners/index";
 	}
-	
-	@RequestMapping(value = "/{id}", method = RequestMethod.POST)
-	public String testClass(){
-		System.out.println("---------123");
-		return "redirect:/admin/banners";
-	}
 
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public String create(Banner banner, MultipartFile file, HttpServletRequest request)
@@ -55,14 +49,16 @@ public class BannersController {
 		return "admin/banners/edit";
 	}
 	
-	@RequestMapping(value = "/{id}", method = RequestMethod.PATCH)
+	@RequestMapping(value = "/{id}/update", method = RequestMethod.POST)
 	public String update(Banner banner, MultipartFile file, HttpServletRequest request, ModelMap model) throws IllegalStateException, IOException {
-		banner.setImgUrl(Utils.saveFile(file, request));
+		if (!file.isEmpty()) {
+			banner.setImgUrl(Utils.saveFile(file, request));
+		}
 		this.bannerMapper.updateByPrimaryKeySelective(banner);
 		return "redirect:/admin/banners";
 	}
 	
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/{id}/delete", method = RequestMethod.POST)
 	public String delete(@PathVariable("id") int id) {
 		this.bannerMapper.deleteByPrimaryKey(id);
 		return "redirect:/admin/banners";
