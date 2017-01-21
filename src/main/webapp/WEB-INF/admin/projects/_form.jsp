@@ -28,7 +28,7 @@
       <c:forEach var="image" items="${images}">
         <input type='hidden' name='imgUrls' class="imagePaths" data-image-path="${pageContext.request.contextPath}/${image.imgUrl}" value="${image.imgUrl}">
       </c:forEach>
-      <p class="help-block">支持jpg、jpeg、png、gif格式，大小不超过2.0M</p>
+      <p class="help-block">支持jpg、jpeg、png、gif格式，大小不超过2.0M，图片宽x高:980x524</p>
     </div>
   </div>  
   <div class="form-group">

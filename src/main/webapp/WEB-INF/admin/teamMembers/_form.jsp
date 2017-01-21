@@ -76,6 +76,7 @@
     <div id="uploadFileDiv" class="col-md-8">
       <input id="pdFile" name="file" type="file">
       <div id="fileError" class="help-block"></div>
+      <p class="help-block">支持jpg、jpeg、png、gif格式，大小不超过2.0M，宽x高:215x117</p>
     </div>
   </div>
   <div class="form-group">
@@ -83,6 +84,7 @@
     <div id="docFileDiv" class="col-md-8">
       <input id="docFile" name="personFile" type="file">
       <div id="docFileError" class="help-block"></div>
+      <p class="help-block">支持jpg、jpeg、png、gif格式，大小不超过2.0M，宽x高:384x150</p>
     </div>
   </div>
   <div class="form-group">
