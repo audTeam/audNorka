@@ -39,13 +39,13 @@ public class UsersController {
 	  return "/admin/users/edit";
   }
 
-  @RequestMapping(value="/{id}/update", method=RequestMethod.POST)
+  @RequestMapping(value="/{id}/update", method=RequestMethod.PATCH)
   public String update(@PathVariable("id") int id, User user){
 	  this.userMapper.updateByPrimaryKeySelective(user);
 	  return "redirect:/admin/users";
   }
 
-  @RequestMapping(value="/{id}/delete", method=RequestMethod.POST)
+  @RequestMapping(value="/{id}/delete", method=RequestMethod.GET)
   public String delete(@PathVariable("id") int id){
 	  this.userMapper.deleteByPrimaryKey(id);
 	  return "redirect:/admin/users";

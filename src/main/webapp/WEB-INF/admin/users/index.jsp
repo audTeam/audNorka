@@ -14,13 +14,13 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
-  <jsp:include page="shared/_header.jsp"></jsp:include>
-  <jsp:include page="shared/_aside.jsp"></jsp:include>
+  <jsp:include page="../shared/_header.jsp"></jsp:include>
+  <jsp:include page="../shared/_aside.jsp"></jsp:include>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>title</h1>
+      <h1>用户管理</h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
         <li class="active">Here</li>
@@ -32,6 +32,11 @@
       <div class="box">
         <div class="box-body">
           <div class="row">
+            <div class="row">
+            <div class="col-md-12">
+              <a href="<%=baseUrl%>/admin/users/new" class="btn btn-info col-md-offset-10">新增用户</a>
+            </div>
+           </div>
             <div class="col-md-12">
               <table class="table table-striped table-hover">
                 <tr>
@@ -47,6 +52,7 @@
                     <td>${user.root=='Y'?'是':'否'}</td>
                     <td>
                       <a class="btn btn-default" href="${pageContext.request.contextPath}/admin/users/${user.id}/edit">编辑</a>
+                      <a class="btn btn-danger" href="${pageContext.request.contextPath}/admin/users/${user.id}/delete">删除</a>
                     </td>
                   </tr>
                 </c:forEach>
@@ -59,8 +65,8 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <jsp:include page="shared/_footer.jsp"></jsp:include>
-  <jsp:include page="shared/_left_aside.jsp"></jsp:include>
+  <jsp:include page="../shared/_footer.jsp"></jsp:include>
+  <jsp:include page="../shared/_left_aside.jsp"></jsp:include>
   <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->

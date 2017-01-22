@@ -41,6 +41,7 @@ public class SessionsController {
 				User newUser = iter.next();
 				session.setAttribute("userId", newUser.getId());
 				session.setAttribute("name", newUser.getName());
+				session.setAttribute("isRoot", newUser.getRoot());
 			}
 			backUrl = backUrl == null ? "/" : backUrl;
 			return "redirect:/" + backUrl;

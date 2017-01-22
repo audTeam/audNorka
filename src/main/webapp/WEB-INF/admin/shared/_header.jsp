@@ -135,7 +135,7 @@
             <!-- Menu Footer-->
             <li class="user-footer">
               <div class="pull-right">
-                <a href="<%=baseUrl%>/admin/sessions/${sessionScope.id}/logOut" class="btn btn-default btn-flat">Sign out</a>
+                <a href="<%=baseUrl%>/admin/sessions/${sessionScope.userId}/logOut" class="btn btn-default btn-flat">Sign out</a>
               </div>
             </li>
           </ul>
