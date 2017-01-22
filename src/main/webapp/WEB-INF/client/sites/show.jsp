@@ -19,9 +19,14 @@
         	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
-                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                  <c:forEach var="banner" items="${banners}" varStatus="status">
+                    <c:if test="${status.index==0}">
+                      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    </c:if>
+                    <c:if test="${status.index!=0}">
+                      <li data-target="#carousel-example-generic" data-slide-to="${status.index}"></li>
+                    </c:if>
+                  </c:forEach>
                 </ol>
 
                 <!-- Wrapper for slides -->
