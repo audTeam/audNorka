@@ -26,9 +26,6 @@ function initFileInput(ctrlName, uploadUrl) {
 		var imageUrl = data.response[0].imgUrl;
 		$('#imgUrls').append("<input type='hidden' name='imgUrls' value='"+imageUrl+"'>");
     });
-	$("#imgUrl").on("fileclear",  function(event) { 
-	   console.info("-------------");
-	});
 }
 
 $(function(){

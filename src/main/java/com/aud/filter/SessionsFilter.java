@@ -20,8 +20,7 @@ public class SessionsFilter implements HandlerInterceptor {
 	
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object arg2) throws Exception {
-		return true;
-		/* // 1、请求到登录页面 放行
+		// 1、请求到登录页面 放行
 		if (request.getServletPath().startsWith("/admin") && request.getServletPath().startsWith("/admin/sessions")) {
 			return true;
 		}
@@ -38,6 +37,5 @@ public class SessionsFilter implements HandlerInterceptor {
 		// 重定向到登录页面
 		response.sendRedirect(request.getContextPath() + "/admin/sessions/new?backUrl="+request.getServletPath());
 		return false;
-		*/
 	}
 }

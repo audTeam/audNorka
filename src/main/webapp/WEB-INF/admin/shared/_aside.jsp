@@ -17,7 +17,7 @@
         <img src="<%=baseUrl%>/static/lib/bower_components/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
       </div>
       <div class="pull-left info">
-        <p>Alexander Pierce</p>
+        <p>${sessionScope.name}</p>
         <!-- Status -->
         <a class="hidden" href="#"><i class="fa fa-circle text-success"></i> Online</a>
       </div>
@@ -37,8 +37,13 @@
     <c:set var="currentUrl" value="${pageContext.request.requestURL }" />
     <!-- Sidebar Menu -->
     <ul class="sidebar-menu">
-      <li class="header hidden">HEADER</li>
       <!-- Optionally, you can add icons to the links -->
+      <li <c:if test="${fn:contains(currentUrl, 'users')}">class="active"</c:if> >
+        <a href="<%=baseUrl%>/admin/users">
+          <i class="fa fa-bars" aria-hidden="true"></i>
+          <span>用户管理</span>
+        </a>
+      </li>
       <li <c:if test="${fn:contains(currentUrl, 'banners')}">class="active"</c:if> >
         <a href="<%=baseUrl%>/admin/banners">
           <i class="fa fa-bars" aria-hidden="true"></i>

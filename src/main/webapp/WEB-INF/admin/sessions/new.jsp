@@ -49,8 +49,9 @@
     <form action="<%=baseUrl%>/admin/sessions" method="post">
       <input type="hidden" name="backUrl" value="${param.backUrl}">
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="邮箱" name="name">
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        <input type="text" class="form-control" placeholder="用户名" name="name">
+        
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
         <input type="password" class="form-control" placeholder="密码" name="password">

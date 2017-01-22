@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -23,6 +24,12 @@ public class SessionsController {
 	@RequestMapping(value = "/new", method = RequestMethod.GET)
 	public String newPage() {
 		return "admin/sessions/new";
+	}
+
+	@RequestMapping(value = "/{id}/logOut", method = RequestMethod.GET)
+	public String logOut(@PathVariable("id") int id, HttpSession session) {
+		session.invalidate();
+		return "redirect:/admin/sessions/new";
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.POST)
