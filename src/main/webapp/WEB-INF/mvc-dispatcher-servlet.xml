@@ -47,7 +47,6 @@
                             helperDialect=mysql
                             reasonable=true
                             supportMethodsArguments=true
-                            params=count=countSql
                             autoRuntimeDialect=true
                         </value>
                     </property>

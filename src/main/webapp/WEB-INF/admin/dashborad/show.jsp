@@ -98,11 +98,19 @@
                 <h3 class="box-title">留言列表</h3>
                 <div class="box-tools pull-right">
                   <ul class="pagination pagination-sm inline">
-                    <li><a href="#">&laquo;</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">&raquo;</a></li>
+                    <c:forEach var="i" begin="1" end="${totalSize}" step="1">
+                      <li <c:if test="${i==param.pageNum||param.pageNum==null}">class="active"</c:if>>
+                        <a href="${pageContext.request.contextPath}/admin/dashborad?pageNum=${i}">
+                          <c:if test="${i==1}">
+                            &laquo;
+                          </c:if>
+                          ${i}
+                          <c:if test="${i==totalSize}">
+                            &raquo;
+                          </c:if>
+                        </a>
+                      </li>
+                    </c:forEach>
                   </ul>
                 </div>
               </div>

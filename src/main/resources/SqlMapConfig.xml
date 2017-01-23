@@ -16,7 +16,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         <!-- 使用下面的方式配置参数，后面会有所有的参数介绍 -->
         <property name="helperDialect" value="mysql"/>
         <property name="reasonable" value="true"/>
-        <property name="params" value="count=countSql"/>
         <property name="autoRuntimeDialect" value="true"/>
     </plugin>
 </plugins>

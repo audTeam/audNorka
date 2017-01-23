@@ -5,8 +5,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.aud.mapper.LeaveMessageMapper;
+import com.github.pagehelper.PageHelper;
+import com.google.gson.Gson;
 
 @Controller
 @RequestMapping("/admin/dashborad")
@@ -15,8 +18,11 @@ public class DashboradsController {
 	private LeaveMessageMapper leaveMessageMapper;
 
 	@RequestMapping("")
-	public String show(ModelMap model){
-		model.addAttribute("leaveMessages", this.leaveMessageMapper.all());
+	public String show(ModelMap model,
+			@RequestParam(value = "pageNum", required = false, defaultValue = "1") int pageNum,
+			@RequestParam(value = "pageSize", required = false, defaultValue = "5") int pageSize){
+		model.addAttribute("leaveMessages", this.leaveMessageMapper.all(pageNum, pageSize));
+		model.addAttribute("totalSize", Math.ceil(this.leaveMessageMapper.all().size()*1.0/pageSize));
 		return "admin/dashborad/show";
 	}
 
