@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50624
 File Encoding         : 65001
 
-Date: 2017-01-22 12:32:57
+Date: 2017-01-23 14:13:43
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -64,6 +64,21 @@ CREATE TABLE `jobs` (
   `img_url` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for leave_messages
+-- ----------------------------
+DROP TABLE IF EXISTS `leave_messages`;
+CREATE TABLE `leave_messages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `message` varchar(2000) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `created_at` datetime(6) DEFAULT NULL,
+  `is_read` varchar(1) DEFAULT NULL,
+  `phone_number` varchar(15) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for navmenus
