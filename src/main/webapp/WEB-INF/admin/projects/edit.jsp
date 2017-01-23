@@ -24,8 +24,9 @@
     <section class="content-header">
       <h1>编辑项目</h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-        <li class="active">Here</li>
+        <li><a href="<%=baseUrl%>/admin/dashborad"><i class="fa fa-dashboard"></i> 首页</a></li>
+        <li><a href="<%=baseUrl%>/admin/projectCases"><i class="fa fa-dashboard"></i>案例分类列表</a></li>
+        <li class="active"><a href="<%=baseUrl%>/admin/projectCases/${project.navMenuId}">案例详情</a></li>
       </ol>
     </section>
 
@@ -60,6 +61,8 @@
 
 <c:import url="../shared/_javascript.jsp"></c:import>
 <script src="<%=baseUrl%>/static/common/admin/js/multi_image_upload.js" type="text/javascript"></script>
-
+<script type="text/javascript">
+   var editor = UE.getEditor('container');
+</script>
 </body>
 </html>

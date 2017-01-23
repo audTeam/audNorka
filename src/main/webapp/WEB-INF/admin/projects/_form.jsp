@@ -40,7 +40,8 @@
   <div class="form-group">
     <label class="control-label col-md-2">内容</label>
     <div class="col-md-10">
-      <textarea rows="10" class="form-control" name="content">${project.content}</textarea>
+      <script id="container" name="content" type="text/plain" name="content">${project.content}</script>
+      <!-- <textarea rows="10" class="form-control" name="content">${project.content}</textarea> -->
     </div>
   </div>
   <div class="form-group">

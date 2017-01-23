@@ -36,8 +36,8 @@
     <section class="content-header">
       <h1>更新导航</h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-        <li class="active">Here</li>
+        <li><a href="<%=baseUrl%>/admin/dashborad"><i class="fa fa-dashboard"></i> 首页</a></li>
+        <li class="active"><a href="<%=baseUrl%>/admin/projectCases">导航菜单</a></li>
       </ol>
     </section>
 

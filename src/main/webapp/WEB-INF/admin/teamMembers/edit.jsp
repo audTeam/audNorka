@@ -24,8 +24,9 @@
     <section class="content-header">
       <h1>编辑成员</h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-        <li class="active">Here</li>
+        <li><a href="<%=baseUrl%>/admin/dashborad"><i class="fa fa-dashboard"></i> 首页</a></li>
+        <li><a href="<%=baseUrl%>/admin/teams"><i class="fa fa-dashboard"></i>团队列表</a></li>
+        <li class="active"><a href="<%=baseUrl%>/admin/teams/${team.id}/teamMembers">团队成员列表</a></li>
       </ol>
     </section>
 
@@ -61,5 +62,8 @@
 <c:import url="../shared/_javascript.jsp"></c:import>
 <script src="<%=baseUrl%>/static/common/admin/js/image_upload.js" type="text/javascript"></script>
 <script src="<%=baseUrl%>/static/common/admin/js/file_upload.js" type="text/javascript"></script>
+<script type="text/javascript">
+   var editor = UE.getEditor('brief');
+</script>
 </body>
 </html>

@@ -59,13 +59,13 @@
         </a>
       </li>
       <li class="hidden"><a href="<%=baseUrl%>/admin/navMenus"><i class="fa fa-bars" aria-hidden="true"></i><span>二级导航</span></a></li>
-      <li <c:if test="${fn:contains(currentUrl, 'projectCases')}">class="active"</c:if> >
+      <li <c:if test="${fn:contains(currentUrl, 'projectCases')||fn:contains(currentUrl, 'projects')}">class="active"</c:if> >
         <a href="<%=baseUrl%>/admin/projectCases">
           <i class="fa fa-line-chart" aria-hidden="true"></i>
           <span>案例管理</span>
         </a>
       </li>
-      <li <c:if test="${fn:contains(currentUrl, 'teams')}">class="active"</c:if> >
+      <li <c:if test="${fn:contains(currentUrl, 'teams')||fn:contains(currentUrl, 'teamMembers')}">class="active"</c:if> >
         <a href="<%=baseUrl%>/admin/teams"><i class="fa fa-users" aria-hidden="true"></i>
           <span>团队介绍</span>
         </a>
@@ -76,7 +76,7 @@
           <span>新闻动态</span>
         </a>
       </li>
-      <li><a href="<%=baseUrl%>/admin/jobs"><i class="fa fa-search" aria-hidden="true"></i><span>招聘信息</span></a></li>
+      <li <c:if test="${fn:contains(currentUrl, 'jobs')}">class="active"</c:if>><a href="<%=baseUrl%>/admin/jobs"><i class="fa fa-search" aria-hidden="true"></i><span>招聘信息</span></a></li>
       <li class="treeview">
         <a href="#"><i class="fa fa-link"></i><span>关于AUD</span>
           <span class="pull-right-container">

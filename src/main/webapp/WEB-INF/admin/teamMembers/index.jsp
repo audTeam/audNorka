@@ -24,8 +24,8 @@
     <section class="content-header">
       <h1>${team.name}---团队成员列表</h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-        <li class="active">Here</li>
+        <li><a href="<%=baseUrl%>/admin/dashborad"><i class="fa fa-dashboard"></i> 首页</a></li>
+        <li class="active"><a href="<%=baseUrl%>/admin/teams">团队列表</a></li>
       </ol>
     </section>
 
@@ -80,6 +80,5 @@
 <!-- REQUIRED JS SCRIPTS -->
 
 <c:import url="../shared/_javascript.jsp"></c:import>
-
 </body>
 </html>
