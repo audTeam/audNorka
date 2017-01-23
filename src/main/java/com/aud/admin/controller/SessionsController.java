@@ -21,7 +21,7 @@ public class SessionsController {
 	@Autowired
 	private UserMapper userMapper;
 
-	@RequestMapping(value = "/new", method = RequestMethod.GET)
+	@RequestMapping(value = {"/new", "", "/"}, method = RequestMethod.GET)
 	public String newPage() {
 		return "admin/sessions/new";
 	}

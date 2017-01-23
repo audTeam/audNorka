@@ -49,12 +49,12 @@
     <form action="<%=baseUrl%>/admin/sessions" method="post">
       <input type="hidden" name="backUrl" value="${param.backUrl}">
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="用户名" name="name">
+        <input type="text" class="form-control" placeholder="用户名" name="name" value="799652013@qq.com">
         
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="密码" name="password">
+        <input type="password" class="form-control" placeholder="密码" name="password" value="1">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">

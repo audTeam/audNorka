@@ -37,6 +37,12 @@
     <c:set var="currentUrl" value="${pageContext.request.requestURL }" />
     <!-- Sidebar Menu -->
     <ul class="sidebar-menu">
+      <li <c:if test="${fn:contains(currentUrl, 'dashborad')}">class="active"</c:if> >
+        <a href="<%=baseUrl%>/admin/dashborad">
+          <i class="fa fa-bars" aria-hidden="true"></i>
+          <span>首页</span>
+        </a>
+      </li>
       <c:if test="${sessionScope.isRoot=='Y' }">
         <!-- Optionally, you can add icons to the links -->
         <li <c:if test="${fn:contains(currentUrl, 'users')}">class="active"</c:if> >
@@ -44,7 +50,7 @@
             <i class="fa fa-bars" aria-hidden="true"></i>
             <span>用户管理</span>
           </a>
-      </li>
+        </li>
       </c:if>
       <li <c:if test="${fn:contains(currentUrl, 'banners')}">class="active"</c:if> >
         <a href="<%=baseUrl%>/admin/banners">
