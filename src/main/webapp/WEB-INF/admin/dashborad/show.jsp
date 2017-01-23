@@ -99,7 +99,7 @@
                 <div class="box-tools pull-right">
                   <ul class="pagination pagination-sm inline">
                     <c:forEach var="i" begin="1" end="${totalSize}" step="1">
-                      <li <c:if test="${i==param.pageNum||param.pageNum==null}">class="active"</c:if>>
+                      <li <c:if test="${i==param.pageNum||(param.pageNum==null&&i==1)}">class="active"</c:if>>
                         <a href="${pageContext.request.contextPath}/admin/dashborad?pageNum=${i}">
                           <c:if test="${i==1}">
                             &laquo;
