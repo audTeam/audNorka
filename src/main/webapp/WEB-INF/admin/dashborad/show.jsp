@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%String baseUrl = request.getContextPath(); %>
 <!DOCTYPE html>
 <html>
@@ -120,7 +121,7 @@
                     <td>${leaveMessage.id}</td>
                     <td>${leaveMessage.name}</td>
                     <td>${leaveMessage.phoneNumber}</td>
-                    <td>${leaveMessage.message}</td>
+                    <td><a href="${pageContext.request.contextPath}/admin/leaveMessages/${leaveMessage.id}">${fn:substring(leaveMessage.message, 0, 12)}......</a></td>
                     <td>
                       <form action="${pageContext.request.contextPath}/admin/dashborad/leaveMessages/${leaveMessage.id}/delete" method="post">
                         <button class="btn btn-danger" type="submit">删除</button>
