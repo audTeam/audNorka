@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <% String baseUrl = request.getContextPath(); %>
 
 <!DOCTYPE html>
@@ -17,35 +18,38 @@
 <jsp:include page="../shared/_header.jsp"></jsp:include>
 <div class="main container">
         <div class="row">
+          <c:if test="${param.message!=null}">
+            <div class="alert alert-success" role="alert">感谢您的留言。我们会认真处理您的留言信息</div>
+          </c:if>
             <div class="col-sm-8">
-                <form class="form-horizontal">
+                <form class="form-horizontal" action="<%=baseUrl%>/client/aboutUs/leaveMessages" method="POST">
                     <div class="form-group">
                         <label for="name" class="col-sm-1 control-label input-text">姓名</label>
                         <div class="col-sm-7">
-                            <input type="text" class="form-control" id="name" placeholder="姓名">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="姓名">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="tel" class="col-sm-1 control-label input-text">电话</label>
                         <div class="col-sm-7">
-                            <input type="text" class="form-control" id="tel" placeholder="电话" >
+                            <input type="text" class="form-control" id="tel" name="phoneNumber" placeholder="电话" >
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="email" class="col-sm-1 control-label input-text">邮箱</label>
                         <div class="col-sm-7">
-                            <input type="text" class="form-control" id="email" placeholder="邮箱">
+                            <input type="text" class="form-control" id="email" name="email" placeholder="邮箱">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="message" class="col-sm-1 control-label input-text">留言</label>
                         <div class="col-sm-11">
-                            <textarea type="text" class="form-control" id="message" rows="7"></textarea>
+                            <textarea type="text" class="form-control" id="message" name="message" rows="7"></textarea>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-1 col-sm-2">
-                            <button type="submit" class="btn btn-default">　清空　</button>
+                            <button type="reset" class="btn btn-default">　清空　</button>
                         </div>
                         <div class="col-sm-4">
                             <button type="submit" class="btn btn-danger">　发送　</button>

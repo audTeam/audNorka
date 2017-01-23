@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%String baseUrl = request.getContextPath(); %>
 <!DOCTYPE html>
 <html>
@@ -85,6 +86,56 @@
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
               </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <!-- TO DO List -->
+              <div class="box box-primary">
+              <div class="box-header">
+                <i class="ion ion-clipboard"></i>
+                <h3 class="box-title">留言列表</h3>
+                <div class="box-tools pull-right">
+                  <ul class="pagination pagination-sm inline">
+                    <li><a href="#">&laquo;</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                  </ul>
+                </div>
+              </div>
+              <!-- /.box-header -->
+              <div class="box-body">
+                <table class="table table-striped table-hover">
+                  <tr>
+                    <td>id</td>
+                    <td>名字</td>
+                    <td>联系电话</td>
+                    <td>留言</td>
+                    <td>操作</td>
+                  </tr>
+                  <c:forEach var="leaveMessage" items="${leaveMessages}">
+                   <tr>
+                    <td>${leaveMessage.id}</td>
+                    <td>${leaveMessage.name}</td>
+                    <td>${leaveMessage.phoneNumber}</td>
+                    <td>${leaveMessage.message}</td>
+                    <td>
+                      <form action="${pageContext.request.contextPath}/admin/dashborad/leaveMessages/${leaveMessage.id}/delete" method="post">
+                        <button class="btn btn-danger" type="submit">删除</button>
+                      </form>
+                    </td>
+                  </tr>
+                  </c:forEach>
+                </table>
+            </div>
+            <!-- /.box-body -->
+            <!-- <div class="box-footer clearfix no-border">
+              <button type="button" class="btn btn-default pull-right"><i class="fa fa-plus"></i> Add item</button>
+            </div> -->
+          </div>
+          <!-- /.box -->
             </div>
           </div>
         </div>
