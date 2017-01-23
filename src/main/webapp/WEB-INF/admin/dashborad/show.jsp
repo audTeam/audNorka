@@ -133,6 +133,7 @@
                     <td>
                       <form action="${pageContext.request.contextPath}/admin/dashborad/leaveMessages/${leaveMessage.id}/delete" method="post">
                         <button class="btn btn-danger" type="submit">删除</button>
+                        <a class="btn btn-info" href="${pageContext.request.contextPath}/admin/leaveMessages/${leaveMessage.id}">查看详情</a>
                       </form>
                     </td>
                   </tr>
