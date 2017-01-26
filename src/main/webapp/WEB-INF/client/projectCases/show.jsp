@@ -28,10 +28,11 @@
             </div>
             <div class="row relative-case">
                 <div class="col-sm-12">相关案例</div>
-                <c:forEach var="project" items="${projects}">
+                <c:forEach var="item" items="${collection}">
+                <c:set var="project" value="${item.project}"></c:set>
                   <div class="col-sm-3">
                     <a href="<%=baseUrl%>/client/projects/${project.id}">
-                      <img src="<%=baseUrl%>/static/common/client/images/city-design/pic1_03.png" alt="pic" class="img-responsive">
+                      <img src="${pageContext.request.contextPath}/${item.imags[0].imgUrl}" alt="pic" class="img-responsive">
                       <p>${project.zhName}</p>
                     </a>
                   </div>
