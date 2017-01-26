@@ -1,30 +1,26 @@
 package com.aud.client.controller;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import com.aud.mapper.BannerMapper;
-import com.aud.mapper.NavMenuMapper;
-import com.aud.mapper.ProjectMapper;
-import com.aud.pojo.NavMenu;
+import com.aud.mapper.NewsMapper;
+import com.google.gson.Gson;
 @Controller
 @RequestMapping("/sites")
 public class SitesController extends BaseController {
     @Autowired
     private BannerMapper bannerMapper;
     @Autowired
-    private NavMenuMapper navMenuMapper;
-    @Autowired
-    private ProjectMapper projectMapper;
+    private NewsMapper newsMapper;
+	private static Logger logger = Logger.getLogger(SitesController.class);
+
     @RequestMapping(value = "", method=RequestMethod.GET)
     public String show(ModelMap model){
         model.addAttribute("banners", this.bannerMapper.all());
+        model.addAttribute("news", this.newsMapper.all(1, 4));
         return "client/sites/show";
     }
 }

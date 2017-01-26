@@ -49,9 +49,7 @@ public class NewsController {
     @RequestMapping(value = "", method = RequestMethod.POST)
     public String create(@PathVariable("newsCategoryId") int id, News news,MultipartFile file, HttpServletRequest request)throws IllegalStateException, IOException {
         news.setNavmenueId(id);
-        Date date = new Date();  
-        Timestamp timeStamp = new Timestamp(date.getTime()); 
-        //news.setPublishAt(timeStamp);
+        news.setPublishAt(new Date());
         news.setHeadImg(Utils.saveFile(file, request));
         this.newsMapper.insertSelective(news);
         return "redirect:/admin/newsCategories/"+id+"/news";

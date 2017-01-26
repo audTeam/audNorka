@@ -10,14 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
-import com.aud.mapper.BannerMapper;
 import com.aud.mapper.NavMenuMapper;
 import com.aud.mapper.ProjectMapper;
 import com.aud.pojo.NavMenu;
 
 public class BaseController {
-	@Autowired
-	private BannerMapper bannerMapper;
 	@Autowired
 	private NavMenuMapper navMenuMapper;
 	@Autowired
