@@ -35,15 +35,16 @@ public class HistoryIntroduce {
         this.cooperationCompany = cooperationCompany == null ? null : cooperationCompany.trim();
     }
 
-    public String getVedeo() {
-        return video;
-    }
 
-    public void setVedeo(String vedeo) {
-        this.video = vedeo == null ? null : vedeo.trim();
-    }
+    public String getVideo() {
+		return video;
+	}
 
-    public String getHeadImg() {
+	public void setVideo(String video) {
+		this.video = video;
+	}
+
+	public String getHeadImg() {
         return headImg;
     }
 

@@ -44,8 +44,6 @@ public class ProjectCasesController extends BaseController {
 			collection.add(item);
 		}
 		model.addAttribute("collection", collection);
-		System.out.println("----------------collection: "+new Gson().toJson(collection));
-		model.addAttribute("projects", this.projectMapper.getByNavMenuId(id));
 
 		return "client/projectCases/show";
 	}

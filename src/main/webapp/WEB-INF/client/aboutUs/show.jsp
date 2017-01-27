@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <% String baseUrl = request.getContextPath(); %>
 
 <!DOCTYPE html>
@@ -16,20 +17,16 @@
 <jsp:include page="../shared/_header.jsp"></jsp:include>
 <div class="main container">
         <section class="part-one">
-            <img src="<%=baseUrl%>/static/common/client/images/company-introduce/company_03.png" alt="pic" class="img-responsive">
+            <img src="${pageContext.request.contextPath}/${historyIntroduce.headImg}" alt="pic" class="img-responsive">
         </section>
         <section class="part-two">
             <div class="comany-introduce-content">
                 <h3>公司历程</h3>
-                <p>帕金斯威尔的跨专业综合协作型城市设计团队善于将公共空间、 多种用途和难忘的环境结合到特色鲜明的场所模式当中。 我们凭借长期积累帕金斯威尔的跨专业综合协作型城市设计团队善于将公共空间、 多种用途和难忘的环境结合到特色鲜明的场所模式当中。我们凭借长期积累</p>
-                <p>帕金斯威尔的跨专业综合协作型城市设计团队善于将公共空间、多种用途和难忘的环境结合到特色鲜明的场所模式当中。我们凭借长期积累  帕金斯威尔的跨专业综合协作型城市设计团队善于将公共空间、多种用途和难忘的环境结合到特色鲜明的场所模式当中。我们凭借长期积累</p>
-                <p>帕金斯威尔的跨专业综合协作型城市设计团队善于将公共空间、多种用途和难忘的环境结合到特色鲜明的场所模式当中。我们凭借长期积  帕金斯威尔的跨专业综合协作型城市设计团队善于将公共空间、多种用途和难忘的环境结合到特色鲜明的场所模式当中。我们凭借长期积累</p>
-                <p>帕金斯威尔的跨专业综合协作型城市设计团队善于将公共空间、多种用途和难忘的环境结合到特色鲜明的场所模式当中。我们凭借长期积累  帕金斯威尔的跨专业综合协作型城市设计团队善于将公共空间、多种用途和难忘的环境结合到特色鲜明的场所模式当中。我们凭借长期积累</p>
+                <p>${historyIntroduce.companyHistory}</p>
             </div>
             <div class="vedio">
                 <h3>宣传视频</h3>
-                <embed src='http://player.youku.com/player.php/sid/XNDM5NTg5MTQ4/v.swf' allowFullScreen='true' quality='high' width='1000' height='400' align='middle' allowScriptAccess='always' type='application/x-shockwave-flash'></embed>
-                <%-- <video src="<%=baseUrl%>/static/common/client/images/company-introduce/。。mp4" controls width="100%"></video> --%>
+                <embed src='${historyIntroduce.video}' allowFullScreen='true' quality='high' width='100%' height='400' align='middle' allowScriptAccess='always' type='application/x-shockwave-flash'></embed>
             </div>
             <div class="row">
                 <h3 class="col-sm-12">合作伙伴</h3>
