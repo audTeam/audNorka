@@ -33,7 +33,8 @@
         <div class="box-body">
           <div class="row">
 	          <div class="col-md-12">
-	            <form action="${pageContext.request.contextPath}/admin/aboutUs/historyIntroduce/cooperations" class="form-horizontal" method="post" enctype="multipart/form-data" id="form">
+	            <form action="${pageContext.request.contextPath}/admin/aboutUs/historyIntroduce/cooperations/${cooperation.id}/update" class="form-horizontal" method="post" enctype="multipart/form-data" id="form">
+	              <input class="form-control" name="id" type="hidden" value="${cooperation.id}">
 	              <div class="form-group">
 	                <label class="control-label col-md-3">合作伙伴名称</label>
 	                <div class="col-md-9">

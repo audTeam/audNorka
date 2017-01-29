@@ -30,15 +30,13 @@
             </div>
             <div class="row">
                 <h3 class="col-sm-12">合作伙伴</h3>
-                <div class="col-sm-3 icon"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/company-introduce/pic1_03.png" alt="pic" class="img-responsive"></a></div>
-                <div class="col-sm-3 icon"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/company-introduce/pic1_03.png" alt="pic" class="img-responsive"></a></div>
-                <div class="col-sm-3 icon"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/company-introduce/pic1_03.png" alt="pic" class="img-responsive"></a></div>
-                <div class="col-sm-3 icon"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/company-introduce/pic1_03.png" alt="pic" class="img-responsive"></a></div>
-                <div class="col-sm-3 icon"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/company-introduce/pic1_03.png" alt="pic" class="img-responsive"></a></div>
-                <div class="col-sm-3 icon"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/company-introduce/pic1_03.png" alt="pic" class="img-responsive"></a></div>
-                <div class="col-sm-3 icon"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/company-introduce/pic1_03.png" alt="pic" class="img-responsive"></a></div>
-                <div class="col-sm-3 icon"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/company-introduce/pic1_03.png" alt="pic" class="img-responsive"></a></div>
-                <div class="col-sm-3 icon"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/company-introduce/pic1_03.png" alt="pic" class="img-responsive"></a></div>
+                <c:forEach var="cooperation" items="${cooperations}">
+                  <div class="col-sm-3 icon">
+                    <a href="${cooperation.link}">
+                      <img src="${pageContext.request.contextPath}/${cooperation.logoUrl}" alt="合作伙伴logo" class="img-responsive">
+                    </a>
+                  </div>
+                </c:forEach>
             </div>
         </section>
     </div>

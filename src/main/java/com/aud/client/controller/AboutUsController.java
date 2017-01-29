@@ -9,6 +9,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.aud.mapper.CooperationMapper;
 import com.aud.mapper.HistoryIntroduceMapper;
 import com.aud.mapper.LeaveMessageMapper;
 import com.aud.pojo.HistoryIntroduce;
@@ -21,6 +22,8 @@ public class AboutUsController {
 	private LeaveMessageMapper leaveMessageMapper;
 	@Autowired
 	private HistoryIntroduceMapper historyIntroduceMapper;
+	@Autowired
+	private CooperationMapper cooperationMapper;
 
 	@RequestMapping(value="/leaveMessages", method=RequestMethod.POST)
 	public String leaveMessages(LeaveMessage leaveMessage){
@@ -40,10 +43,10 @@ public class AboutUsController {
 			historyIntroduce.setCooperationCompany("");
 			historyIntroduce.setVideo("");
 			historyIntroduce.setHeadImg("");
-
 			historyIntroduceMapper.insertSelective(historyIntroduce);
 			model.addAttribute("historyIntroduce", new HistoryIntroduce());
 		}
+		model.addAttribute("cooperations", this.cooperationMapper.all());
 		return "client/aboutUs/show";
 	}
 
