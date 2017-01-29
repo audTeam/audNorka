@@ -7,9 +7,11 @@
     <result column="cooperation_company" property="cooperationCompany" jdbcType="VARCHAR" />
     <result column="video" property="video" jdbcType="VARCHAR" />
     <result column="head_img" property="headImg" jdbcType="VARCHAR" />
+    <result column="service_head_img" property="serviceHeadImg" jdbcType="VARCHAR" />
+    <result column="service_content" property="serviceContent" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, company_history, cooperation_company, video, head_img
+    id, company_history, cooperation_company, video, head_img, service_head_img, service_content
   </sql>
 
   <select id="all" resultMap="BaseResultMap">
@@ -29,9 +31,9 @@
   </delete>
   <insert id="insert" parameterType="com.aud.pojo.HistoryIntroduce" >
     insert into history_introduces (id, company_history, cooperation_company, 
-      video, head_img)
+      video, head_img, service_head_img, service_content)
     values (#{id,jdbcType=INTEGER}, #{companyHistory,jdbcType=VARCHAR}, #{cooperationCompany,jdbcType=VARCHAR}, 
-      #{video,jdbcType=VARCHAR}, #{headImg,jdbcType=VARCHAR})
+      #{video,jdbcType=VARCHAR}, #{headImg,jdbcType=VARCHAR}, #{serviceHeadImg, jdbcType=VARCHAR}, #{serviceContent, jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.aud.pojo.HistoryIntroduce" >
     insert into history_introduces
@@ -51,6 +53,12 @@
       <if test="headImg != null" >
         head_img,
       </if>
+      <if test="serviceHeadImg != null" >
+        service_head_img,
+      </if>
+      <if test="serviceContent != null" >
+        service_content,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -67,6 +75,12 @@
       </if>
       <if test="headImg != null" >
         #{headImg,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceHeadImg != null" >
+        #{serviceHeadImg,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceContent != null" >
+        #{serviceContent,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -85,6 +99,12 @@
       <if test="headImg != null" >
         head_img = #{headImg,jdbcType=VARCHAR},
       </if>
+      <if test="serviceHeadImg != null" >
+        service_head_img = #{serviceHeadImg,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceContent != null" >
+        service_content = #{serviceContent,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -93,7 +113,9 @@
     set company_history = #{companyHistory,jdbcType=VARCHAR},
       cooperation_company = #{cooperationCompany,jdbcType=VARCHAR},
       video = #{video,jdbcType=VARCHAR},
-      head_img = #{headImg,jdbcType=VARCHAR}
+      head_img = #{headImg,jdbcType=VARCHAR},
+      service_head_img = #{serviceHeadImg,jdbcType=VARCHAR},
+      service_content = #{serviceContent,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

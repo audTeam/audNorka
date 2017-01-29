@@ -10,8 +10,28 @@ public class HistoryIntroduce {
     private String video;
 
     private String headImg;
+    
+    private String serviceHeadImg;
+    
+    private String serviceContent;
 
-    public Integer getId() {
+    public String getServiceHeadImg() {
+		return serviceHeadImg;
+	}
+
+	public void setServiceHeadImg(String serviceHeadImg) {
+		this.serviceHeadImg = serviceHeadImg;
+	}
+
+	public String getServiceContent() {
+		return serviceContent;
+	}
+
+	public void setServiceContent(String serviceContent) {
+		this.serviceContent = serviceContent;
+	}
+
+	public Integer getId() {
         return id;
     }
 

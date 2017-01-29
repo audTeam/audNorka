@@ -39,6 +39,8 @@ public class AboutUsController {
 			historyIntroduce.setCooperationCompany("");
 			historyIntroduce.setVideo("");
 			historyIntroduce.setHeadImg("");
+			historyIntroduce.setServiceContent("");
+			historyIntroduce.setServiceHeadImg("");
 
 			historyIntroduceMapper.insertSelective(historyIntroduce);
 			model.addAttribute("historyIntroduce", new HistoryIntroduce());
@@ -48,9 +50,12 @@ public class AboutUsController {
 	}
 
 	@RequestMapping(value = "/historyIntroduce/update", method = RequestMethod.POST)
-	public String update(HistoryIntroduce historyIntroduce, MultipartFile file, HttpServletRequest request) throws IllegalStateException, IOException {
+	public String update(HistoryIntroduce historyIntroduce, MultipartFile file, MultipartFile serviceFile, HttpServletRequest request) throws IllegalStateException, IOException {
 		if(!file.isEmpty()){
 			historyIntroduce.setHeadImg(Utils.saveFile(file, request));	
+		}
+		if(!serviceFile.isEmpty()){
+			historyIntroduce.setServiceHeadImg(Utils.saveFile(serviceFile, request));
 		}
 		List<HistoryIntroduce> all = this.historyIntroduceMapper.all();
 		historyIntroduce.setId(all.get(0).getId());

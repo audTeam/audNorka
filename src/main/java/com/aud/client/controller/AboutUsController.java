@@ -43,6 +43,8 @@ public class AboutUsController {
 			historyIntroduce.setCooperationCompany("");
 			historyIntroduce.setVideo("");
 			historyIntroduce.setHeadImg("");
+			historyIntroduce.setServiceContent("");
+			historyIntroduce.setServiceHeadImg("");
 			historyIntroduceMapper.insertSelective(historyIntroduce);
 			model.addAttribute("historyIntroduce", new HistoryIntroduce());
 		}
@@ -51,7 +53,21 @@ public class AboutUsController {
 	}
 
 	@RequestMapping(value="/service", method=RequestMethod.GET)
-	public String showService(){
+	public String showService(ModelMap model){
+		List<HistoryIntroduce> all = this.historyIntroduceMapper.all();
+		if (all.size() > 0) {
+			model.addAttribute("company", all.get(0));
+		} else {
+			HistoryIntroduce historyIntroduce = new HistoryIntroduce();
+			historyIntroduce.setCompanyHistory("");
+			historyIntroduce.setCooperationCompany("");
+			historyIntroduce.setVideo("");
+			historyIntroduce.setHeadImg("");
+			historyIntroduce.setServiceContent("");
+			historyIntroduce.setServiceHeadImg("");
+			historyIntroduceMapper.insertSelective(historyIntroduce);
+			model.addAttribute("company", new HistoryIntroduce());
+		}
 		return "client/aboutUs/service";
 	}
 

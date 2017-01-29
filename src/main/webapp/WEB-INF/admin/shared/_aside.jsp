@@ -77,7 +77,9 @@
         </a>
       </li>
       <li <c:if test="${fn:contains(currentUrl, 'jobs')}">class="active"</c:if>><a href="<%=baseUrl%>/admin/jobs"><i class="fa fa-search" aria-hidden="true"></i><span>招聘信息</span></a></li>
-      <c:if test="${fn:contains(currentUrl, 'historyIntroduce')==true}">
+      <li <c:if test="${fn:contains(currentUrl, 'historyIntroduce')}">class="active"</c:if>><a href="<%=baseUrl%>/admin/aboutUs/historyIntroduce"><i class="fa fa-link"></i><span>公司基本信息</span></a></li>
+
+      <!-- <c:if test="${fn:contains(currentUrl, 'historyIntroduce')==true}">
         <li class="treeview active">
       </c:if>
       <c:if test="${fn:contains(currentUrl, 'historyIntroduce') == false}">
@@ -93,7 +95,7 @@
           <li><a href="<%=baseUrl%>/admin/projects"><span>公司服务范围</span></a></li>
           <li><a href="<%=baseUrl%>/admin/projects"><span>留言管理</span></a></li>
         </ul>
-      </li>
+      </li> -->
     </ul>
     <!-- /.sidebar-menu -->
   </section>

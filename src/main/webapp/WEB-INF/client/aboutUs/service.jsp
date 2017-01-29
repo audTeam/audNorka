@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <% String baseUrl = request.getContextPath(); %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
@@ -16,14 +17,14 @@
 <jsp:include page="../shared/_header.jsp"></jsp:include>
 <div class="main container">
         <section class="part-one">
-            <img src="<%=baseUrl%>/static/common/client/images/service/service_03.png" alt="pic" class="img-responsive">
+            <img src="${pageContext.request.contextPath}/${company.serviceHeadImg}" alt="pic" class="img-responsive">
         </section>
         <section class="part-two">
             <div class="service-content">
                 <h3>服务范围</h3>
-                <p>帕金斯威尔的跨专业综合协作型城市设计团队善于将公共空间、 多种用途和难忘的环境结合到特色鲜明的场所模式当中。 我们凭借长期积累帕金斯威尔的跨专业综合协作型城市设计团队善于将公共空间、 多种用途和难忘的环境结合到特色鲜明的场所模式当中。我们凭借长期积累</p>
-                <p>帕金斯威尔的跨专业综合协作型城市设计团队善于将公共空间、多种用途和难忘的环境结合到特色鲜明的场所模式当中。我们凭借长期积累  帕金斯威尔的跨专业综合协作型城市设计团队善于将公共空间、多种用途和难忘的环境结合到特色鲜明的场所模式当中。我们凭借长期积累</p>
-                <p>帕金斯威尔的跨专业综合协作型城市设计团队善于将公共空间、多种用途和难忘的环境结合到特色鲜明的场所模式当中。我们凭借长期积  帕金斯威尔的跨专业综合协作型城市设计团队善于将公共空间、多种用途和难忘的环境结合到特色鲜明的场所模式当中。我们凭借长期积累</p>
+                <p>
+                ${company.serviceContent }
+                </p>
             </div>
         </section>
     </div>

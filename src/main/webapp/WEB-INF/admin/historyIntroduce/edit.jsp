@@ -60,13 +60,35 @@
 				  <div id="uploadFileDiv" class="col-md-9">
 				    <input id="pdFile" name="file" type="file">
 				    <div id="fileError" class="help-block"></div>
-				    <p class="help-block">支持jpg、jpeg、png、gif格式，大小不超过2.0M，宽x高:980x524</p>
+				    <p class="help-block"></p>
+				  </div>
+				</div>
+				<c:if test="${historyIntroduce.serviceHeadImg != null}">
+				  <div class="form-group">
+				    <label class="col-md-3 control-label">服务范围图片</label>
+				    <div class="col-md-9">
+				      <img class="img-responsive" src="${pageContext.request.contextPath}/${historyIntroduce.serviceHeadImg}">
+				    </div>
+				  </div>
+				</c:if>
+				<div class="form-group">
+				  <label class="col-md-3 control-label">服务范围图片</label>
+				  <div id="uploadFileDiv" class="col-md-9">
+				    <input id="serviceFile" name="serviceFile" type="file">
+				    <div id="fileError" class="help-block"></div>
+				    <p class="help-block"></p>
 				  </div>
 				</div>
 				<div class="form-group">
 				  <label class="col-md-3 control-label">公司历程</label>
 				  <div class="col-md-9">
 				    <script id="container" name="companyHistory" type="text/plain" name="content">${historyIntroduce.companyHistory}</script>
+				  </div>
+				</div>
+				<div class="form-group">
+				  <label class="col-md-3 control-label">服务范围</label>
+				  <div class="col-md-9">
+				    <script id="serviceContainer" name="serviceContent" type="text/plain" name="serviceContent">${historyIntroduce.serviceContent}</script>
 				  </div>
 				</div>
 				<div class="form-group">
@@ -174,9 +196,23 @@
 <c:import url="../shared/_javascript.jsp"></c:import>
 <script src="<%=baseUrl%>/static/common/admin/js/image_upload.js" type="text/javascript"></script>
 <script type="text/javascript">
-   var editor = UE.getEditor('container');
+   UE.getEditor('container');
+   UE.getEditor('serviceContainer');
    $(function(){
 	   $("#pdFileLogo").fileinput({
+	     showPreview : true,
+	     showUpload : false,
+	     showRemove : false,
+	     allowedFileExtensions : [ "jpg", "png", "gif"],
+	     elErrorContainer : "#fileError",
+	     browseClass : "btn btn-success",
+	     browseLabel : "浏览文件",
+	     browseIcon : '<i class="glyphicon glyphicon-search"></i>',
+	     removeClass : "btn btn-danger",
+	     removeLabel : "删除",
+	     removeIcon : '<i class="glyphicon glyphicon-trash"></i>'
+	   });
+	   $("#serviceFile").fileinput({
 	     showPreview : true,
 	     showUpload : false,
 	     showRemove : false,
