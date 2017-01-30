@@ -61,7 +61,7 @@
                   <td>项目名称</td>
                   <td>操作</td>
                 </tr>
-                <c:forEach var="project" items="${projects}">
+                <c:forEach var="project" items="${pages.list}">
                   <tr>
                     <td>${project.id}</td>
                     <td>${project.zhName}</td>
@@ -75,6 +75,11 @@
                   </tr>
                 </c:forEach>
               </table>
+            </div>
+            <div class="col-md-12">
+              <c:import url="../shared/_page.jsp">
+                <c:param name="pageUrl" value="${pageContext.request.contextPath}/admin/projectCases/${navMenu.id}"></c:param>
+              </c:import>
             </div>
           </div>
         </div>

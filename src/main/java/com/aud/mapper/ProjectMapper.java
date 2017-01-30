@@ -27,7 +27,7 @@ public interface ProjectMapper {
     
     List<Project> getByNavMenuId(int nav_menu_id);
     
-    List<Project> getByNavMenuId(int nav_menu_id, @Param("pageNum") int pageNum, @Param("pageSize") int pageSize);
+    //List<Project> getByNavMenuId(int nav_menu_id, @Param("pageNum") int pageNum, @Param("pageSize") int pageSize);
     
     int getMaxId();
 }
