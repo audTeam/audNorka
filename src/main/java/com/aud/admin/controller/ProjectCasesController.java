@@ -39,25 +39,9 @@ public class ProjectCasesController {
 		
 		PageHelper.startPage(pageNo, pageSize);
 	    List<Project> list = this.projectMapper.getByNavMenuId(id);
-	    //用PageInfo对结果进行包装
 	    PageInfo<Project> page = new PageInfo<Project>(list);
         
-	    System.out.println("------------------------");
-	    System.out.println(page.getPageNum());
-	    System.out.println(page.getPageSize());
-	    System.out.println(page.getStartRow());
-	    System.out.println(page.getEndRow());
-	    System.out.println(page.getTotal());
-	    System.out.println(page.getPages());
-	    System.out.println(page.getFirstPage());
-	    System.out.println(page.getLastPage());
-	    System.out.println(page.isHasPreviousPage());
-	    System.out.println(page.isHasNextPage());
-	    System.out.println("------------------------");
-	    System.out.println("-----page: "+new Gson().toJson(page));
-
 		model.addAttribute("navMenu", this.navMenuMapper.selectByPrimaryKey(id));
-		//model.addAttribute("projects", this.projectMapper.getByNavMenuId(id));
 		model.addAttribute("pages", page);
 		return "admin/projectCases/show";
 	}
