@@ -30,8 +30,8 @@ public class DashboradsController {
 		PageHelper.startPage(pageNo, pageSize);
 	    List<LeaveMessage> list = this.leaveMessageMapper.all();
 	    PageInfo<LeaveMessage> page = new PageInfo<LeaveMessage>(list);
-        
 	    model.addAttribute("pages", page);
+
 		return "admin/dashborad/show";
 	}
 

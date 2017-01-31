@@ -43,15 +43,15 @@
                 <tr>
                   <td>#</td>
                   <td>标题</td>
-                  <td>发布日期</td>
+                  <!-- <td>发布日期</td> -->
                   <td>操作</td>
                 </tr>
-                <c:forEach var="newItem" items="${news}">
+                <c:forEach var="newItem" items="${pages.list}">
                   <tr>
                     <td>${newItem.id}</td>
                     <td>${newItem.title}</td>
                     <!-- <td><fmt:formatDate value="${newItem.publishAt}" type="both" /></td>  -->
-                    <td>${newItem.publishAt}</td>
+                    <!-- <td>${newItem.publishAt}</td> -->
                     <td>
                       <a class="btn btn-default" href="${pageContext.request.contextPath}/admin/newsCategories/${newItem.navmenueId}/news/${newItem.id}/edit">编辑</a>
                       <form action="${pageContext.request.contextPath}/admin/newsCategories/${newItem.navmenueId}/news/${newItem.id}" method="post" style="display: inline-block;">
@@ -61,7 +61,12 @@
                   </tr>
                 </c:forEach>
               </table>
-            </div> 
+            </div>
+            <div class="col-md-12">
+              <c:import url="../shared/_page.jsp">
+                <c:param name="pageUrl" value="${pageContext.request.contextPath}/admin/newsCategories/${newsCategory.id}/news"></c:param>
+              </c:import>
+            </div>
           </div>
         </div>
       </div>
