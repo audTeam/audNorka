@@ -49,7 +49,7 @@
                   <td>擅长领域</td>
                   <td>操作</td>
                 </tr>
-                <c:forEach var="teamMember" items="${teamMembers}">
+                <c:forEach var="teamMember" items="${pages.list}">
                   <tr>
                     <td>${teamMember.id}</td>
                     <td>${teamMember.name}</td>
@@ -65,6 +65,11 @@
                 </c:forEach>
               </table>
             </div>
+            <div class="col-md-12">
+	          <c:import url="../shared/_page.jsp">
+	            <c:param name="pageUrl" value="${pageContext.request.contextPath}/admin/teams/${team.id}/teamMembers"></c:param>
+	          </c:import>
+	        </div>
           </div>
         </div>
       </div>

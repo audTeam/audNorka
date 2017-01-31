@@ -48,7 +48,7 @@
       <!-- Your Page Content Here -->
       <div class="box">
         <div class="box-body">
-          <div class="row">
+          <div class="row hidden">
             <div class="col-md-4">
               <!-- small box -->
               <div class="small-box bg-aqua">
@@ -96,23 +96,6 @@
               <div class="box-header">
                 <i class="ion ion-clipboard"></i>
                 <h3 class="box-title">留言列表</h3>
-                <div class="box-tools pull-right">
-                  <ul class="pagination pagination-sm inline">
-                    <c:forEach var="i" begin="1" end="${totalSize}" step="1">
-                      <li <c:if test="${i==param.pageNum||(param.pageNum==null&&i==1)}">class="active"</c:if>>
-                        <a href="${pageContext.request.contextPath}/admin/dashborad?pageNum=${i}">
-                          <c:if test="${i==1}">
-                            &laquo;
-                          </c:if>
-                          ${i}
-                          <c:if test="${i==totalSize}">
-                            &raquo;
-                          </c:if>
-                        </a>
-                      </li>
-                    </c:forEach>
-                  </ul>
-                </div>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
@@ -124,7 +107,7 @@
                     <td>留言</td>
                     <td>操作</td>
                   </tr>
-                  <c:forEach var="leaveMessage" items="${leaveMessages}">
+                  <c:forEach var="leaveMessage" items="${pages.list}">
                    <tr>
                     <td>${leaveMessage.id}</td>
                     <td>${leaveMessage.name}</td>
@@ -139,6 +122,11 @@
                   </tr>
                   </c:forEach>
                 </table>
+	            <div class="col-md-12">
+	              <c:import url="../shared/_page.jsp">
+	                <c:param name="pageUrl" value="${pageContext.request.contextPath}/admin/dashborad"></c:param>
+	              </c:import>
+	            </div>
             </div>
             <!-- /.box-body -->
             <!-- <div class="box-footer clearfix no-border">

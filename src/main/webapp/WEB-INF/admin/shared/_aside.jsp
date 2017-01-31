@@ -37,7 +37,7 @@
     <c:set var="currentUrl" value="${pageContext.request.requestURL }" />
     <!-- Sidebar Menu -->
     <ul class="sidebar-menu">
-      <li <c:if test="${fn:contains(currentUrl, 'dashborad')}">class="active"</c:if> >
+      <li <c:if test="${fn:contains(currentUrl, 'dashborad')||fn:contains(currentUrl, 'leaveMessages')}">class="active"</c:if> >
         <a href="<%=baseUrl%>/admin/dashborad">
           <i class="fa fa-bars" aria-hidden="true"></i>
           <span>首页</span>

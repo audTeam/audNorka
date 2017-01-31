@@ -58,6 +58,9 @@
 	<mvc:resources location="/" mapping="/**/*.woff" />
 	<mvc:resources location="/" mapping="/**/*.woff2" />
 	<mvc:resources location="/" mapping="/**/*.ttf" />
+	<mvc:resources location="/" mapping="/**/*.ppt" />
+	<mvc:resources location="/" mapping="/**/*.doc" />
+	<mvc:resources location="/" mapping="/**/*.docx" />
 	<mvc:resources mapping="/ueditor/**" location="/ueditor/" />
 
 	<mvc:annotation-driven />

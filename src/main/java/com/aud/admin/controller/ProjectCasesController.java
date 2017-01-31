@@ -53,8 +53,15 @@ public class ProjectCasesController {
 	}
 
 	@RequestMapping(value = "", method=RequestMethod.GET)
-	public String index(ModelMap model){
-		model.addAttribute("navMenus", this.navMenuMapper.allNavMenuByParentNav(1));
+	public String index(ModelMap model,
+			@RequestParam(value="pageNo", required=false, defaultValue="1") Integer pageNo,
+			@RequestParam(value="pageSize", required=false, defaultValue="10") Integer pageSize){
+
+		PageHelper.startPage(pageNo, pageSize);
+	    List<NavMenu> list = this.navMenuMapper.allNavMenuByParentNav(1);
+	    PageInfo<NavMenu> page = new PageInfo<NavMenu>(list);
+	    model.addAttribute("pages", page);
+
 		return "admin/projectCases/index";
 	}
 
