@@ -17,7 +17,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.aud.mapper.ImageMapper;
 import com.aud.mapper.NavMenuMapper;
 import com.aud.mapper.ProjectMapper;
+import com.aud.pojo.News;
 import com.aud.pojo.Project;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.google.gson.Gson;
 
 @Controller("clientProjectCase")
@@ -34,8 +37,13 @@ public class ProjectCasesController extends BaseController {
 	public String show(@PathVariable("id") int id, ModelMap model){
 		model.addAttribute("navMenu", this.navMenuMapper.selectByPrimaryKey(id));
 		List<Map<String, Object>> collection = new LinkedList<Map<String, Object>>();
-		List<Project> projects = this.projectMapper.getByNavMenuId(id);
-		Iterator<Project> iter = projects.iterator();
+
+    	PageHelper.startPage(1, 4);
+	    List<Project> list = this.projectMapper.getByNavMenuId(id);
+	    PageInfo<Project> page = new PageInfo<Project>(list);
+	    model.addAttribute("pages", page);
+
+		Iterator<Project> iter = page.getList().iterator();
 		while(iter.hasNext()){
 			Project project = iter.next();
 			Map<String, Object> item = new HashMap<>();

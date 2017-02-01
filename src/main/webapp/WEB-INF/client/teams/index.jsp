@@ -18,7 +18,7 @@
     <section class="part-one">
       <div class="row team">
         <div class="col-sm-12">所有成员</div>
-        <c:forEach var="teamMember" items="${teamMembers}">
+        <c:forEach var="teamMember" items="${pages.list}">
 	      <div class="col-sm-3">
 	        <a href="<%=baseUrl%>/client/teams/${teamMember.navMenuId}/teamMembers/${teamMember.id}">
 	          <img src="${pageContext.request.contextPath}/${teamMember.imgUrl}" alt="pic" class="img-responsive">
@@ -28,19 +28,11 @@
 	      </div>
         </c:forEach>
 
-        <div class="col-sm-12 hidden">
-          <nav class="pull-right">
-            <ul class="pagination">
-              <li class="disabled"><a href="#">&laquo;</a></li>
-              <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#">5</a></li>
-              <li><a href="#">&raquo;</a></li>
-            </ul>
-          </nav>
-        </div>
+      <div class="col-sm-12">
+        <c:import url="../shared/_page.jsp">
+          <c:param name="pageUrl" value="${pageContext.request.contextPath}/client/teams"></c:param>
+        </c:import>
+      </div>
       </div>
     </section>
   </div>

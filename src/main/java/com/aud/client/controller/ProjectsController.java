@@ -69,7 +69,12 @@ public class ProjectsController extends BaseController {
 		model.addAttribute("images", this.imageMapper.selectByResourceId(id));
 
 		List<Map<String, Object>> collection = new ArrayList<Map<String, Object>>();
-		Iterator<Project> iter = this.projectMapper.getByNavMenuId(project.getNavMenuId()).iterator();
+
+		PageHelper.startPage(1, 6);
+	    List<Project> list = this.projectMapper.getByNavMenuId(project.getNavMenuId());
+	    PageInfo<Project> page = new PageInfo<Project>(list);
+
+		Iterator<Project> iter = page.getList().iterator();
 		while(iter.hasNext()){
 			project = iter.next();
 			Map<String, Object> item = new HashMap<>();
