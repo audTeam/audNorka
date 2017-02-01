@@ -67,8 +67,8 @@
                     <td>${banner.name}</td>
                     <td>
                       <a class="btn btn-info" href="<%=baseUrl%>/admin/banners/${banner.id}/edit">编辑</a>
-                      <form action="<%=baseUrl%>/admin/banners/${banner.id}" method="POST" style="display: inline;">
-                        <input type="hidden" name="_method" value="DELETE">
+                      <form action="<%=baseUrl%>/admin/banners/${banner.id}/delete" method="POST" style="display: inline;">
+                        <!-- <input type="hidden" name="_method" value="DELETE"> -->
                         <button class="btn btn-danger" type="submit">删除</button>
                       </form>
                     </td>

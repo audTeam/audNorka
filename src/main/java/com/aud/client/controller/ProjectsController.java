@@ -13,13 +13,17 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.aud.mapper.ImageMapper;
 import com.aud.mapper.ProjectMapper;
 import com.aud.mapper.TeamMemberMapper;
 import com.aud.mapper.TeamMemberProjectMapper;
+import com.aud.pojo.LeaveMessage;
 import com.aud.pojo.Project;
 import com.aud.pojo.TeamMemberProject;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.google.gson.Gson;
 
 @Controller
@@ -35,9 +39,17 @@ public class ProjectsController extends BaseController {
 	private TeamMemberMapper teamMemberMapper;
 
 	@RequestMapping(value="", method=RequestMethod.GET)
-	public String index(ModelMap model){
+	public String index(ModelMap model,
+			@RequestParam(value="pageNo", required=false, defaultValue="1") Integer pageNo,
+			@RequestParam(value="pageSize", required=false, defaultValue="12") Integer pageSize){
 		List<Map<String, Object>> collection = new ArrayList<Map<String, Object>>();
-		Iterator<Project> iter = this.projectMapper.all().iterator();
+		
+		PageHelper.startPage(pageNo, pageSize);
+		List<Project> list = this.projectMapper.all();
+		PageInfo<Project> page = new PageInfo<Project>(list);
+		model.addAttribute("pages", page);
+    
+		Iterator<Project> iter = page.getList().iterator();
 		while(iter.hasNext()){
 			Project project = iter.next();
 			Map<String, Object> item = new HashMap<>();

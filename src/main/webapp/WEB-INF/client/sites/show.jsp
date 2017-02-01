@@ -56,7 +56,7 @@
         </section>
         <section class="part_two">
             <div class="row">
-              <c:forEach var="newsItem" items="${news}">
+              <c:forEach var="newsItem" items="${pages.list}">
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                     <img src="${pageContext.request.contextPath}/${newsItem.headImg}" alt="pic" class="img-responsive">
                     <div class="text">

@@ -13,5 +13,5 @@ public interface NewsMapper {
     int updateByPrimaryKeyWithBLOBs(News record);
     int updateByPrimaryKey(News record);
     List<News> selectByNewsCategoryId(int categoryId);
-    List<News> all(@Param("pageNum") int pageNum, @Param("pageSize") int pageSize);
+    List<News> all();
 }
