@@ -49,7 +49,7 @@
                 <td>分类简介</td>
                 <td>操作</td>
               </tr>
-              <c:forEach var="navMenu" items="${navMenus}">
+              <c:forEach var="navMenu" items="${pages.list}">
                 <tr>
                   <td>${navMenu.id}</td>
                   <td>${navMenu.name}</td>
@@ -72,6 +72,11 @@
               </c:forEach>
             </table>
           </div>
+          <div class="col-md-12">
+	        <c:import url="../shared/_page.jsp">
+	          <c:param name="pageUrl" value="${pageContext.request.contextPath}/admin/projectCases"></c:param>
+	        </c:import>
+	     </div>
         </div>
       </div>
 

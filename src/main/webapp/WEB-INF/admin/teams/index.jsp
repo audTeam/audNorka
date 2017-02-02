@@ -48,12 +48,12 @@
                   <td>名称</td>
                   <td>操作</td>
                 </tr>
-                <c:forEach var="team" items="${teams}" varStatus="status">
+                <c:forEach var="team" items="${pages.list}" varStatus="status">
                   <tr>
                     <td>${status.index+1}</td>
                     <td>${team.name}</td>
                     <td>
-                      <a class="btn btn-default" href="<%=baseUrl%>/admin/teams/${team.id}/teamMembers/edit">编辑</a>
+                      <a class="btn btn-default" href="<%=baseUrl%>/admin/teams/${team.id}/edit">编辑</a>
                       <a class="btn btn-info" href="<%=baseUrl%>/admin/teams/${team.id}/teamMembers">团队管理</a>
                       <form action="<%=baseUrl%>/admin/teams/${team.id}" method="post" style="display: inline-block;">
                         <input type="hidden" name="_method" value="DELETE">
@@ -64,6 +64,11 @@
                 </c:forEach>
               </table>
             </div>
+            <div class="col-md-12">
+	          <c:import url="../shared/_page.jsp">
+	            <c:param name="pageUrl" value="${pageContext.request.contextPath}/admin/teams"></c:param>
+	          </c:import>
+	        </div>
           </div>
         </div>
       </div>

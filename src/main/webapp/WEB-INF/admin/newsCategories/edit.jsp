@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%String baseUrl = request.getContextPath(); %>
@@ -22,7 +22,7 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>title</h1>
+      <h1>编辑分类</h1>
       <ol class="breadcrumb">
         <li><a href="<%=baseUrl%>/admin/dashborad"><i class="fa fa-dashboard"></i> 首页</a></li>
         <li class="active"><a href="<%=baseUrl%>/admin/newsCategories">新闻动态</a></li>
@@ -35,7 +35,14 @@
       <!-- Your Page Content Here -->
       <div class="box">
         <div class="box-body">
-          44444444444444
+          <div class="row">
+            <div class="col-md-8">
+              <c:import url="_form.jsp">
+                <c:param name="actionUrl" value="${pageContext.request.contextPath }/admin/newsCategories/${newsCategory.id}/update" />
+                <c:param name="method" value="PATCH" />
+              </c:import>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -52,6 +59,8 @@
 <!-- REQUIRED JS SCRIPTS -->
 
 <c:import url="../shared/_javascript.jsp"></c:import>
+<script src="<%=baseUrl%>/static/common/admin/js/banner_image_upload.js"  type="text/javascript"></script>
 
 </body>
 </html>
+ 

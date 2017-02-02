@@ -1,21 +1,28 @@
 package com.aud.admin.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.aud.mapper.NavMenuMapper;
 import com.aud.mapper.ProjectMapper;
 import com.aud.pojo.NavMenu;
+import com.aud.pojo.Project;
 import com.aud.tool.Utils;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.google.gson.Gson;
 
 @Controller
 @RequestMapping("/admin/projectCases")
@@ -26,9 +33,16 @@ public class ProjectCasesController {
 	private ProjectMapper projectMapper;
 
 	@RequestMapping(value = "/{id}", method=RequestMethod.GET)
-	public String show(@PathVariable("id") int id, ModelMap model){
+	public String show(@PathVariable("id") int id, ModelMap model,
+			@RequestParam(value="pageNo", required=false, defaultValue="1") Integer pageNo,
+			@RequestParam(value="pageSize", required=false, defaultValue="10") Integer pageSize){
+		
+		PageHelper.startPage(pageNo, pageSize);
+	    List<Project> list = this.projectMapper.getByNavMenuId(id);
+	    PageInfo<Project> page = new PageInfo<Project>(list);
+        
 		model.addAttribute("navMenu", this.navMenuMapper.selectByPrimaryKey(id));
-		model.addAttribute("projects", this.projectMapper.getByNavMenuId(id));
+		model.addAttribute("pages", page);
 		return "admin/projectCases/show";
 	}
 	
@@ -39,8 +53,15 @@ public class ProjectCasesController {
 	}
 
 	@RequestMapping(value = "", method=RequestMethod.GET)
-	public String index(ModelMap model){
-		model.addAttribute("navMenus", this.navMenuMapper.allNavMenuByParentNav(1));
+	public String index(ModelMap model,
+			@RequestParam(value="pageNo", required=false, defaultValue="1") Integer pageNo,
+			@RequestParam(value="pageSize", required=false, defaultValue="10") Integer pageSize){
+
+		PageHelper.startPage(pageNo, pageSize);
+	    List<NavMenu> list = this.navMenuMapper.allNavMenuByParentNav(1);
+	    PageInfo<NavMenu> page = new PageInfo<NavMenu>(list);
+	    model.addAttribute("pages", page);
+
 		return "admin/projectCases/index";
 	}
 

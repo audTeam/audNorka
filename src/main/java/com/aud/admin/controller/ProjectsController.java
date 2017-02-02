@@ -23,48 +23,52 @@ public class ProjectsController {
 	@Autowired
 	private ImageMapper imageMapper;
 
-	@RequestMapping(value = "/{id}/delete", method=RequestMethod.POST)
-	public String delete(@PathVariable("id") int id, @PathVariable("caseId") int caseId){
+	@RequestMapping(value = "/{id}/delete", method = RequestMethod.POST)
+	public String delete(@PathVariable("id") int id, @PathVariable("caseId") int caseId) {
 		this.projectMapper.deleteByPrimaryKey(id);
-		return "redirect:/admin/projectCases/"+caseId;
+		return "redirect:/admin/projectCases/" + caseId;
 	}
 
-	@RequestMapping(value="/{id}/edit", method=RequestMethod.GET)
-	public String edit(@PathVariable("id") int id, ModelMap model){
+	@RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
+	public String edit(@PathVariable("id") int id, ModelMap model) {
 		model.addAttribute("project", this.projectMapper.selectByPrimaryKey(id));
 		model.addAttribute("images", this.imageMapper.selectByResourceId(id));
 		return "admin/projects/edit";
 	}
-	
-	@RequestMapping(value="/{id}/update", method=RequestMethod.POST)
-	public String update(@PathVariable("caseId") int caseId, @PathVariable("id") int id, Project project, String[] imgUrls){
+
+	@RequestMapping(value = "/{id}/update", method = RequestMethod.POST)
+	public String update(@PathVariable("caseId") int caseId, @PathVariable("id") int id, Project project,
+			String[] imgUrls) {
 		this.projectMapper.updateByPrimaryKeySelective(project);
-		if(imgUrls!=null){
-		  for(String imgUrl : imgUrls){
-			System.out.println("---------imgUrls: "+imgUrl);
-		  }
+		if (imgUrls != null) {
+			for (String imgUrl : imgUrls) {
+				Image image = new Image();
+				image.setImgUrl(imgUrl);
+				image.setResourceId(id);
+				this.imageMapper.insertSelective(image);
+			}
 		}
-		return "redirect:/admin/projectCases/"+caseId;
+		return "redirect:/admin/projectCases/" + caseId;
 	}
 
-	@RequestMapping(value="/new", method=RequestMethod.GET)
-	public String newPage(@PathVariable("caseId") int caseId, ModelMap model){
+	@RequestMapping(value = "/new", method = RequestMethod.GET)
+	public String newPage(@PathVariable("caseId") int caseId, ModelMap model) {
 		model.addAttribute("menu", this.navMenuMapper.selectByPrimaryKey(caseId));
 		return "admin/projects/new";
 	}
 
-	@RequestMapping(value="", method=RequestMethod.POST)
-	public String create(@PathVariable("caseId") int caseId, Project project, String[] imgUrls){
+	@RequestMapping(value = "", method = RequestMethod.POST)
+	public String create(@PathVariable("caseId") int caseId, Project project, String[] imgUrls) {
 		this.projectMapper.insertSelective(project);
 
 		int projectId = this.projectMapper.getMaxId();
-		for(String imgUrl : imgUrls ){
+		for (String imgUrl : imgUrls) {
 			Image image = new Image();
 			image.setImgUrl(imgUrl);
 			image.setResourceId(projectId);
 			this.imageMapper.insertSelective(image);
 		}
-		
-		return "redirect:/admin/projectCases/"+caseId;
+
+		return "redirect:/admin/projectCases/" + caseId;
 	}
 }

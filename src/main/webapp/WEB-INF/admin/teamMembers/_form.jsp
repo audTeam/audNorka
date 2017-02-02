@@ -5,7 +5,7 @@
 
 <form action="${param.actionUrl}" method="POST" class="form-horizontal" id="uploadForm" enctype="multipart/form-data">
   <c:if test="${param.method=='PATCH'}">
-    <input type="hidden" name="_method" value="PATCH">
+    <!-- <input type="hidden" name="_method" value="PATCH"> -->
     <input type="hidden" name="id" value="${teamMember.id}">
   </c:if>
   <div class="form-group">
@@ -79,12 +79,20 @@
       <p class="help-block">支持jpg、jpeg、png、gif格式，大小不超过2.0M，宽x高:215x117</p>
     </div>
   </div>
+  <c:if test="${teamMember.card!=null}">
+    <div class="form-group">
+      <label class="col-md-4 control-label">个人名片</label>
+      <div class="col-md-8">
+        <a href="${pageContext.request.contextPath}/${teamMember.card}">点击查看</a>
+      </div>
+    </div>
+  </c:if>
   <div class="form-group">
     <label class="col-md-4 control-label">个人名片</label>
     <div id="docFileDiv" class="col-md-8">
       <input id="docFile" name="personFile" type="file">
       <div id="docFileError" class="help-block"></div>
-      <p class="help-block">支持jpg、jpeg、png、gif格式，大小不超过2.0M，宽x高:384x150</p>
+      <p class="help-block">支持jpg, png, gif, doc, docx, ppt</p>
     </div>
   </div>
   <div class="form-group">

@@ -1,13 +1,18 @@
 package com.aud.client.controller;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.aud.mapper.CooperationMapper;
+import com.aud.mapper.HistoryIntroduceMapper;
 import com.aud.mapper.LeaveMessageMapper;
+import com.aud.pojo.HistoryIntroduce;
 import com.aud.pojo.LeaveMessage;
 
 @Controller
@@ -15,7 +20,11 @@ import com.aud.pojo.LeaveMessage;
 public class AboutUsController {
 	@Autowired
 	private LeaveMessageMapper leaveMessageMapper;
-	
+	@Autowired
+	private HistoryIntroduceMapper historyIntroduceMapper;
+	@Autowired
+	private CooperationMapper cooperationMapper;
+
 	@RequestMapping(value="/leaveMessages", method=RequestMethod.POST)
 	public String leaveMessages(LeaveMessage leaveMessage){
 		leaveMessage.setCreatedAt(new Date());
@@ -24,12 +33,41 @@ public class AboutUsController {
 	}
 
 	@RequestMapping(value="", method=RequestMethod.GET)
-	public String show(){
+	public String show(ModelMap model){
+		List<HistoryIntroduce> all = this.historyIntroduceMapper.all();
+		if (all.size() > 0) {
+			model.addAttribute("historyIntroduce", all.get(0));
+		} else {
+			HistoryIntroduce historyIntroduce = new HistoryIntroduce();
+			historyIntroduce.setCompanyHistory("");
+			historyIntroduce.setCooperationCompany("");
+			historyIntroduce.setVideo("");
+			historyIntroduce.setHeadImg("");
+			historyIntroduce.setServiceContent("");
+			historyIntroduce.setServiceHeadImg("");
+			historyIntroduceMapper.insertSelective(historyIntroduce);
+			model.addAttribute("historyIntroduce", new HistoryIntroduce());
+		}
+		model.addAttribute("cooperations", this.cooperationMapper.all());
 		return "client/aboutUs/show";
 	}
 
 	@RequestMapping(value="/service", method=RequestMethod.GET)
-	public String showService(){
+	public String showService(ModelMap model){
+		List<HistoryIntroduce> all = this.historyIntroduceMapper.all();
+		if (all.size() > 0) {
+			model.addAttribute("company", all.get(0));
+		} else {
+			HistoryIntroduce historyIntroduce = new HistoryIntroduce();
+			historyIntroduce.setCompanyHistory("");
+			historyIntroduce.setCooperationCompany("");
+			historyIntroduce.setVideo("");
+			historyIntroduce.setHeadImg("");
+			historyIntroduce.setServiceContent("");
+			historyIntroduce.setServiceHeadImg("");
+			historyIntroduceMapper.insertSelective(historyIntroduce);
+			model.addAttribute("company", new HistoryIntroduce());
+		}
 		return "client/aboutUs/service";
 	}
 

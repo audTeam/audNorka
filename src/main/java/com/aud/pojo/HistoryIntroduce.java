@@ -10,8 +10,28 @@ public class HistoryIntroduce {
     private String video;
 
     private String headImg;
+    
+    private String serviceHeadImg;
+    
+    private String serviceContent;
 
-    public Integer getId() {
+    public String getServiceHeadImg() {
+		return serviceHeadImg;
+	}
+
+	public void setServiceHeadImg(String serviceHeadImg) {
+		this.serviceHeadImg = serviceHeadImg;
+	}
+
+	public String getServiceContent() {
+		return serviceContent;
+	}
+
+	public void setServiceContent(String serviceContent) {
+		this.serviceContent = serviceContent;
+	}
+
+	public Integer getId() {
         return id;
     }
 
@@ -35,15 +55,16 @@ public class HistoryIntroduce {
         this.cooperationCompany = cooperationCompany == null ? null : cooperationCompany.trim();
     }
 
-    public String getVedeo() {
-        return video;
-    }
 
-    public void setVedeo(String vedeo) {
-        this.video = vedeo == null ? null : vedeo.trim();
-    }
+    public String getVideo() {
+		return video;
+	}
 
-    public String getHeadImg() {
+	public void setVideo(String video) {
+		this.video = video;
+	}
+
+	public String getHeadImg() {
         return headImg;
     }
 

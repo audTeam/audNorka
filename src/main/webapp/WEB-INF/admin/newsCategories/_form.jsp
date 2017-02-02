@@ -4,7 +4,7 @@
 
 <form class="form-horizontal" method="POST" action="${param.actionUrl}">
   <c:if test="${param.method=='PATCH'}">
-    <input type="hidden" name="_method" value="PATCH">
+    <!-- <input type="hidden" name="_method" value="PATCH"> -->
     <input type="hidden" name="id" value="${newsCategory.id}">
   </c:if>
   <div class="form-group">

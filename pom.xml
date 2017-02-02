@@ -33,7 +33,7 @@
 		<dependency>
 			<groupId>com.github.pagehelper</groupId>
 			<artifactId>pagehelper</artifactId>
-			<version>5.0.0</version>
+			<version>4.0.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.maven.plugins</groupId>
@@ -52,7 +52,11 @@
 		</dependency>
 
 		<!--spring security 权限管理相关jar包 -->
+<<<<<<< HEAD
 		<!--<dependency>
+=======
+		<!-- <dependency>
+>>>>>>> 3a8d851cecda3f8ed62a98ad9272203fdf900424
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-web</artifactId>
 			<version>3.2.3.RELEASE</version>
@@ -61,7 +65,11 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
 			<version>3.2.3.RELEASE</version>
+<<<<<<< HEAD
 		</dependency>-->
+=======
+		</dependency> -->
+>>>>>>> 3a8d851cecda3f8ed62a98ad9272203fdf900424
 		<!--spring security 权限管理相关jar包 -->
 
 		<!-- servlet -->

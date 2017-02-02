@@ -31,7 +31,7 @@
             </div>
             <div class="col-sm-9">
                 <ul class="nav more-case">
-                  <c:forEach var="newItem" items="${news}">
+                  <c:forEach var="newItem" items="${pages.list}">
                     <li class="clearfix">
                         <div class="col-xs-4 case-pic">
                           <a href="<%=baseUrl%>/client/newsCategories/${newItem.navmenueId}/news/${newItem.id}">
@@ -39,7 +39,8 @@
                           </a>
                         </div>
                         <div class="col-xs-8 case-text">
-                            <p class="date">17-1-19</p>
+                            <!--  ${newItem.publishAt} -->
+                            <p class="date">2017-2-7</p>
                             <h4>${newItem.title}</h4>
                             <div class="text">
                                 <p>${newItem.subTitle}</p>
@@ -49,18 +50,10 @@
                   </c:forEach>
                 </ul>
             </div>
-            <div class="col-sm-12 hidden">
-                <nav class="pull-right">
-                    <ul class="pagination">
-                        <li class="disabled"><a href="#">&laquo;</a></li>
-                        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">&raquo;</a></li>
-                    </ul>
-                </nav>
+            <div class="col-sm-12">
+              <c:import url="../shared/_page.jsp">
+                <c:param name="pageUrl" value="${pageContext.request.contextPath}/client/newsCategories/${newsNavMenus[0].id}"></c:param>
+              </c:import>
             </div>
         </div>
     </div>

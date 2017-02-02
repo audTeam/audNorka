@@ -3,6 +3,7 @@ package com.aud.admin.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -21,6 +22,18 @@ public class NewsCategoriesController {
 		model.addAttribute("newsCategories", this.navMenuMapper.allNavMenuByParentNav(3));
 		return "admin/newsCategories/index";
 	}
+	
+	@RequestMapping(value="/{id}/edit", method=RequestMethod.GET)
+	public String edit(ModelMap model, @PathVariable("id") int id){
+		model.addAttribute("newsCategory", this.navMenuMapper.selectByPrimaryKey(id));
+		return "admin/newsCategories/edit";
+	}
+
+	@RequestMapping(value="/{id}/update", method=RequestMethod.POST)
+	public String update(ModelMap model, @PathVariable("id") int id, NavMenu navMenu){
+		this.navMenuMapper.updateByPrimaryKeySelective(navMenu);
+		return "redirect:/admin/newsCategories";
+	}
 
 	@RequestMapping(value="/new", method=RequestMethod.GET)
 	public String newPage(){
@@ -31,7 +44,6 @@ public class NewsCategoriesController {
 	public String create(NavMenu navMenu){
 		navMenu.setParentNav(3);
 		navMenu.setLang("zh");
-		System.out.println("----------navMenu: " + navMenu);
 		this.navMenuMapper.insertSelective(navMenu);
 		return "redirect:/admin/newsCategories";
 	}

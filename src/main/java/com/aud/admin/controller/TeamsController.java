@@ -1,15 +1,20 @@
 package com.aud.admin.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.aud.mapper.NavMenuMapper;
 import com.aud.mapper.TeamMemberMapper;
 import com.aud.pojo.NavMenu;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 
 @Controller("adminTeams")
 @RequestMapping("/admin/teams")
@@ -35,12 +40,19 @@ public class TeamsController {
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.GET)
-	public String index(ModelMap model) {
-		model.addAttribute("teams", this.navMenuMapper.allNavMenuByParentNav(2));
+	public String index(ModelMap model,
+			@RequestParam(value="pageNo", required=false, defaultValue="1") Integer pageNo,
+			@RequestParam(value="pageSize", required=false, defaultValue="10") Integer pageSize){
+
+		PageHelper.startPage(pageNo, pageSize);
+	    List<NavMenu> list = this.navMenuMapper.allNavMenuByParentNav(2);
+	    PageInfo<NavMenu> page = new PageInfo<NavMenu>(list);
+	    model.addAttribute("pages", page);
+
 		return "admin/teams/index";
 	}
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.PATCH)
+	@RequestMapping(value = "/{id}/update", method = RequestMethod.POST)
 	public String update(NavMenu navMenu) {
 		this.navMenuMapper.updateByPrimaryKeySelective(navMenu);
 		return "redirect:/admin/teams";

@@ -2,6 +2,8 @@ package com.aud.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.aud.pojo.Project;
 
 public interface ProjectMapper {
@@ -24,6 +26,8 @@ public interface ProjectMapper {
     int updateByPrimaryKey(Project record);
     
     List<Project> getByNavMenuId(int nav_menu_id);
+    
+    //List<Project> getByNavMenuId(int nav_menu_id, @Param("pageNum") int pageNum, @Param("pageSize") int pageSize);
     
     int getMaxId();
 }

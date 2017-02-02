@@ -37,7 +37,7 @@
         <div class="box-body">
           <div class="row">
             <div class="col-md-12">
-              <a href="<%=baseUrl%>/admin/newsCategories/new" class="col-md-offset-10 btn btn-default">新增</a>
+              <a href="<%=baseUrl%>/admin/newsCategories/new" class="col-md-offset-10 btn btn-default">新增分类</a>
             </div>
             <div class="col-md-12">
               <table class="table table-striped table-hover">
@@ -52,6 +52,7 @@
                     <td>${newsCategory.name}</td>
                     <td>
                       <a href="<%=baseUrl%>/admin/newsCategories/${newsCategory.id}/edit" class="btn btn-default">编辑</a>
+                      <a href="<%=baseUrl%>/admin/newsCategories/${newsCategory.id}/news" class="btn btn-default">查看新闻列表</a>
                       <a href="<%=baseUrl%>/admin/newsCategories/${newsCategory.id}/news/new" class="btn btn-info">发布新闻</a>
                       <form action="<%=baseUrl%>/admin/newsCategories/${newsCategory.id}" method="POST" style="display: inline-block;" >
                         <input type="hidden" name="_method" value="DELETE">

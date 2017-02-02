@@ -13,6 +13,9 @@
   <sql id="Base_Column_List" >
     id, title, publish_at, head_img, sub_title, navmenue_id, content
   </sql>
+  <select id="all" resultMap="BaseResultMap">
+    select * from news ORDER BY publish_at DESC
+  </select>
   <select id="selectByNewsCategoryId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select * from news
     where navmenue_id = #{navmenue_id,jdbcType=INTEGER}

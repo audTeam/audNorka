@@ -1,6 +1,8 @@
 package com.aud.admin.controller;
 import java.io.IOException;
 import java.util.Date;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,14 +10,18 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import com.aud.mapper.NavMenuMapper;
 import com.aud.mapper.ProjectMapper;
 import com.aud.mapper.TeamMemberMapper;
 import com.aud.mapper.TeamMemberProjectMapper;
+import com.aud.pojo.NavMenu;
 import com.aud.pojo.TeamMember;
 import com.aud.pojo.TeamMemberProject;
 import com.aud.tool.Utils;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.google.gson.Gson;
 @Controller("adminTeamMembers")
 @RequestMapping("/admin/teams/{teamId}/teamMembers")
@@ -29,9 +35,17 @@ public class TeamMembersController {
     @Autowired
     private TeamMemberProjectMapper teamMemberProjectMapper;
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public String index(@PathVariable("teamId") int teamId, ModelMap model) {
+    public String index(@PathVariable("teamId") int teamId, ModelMap model,
+			@RequestParam(value="pageNo", required=false, defaultValue="1") Integer pageNo,
+			@RequestParam(value="pageSize", required=false, defaultValue="10") Integer pageSize){
+
         model.addAttribute("team", this.navMenuMapper.selectByPrimaryKey(teamId));
-        model.addAttribute("teamMembers", this.teamMemberMapper.getTeamMemberByTeamId(teamId));
+
+		PageHelper.startPage(pageNo, pageSize);
+	    List<TeamMember> list = this.teamMemberMapper.getTeamMemberByTeamId(teamId);
+	    PageInfo<TeamMember> page = new PageInfo<TeamMember>(list);
+	    model.addAttribute("pages", page);
+
         return "admin/teamMembers/index";
     }
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
@@ -52,8 +66,12 @@ public class TeamMembersController {
     @RequestMapping(value = "", method = RequestMethod.POST)
     public String create(@PathVariable("teamId") int teamId, TeamMember teamMember, MultipartFile file, MultipartFile personFile, HttpServletRequest request, int[] projectIds)
             throws IllegalStateException, IOException {
-        teamMember.setImgUrl(Utils.saveFile(file, request));
-        teamMember.setCard(Utils.saveFile(personFile, request));
+    	if(!file.isEmpty()){
+            teamMember.setImgUrl(Utils.saveFile(file, request));
+    	}
+    	if(!personFile.isEmpty()){
+    		teamMember.setCard(Utils.saveFile(personFile, request));
+    	}
         teamMember.setNavMenuId(teamId);
         teamMember.setLang("zh");
         teamMember.setCreatedAt(new Date());
@@ -69,9 +87,15 @@ public class TeamMembersController {
         return "redirect:/admin/teams/" + teamMember.getNavMenuId() + "/teamMembers";
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.PATCH)
-    public String update(@PathVariable("teamId") int teamId, @PathVariable("id") int id, TeamMember teamMember, int[] projectIds) {
-        teamMember.setUpdatedAt(new Date());
+    @RequestMapping(value = "/{id}/update", method = RequestMethod.POST)
+    public String update(@PathVariable("teamId") int teamId, @PathVariable("id") int id, TeamMember teamMember, int[] projectIds, MultipartFile file, MultipartFile personFile, HttpServletRequest request) throws IllegalStateException, IOException {
+    	if(!file.isEmpty()){
+            teamMember.setImgUrl(Utils.saveFile(file, request));
+    	}
+    	if(!personFile.isEmpty()){
+    		teamMember.setCard(Utils.saveFile(personFile, request));
+    	}
+    	teamMember.setUpdatedAt(new Date());
         this.teamMemberMapper.updateByPrimaryKeySelective(teamMember);
         
         for(int projectId : projectIds){

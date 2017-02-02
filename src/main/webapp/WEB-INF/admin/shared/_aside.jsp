@@ -37,7 +37,7 @@
     <c:set var="currentUrl" value="${pageContext.request.requestURL }" />
     <!-- Sidebar Menu -->
     <ul class="sidebar-menu">
-      <li <c:if test="${fn:contains(currentUrl, 'dashborad')}">class="active"</c:if> >
+      <li <c:if test="${fn:contains(currentUrl, 'dashborad')||fn:contains(currentUrl, 'leaveMessages')}">class="active"</c:if> >
         <a href="<%=baseUrl%>/admin/dashborad">
           <i class="fa fa-bars" aria-hidden="true"></i>
           <span>首页</span>
@@ -77,18 +77,25 @@
         </a>
       </li>
       <li <c:if test="${fn:contains(currentUrl, 'jobs')}">class="active"</c:if>><a href="<%=baseUrl%>/admin/jobs"><i class="fa fa-search" aria-hidden="true"></i><span>招聘信息</span></a></li>
-      <li class="treeview">
+      <li <c:if test="${fn:contains(currentUrl, 'historyIntroduce')}">class="active"</c:if>><a href="<%=baseUrl%>/admin/aboutUs/historyIntroduce"><i class="fa fa-link"></i><span>公司基本信息</span></a></li>
+
+      <!-- <c:if test="${fn:contains(currentUrl, 'historyIntroduce')==true}">
+        <li class="treeview active">
+      </c:if>
+      <c:if test="${fn:contains(currentUrl, 'historyIntroduce') == false}">
+        <li class="treeview">
+      </c:if>
         <a href="#"><i class="fa fa-link"></i><span>关于AUD</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="<%=baseUrl%>/admin/projects"><span>公司历史介绍</span></a></li>
+          <li <c:if test="${fn:contains(currentUrl, 'historyIntroduce')}">class="active"</c:if>><a href="<%=baseUrl%>/admin/aboutUs/historyIntroduce"><span>公司历史介绍</span></a></li>
           <li><a href="<%=baseUrl%>/admin/projects"><span>公司服务范围</span></a></li>
           <li><a href="<%=baseUrl%>/admin/projects"><span>留言管理</span></a></li>
         </ul>
-      </li>
+      </li> -->
     </ul>
     <!-- /.sidebar-menu -->
   </section>

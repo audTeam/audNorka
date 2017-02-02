@@ -1,20 +1,35 @@
 package com.aud.client.controller;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import com.aud.mapper.NavMenuMapper;
 import com.aud.mapper.TeamMemberMapper;
+import com.aud.pojo.LeaveMessage;
+import com.aud.pojo.TeamMember;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 @Controller("clientTeams")
 @RequestMapping("/client/teams")
 public class TeamsController extends BaseController{
     @Autowired
     private TeamMemberMapper teamMemberMapper;
     @RequestMapping(value="", method=RequestMethod.GET)
-    public String index(ModelMap model){
-        model.addAttribute("teamMembers", this.teamMemberMapper.all());
+    public String index(ModelMap model,
+			@RequestParam(value="pageNo", required=false, defaultValue="1") Integer pageNo,
+			@RequestParam(value="pageSize", required=false, defaultValue="12") Integer pageSize){
+		
+		PageHelper.startPage(pageNo, pageSize);
+	    List<TeamMember> list = this.teamMemberMapper.all();
+	    PageInfo<TeamMember> page = new PageInfo<TeamMember>(list);
+	    model.addAttribute("pages", page);
+
         return "client/teams/index";
     }
 }

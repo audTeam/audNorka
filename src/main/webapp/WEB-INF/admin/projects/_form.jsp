@@ -32,7 +32,7 @@
     </div>
   </div>  
   <div class="form-group">
-    <label class="control-label col-md-2">地址</label>
+    <label class="control-label col-md-2">项目地址</label>
     <div class="col-md-10">
       <input type="text" class="form-control" name="address" value="${project.address}">
     </div>

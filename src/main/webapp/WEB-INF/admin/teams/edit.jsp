@@ -22,13 +22,10 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>
-        Page Header
-        <small>Optional description</small>
-      </h1>
+      <h1>编辑团队</h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-        <li class="active">Here</li>
+        <li><a href="<%=baseUrl%>/admin/dashborad"><i class="fa fa-dashboard"></i> 首页</a></li>
+        <li class="active"><a href="<%=baseUrl%>/admin/teams">团队列表</a></li>
       </ol>
     </section>
 
@@ -39,8 +36,11 @@
       <div class="box">
         <div class="box-body">
           <div class="row">
-            <div class="col-md-12">
-              <script id="container" name="content" type="text/plain">这里写你的初始化内容</script>
+            <div class="col-md-8">
+              <c:import url="_form.jsp">
+                <c:param name="actionUrl" value="${pageContext.request.contextPath}/admin/teams/${team.id}/update"></c:param>
+                <c:param name="_method" value="PATCH"></c:param>
+              </c:import>
             </div>
           </div>
         </div>
@@ -59,12 +59,6 @@
 <!-- REQUIRED JS SCRIPTS -->
 
 <c:import url="../shared/_javascript.jsp"></c:import>
-<script src="<%=baseUrl%>/ueditor/ueditor.config.js"></script>
-<script src="<%=baseUrl%>/ueditor/ueditor.all.min.js"></script>
-<script src="<%=baseUrl%>/ueditor/lang/zh-cn/zh-cn.js"></script>
-<script type="text/javascript">
-   var editor = UE.getEditor('container');
-</script>
 
 </body>
 </html>

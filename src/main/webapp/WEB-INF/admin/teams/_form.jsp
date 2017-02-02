@@ -4,6 +4,9 @@
 <%String baseUrl = request.getContextPath(); %>
 
 <form action="${param.actionUrl}" method="POST" class="form-horizontal">
+  <c:if test="${param._method=='PATCH'}">
+    <input class="form-control" type="hidden" name="id" value="${team.id}">
+  </c:if>
   <div class="form-group">
     <label class="control-label col-md-4">团队名称</label>
     <div class="col-md-8">

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <% String baseUrl = request.getContextPath(); %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <!DOCTYPE html>
 <html>
@@ -55,47 +56,18 @@
         </section>
         <section class="part_two">
             <div class="row">
+              <c:forEach var="newsItem" items="${pages.list}">
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                    <img src="<%=baseUrl%>/static/common/client/images/sites/picture.jpg" alt="pic" class="img-responsive">
+                    <img src="${pageContext.request.contextPath}/${newsItem.headImg}" alt="pic" class="img-responsive">
                     <div class="text">
-                        <a href="#">
-                            <p class="text-one">中国区总经理吕羽荣膺美国城市土地会40名40岁以下青年精英奖</p>
-                            <p class="text-two">中国区总经理吕羽荣膺美国城市土地会40名40岁以下青年精英奖</p>
+                        <a href="${pageContext.request.contextPath}/client/${newsItem.navmenueId}/news/${newsItem.id}">
+                            <p class="text-one">${newsItem.subTitle}</p>
+                            <p class="text-two">${fn:substring(newsItem.content, 0, 12)}...</p>
                         </a>
-                        <p class="news"><a href="#">[NEWS]</a></p>
+                        <p class="news"><a href="${pageContext.request.contextPath}/client/newsCategories/${newsItem.navmenueId}">[NEWS]</a></p>
                     </div>
                 </div>
-
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                    <img src="<%=baseUrl%>/static/common/client/images/sites/picture.jpg" alt="pic" class="img-responsive">
-                    <div class="text">
-                        <a href="#">
-                            <p class="text-one">中国区总经理吕羽荣膺美国城市土地会40名40岁以下青年精英奖</p>
-                            <p class="text-two">中国区总经理吕羽荣膺美国城市土地会40名40岁以下青年精英奖</p>
-                        </a>
-                        <p class="news"><a href="#">[NEWS]</a></p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                    <img src="<%=baseUrl%>/static/common/client/images/sites/picture.jpg" alt="pic" class="img-responsive">
-                    <div class="text">
-                        <a href="#">
-                            <p class="text-one">中国区总经理吕羽荣膺美国城市土地会40名40岁以下青年精英奖</p>
-                            <p class="text-two">中国区总经理吕羽荣膺美国城市土地会40名40岁以下青年精英奖</p>
-                        </a>
-                        <p class="news"><a href="#">[NEWS]</a></p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                    <img src="<%=baseUrl%>/static/common/client/images/sites/picture.jpg" alt="pic" class="img-responsive">
-                    <div class="text">
-                        <a href="#">
-                            <p class="text-one">中国区总经理吕羽荣膺美国城市土地会40名40岁以下青年精英奖</p>
-                            <p class="text-two">中国区总经理吕羽荣膺美国城市土地会40名40岁以下青年精英奖</p>
-                        </a>
-                        <p class="news"><a href="#">[NEWS]</a></p>
-                    </div>
-                </div>
+              </c:forEach>
             </div>
         </section>
     </div>

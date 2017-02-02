@@ -1,5 +1,8 @@
 package com.aud.mapper;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.aud.pojo.News;
 public interface NewsMapper {
     int deleteByPrimaryKey(Integer id);
@@ -9,6 +12,6 @@ public interface NewsMapper {
     int updateByPrimaryKeySelective(News record);
     int updateByPrimaryKeyWithBLOBs(News record);
     int updateByPrimaryKey(News record);
-    
     List<News> selectByNewsCategoryId(int categoryId);
+    List<News> all();
 }

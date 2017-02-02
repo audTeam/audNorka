@@ -27,7 +27,7 @@
                         <p>${teamMember.position}</p>
                         <p>${teamMember.zhAddress}</p>
                         <p>${teamMember.phoneNumber}</p>
-                        <p>download vCard</p>
+                        <p><a href="${pageContext.request.contextPath}/${teamMember.card}">download vCard</a></p>
                     </div>
                     <div class="content col-sm-12">
                         <p>${teamMember.brief}</p>
