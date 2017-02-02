@@ -50,8 +50,8 @@
           简体中文 <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" role="menu">
-          <li><a href="#">简体中文</a></li>
-          <li><a href="#">English</a></li>
+          <li><a href="/audNorka/sites">简体中文</a></li>
+          <li><a href="/enAudNorka/sites">English</a></li>
         </ul>
       </div>
     </nav>
