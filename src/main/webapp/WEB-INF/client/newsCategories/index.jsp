@@ -39,7 +39,8 @@
                           </a>
                         </div>
                         <div class="col-xs-8 case-text">
-                            <p class="date">17-1-19</p>
+                            <!--  ${newItem.publishAt} -->
+                            <p class="date">2017-2-7</p>
                             <h4>${newItem.title}</h4>
                             <div class="text">
                                 <p>${newItem.subTitle}</p>

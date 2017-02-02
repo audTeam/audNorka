@@ -52,7 +52,7 @@ public class TeamsController {
 		return "admin/teams/index";
 	}
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.PATCH)
+	@RequestMapping(value = "/{id}/update", method = RequestMethod.POST)
 	public String update(NavMenu navMenu) {
 		this.navMenuMapper.updateByPrimaryKeySelective(navMenu);
 		return "redirect:/admin/teams";

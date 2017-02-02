@@ -22,7 +22,7 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>团队列表</h1>
+      <h1>编辑团队</h1>
       <ol class="breadcrumb">
         <li><a href="<%=baseUrl%>/admin/dashborad"><i class="fa fa-dashboard"></i> 首页</a></li>
         <li class="active"><a href="<%=baseUrl%>/admin/teams">团队列表</a></li>
@@ -36,39 +36,12 @@
       <div class="box">
         <div class="box-body">
           <div class="row">
-            <div class="col-md-12">
-              <a class="btn btn-default col-md-offset-10" href="<%=baseUrl%>/admin/teams/new">新增</a>
+            <div class="col-md-8">
+              <c:import url="_form.jsp">
+                <c:param name="actionUrl" value="${pageContext.request.contextPath}/admin/teams/${team.id}/update"></c:param>
+                <c:param name="_method" value="PATCH"></c:param>
+              </c:import>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <table class="table table-striped table-hover">
-                <tr>
-                  <td>#</td>
-                  <td>名称</td>
-                  <td>操作</td>
-                </tr>
-                <c:forEach var="team" items="${pages.list}" varStatus="status">
-                  <tr>
-                    <td>${status.index+1}</td>
-                    <td>${team.name}</td>
-                    <td>
-                      <a class="btn btn-default" href="<%=baseUrl%>/admin/teams/${team.id}/edit">编辑</a>
-                      <a class="btn btn-info" href="<%=baseUrl%>/admin/teams/${team.id}/teamMembers">团队管理</a>
-                      <form action="<%=baseUrl%>/admin/teams/${team.id}" method="post" style="display: inline-block;">
-                        <input type="hidden" name="_method" value="DELETE">
-                        <button class="btn btn-danger" type="submit">删除</button>
-                      </form>
-                    </td>
-                  </tr>
-                </c:forEach>
-              </table>
-            </div>
-            <div class="col-md-12">
-	          <c:import url="../shared/_page.jsp">
-	            <c:param name="pageUrl" value="${pageContext.request.contextPath}/admin/teams"></c:param>
-	          </c:import>
-	        </div>
           </div>
         </div>
       </div>

@@ -7,7 +7,7 @@
 <c:set var="prePage" value="${pages.prePage==0?1:pages.prePage}"/>
 <c:set var="nextPage" value="${pages.nextPage==0? pages.lastPage:pages.nextPage }"/>
 <c:set var="pageUrl" value="${param.pageUrl}" />
-
+<c:if test="${pages.total!=0}">
   <nav aria-label="Page navigation">
     <ul class="pagination">
 	    <li>
@@ -23,3 +23,4 @@
           </li>
 		</ul>
 	</nav>
+</c:if>
