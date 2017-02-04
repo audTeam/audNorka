@@ -25,7 +25,7 @@
       <h1>新闻分类列表</h1>
       <ol class="breadcrumb">
         <li><a href="<%=baseUrl%>/admin/dashborad"><i class="fa fa-dashboard"></i> 首页</a></li>
-        <li class="active"><a href="<%=baseUrl%>/admin/newsCategories">新闻动态</a></li>
+        <li class="active">分类列表</li>
       </ol>
     </section>
 

@@ -26,7 +26,7 @@
       <h1>案例分类列表</h1>
       <ol class="breadcrumb">
         <li><a href="<%=baseUrl%>/admin/dashborad"><i class="fa fa-dashboard"></i> 首页</a></li>
-        <li class="active"><a href="<%=baseUrl%>/admin/projectCases">案例分类列表</a></li>
+        <li class="active">分类列表</li>
       </ol>
     </section>
 

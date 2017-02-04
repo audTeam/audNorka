@@ -4,7 +4,7 @@
 
 <form class="form-horizontal" method="POST" action="${param.actionUrl}" id="uploadForm" enctype="multipart/form-data">
   <c:if test="${param.method=='PATCH'}">
-    <input type="hidden" name="_method" value="PATCH">
+    <!-- <input type="hidden" name="_method" value="PATCH"> -->
     <input type="hidden" name="id" value="${news.id}">
   </c:if>
   <div class="form-group">
@@ -19,11 +19,11 @@
       <input type="text" name="subTitle" value="${news.subTitle}" class="form-control">
     </div>
   </div>
-  <c:if test="${banner.imgUrl != null}">
+  <c:if test="${news.headImg != null}">
   <div class="form-group">
     <label class="col-md-2 control-label">头图图片</label>
     <div class="col-md-20">
-      <img alt="banner图片" class="img-responsive" src="${pageContext.request.contextPath}/${banner.imgUrl}">
+      <img alt="banner图片" class="img-responsive" src="${pageContext.request.contextPath}/${news.headImg}">
     </div>
   </div>
   </c:if>

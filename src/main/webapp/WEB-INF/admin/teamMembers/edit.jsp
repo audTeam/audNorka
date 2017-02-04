@@ -25,8 +25,9 @@
       <h1>编辑成员</h1>
       <ol class="breadcrumb">
         <li><a href="<%=baseUrl%>/admin/dashborad"><i class="fa fa-dashboard"></i> 首页</a></li>
-        <li><a href="<%=baseUrl%>/admin/teams"><i class="fa fa-dashboard"></i>团队列表</a></li>
-        <li class="active"><a href="<%=baseUrl%>/admin/teams/${team.id}/teamMembers">团队成员列表</a></li>
+        <li><a href="<%=baseUrl%>/admin/teams">团队列表</a></li>
+        <li><a href="<%=baseUrl%>/admin/teams/${team.id}/teamMembers">成员列表</a></li>
+        <li class="active">编辑成员</li>
       </ol>
     </section>
 

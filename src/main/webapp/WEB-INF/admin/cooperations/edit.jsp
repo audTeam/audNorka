@@ -22,8 +22,9 @@
     <section class="content-header">
       <h1>编辑合作伙伴</h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-        <li class="active">Here</li>
+        <li><a href="<%=baseUrl%>/admin/dashborad"><i class="fa fa-dashboard"></i> 首页</a></li>
+        <li><a href="<%=baseUrl%>/admin/aboutUs/historyIntroduce">公司基本信息</a></li>
+        <li class="active">编辑合作伙伴</li>
       </ol>
     </section>
     <!-- Main content -->

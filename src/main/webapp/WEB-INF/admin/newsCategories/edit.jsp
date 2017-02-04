@@ -25,7 +25,8 @@
       <h1>编辑分类</h1>
       <ol class="breadcrumb">
         <li><a href="<%=baseUrl%>/admin/dashborad"><i class="fa fa-dashboard"></i> 首页</a></li>
-        <li class="active"><a href="<%=baseUrl%>/admin/newsCategories">新闻动态</a></li>
+        <li><a href="<%=baseUrl%>/admin/newsCategories">分类列表</a></li>
+        <li class="active">编辑分类</li>
       </ol>
     </section>
 

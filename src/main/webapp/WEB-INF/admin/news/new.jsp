@@ -25,7 +25,9 @@
       <h1>发布新闻</h1>
       <ol class="breadcrumb">
         <li><a href="<%=baseUrl%>/admin/dashborad"><i class="fa fa-dashboard"></i> 首页</a></li>
-        <li class="active"><a href="<%=baseUrl%>/admin/newsCategories">新闻动态</a></li>
+        <li><a href="<%=baseUrl%>/admin/newsCategories">分类列表</a></li>
+        <li><a href="<%=baseUrl%>/admin/newsCategories/${newsCategory.id}/news">新闻列表</a></li>
+        <li class="active">发布新闻</li>
       </ol>
     </section>
 
@@ -38,7 +40,7 @@
           <div class="row">
             <div class="col-md-12">
               <c:import url="_form.jsp">
-                <c:param name="actionUrl" value="${pageContext.request.contextPath}/admin/newsCategories/${newsCategoryId}/news"></c:param>
+                <c:param name="actionUrl" value="${pageContext.request.contextPath}/admin/newsCategories/${newsCategory.id}/news"></c:param>
               </c:import>
             </div>
           </div>
