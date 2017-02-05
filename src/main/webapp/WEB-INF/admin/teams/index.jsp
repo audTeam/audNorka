@@ -25,7 +25,7 @@
       <h1>团队列表</h1>
       <ol class="breadcrumb">
         <li><a href="<%=baseUrl%>/admin/dashborad"><i class="fa fa-dashboard"></i> 首页</a></li>
-        <li class="active"><a href="<%=baseUrl%>/admin/teams">团队列表</a></li>
+        <li>团队列表</li>
       </ol>
     </section>
 

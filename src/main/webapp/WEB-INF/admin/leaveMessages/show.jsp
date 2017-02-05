@@ -33,16 +33,8 @@
         <div class="box-body">
           <div class="row">
             <div class="col-md-12" style="margin:15px;">
-              <div class="col-md-3" style="text-align:right;font-weight:bold;font-size:16px;">id:</div>
-              <div class="col-md-8">${leaveMessage.id}</div>
-            </div>
-            <div class="col-md-12" style="margin:15px;">
               <div class="col-md-3" style="text-align:right;font-weight:bold;font-size:16px;">名字:</div>
               <div class="col-md-8">${leaveMessage.name}</div>
-            </div>
-            <div class="col-md-12" style="margin:15px;">
-              <div class="col-md-3" style="text-align:right;font-weight:bold;font-size:16px;">留言:</div>
-              <div class="col-md-8" style="word-wrap:break-word;word-break:break-all;">${leaveMessage.message}</div>
             </div>
             <div class="col-md-12" style="margin:15px;">
               <div class="col-md-3" style="text-align:right;font-size:18px;font-weight:bold;">email:</div>
@@ -55,6 +47,10 @@
             <div class="col-md-12" style="margin:15px;">
               <div class="col-md-3" style="text-align:right;font-weight:bold;font-size:16px;">电话号码:</div>
               <div class="col-md-8">${leaveMessage.phoneNumber}</div>
+            </div>
+            <div class="col-md-12" style="margin:15px;">
+              <div class="col-md-3" style="text-align:right;font-weight:bold;font-size:16px;">留言:</div>
+              <div class="col-md-8" style="word-wrap:break-word;word-break:break-all;">${leaveMessage.message}</div>
             </div>
           </div>
         </div>

@@ -17,7 +17,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.google.gson.Gson;
 @Controller
-@RequestMapping("/sites")
+@RequestMapping({"/sites", "/"})
 public class SitesController extends BaseController {
     @Autowired
     private BannerMapper bannerMapper;

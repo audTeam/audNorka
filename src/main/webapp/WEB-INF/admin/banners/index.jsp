@@ -38,7 +38,7 @@
       <h1>banner列表</h1>
       <ol class="breadcrumb">
         <li><a href="<%=baseUrl%>/admin/dashborad"><i class="fa fa-dashboard"></i> 首页</a></li>
-        <li class="active"><a href="<%=baseUrl%>/admin/banners">banner设置</a></li>
+        <li class="active">banner设置</li>
       </ol>
     </section>
 

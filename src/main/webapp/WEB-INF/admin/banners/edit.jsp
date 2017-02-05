@@ -27,7 +27,8 @@
       <h1>编辑banner</h1>
       <ol class="breadcrumb">
         <li><a href="<%=baseUrl%>/admin/dashborad"><i class="fa fa-dashboard"></i> 首页</a></li>
-        <li class="active"><a href="<%=baseUrl%>/admin/banners">banner设置</a></li>
+        <li><a href="<%=baseUrl%>/admin/banners">banner列表</a></li>
+        <li>编辑banner</li>
       </ol>
     </section>
 

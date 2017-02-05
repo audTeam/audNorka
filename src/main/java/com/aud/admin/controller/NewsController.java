@@ -43,21 +43,34 @@ public class NewsController {
         model.addAttribute("newsCategory", this.navMenuMapper.selectByPrimaryKey(id));
         return "admin/news/index";
     }
+
     @RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
     public String edit(@PathVariable("id") int id, ModelMap model) {
         model.addAttribute("news", this.newsMapper.selectByPrimaryKey(id));
         return "admin/news/edit";
     }
+
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public String delete(@PathVariable("newsCategoryId") int newsCategoryId, @PathVariable("id") int id, ModelMap model) {
         this.newsMapper.deleteByPrimaryKey(id);
         return "redirect:/admin/newsCategories/"+newsCategoryId+"/news";
     }
+
     @RequestMapping(value = "/new", method = RequestMethod.GET)
     public String newPage(@PathVariable("newsCategoryId") int newsCategoryId, ModelMap model) {
         model.addAttribute("newsCategory", this.navMenuMapper.selectByPrimaryKey(newsCategoryId));
         return "admin/news/new";
     }
+
+    @RequestMapping(value = "/{id}/update", method = RequestMethod.POST)
+    public String update(@PathVariable("newsCategoryId") int id, News news,MultipartFile file, HttpServletRequest request)throws IllegalStateException, IOException {
+        if(!file.isEmpty()){
+            news.setHeadImg(Utils.saveFile(file, request));	
+        }
+        this.newsMapper.updateByPrimaryKeySelective(news);
+        return "redirect:/admin/newsCategories/"+id+"/news";
+    }
+
     @RequestMapping(value = "", method = RequestMethod.POST)
     public String create(@PathVariable("newsCategoryId") int id, News news,MultipartFile file, HttpServletRequest request)throws IllegalStateException, IOException {
         news.setNavmenueId(id);

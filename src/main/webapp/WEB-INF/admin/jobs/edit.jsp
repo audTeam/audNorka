@@ -25,7 +25,8 @@
       <h1>编辑招聘</h1>
       <ol class="breadcrumb">
         <li><a href="<%=baseUrl%>/admin/dashborad"><i class="fa fa-dashboard"></i> 首页</a></li>
-        <li class="active"><a href="<%=baseUrl%>/admin/jobs">招聘详情</a></li>
+        <li><a href="<%=baseUrl%>/admin/jobs">招聘详情</a></li>
+        <li class="active">编辑招聘</li>
       </ol>
     </section>
 

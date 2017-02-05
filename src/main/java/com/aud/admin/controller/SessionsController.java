@@ -43,10 +43,10 @@ public class SessionsController {
 				session.setAttribute("name", newUser.getName());
 				session.setAttribute("isRoot", newUser.getRoot());
 			}
-			backUrl = backUrl == null ? "/" : backUrl;
+			backUrl = (backUrl == null||("".equals(backUrl))) ? "/admin/dashborad" : backUrl;
 			return "redirect:/" + backUrl;
 		} else {
-			return "redirect:/admin/sessions/new";
+			return "redirect:/admin/sessions/new?errorMessage=show";
 		}
 	}
 }
