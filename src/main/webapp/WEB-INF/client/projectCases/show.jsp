@@ -37,7 +37,7 @@
                     </a>
                   </div>
                 </c:forEach>
-                <div class="col-sm-12"><a href="<%=baseUrl%>/client/projects" class="btn btn-default btn-lg pull-right" role="button">查看更多</a></div>
+                <div class="col-sm-12"><a href="<%=baseUrl%>/client/projects" class="btn btn-default pull-right" role="button">查看更多</a></div>
             </div>
         </section>
     </div>
