@@ -73,7 +73,7 @@
       </ul>
       <ul class="nav navbar-nav ul_two" data-tag="2">
         <c:forEach var="teamsNavMenus" items="${teamsNavMenus}">
-        	<li><a href="<%=baseUrl%>/client/teams" class="second-nav">${teamsNavMenus.name}</a>
+        	<li><a href="<%=baseUrl%>/client/teams/${teamsNavMenus.id}" class="second-nav">${teamsNavMenus.name}</a>
         </c:forEach>
       </ul>
       <ul class="nav navbar-nav ul_two" data-tag="3">
