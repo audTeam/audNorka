@@ -20,6 +20,8 @@ import com.github.pagehelper.PageInfo;
 public class TeamsController extends BaseController{
     @Autowired
     private TeamMemberMapper teamMemberMapper;
+    @Autowired
+	private NavMenuMapper navMenuMapper;
     @RequestMapping(value="", method=RequestMethod.GET)
     public String index(ModelMap model,
 			@RequestParam(value="pageNo", required=false, defaultValue="1") Integer pageNo,
@@ -29,6 +31,19 @@ public class TeamsController extends BaseController{
 	    List<TeamMember> list = this.teamMemberMapper.all();
 	    PageInfo<TeamMember> page = new PageInfo<TeamMember>(list);
 	    model.addAttribute("pages", page);
+
+        return "client/teams/index";
+    }
+    @RequestMapping(value="/{id}", method=RequestMethod.GET)
+    public String index(@PathVariable("id") int id,ModelMap model,
+			@RequestParam(value="pageNo", required=false, defaultValue="1") Integer pageNo,
+			@RequestParam(value="pageSize", required=false, defaultValue="12") Integer pageSize){
+		
+		PageHelper.startPage(pageNo, pageSize);
+	    List<TeamMember> list = this.teamMemberMapper.getTeamMemberByTeamId(id);
+	    PageInfo<TeamMember> page = new PageInfo<TeamMember>(list);
+	    model.addAttribute("pages", page);
+	    model.addAttribute("team", this.navMenuMapper.selectByPrimaryKey(id));
 
         return "client/teams/index";
     }
