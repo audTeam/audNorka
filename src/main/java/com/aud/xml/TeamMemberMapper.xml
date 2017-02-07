@@ -27,6 +27,10 @@
   <sql id="Blob_Column_List" >
     brief
   </sql>
+  <delete id="deleteByNavMenuId" parameterType="java.lang.Integer">
+    delete from team_members
+    where nav_menu_id = #{id,jdbcType=INTEGER}
+  </delete>
   <select id="getMaxId" resultType="java.lang.Integer">
     select id from team_members ORDER BY id DESC limit 0,1
   </select>

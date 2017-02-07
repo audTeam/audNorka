@@ -51,27 +51,6 @@
 			<version>1.1.2</version>
 		</dependency>
 
-		<!--spring security 权限管理相关jar包 -->
-<<<<<<< HEAD
-		<!--<dependency>
-=======
-		<!-- <dependency>
->>>>>>> 3a8d851cecda3f8ed62a98ad9272203fdf900424
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-web</artifactId>
-			<version>3.2.3.RELEASE</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-config</artifactId>
-			<version>3.2.3.RELEASE</version>
-<<<<<<< HEAD
-		</dependency>-->
-=======
-		</dependency> -->
->>>>>>> 3a8d851cecda3f8ed62a98ad9272203fdf900424
-		<!--spring security 权限管理相关jar包 -->
-
 		<!-- servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>

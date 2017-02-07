@@ -47,7 +47,7 @@
         <!-- Optionally, you can add icons to the links -->
         <li <c:if test="${fn:contains(currentUrl, 'users')}">class="active"</c:if> >
           <a href="<%=baseUrl%>/admin/users">
-            <i class="fa fa-bars" aria-hidden="true"></i>
+            <i class="fa fa-users" aria-hidden="true"></i>
             <span>用户管理</span>
           </a>
         </li>

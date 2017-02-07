@@ -13,6 +13,10 @@
   <sql id="Base_Column_List" >
     id, title, publish_at, head_img, sub_title, navmenue_id, content
   </sql>
+  <delete id="deleteByNavMenuId" parameterType="java.lang.Integer">
+    delete from news
+    where nav_menu_id = #{id,jdbcType=INTEGER}
+  </delete>
   <select id="all" resultMap="BaseResultMap">
     select * from news ORDER BY publish_at DESC
   </select>

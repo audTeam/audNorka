@@ -51,6 +51,7 @@ public class TeamMembersController {
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public String delete(@PathVariable("teamId") int teamId, @PathVariable("id") int id) {
         this.teamMemberMapper.deleteByPrimaryKey(id);
+        
         return "redirect:/admin/teams/" + teamId + "/teamMembers";
     }
 
@@ -77,12 +78,13 @@ public class TeamMembersController {
         teamMember.setCreatedAt(new Date());
         this.teamMemberMapper.insertSelective(teamMember);
         int userId = this.teamMemberMapper.getMaxId();
-
-        for(int projectId : projectIds){
+        if(projectIds!=null){
+          for(int projectId : projectIds){
             TeamMemberProject relation = new TeamMemberProject();
             relation.setProjectId(projectId);
             relation.setTeamMemberId(userId);
             this.teamMemberProjectMapper.insertSelective(relation);
+          }
         }
         return "redirect:/admin/teams/" + teamMember.getNavMenuId() + "/teamMembers";
     }
@@ -97,12 +99,13 @@ public class TeamMembersController {
     	}
     	teamMember.setUpdatedAt(new Date());
         this.teamMemberMapper.updateByPrimaryKeySelective(teamMember);
-        
-        for(int projectId : projectIds){
-            TeamMemberProject relation = new TeamMemberProject();
-            relation.setProjectId(projectId);
-            relation.setTeamMemberId(id);
-            this.teamMemberProjectMapper.insertSelective(relation);
+        if(projectIds!=null){
+            for(int projectId : projectIds){
+                TeamMemberProject relation = new TeamMemberProject();
+                relation.setProjectId(projectId);
+                relation.setTeamMemberId(id);
+                this.teamMemberProjectMapper.insertSelective(relation);
+            }
         }
         return "redirect:/admin/teams/" + teamId + "/teamMembers";
     }

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.aud.mapper.NavMenuMapper;
+import com.aud.mapper.NewsMapper;
 import com.aud.pojo.NavMenu;
 import com.aud.pojo.News;
 
@@ -16,6 +17,8 @@ import com.aud.pojo.News;
 public class NewsCategoriesController {
 	@Autowired
 	private NavMenuMapper navMenuMapper;
+	@Autowired
+	private NewsMapper newsMapper;
 
 	@RequestMapping(value="", method=RequestMethod.GET)
 	public String index(ModelMap model){
@@ -38,6 +41,7 @@ public class NewsCategoriesController {
 	@RequestMapping(value="/{id}/delete", method=RequestMethod.POST)
 	public String delete(ModelMap model, @PathVariable("id") int id){
 		this.navMenuMapper.deleteByPrimaryKey(id);
+		this.newsMapper.deleteByNavMenuId(id);
 		return "redirect:/admin/newsCategories";
 	}
 

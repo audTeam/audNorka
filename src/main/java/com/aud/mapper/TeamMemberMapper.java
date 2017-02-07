@@ -23,6 +23,8 @@ public interface TeamMemberMapper {
     
     List<TeamMember> all(); 
     
+    int deleteByNavMenuId(int id);
+    
     int getMaxId(); 
 
 }

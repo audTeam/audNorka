@@ -21,10 +21,13 @@ import com.github.pagehelper.PageInfo;
 public class TeamsController {
 	@Autowired
 	private NavMenuMapper navMenuMapper;
+	@Autowired
+	private TeamMemberMapper teamMemberMapper;
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public String delete(@PathVariable("id") int id) {
 		this.navMenuMapper.deleteByPrimaryKey(id);
+		this.teamMemberMapper.deleteByNavMenuId(id);
 		return "redirect:/admin/teams";
 	}
 	
