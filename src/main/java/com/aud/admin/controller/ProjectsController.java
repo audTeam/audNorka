@@ -62,13 +62,14 @@ public class ProjectsController {
 		this.projectMapper.insertSelective(project);
 
 		int projectId = this.projectMapper.getMaxId();
-		for (String imgUrl : imgUrls) {
+		if(imgUrls!=null){
+		  for (String imgUrl : imgUrls) {
 			Image image = new Image();
 			image.setImgUrl(imgUrl);
 			image.setResourceId(projectId);
 			this.imageMapper.insertSelective(image);
+		  }
 		}
-
 		return "redirect:/admin/projectCases/" + caseId;
 	}
 }

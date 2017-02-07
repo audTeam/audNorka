@@ -38,6 +38,7 @@ public class NewsCategoriesController extends BaseController {
 		
 		List<NavMenu> newsNavMenus = this.navMenuMapper.allNavMenuByParentNav(3);
 		model.addAttribute("newsNavMenus", newsNavMenus);
+		model.addAttribute("currentNewsCategoryId", newsCategoryId);
 
 		return "client/newsCategories/index";
 	}

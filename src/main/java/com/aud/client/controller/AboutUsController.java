@@ -17,7 +17,7 @@ import com.aud.pojo.LeaveMessage;
 
 @Controller
 @RequestMapping("/client/aboutUs")
-public class AboutUsController {
+public class AboutUsController  extends BaseController{
 	@Autowired
 	private LeaveMessageMapper leaveMessageMapper;
 	@Autowired

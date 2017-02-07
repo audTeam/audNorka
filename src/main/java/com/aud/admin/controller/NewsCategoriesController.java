@@ -35,6 +35,12 @@ public class NewsCategoriesController {
 		return "redirect:/admin/newsCategories";
 	}
 
+	@RequestMapping(value="/{id}/delete", method=RequestMethod.POST)
+	public String delete(ModelMap model, @PathVariable("id") int id){
+		this.navMenuMapper.deleteByPrimaryKey(id);
+		return "redirect:/admin/newsCategories";
+	}
+
 	@RequestMapping(value="/new", method=RequestMethod.GET)
 	public String newPage(){
 		return "admin/newsCategories/new";

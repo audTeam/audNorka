@@ -59,6 +59,7 @@
 <!-- REQUIRED JS SCRIPTS -->
 
 <c:import url="../shared/_javascript.jsp"></c:import>
+<script src="<%=baseUrl%>/static/common/admin/js/banner_image_upload.js" type="text/javascript"></script>
 <script type="text/javascript">
    var editor = UE.getEditor('container');
 </script>

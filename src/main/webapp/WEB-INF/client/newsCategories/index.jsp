@@ -20,12 +20,9 @@
             <div class="col-sm-3">
                 <ul class="nav news-tag">
                    <c:forEach var="newsNavMenu" items="${newsNavMenus}" varStatus="status">
-                     <c:if test="${status.index==0}">
-                       <li><a href="${pageContext.request.contextPath}/client/newsCategories/${newsNavMenu.id}" class="news-active">${newsNavMenu.name}<span>></span></a></li>
-                     </c:if>
-                     <c:if test="${status.index!=0}">
-                       <li><a href="${pageContext.request.contextPath}/client/newsCategories/${newsNavMenu.id}">${newsNavMenu.name}<span>></span></a></li>
-                     </c:if>
+                     <li>
+                       <a href="${pageContext.request.contextPath}/client/newsCategories/${newsNavMenu.id}" <c:if test="${newsNavMenu.id==currentNewsCategoryId}">class="news-active"</c:if>>${newsNavMenu.name}</a>
+                     </li>
                    </c:forEach>
                 </ul>
             </div>

@@ -16,8 +16,10 @@
 <body>
 <jsp:include page="../shared/_header.jsp"></jsp:include>
 <div class="main container">
-        <section class="part-one">
-            <img src="<%=baseUrl%>/static/common/client/images/company-introduce/company_03.png" alt="pic" class="img-responsive">
+        <section class="part-one text-center">
+          <c:if test="${job.imgUrl!=null}">
+            <img src="${pageContext.request.contextPath}/${job.imgUrl}" alt="pic" class="img-responsive">
+          </c:if>
         </section>
         <section class="part-two">
             <div class="job-info-content">

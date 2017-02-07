@@ -50,8 +50,8 @@
             <div class="col-md-8"><img alt="图片" class="img-responsive" src="${pageContext.request.contextPath}/${navMenu.imgUrl}"></div>
           </div>
           <div class="row">
-            <div class="col-md-12">
-              <a class="btn btn-default col-md-offset-8" href="${pageContext.request.contextPath}/admin/projectCases/${navMenu.id}/projects/new">新增案例</a>
+            <div class="col-md-12 text-right">
+              <a class="btn btn-info" href="${pageContext.request.contextPath}/admin/projectCases/${navMenu.id}/projects/new">新增案例</a>
             </div>
           </div>
           <div class="row">
@@ -67,9 +67,9 @@
                     <td>${project.id}</td>
                     <td>${project.zhName}</td>
                     <td>
-                      <a class="btn btn-info" href="<%=baseUrl%>/admin/projectCases/${project.navMenuId}/projects/${project.id}/edit">编辑</a>
-                      <form style="display: inline-block;" action="${pageContext.request.contextPath}/admin/projectCases/${navMenu.id}/projects/${project.id}" method="post">
-                        <input type="hidden" name="_method" value="DELETE">
+                      <a class="btn btn-default" href="<%=baseUrl%>/admin/projectCases/${project.navMenuId}/projects/${project.id}/edit">编辑</a>
+                      <form style="display: inline-block;" action="${pageContext.request.contextPath}/admin/projectCases/${navMenu.id}/projects/${project.id}/delete" method="post">
+                        <!-- <input type="hidden" name="_method" value="DELETE"> -->
                         <button class="btn btn-danger" type="submit">删除</button>
                       </form>
                     </td>

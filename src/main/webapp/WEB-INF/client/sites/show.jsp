@@ -60,9 +60,9 @@
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                     <img src="${pageContext.request.contextPath}/${newsItem.headImg}" alt="pic" class="img-responsive">
                     <div class="text">
-                        <a href="${pageContext.request.contextPath}/client/${newsItem.navmenueId}/news/${newsItem.id}">
-                            <p class="text-one">${newsItem.subTitle}</p>
-                            <p class="text-two">${fn:substring(newsItem.content, 0, 12)}...</p>
+                        <a href="${pageContext.request.contextPath}/client/newsCategories/${newsItem.navmenueId}/news/${newsItem.id}">
+                            <p class="text-one">${newsItem.title}</p>
+                            <p class="text-two">${fn:substring(newsItem.subTitle, 0, 12)}...</p>
                         </a>
                         <p class="news"><a href="${pageContext.request.contextPath}/client/newsCategories/${newsItem.navmenueId}">[NEWS]</a></p>
                     </div>

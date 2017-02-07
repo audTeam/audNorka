@@ -63,7 +63,7 @@
                   </td>
                   <td>
                     <a href="<%=baseUrl%>/admin/projectCases/${navMenu.id}/edit" class="btn btn-default">编辑</a>
-                    <a href="<%=baseUrl%>/admin/projectCases/${navMenu.id}" class="btn btn-default">查看详情</a>
+                    <a href="<%=baseUrl%>/admin/projectCases/${navMenu.id}" class="btn btn-info">配置详情</a>
                     <form action="<%=baseUrl%>/admin/projectCases/${navMenu.id}/delete" style="display: inline-block;" method="post">
                       <!-- <input type="hidden" name="_method" value="DELETE"> -->
                       <button class="btn btn-danger" type="submit">删除</button>

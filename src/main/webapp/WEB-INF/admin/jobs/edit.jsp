@@ -39,7 +39,7 @@
           <div class="row">
             <div class="col-md-12">
               <c:import url="_form.jsp">
-                <c:param name="actionUrl" value="${pageContext.request.contextPath}/admin/jobs/${job.id}"></c:param>
+                <c:param name="actionUrl" value="${pageContext.request.contextPath}/admin/jobs/${job.id}/update"></c:param>
                 <c:param name="method" value="PATCH"></c:param>
               </c:import>
             </div>
@@ -60,6 +60,7 @@
 <!-- REQUIRED JS SCRIPTS -->
 
 <c:import url="../shared/_javascript.jsp"></c:import>
+<script src="<%=baseUrl%>/static/common/admin/js/banner_image_upload.js" type="text/javascript"></script>
 <script type="text/javascript">
    var editor = UE.getEditor('container');
 </script>

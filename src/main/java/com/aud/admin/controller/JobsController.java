@@ -1,14 +1,20 @@
 package com.aud.admin.controller;
 
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.aud.mapper.JobMapper;
 import com.aud.pojo.Job;
+import com.aud.tool.Utils;
 import com.google.gson.Gson;
 
 @Controller("adminJobs")
@@ -39,14 +45,20 @@ public class JobsController {
 		return "admin/jobs/edit";
 	}
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.PATCH)
-	public String update(@PathVariable("id") int id, Job job) {
+	@RequestMapping(value = "/{id}/update", method = RequestMethod.POST)
+	public String update(@PathVariable("id") int id, Job job, MultipartFile file, HttpServletRequest request) throws IllegalStateException, IOException {
+		if(!file.isEmpty()){
+			job.setImgUrl(Utils.saveFile(file, request));	
+		}
 		this.jobMapper.updateByPrimaryKeySelective(job);
 		return "redirect:/admin/jobs";
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.POST)
-	public String create(Job job) {
+	public String create(Job job, MultipartFile file, HttpServletRequest request) throws IllegalStateException, IOException {
+		if(!file.isEmpty()){
+			job.setImgUrl(Utils.saveFile(file, request));	
+		}
 		this.jobMapper.insertSelective(job);
 		return "redirect:/admin/jobs";
 	}

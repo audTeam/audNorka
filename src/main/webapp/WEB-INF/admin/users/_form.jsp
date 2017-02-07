@@ -5,7 +5,7 @@
 
 <form action="${param.actionUrl}" method="POST" class="form-horizontal">
   <c:if test="${param.method=='PATCH'}">
-    <input name="_method" value="PATCH" type="hidden">
+    <!-- <input name="_method" value="PATCH" type="hidden"> -->
     <input type="hidden" name="id" value="${user.id}">
   </c:if>
   <div class="form-group">
@@ -31,7 +31,7 @@
   </div>
   <div class="form-group">
     <div class="row">
-      <div class="col-md-4 col-md-offset-6">
+      <div class="col-md-4 col-md-offset-2">
         <button type="submit" class="btn btn-info">提交</button>
       </div>
     </div>

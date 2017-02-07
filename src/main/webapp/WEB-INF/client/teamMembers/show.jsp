@@ -39,8 +39,12 @@
                         <li><a href="${pageContext.request.contextPath}/client/teams/${teamMember.navMenuId}/teamMembers">更多</a></li>
                         <c:forEach var="teamMember" items="${teamMembers}">
                           <li class="clearfix">
-                            <div class="col-xs-5 case-pic"><a href="#"><img src="${pageContext.request.contextPath}/${teamMember.imgUrl}" alt="pic" class="img-responsive"></a></div>
-                            <div class="col-xs-7 case-text"><a href="#"><p>${teamMember.name}</p><p>${teamMember.goodAt}</p></a></div>
+                            <div class="col-xs-5 case-pic">
+                              <a href="${pageContext.request.contextPath}/client/teams/${teamMember.navMenuId}/teamMembers/${teamMember.id}"><img src="${pageContext.request.contextPath}/${teamMember.imgUrl}" alt="pic" class="img-responsive"></a>
+                            </div>
+                            <div class="col-xs-7 case-text">
+                              <a href="${pageContext.request.contextPath}/client/teams/${teamMember.navMenuId}/teamMembers/${teamMember.id}"><p>${teamMember.name}</p><p>${teamMember.goodAt}</p></a>
+                            </div>
                           </li>
                         </c:forEach>
                     </ul>
@@ -58,19 +62,6 @@
                     </a>
                   </div>
                 </c:forEach>
-                <div class="col-sm-12 hidden">
-                    <nav class="pull-right">
-                        <ul class="pagination">
-                            <li class="disabled"><a href="#">&laquo;</a></li>
-                            <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">&raquo;</a></li>
-                        </ul>
-                    </nav>
-                </div>
             </div>
         </section>
     </div>
