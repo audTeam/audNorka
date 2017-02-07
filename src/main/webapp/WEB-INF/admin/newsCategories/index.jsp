@@ -52,10 +52,9 @@
                     <td>${newsCategory.name}</td>
                     <td>
                       <a href="<%=baseUrl%>/admin/newsCategories/${newsCategory.id}/edit" class="btn btn-default">编辑</a>
-                      <a href="<%=baseUrl%>/admin/newsCategories/${newsCategory.id}/news" class="btn btn-default">查看新闻列表</a>
-                      <a href="<%=baseUrl%>/admin/newsCategories/${newsCategory.id}/news/new" class="btn btn-info">发布新闻</a>
-                      <form action="<%=baseUrl%>/admin/newsCategories/${newsCategory.id}" method="POST" style="display: inline-block;" >
-                        <input type="hidden" name="_method" value="DELETE">
+                      <a href="<%=baseUrl%>/admin/newsCategories/${newsCategory.id}/news" class="btn btn-info">配置新闻列表</a>
+                      <form action="<%=baseUrl%>/admin/newsCategories/${newsCategory.id}/delete" method="POST" style="display: inline-block;" >
+                        <!-- <input type="hidden" name="_method" value="DELETE"> -->
                         <button class="btn btn-danger" type="submit">删除</button>
                       </form>
                     </td>

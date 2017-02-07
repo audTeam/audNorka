@@ -30,8 +30,8 @@
         	<li><a href="<%=baseUrl%>/client/newsCategories/${newsNavMenu.id}" class="second-nav">${newsNavMenu.name}</a>
           </c:forEach>
           <li>关于AUD</li>
-          <li><a href="<%=baseUrl%>/client/aboutUs">--公司历史介绍</a></li>
-          <li><a href="<%=baseUrl%>/client/aboutUs/service">--公司服务范围</a></li>
+          <li><a href="<%=baseUrl%>/client/aboutUs">--公司介绍</a></li>
+          <li><a href="<%=baseUrl%>/client/aboutUs/service">--公司服务</a></li>
           <li><a href="<%=baseUrl%>/client/aboutUs/contactUs">--联系我们</a></li>
           <li>招聘信息</li>
         </ul>
@@ -82,8 +82,8 @@
         </c:forEach>
       </ul>
       <ul class="nav navbar-nav ul_two" data-tag="4">
-        <li><a href="<%=baseUrl%>/client/aboutUs" class="second-nav">公司历史介绍</a></li>
-        <li><a href="<%=baseUrl%>/client/aboutUs/service" class="second-nav">公司服务范围</a></li>
+        <li><a href="<%=baseUrl%>/client/aboutUs" class="second-nav">公司历史</a></li>
+        <li><a href="<%=baseUrl%>/client/aboutUs/service" class="second-nav">公司服务</a></li>
         <li><a href="<%=baseUrl%>/client/aboutUs/contactUs" class="second-nav">联系我们</a></li>
       </ul>
       <form class="search-form">

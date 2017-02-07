@@ -46,6 +46,9 @@
             </div>
             <div class="col-md-12">
               <h1 class="text-center">招聘信息</h1>
+              <div class="text-center">
+               <img alt="" src="${pageContext.request.contextPath}/${job.imgUrl}">
+              </div>
               <p>${job.content}</p>
             </div>
           </div>
