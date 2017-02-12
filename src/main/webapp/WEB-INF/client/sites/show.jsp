@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <% String baseUrl = request.getContextPath(); %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <!DOCTYPE html>
 <html>
@@ -11,7 +12,7 @@
 <link rel="stylesheet" href="<%=baseUrl%>/static/lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/shared_show.css">
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/sites_show.css">
-<title>首页</title>
+<title><spring:message code="sites" /> </title>
 </head>
 <body>
     <jsp:include page="../shared/_header.jsp"></jsp:include>
