@@ -8,12 +8,13 @@
     <result column="content" property="content" jdbcType="VARCHAR" />
     <result column="title" property="title" jdbcType="VARCHAR" />
     <result column="img_url" property="imgUrl" jdbcType="VARCHAR" />
+    <result column="lang" property="lang" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, created_at, updated_at, content, title, img_url
+    id, created_at, updated_at, content, title, img_url, lang
   </sql>
-  <select id="all" resultMap="BaseResultMap">
-    select * from jobs
+  <select id="all" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select * from jobs where lang = #{lang, jdbcType=VARCHAR}
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -27,10 +28,10 @@
   </delete>
   <insert id="insert" parameterType="com.aud.pojo.Job" >
     insert into jobs (id, created_at, updated_at, 
-      content, title, img_url
+      content, title, img_url, lang
       )
     values (#{id,jdbcType=INTEGER}, #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}, 
-      #{content,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{imgUrl,jdbcType=VARCHAR}
+      #{content,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{imgUrl,jdbcType=VARCHAR}, #{lang,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.aud.pojo.Job" >
@@ -54,6 +55,9 @@
       <if test="imgUrl != null" >
         img_url,
       </if>
+      <if test="lang != null" >
+        lang,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -73,6 +77,9 @@
       </if>
       <if test="imgUrl != null" >
         #{imgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="lang != null" >
+        #{lang,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -94,6 +101,9 @@
       <if test="imgUrl != null" >
         img_url = #{imgUrl,jdbcType=VARCHAR},
       </if>
+      <if test="lang != null" >
+        lang = #{lang,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -103,7 +113,8 @@
       updated_at = #{updatedAt,jdbcType=TIMESTAMP},
       content = #{content,jdbcType=VARCHAR},
       title = #{title,jdbcType=VARCHAR},
-      img_url = #{imgUrl,jdbcType=VARCHAR}
+      img_url = #{imgUrl,jdbcType=VARCHAR},
+      lang = #{lang,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

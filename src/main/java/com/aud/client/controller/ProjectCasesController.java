@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,12 +35,12 @@ public class ProjectCasesController extends BaseController {
 	private ImageMapper imageMapper;
 
 	@RequestMapping(value = "/{id}", method=RequestMethod.GET)
-	public String show(@PathVariable("id") int id, ModelMap model){
+	public String show(@PathVariable("id") int id, ModelMap model, Locale locale){
 		model.addAttribute("navMenu", this.navMenuMapper.selectByPrimaryKey(id));
 		List<Map<String, Object>> collection = new LinkedList<Map<String, Object>>();
 
     	PageHelper.startPage(1, 4);
-	    List<Project> list = this.projectMapper.getByNavMenuId(id);
+	    List<Project> list = this.projectMapper.getByNavMenuId(id, locale.getLanguage());
 	    PageInfo<Project> page = new PageInfo<Project>(list);
 	    model.addAttribute("pages", page);
 

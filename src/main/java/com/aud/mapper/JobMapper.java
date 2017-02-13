@@ -5,7 +5,7 @@ import java.util.List;
 import com.aud.pojo.Job;
 
 public interface JobMapper {
-	List<Job> all();
+	List<Job> all(String lang);
 
     int deleteByPrimaryKey(Integer id);
 

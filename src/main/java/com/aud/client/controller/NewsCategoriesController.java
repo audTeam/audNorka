@@ -1,6 +1,7 @@
 package com.aud.client.controller;
 
 import java.util.List;
+import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,14 +30,15 @@ public class NewsCategoriesController extends BaseController {
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public String index(@PathVariable("id") int newsCategoryId,ModelMap model,
 			@RequestParam(value="pageNo", required=false, defaultValue="1") Integer pageNo,
-			@RequestParam(value="pageSize", required=false, defaultValue="10") Integer pageSize){
+			@RequestParam(value="pageSize", required=false, defaultValue="10") Integer pageSize,
+			Locale locale){
 		
 		PageHelper.startPage(pageNo, pageSize);
 		List<News> list = this.newsMapper.selectByNewsCategoryId(newsCategoryId);
 		PageInfo<News> page = new PageInfo<News>(list);
 		model.addAttribute("pages", page);
 		
-		List<NavMenu> newsNavMenus = this.navMenuMapper.allNavMenuByParentNav(3);
+		List<NavMenu> newsNavMenus = this.navMenuMapper.allNavMenuByParentNav(3, locale.getLanguage());
 		model.addAttribute("newsNavMenus", newsNavMenus);
 		model.addAttribute("currentNewsCategoryId", newsCategoryId);
 

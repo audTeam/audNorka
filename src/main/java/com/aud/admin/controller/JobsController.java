@@ -1,6 +1,7 @@
 package com.aud.admin.controller;
 
 import java.io.IOException;
+import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -15,7 +16,6 @@ import org.springframework.web.multipart.MultipartFile;
 import com.aud.mapper.JobMapper;
 import com.aud.pojo.Job;
 import com.aud.tool.Utils;
-import com.google.gson.Gson;
 
 @Controller("adminJobs")
 @RequestMapping("/admin/jobs")
@@ -25,9 +25,9 @@ public class JobsController {
 	private JobMapper jobMapper;
 
 	@RequestMapping(value = "", method = RequestMethod.GET)
-	public String show(ModelMap model) {
-		if (this.jobMapper.all().size() >0 ) {
-			model.addAttribute("job", this.jobMapper.all().get(0));
+	public String show(ModelMap model, Locale locale) {
+		if (this.jobMapper.all(locale.getLanguage()).size() >0 ) {
+			model.addAttribute("job", this.jobMapper.all(locale.getLanguage()).get(0));
 		} else {
 			model.addAttribute("job", null);
 		}

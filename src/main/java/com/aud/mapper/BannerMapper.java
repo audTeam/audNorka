@@ -8,10 +8,7 @@ import com.aud.pojo.Banner;
 
 public interface BannerMapper {
 
-    List<Banner> all(@Param("pageNum") int pageNum, 
-            @Param("pageSize") int pageSize);
-
-	List<Banner> all();
+	List<Banner> all(String lang);
 	
 	int deleteByPrimaryKey(Integer id);
 	

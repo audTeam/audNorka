@@ -13,13 +13,13 @@
   <sql id="Base_Column_List" >
     id, name, lang, parent_nav, nav_menu_desc, content, img_url
   </sql>
-  <select id="allNavMenuByParentNav" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select * from navmenus where parent_nav = #{parent_nav,jdbcType=INTEGER}
+  <select id="allNavMenuByParentNav" resultMap="BaseResultMap" >
+    select * from navmenus where parent_nav = #{0,jdbcType=INTEGER}  and lang = #{1, jdbcType=VARCHAR}
   </select>
   <select id="all" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select * from navmenus
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
     select 
     <include refid="Base_Column_List" />
     from navmenus

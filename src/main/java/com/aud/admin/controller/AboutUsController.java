@@ -2,6 +2,7 @@ package com.aud.admin.controller;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -18,7 +19,6 @@ import com.aud.mapper.HistoryIntroduceMapper;
 import com.aud.pojo.Cooperation;
 import com.aud.pojo.HistoryIntroduce;
 import com.aud.tool.Utils;
-import com.google.gson.Gson;
 
 @Controller("adminAboutUs")
 @RequestMapping("/admin/aboutUs")
@@ -29,8 +29,8 @@ public class AboutUsController {
 	private CooperationMapper cooperationMapper;
 
 	@RequestMapping(value = "/historyIntroduce", method = RequestMethod.GET)
-	public String edit(ModelMap model) {
-		List<HistoryIntroduce> all = this.historyIntroduceMapper.all();
+	public String edit(ModelMap model, Locale locale) {
+		List<HistoryIntroduce> all = this.historyIntroduceMapper.all(locale.getLanguage());
 		if (all.size() > 0) {
 			model.addAttribute("historyIntroduce", all.get(0));
 		} else {
@@ -50,24 +50,26 @@ public class AboutUsController {
 	}
 
 	@RequestMapping(value = "/historyIntroduce/update", method = RequestMethod.POST)
-	public String update(HistoryIntroduce historyIntroduce, MultipartFile file, MultipartFile serviceFile, HttpServletRequest request) throws IllegalStateException, IOException {
+	public String update(HistoryIntroduce historyIntroduce, MultipartFile file, MultipartFile serviceFile, HttpServletRequest request, Locale locale) throws IllegalStateException, IOException {
 		if(!file.isEmpty()){
 			historyIntroduce.setHeadImg(Utils.saveFile(file, request));	
 		}
 		if(!serviceFile.isEmpty()){
 			historyIntroduce.setServiceHeadImg(Utils.saveFile(serviceFile, request));
 		}
-		List<HistoryIntroduce> all = this.historyIntroduceMapper.all();
+		List<HistoryIntroduce> all = this.historyIntroduceMapper.all(locale.getLanguage());
 		historyIntroduce.setId(all.get(0).getId());
+		historyIntroduce.setLang(locale.getLanguage());
 		this.historyIntroduceMapper.updateByPrimaryKeySelective(historyIntroduce);
 		return "redirect:/admin/aboutUs/historyIntroduce";
 	}
 
 	@RequestMapping(value = "/historyIntroduce/cooperations", method = RequestMethod.POST)
-	public String addCooperation(Cooperation cooperation, MultipartFile file, HttpServletRequest request) throws IllegalStateException, IOException {
+	public String addCooperation(Cooperation cooperation, MultipartFile file, HttpServletRequest request, Locale locale) throws IllegalStateException, IOException {
 		if(!file.isEmpty()){
 			cooperation.setLogoUrl(Utils.saveFile(file, request));	
 		}
+		cooperation.setLang(locale.getLanguage());
 		this.cooperationMapper.insertSelective(cooperation);
 		return "redirect:/admin/aboutUs/historyIntroduce";
 	}
@@ -85,10 +87,11 @@ public class AboutUsController {
 	}
 
 	@RequestMapping(value = "/historyIntroduce/cooperations/{id}/update", method = RequestMethod.POST)
-	public String updateCooperation(@PathVariable("id") int id, Cooperation cooperation, ModelMap model, MultipartFile file, HttpServletRequest request) throws IllegalStateException, IOException {
+	public String updateCooperation(@PathVariable("id") int id, Cooperation cooperation, ModelMap model, MultipartFile file, HttpServletRequest request, Locale locale) throws IllegalStateException, IOException {
 		if(!file.isEmpty()){
 			cooperation.setLogoUrl(Utils.saveFile(file, request));	
 		}
+		cooperation.setLang(locale.getLanguage());
 		this.cooperationMapper.updateByPrimaryKeySelective(cooperation);
 		return "redirect:/admin/aboutUs/historyIntroduce";
 	}

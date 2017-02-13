@@ -1,5 +1,7 @@
 package com.aud.admin.controller;
 
+import java.util.Locale;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -58,7 +60,8 @@ public class ProjectsController {
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.POST)
-	public String create(@PathVariable("caseId") int caseId, Project project, String[] imgUrls) {
+	public String create(@PathVariable("caseId") int caseId, Project project, String[] imgUrls, Locale locale) {
+		project.setLang(locale.getLanguage());
 		this.projectMapper.insertSelective(project);
 
 		int projectId = this.projectMapper.getMaxId();

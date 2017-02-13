@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,11 +42,12 @@ public class ProjectsController extends BaseController {
 	@RequestMapping(value="", method=RequestMethod.GET)
 	public String index(ModelMap model,
 			@RequestParam(value="pageNo", required=false, defaultValue="1") Integer pageNo,
-			@RequestParam(value="pageSize", required=false, defaultValue="12") Integer pageSize){
+			@RequestParam(value="pageSize", required=false, defaultValue="12") Integer pageSize,
+			Locale locale){
 		List<Map<String, Object>> collection = new ArrayList<Map<String, Object>>();
 		
 		PageHelper.startPage(pageNo, pageSize);
-		List<Project> list = this.projectMapper.all();
+		List<Project> list = this.projectMapper.all(locale.getLanguage());
 		PageInfo<Project> page = new PageInfo<Project>(list);
 		model.addAttribute("pages", page);
     
@@ -63,7 +65,7 @@ public class ProjectsController extends BaseController {
 	}
 
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
-	public String show(@PathVariable("id") int id, ModelMap model){
+	public String show(@PathVariable("id") int id, ModelMap model, Locale locale){
 		Project project = this.projectMapper.selectByPrimaryKey(id);
 		model.addAttribute("project", project);
 		model.addAttribute("images", this.imageMapper.selectByResourceId(id));
@@ -71,7 +73,7 @@ public class ProjectsController extends BaseController {
 		List<Map<String, Object>> collection = new ArrayList<Map<String, Object>>();
 
 		PageHelper.startPage(1, 6);
-	    List<Project> list = this.projectMapper.getByNavMenuId(project.getNavMenuId());
+	    List<Project> list = this.projectMapper.getByNavMenuId(project.getNavMenuId(), locale.getLanguage());
 	    PageInfo<Project> page = new PageInfo<Project>(list);
 
 		Iterator<Project> iter = page.getList().iterator();

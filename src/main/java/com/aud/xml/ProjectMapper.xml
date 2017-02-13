@@ -30,13 +30,12 @@
   <select id="getMaxId" resultType="java.lang.Integer">
     select id from projects ORDER BY id DESC LIMIT 0, 1
   </select>
-  <select id="all" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select * from projects
-    <!-- select *, images.id image_id from projects left outer join images ON projects.id=images.resource_id -->
+  <select id="all" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select * from projects where lang = #{lang, jdbcType=VARCHAR}
   </select>
-  <select id="getByNavMenuId" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+  <select id="getByNavMenuId" resultMap="ResultMapWithBLOBs">
     select * from projects
-    where nav_menu_id = #{nav_menu_id,jdbcType=INTEGER}
+    where nav_menu_id = #{0,jdbcType=INTEGER} and lang = #{1, jdbcType=INTEGER}
   </select>
   <sql id="Base_Column_List" >
     id, zh_name, cn_name, address, content, lang, nav_menu_id

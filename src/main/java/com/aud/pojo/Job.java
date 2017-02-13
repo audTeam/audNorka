@@ -14,8 +14,18 @@ public class Job {
     private String title;
 
     private String imgUrl;
+    
+    private String lang;
 
-    public Integer getId() {
+    public String getLang() {
+		return lang;
+	}
+
+	public void setLang(String lang) {
+		this.lang = lang;
+	}
+
+	public Integer getId() {
         return id;
     }
 

@@ -2,6 +2,7 @@ package com.aud.admin.controller;
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,12 +38,13 @@ public class TeamMembersController {
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String index(@PathVariable("teamId") int teamId, ModelMap model,
 			@RequestParam(value="pageNo", required=false, defaultValue="1") Integer pageNo,
-			@RequestParam(value="pageSize", required=false, defaultValue="10") Integer pageSize){
+			@RequestParam(value="pageSize", required=false, defaultValue="10") Integer pageSize,
+			Locale locale){
 
         model.addAttribute("team", this.navMenuMapper.selectByPrimaryKey(teamId));
 
 		PageHelper.startPage(pageNo, pageSize);
-	    List<TeamMember> list = this.teamMemberMapper.getTeamMemberByTeamId(teamId);
+	    List<TeamMember> list = this.teamMemberMapper.getTeamMemberByTeamId(teamId, locale.getLanguage());
 	    PageInfo<TeamMember> page = new PageInfo<TeamMember>(list);
 	    model.addAttribute("pages", page);
 
@@ -56,16 +58,16 @@ public class TeamMembersController {
     }
 
     @RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
-    public String edit(@PathVariable("teamId") int teamId, @PathVariable("id") int id, ModelMap model) {
+    public String edit(@PathVariable("teamId") int teamId, @PathVariable("id") int id, ModelMap model, Locale locale) {
         model.addAttribute("team", this.navMenuMapper.selectByPrimaryKey(teamId));
         model.addAttribute("teamMember", this.teamMemberMapper.selectByPrimaryKey(id));
-        model.addAttribute("projects", this.projectMapper.all());
+        model.addAttribute("projects", this.projectMapper.all(locale.getLanguage()));
         model.addAttribute("teamMemberProjects", this.teamMemberProjectMapper.selectByTeamMemberId(id));
         return "admin/teamMembers/edit";
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public String create(@PathVariable("teamId") int teamId, TeamMember teamMember, MultipartFile file, MultipartFile personFile, HttpServletRequest request, int[] projectIds)
+    public String create(@PathVariable("teamId") int teamId, TeamMember teamMember, MultipartFile file, MultipartFile personFile, HttpServletRequest request, int[] projectIds, Locale local)
             throws IllegalStateException, IOException {
     	if(!file.isEmpty()){
             teamMember.setImgUrl(Utils.saveFile(file, request));
@@ -74,7 +76,7 @@ public class TeamMembersController {
     		teamMember.setCard(Utils.saveFile(personFile, request));
     	}
         teamMember.setNavMenuId(teamId);
-        teamMember.setLang("zh");
+        teamMember.setLang(local.getLanguage());
         teamMember.setCreatedAt(new Date());
         this.teamMemberMapper.insertSelective(teamMember);
         int userId = this.teamMemberMapper.getMaxId();
@@ -110,9 +112,9 @@ public class TeamMembersController {
         return "redirect:/admin/teams/" + teamId + "/teamMembers";
     }
     @RequestMapping(value = "/new", method = RequestMethod.GET)
-    public String newPage(@PathVariable("teamId") int teamId, ModelMap model) {
+    public String newPage(@PathVariable("teamId") int teamId, ModelMap model, Locale locale) {
         model.addAttribute("team", this.navMenuMapper.selectByPrimaryKey(teamId));
-        model.addAttribute("projects", this.projectMapper.all());
+        model.addAttribute("projects", this.projectMapper.all(locale.getLanguage()));
         return "admin/teamMembers/new";
     }
 }

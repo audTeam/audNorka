@@ -1,5 +1,7 @@
 package com.aud.admin.controller;
 
+import java.util.Locale;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -21,8 +23,8 @@ public class NewsCategoriesController {
 	private NewsMapper newsMapper;
 
 	@RequestMapping(value="", method=RequestMethod.GET)
-	public String index(ModelMap model){
-		model.addAttribute("newsCategories", this.navMenuMapper.allNavMenuByParentNav(3));
+	public String index(ModelMap model, Locale locale){
+		model.addAttribute("newsCategories", this.navMenuMapper.allNavMenuByParentNav(3, locale.getLanguage()));
 		return "admin/newsCategories/index";
 	}
 	
@@ -51,9 +53,9 @@ public class NewsCategoriesController {
 	}
 	
 	@RequestMapping(value="", method=RequestMethod.POST)
-	public String create(NavMenu navMenu){
+	public String create(NavMenu navMenu, Locale locale){
 		navMenu.setParentNav(3);
-		navMenu.setLang("zh");
+		navMenu.setLang(locale.getLanguage());
 		this.navMenuMapper.insertSelective(navMenu);
 		return "redirect:/admin/newsCategories";
 	}

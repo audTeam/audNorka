@@ -14,8 +14,18 @@ public class HistoryIntroduce {
     private String serviceHeadImg;
     
     private String serviceContent;
+    
+    private String lang;
+    
+    public String getLang() {
+		return lang;
+	}
 
-    public String getServiceHeadImg() {
+	public void setLang(String lang) {
+		this.lang = lang;
+	}
+
+	public String getServiceHeadImg() {
 		return serviceHeadImg;
 	}
 

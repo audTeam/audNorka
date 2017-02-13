@@ -64,12 +64,12 @@
         <servlet-name>mvc-dispatcher</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-	<error-page>
+	<!--  <error-page>
 	  <error-code>404</error-code>
 	  <location>/404.jsp</location> 
     </error-page>
     <error-page>
       <error-code>500</error-code>
       <location>/500.html</location> 
-    </error-page>
+    </error-page>  -->
 </web-app>

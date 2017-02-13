@@ -13,6 +13,6 @@ public interface NewsMapper {
     int updateByPrimaryKeyWithBLOBs(News record);
     int updateByPrimaryKey(News record);
     List<News> selectByNewsCategoryId(int categoryId);
-    List<News> all();
+    List<News> all(String lang);
     int deleteByNavMenuId(int id);
 }

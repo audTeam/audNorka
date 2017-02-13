@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -72,10 +73,11 @@ public class NewsController {
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public String create(@PathVariable("newsCategoryId") int id, News news,MultipartFile file, HttpServletRequest request)throws IllegalStateException, IOException {
+    public String create(@PathVariable("newsCategoryId") int id, News news,MultipartFile file, HttpServletRequest request, Locale locale)throws IllegalStateException, IOException {
         news.setNavmenueId(id);
         news.setPublishAt(new Date());
         news.setHeadImg(Utils.saveFile(file, request));
+        news.setLang(locale.getLanguage());
         this.newsMapper.insertSelective(news);
         return "redirect:/admin/newsCategories/"+id+"/news";
     }

@@ -19,9 +19,9 @@ public interface TeamMemberMapper {
 
     int updateByPrimaryKey(TeamMember record);
     
-    List<TeamMember> getTeamMemberByTeamId(int teamId);
+    List<TeamMember> getTeamMemberByTeamId(int teamId, String lang);
     
-    List<TeamMember> all(); 
+    List<TeamMember> all(String lang); 
     
     int deleteByNavMenuId(int id);
     

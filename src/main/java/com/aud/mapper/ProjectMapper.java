@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import com.aud.pojo.Project;
 
 public interface ProjectMapper {
-	  List<Project> all();
+	List<Project> all(String lang);
 
     int deleteByPrimaryKey(Integer id);
     
@@ -25,9 +25,7 @@ public interface ProjectMapper {
 
     int updateByPrimaryKey(Project record);
     
-    List<Project> getByNavMenuId(int nav_menu_id);
-    
-    //List<Project> getByNavMenuId(int nav_menu_id, @Param("pageNum") int pageNum, @Param("pageSize") int pageSize);
-    
+    List<Project> getByNavMenuId(int nav_menu_id, String lang);
+
     int getMaxId();
 }

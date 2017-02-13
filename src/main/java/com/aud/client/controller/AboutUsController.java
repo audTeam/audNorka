@@ -2,6 +2,7 @@ package com.aud.client.controller;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,8 +34,8 @@ public class AboutUsController  extends BaseController{
 	}
 
 	@RequestMapping(value="", method=RequestMethod.GET)
-	public String show(ModelMap model){
-		List<HistoryIntroduce> all = this.historyIntroduceMapper.all();
+	public String show(ModelMap model, Locale locale){
+		List<HistoryIntroduce> all = this.historyIntroduceMapper.all(locale.getLanguage());
 		if (all.size() > 0) {
 			model.addAttribute("historyIntroduce", all.get(0));
 		} else {
@@ -53,8 +54,8 @@ public class AboutUsController  extends BaseController{
 	}
 
 	@RequestMapping(value="/service", method=RequestMethod.GET)
-	public String showService(ModelMap model){
-		List<HistoryIntroduce> all = this.historyIntroduceMapper.all();
+	public String showService(ModelMap model, Locale locale){
+		List<HistoryIntroduce> all = this.historyIntroduceMapper.all(locale.getLanguage());
 		if (all.size() > 0) {
 			model.addAttribute("company", all.get(0));
 		} else {

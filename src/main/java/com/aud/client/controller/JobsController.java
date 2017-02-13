@@ -1,5 +1,7 @@
 package com.aud.client.controller;
 
+import java.util.Locale;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -15,9 +17,9 @@ public class JobsController extends BaseController{
 	private JobMapper jobMapper;
 
 	@RequestMapping(value="", method=RequestMethod.GET)
-	public String index(ModelMap model){
-		if (this.jobMapper.all().size() >0 ) {
-			model.addAttribute("job", this.jobMapper.all().get(0));
+	public String index(ModelMap model, Locale locale){
+		if (this.jobMapper.all(locale.getLanguage()).size() >0 ) {
+			model.addAttribute("job", this.jobMapper.all(locale.getLanguage()).get(0));
 		} else {
 			model.addAttribute("job", null);
 		}

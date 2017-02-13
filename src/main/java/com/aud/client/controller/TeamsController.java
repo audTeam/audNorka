@@ -1,5 +1,6 @@
 package com.aud.client.controller;
 import java.util.List;
+import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,10 +26,11 @@ public class TeamsController extends BaseController{
     @RequestMapping(value="", method=RequestMethod.GET)
     public String index(ModelMap model,
 			@RequestParam(value="pageNo", required=false, defaultValue="1") Integer pageNo,
-			@RequestParam(value="pageSize", required=false, defaultValue="12") Integer pageSize){
+			@RequestParam(value="pageSize", required=false, defaultValue="12") Integer pageSize,
+			Locale locale){
 		
 		PageHelper.startPage(pageNo, pageSize);
-	    List<TeamMember> list = this.teamMemberMapper.all();
+	    List<TeamMember> list = this.teamMemberMapper.all(locale.getLanguage());
 	    PageInfo<TeamMember> page = new PageInfo<TeamMember>(list);
 	    model.addAttribute("pages", page);
 
@@ -37,10 +39,11 @@ public class TeamsController extends BaseController{
     @RequestMapping(value="/{id}", method=RequestMethod.GET)
     public String index(@PathVariable("id") int id,ModelMap model,
 			@RequestParam(value="pageNo", required=false, defaultValue="1") Integer pageNo,
-			@RequestParam(value="pageSize", required=false, defaultValue="12") Integer pageSize){
+			@RequestParam(value="pageSize", required=false, defaultValue="12") Integer pageSize,
+			Locale locale){
 		
 		PageHelper.startPage(pageNo, pageSize);
-	    List<TeamMember> list = this.teamMemberMapper.getTeamMemberByTeamId(id);
+	    List<TeamMember> list = this.teamMemberMapper.getTeamMemberByTeamId(id, locale.getLanguage());
 	    PageInfo<TeamMember> page = new PageInfo<TeamMember>(list);
 	    model.addAttribute("pages", page);
 	    model.addAttribute("team", this.navMenuMapper.selectByPrimaryKey(id));

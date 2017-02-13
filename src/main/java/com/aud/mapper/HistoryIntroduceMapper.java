@@ -5,7 +5,7 @@ import java.util.List;
 import com.aud.pojo.HistoryIntroduce;
 
 public interface HistoryIntroduceMapper {
-	List<HistoryIntroduce> all();
+	List<HistoryIntroduce> all(String lang);
 
     int deleteByPrimaryKey(Integer id);
 

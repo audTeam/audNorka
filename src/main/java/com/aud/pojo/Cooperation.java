@@ -8,8 +8,18 @@ public class Cooperation {
     private String link;
 
     private String logoUrl;
+    
+    private String lang;
+    
+    public String getLang() {
+		return lang;
+	}
 
-    public Integer getId() {
+	public void setLang(String lang) {
+		this.lang = lang;
+	}
+
+	public Integer getId() {
         return id;
     }
 

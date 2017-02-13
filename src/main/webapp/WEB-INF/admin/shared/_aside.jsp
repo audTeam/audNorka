@@ -19,7 +19,17 @@
       <div class="pull-left info">
         <p>${sessionScope.name}</p>
         <!-- Status -->
-        <a class="hidden" href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        <c:choose>
+          <c:when test="${pageContext.response.locale=='zh_CN'}">
+            <a href="${pageContext.request.contextPath}/admin/dashborad?lang=en_US">
+          </c:when>
+          <c:when test="${pageContext.response.locale=='en_US'}">
+            <a href="${pageContext.request.contextPath}/admin/dashborad?lang=zh_CN">
+          </c:when>
+        </c:choose>
+          <i class="fa fa-circle text-success"></i>
+                        切换为${pageContext.response.locale=='zh_CN'?'英语版':'中文版本'}
+        </a>
       </div>
     </div>
 

@@ -2,10 +2,12 @@ package com.aud.admin.controller;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.annotations.Param;
+import org.apache.tomcat.jni.Local;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -35,10 +37,11 @@ public class ProjectCasesController {
 	@RequestMapping(value = "/{id}", method=RequestMethod.GET)
 	public String show(@PathVariable("id") int id, ModelMap model,
 			@RequestParam(value="pageNo", required=false, defaultValue="1") Integer pageNo,
-			@RequestParam(value="pageSize", required=false, defaultValue="10") Integer pageSize){
+			@RequestParam(value="pageSize", required=false, defaultValue="10") Integer pageSize,
+			Locale locale){
 		
 		PageHelper.startPage(pageNo, pageSize);
-	    List<Project> list = this.projectMapper.getByNavMenuId(id);
+	    List<Project> list = this.projectMapper.getByNavMenuId(id, locale.getLanguage());
 	    PageInfo<Project> page = new PageInfo<Project>(list);
         
 		model.addAttribute("navMenu", this.navMenuMapper.selectByPrimaryKey(id));
@@ -55,10 +58,11 @@ public class ProjectCasesController {
 	@RequestMapping(value = "", method=RequestMethod.GET)
 	public String index(ModelMap model,
 			@RequestParam(value="pageNo", required=false, defaultValue="1") Integer pageNo,
-			@RequestParam(value="pageSize", required=false, defaultValue="10") Integer pageSize){
+			@RequestParam(value="pageSize", required=false, defaultValue="10") Integer pageSize,
+			Locale locale){
 
 		PageHelper.startPage(pageNo, pageSize);
-	    List<NavMenu> list = this.navMenuMapper.allNavMenuByParentNav(1);
+	    List<NavMenu> list = this.navMenuMapper.allNavMenuByParentNav(1, locale.getLanguage());
 	    PageInfo<NavMenu> page = new PageInfo<NavMenu>(list);
 	    model.addAttribute("pages", page);
 
@@ -78,7 +82,7 @@ public class ProjectCasesController {
 	}
 	
 	@RequestMapping(value = "/{id}/update", method=RequestMethod.POST)
-	public String update(NavMenu navMenu, MultipartFile file, HttpServletRequest request) throws IllegalStateException, IOException{
+	public String update(NavMenu navMenu, MultipartFile file, HttpServletRequest request, Locale locale) throws IllegalStateException, IOException{
 		if(!file.isEmpty()){
 			navMenu.setImgUrl(Utils.saveFile(file, request));	
 		}
@@ -87,12 +91,12 @@ public class ProjectCasesController {
 	}
 
 	@RequestMapping(value = "", method=RequestMethod.POST)
-	public String create(NavMenu navMenu, MultipartFile file, HttpServletRequest request) throws IllegalStateException, IOException{
+	public String create(NavMenu navMenu, MultipartFile file, HttpServletRequest request, Locale locale) throws IllegalStateException, IOException{
 		if(!file.isEmpty()){
 			navMenu.setImgUrl(Utils.saveFile(file, request));	
 		}
 		navMenu.setParentNav(1);
-		navMenu.setLang("zh");
+		navMenu.setLang(locale.getLanguage());
 
 		this.navMenuMapper.insertSelective(navMenu);
 		return "redirect:/admin/projectCases";

@@ -1,5 +1,6 @@
 package com.aud.client.controller;
 import java.util.List;
+import java.util.Locale;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,13 +27,12 @@ public class SitesController extends BaseController {
 	private static Logger logger = Logger.getLogger(SitesController.class);
 
     @RequestMapping(value = "", method=RequestMethod.GET)
-    public String show(ModelMap model){
-
+    public String show(ModelMap model, Locale locale){
     	PageHelper.startPage(1, 4);
-	    List<News> list = this.newsMapper.all();
+	    List<News> list = this.newsMapper.all(locale.getLanguage());
 	    PageInfo<News> page = new PageInfo<News>(list);
 	    model.addAttribute("pages", page);
-        model.addAttribute("banners", this.bannerMapper.all());
+        model.addAttribute("banners", this.bannerMapper.all(locale.getLanguage()));
 
         return "client/sites/show";
     }

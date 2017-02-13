@@ -6,13 +6,14 @@
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="url" property="url" jdbcType="VARCHAR" />
     <result column="img_url" property="imgUrl" jdbcType="VARCHAR" />
+    <result column="lang" property="lang" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, name, url, img_url
+    id, name, url, img_url, lang
   </sql>
 
-  <select id="all" resultMap="BaseResultMap">
-    select * from banners
+  <select id="all" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select * from banners where lang = #{lang,jdbcType=VARCHAR}
   </select>
 
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
@@ -27,9 +28,9 @@
   </delete>
   <insert id="insert" parameterType="com.aud.pojo.Banner" >
     insert into banners (id, name, 
-      url, img_url)
+      url, img_url, lang)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
-      #{url,jdbcType=VARCHAR}, #{imgUrl,jdbcType=VARCHAR})
+      #{url,jdbcType=VARCHAR}, #{imgUrl,jdbcType=VARCHAR}, #{lang,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.aud.pojo.Banner" >
     insert into banners
@@ -46,6 +47,9 @@
       <if test="imgUrl != null" >
         img_url,
       </if>
+      <if test="lang != null" >
+        lang,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -59,6 +63,9 @@
       </if>
       <if test="imgUrl != null" >
         #{imgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="lang != null" >
+        #{lang,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -74,6 +81,9 @@
       <if test="imgUrl != null" >
         img_url = #{imgUrl,jdbcType=VARCHAR},
       </if>
+      <if test="lang != null" >
+        lang = #{lang,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -81,7 +91,8 @@
     update banners
     set name = #{name,jdbcType=VARCHAR},
       url = #{url,jdbcType=VARCHAR},
-      img_url = #{imgUrl,jdbcType=VARCHAR}
+      img_url = #{imgUrl,jdbcType=VARCHAR},
+      lang = #{lang,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

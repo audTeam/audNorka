@@ -1,6 +1,7 @@
 package com.aud.admin.controller;
 
 import java.io.IOException;
+import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -28,16 +29,17 @@ public class BannersController {
 		model.addAttribute("banner", new Banner());
 		return "admin/banners/new";
 	}
-	
+
 	@RequestMapping(value = "", method = RequestMethod.GET)
-	public String index(ModelMap model) {
-		model.addAttribute("banners", this.bannerMapper.all(1, 2));
+	public String index(ModelMap model, Locale locale) {
+		model.addAttribute("banners", this.bannerMapper.all(locale.getLanguage()));
 		return "admin/banners/index";
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.POST)
-	public String create(Banner banner, MultipartFile file, HttpServletRequest request)
+	public String create(Banner banner, MultipartFile file, HttpServletRequest request, Locale locale)
 	    throws IllegalStateException, IOException {
+		banner.setLang(locale.getLanguage());
 		banner.setImgUrl(Utils.saveFile(file, request));
 		this.bannerMapper.insertSelective(banner);
 		return "redirect:/admin/banners";
