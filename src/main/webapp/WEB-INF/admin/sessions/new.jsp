@@ -43,8 +43,8 @@
     <a href="<%=baseUrl%>/client/sites"><b>AUD管理系统</b></a>
   </div>
   <!-- /.login-logo -->
-  <c:if test="${param.errorMessage!=null}">
-    <div class="alert alert-warning" role="alert">密码错误</div>
+  <c:if test="${errorMessage!=null}">
+    <div class="alert alert-warning" role="alert">${errorMessage}</div>
   </c:if>
   <div class="login-box-body">
     <p class="login-box-msg">登录后台管理系统</p>
