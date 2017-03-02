@@ -57,10 +57,6 @@
 		</property>
 	</bean>
 
-	<mvc:interceptors>
-		<bean class="com.aud.filter.SessionsFilter"></bean>
-	</mvc:interceptors>
-
 	<!-- 静态资源配置 -->
 	<mvc:resources location="/" mapping="/**/*.html" />
 	<mvc:resources location="/" mapping="/**/*.jpg" />

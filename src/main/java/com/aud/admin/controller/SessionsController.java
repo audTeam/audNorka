@@ -12,9 +12,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.aud.mapper.UserMapper;
 import com.aud.pojo.User;
+import com.aud.tool.CryptographyUtil;
 
 @Controller
 @RequestMapping("/admin/sessions")
@@ -23,8 +25,9 @@ public class SessionsController {
 	private UserMapper userMapper;
 
 	@RequestMapping(value = "", method = RequestMethod.POST)
-	public String login(User user, HttpServletRequest request, String backUrl) {
+	public String login(User user, HttpServletRequest request, String backUrl, RedirectAttributes redirectAttributes) {
 		Subject subject = SecurityUtils.getSubject();
+		user.setPassword(CryptographyUtil.md5(user.getPassword(), "aud"));
 		UsernamePasswordToken token = new UsernamePasswordToken(user.getName(), user.getPassword());
 		try {
 			subject.login(token);
@@ -36,8 +39,7 @@ public class SessionsController {
 			backUrl = (backUrl == null || ("".equals(backUrl))) ? "/admin/dashborad" : "/" + backUrl;
 			return "redirect:" + backUrl;
 		} catch (Exception e) {
-			request.setAttribute("user", user);
-			request.setAttribute("errorMsg", "登录失败");
+			redirectAttributes.addFlashAttribute("errorMessage", "账号密码错误");
 			return "redirect:/admin/sessions/new";
 		}
 	}

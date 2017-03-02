@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.aud.mapper.UserMapper;
 import com.aud.pojo.User;
+import com.aud.tool.CryptographyUtil;
 
 @Controller("adminUser")
 @RequestMapping("/admin/users")
@@ -36,6 +37,7 @@ public class UsersController {
 			model.addAttribute("alert", "alert-warning");
 			return "/admin/users/new";
 		}else{
+			user.setPassword(CryptographyUtil.md5(user.getPassword(), "aud"));
 			this.userMapper.insertSelective(user);
 			return "redirect:/admin/users";	
 		}
@@ -49,6 +51,7 @@ public class UsersController {
 
 	@RequestMapping(value = "/{id}/update", method = RequestMethod.PATCH)
 	public String update(@PathVariable("id") int id, User user) {
+		user.setPassword(CryptographyUtil.md5(user.getPassword(), "aud"));
 		this.userMapper.updateByPrimaryKeySelective(user);
 		return "redirect:/admin/users";
 	}
