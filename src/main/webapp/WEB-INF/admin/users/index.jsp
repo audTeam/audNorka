@@ -16,8 +16,10 @@
 <div class="wrapper">
   <jsp:include page="../shared/_header.jsp"></jsp:include>
   <jsp:include page="../shared/_aside.jsp"></jsp:include>
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
+    <jsp:include page="../shared/_alert.jsp"></jsp:include>
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>用户管理</h1>

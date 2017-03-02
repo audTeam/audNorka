@@ -9,7 +9,12 @@ public class User {
 
     private String root;
 
-    public Integer getId() {
+    @Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", password=" + password + ", root=" + root + "]";
+	}
+
+	public Integer getId() {
         return id;
     }
 

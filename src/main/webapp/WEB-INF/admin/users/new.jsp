@@ -17,9 +17,9 @@
 <div class="wrapper">
   <jsp:include page="../shared/_header.jsp"></jsp:include>
   <jsp:include page="../shared/_aside.jsp"></jsp:include>
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
+    <jsp:include page="../shared/_alert.jsp"></jsp:include>
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>新增用户</h1>
@@ -36,6 +36,7 @@
       <div class="box">
         <div class="box-body">
           <div class="row">
+          <!-- errorMessage -->
             <div class="col-md-8">
               <c:import url="_form.jsp">
                 <c:param name="actionUrl" value="${pageContext.request.contextPath}/admin/users"></c:param>
