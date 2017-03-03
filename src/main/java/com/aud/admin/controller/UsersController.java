@@ -47,9 +47,11 @@ public class UsersController {
 		return "/admin/users/edit";
 	}
 
-	@RequestMapping(value = "/{id}/update", method = RequestMethod.PATCH)
+	@RequestMapping(value = "/{id}/update", method = RequestMethod.POST)
 	public String update(@PathVariable("id") int id, User user) {
-		user.setPassword(CryptographyUtil.md5(user.getPassword(), "aud"));
+		if((!user.getPassword().equals(""))&&(user.getPassword()!=null)){
+		  user.setPassword(CryptographyUtil.md5(user.getPassword(), "aud"));
+		}
 		this.userMapper.updateByPrimaryKeySelective(user);
 		return "redirect:/admin/users";
 	}

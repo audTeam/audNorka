@@ -23,7 +23,7 @@
 	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">  
   	  <property name="realm" ref="myRealm"/>  
 	</bean>  
-	
+		
 	<!-- Shiro过滤器 -->
 	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">  
 	    <!-- Shiro的核心安全接口,这个属性是必须的 -->  
@@ -35,17 +35,18 @@
 	    <!-- Shiro连接约束配置,即过滤链的定义 -->  
 	    <property name="filterChainDefinitions">  
 	        <value>
-	            /login=anon
-				/admin*=authc
-				/student=roles[teacher]
-				/teacher=perms["user:create"]
+	            /admin/sessions/**=anon
+	            /admin/sessions=anon
+				/admin*/**=authc
+				/admin/users/**=roles[admin]
 	        </value>  
 	    </property>
 	</bean>  
-	
+
 	<!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->  
 	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>  
-	
+
+    <aop:config proxy-target-class="true"></aop:config>
 	<!-- 开启Shiro注解 -->
 	<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" depends-on="lifecycleBeanPostProcessor"/>  
   		<bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">  

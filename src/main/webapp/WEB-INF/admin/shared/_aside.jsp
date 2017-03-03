@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@taglib prefix="shiro" uri="http://shiro.apache.org/tags"%>
 
 <% String baseUrl = request.getContextPath(); %>
 
@@ -53,7 +54,7 @@
           <span>首页</span>
         </a>
       </li>
-      <c:if test="${sessionScope.isRoot=='Y' }">
+      <shiro:hasRole name="admin">
         <!-- Optionally, you can add icons to the links -->
         <li <c:if test="${fn:contains(currentUrl, 'users')}">class="active"</c:if> >
           <a href="<%=baseUrl%>/admin/users">
@@ -61,7 +62,7 @@
             <span>用户管理</span>
           </a>
         </li>
-      </c:if>
+      </shiro:hasRole>
       <li <c:if test="${fn:contains(currentUrl, 'banners')}">class="active"</c:if> >
         <a href="<%=baseUrl%>/admin/banners">
           <i class="fa fa-bars" aria-hidden="true"></i>

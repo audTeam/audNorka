@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -15,6 +16,7 @@ import com.aud.mapper.NewsMapper;
 import com.aud.pojo.News;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+
 @Controller
 @RequestMapping({"/sites", "/"})
 public class SitesController extends BaseController {

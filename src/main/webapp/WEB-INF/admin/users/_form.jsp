@@ -17,7 +17,7 @@
   <div class="form-group">
     <label class="control-label col-md-3">密码</label>
     <div class="col-md-6">
-      <input type="text" class="form-control" name="password" value="${user.password}">
+      <input type="text" class="form-control" name="password" value="">
     </div>
   </div>
   <div class="form-group">

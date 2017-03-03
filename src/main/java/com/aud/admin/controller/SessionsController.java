@@ -8,7 +8,6 @@ import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -48,29 +47,10 @@ public class SessionsController {
 		return "admin/sessions/new";
 	}
 
-	@RequestMapping(value = "/{id}/logOut", method = RequestMethod.GET)
-	public String logOut(@PathVariable("id") int id) {
+	@RequestMapping(value = "/logOut", method = RequestMethod.GET)
+	public String logOut() {
 		Subject subject = SecurityUtils.getSubject();
 		subject.logout();
 		return "redirect:/admin/sessions/new";
 	}
-
-/*	@RequestMapping(value = "", method = RequestMethod.POST)
-	public String create(User user, HttpSession session, String backUrl, RedirectAttributes redirectAttributes) {
-		List<User> users = userMapper.selectByUser(user);
-		if (users.size() > 0) {
-			Iterator<User> iter = users.iterator();
-			while (iter.hasNext()) {
-				User newUser = iter.next();
-				session.setAttribute("userId", newUser.getId());
-				session.setAttribute("name", newUser.getName());
-				session.setAttribute("isRoot", newUser.getRoot());
-			}
-			backUrl = (backUrl == null || ("".equals(backUrl))) ? "/admin/dashborad" : "/" + backUrl;
-			return "redirect:" + backUrl;
-		} else {
-			redirectAttributes.addFlashAttribute("errorMessage", "账号密码错误");
-			return "redirect:/admin/sessions/new";
-		}
-	}*/
 }
