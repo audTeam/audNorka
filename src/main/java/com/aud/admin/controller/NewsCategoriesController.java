@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.aud.mapper.NavMenuMapper;
 import com.aud.mapper.NewsMapper;
 import com.aud.pojo.NavMenu;
-import com.aud.pojo.News;
 
 @Controller("adminCatetory")
 @RequestMapping("/admin/newsCategories")

@@ -4,23 +4,17 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.aud.mapper.BannerMapper;
 import com.aud.mapper.NewsMapper;
-import com.aud.mapper.UserMapper;
-import com.aud.pojo.LeaveMessage;
 import com.aud.pojo.News;
-import com.aud.pojo.User;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.google.gson.Gson;
 @Controller
 @RequestMapping({"/sites", "/"})
 public class SitesController extends BaseController {

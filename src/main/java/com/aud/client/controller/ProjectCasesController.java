@@ -18,11 +18,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.aud.mapper.ImageMapper;
 import com.aud.mapper.NavMenuMapper;
 import com.aud.mapper.ProjectMapper;
-import com.aud.pojo.News;
 import com.aud.pojo.Project;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.google.gson.Gson;
 
 @Controller("clientProjectCase")
 @RequestMapping("/client/projectCases")

@@ -1,6 +1,5 @@
 package com.aud.admin.controller;
 import java.io.IOException;
-import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -18,12 +17,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.aud.mapper.NavMenuMapper;
 import com.aud.mapper.NewsMapper;
-import com.aud.pojo.LeaveMessage;
 import com.aud.pojo.News;
 import com.aud.tool.Utils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.google.gson.Gson;
 @Controller("adminNews")
 @RequestMapping("/admin/newsCategories/{newsCategoryId}/news")
 public class NewsController {

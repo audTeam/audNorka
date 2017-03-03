@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.aud.mapper.NavMenuMapper;
 import com.aud.mapper.TeamMemberMapper;
-import com.aud.pojo.LeaveMessage;
 import com.aud.pojo.TeamMember;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;

@@ -16,7 +16,6 @@ import org.springframework.web.multipart.MultipartFile;
 import com.aud.mapper.BannerMapper;
 import com.aud.pojo.Banner;
 import com.aud.tool.Utils;
-import com.google.gson.Gson;
 
 @Controller
 @RequestMapping("/admin/banners")

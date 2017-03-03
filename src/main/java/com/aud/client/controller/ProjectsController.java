@@ -20,12 +20,10 @@ import com.aud.mapper.ImageMapper;
 import com.aud.mapper.ProjectMapper;
 import com.aud.mapper.TeamMemberMapper;
 import com.aud.mapper.TeamMemberProjectMapper;
-import com.aud.pojo.LeaveMessage;
 import com.aud.pojo.Project;
 import com.aud.pojo.TeamMemberProject;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.google.gson.Gson;
 
 @Controller
 @RequestMapping("/client/projects")

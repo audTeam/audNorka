@@ -17,13 +17,11 @@ import com.aud.mapper.NavMenuMapper;
 import com.aud.mapper.ProjectMapper;
 import com.aud.mapper.TeamMemberMapper;
 import com.aud.mapper.TeamMemberProjectMapper;
-import com.aud.pojo.NavMenu;
 import com.aud.pojo.TeamMember;
 import com.aud.pojo.TeamMemberProject;
 import com.aud.tool.Utils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.google.gson.Gson;
 @Controller("adminTeamMembers")
 @RequestMapping("/admin/teams/{teamId}/teamMembers")
 public class TeamMembersController {

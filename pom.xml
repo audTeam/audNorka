@@ -21,7 +21,6 @@
 	</properties>
 	<dependencies>
 		<!-- shiro begin -->
-
 		<dependency>
 			<groupId>org.apache.shiro</groupId>
 			<artifactId>shiro-core</artifactId>

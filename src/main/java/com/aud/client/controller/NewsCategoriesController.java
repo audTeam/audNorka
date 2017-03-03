@@ -17,7 +17,6 @@ import com.aud.pojo.NavMenu;
 import com.aud.pojo.News;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.google.gson.Gson;
 
 @Controller("clientNews")
 @RequestMapping("/client/newsCategories")
