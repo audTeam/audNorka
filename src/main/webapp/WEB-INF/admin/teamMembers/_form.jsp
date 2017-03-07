@@ -98,8 +98,7 @@
   <div class="form-group">
     <label class="control-label col-md-4">简介</label>
     <div class="col-md-8">
-      <script id="container" name="brief" type="text/plain" name="brief">${teamMember.brief}</script>
-      <!-- <textarea rows="10" class="form-control" name="brief">${teamMember.brief}</textarea> -->
+      <script id="container" name="brief" type="text/plain" name="brief" style="height:500px">${teamMember.brief}</script>
     </div>
   </div>
   <div class="form-group">

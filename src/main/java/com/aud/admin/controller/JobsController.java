@@ -55,10 +55,11 @@ public class JobsController {
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.POST)
-	public String create(Job job, MultipartFile file, HttpServletRequest request) throws IllegalStateException, IOException {
+	public String create(Job job, MultipartFile file, HttpServletRequest request, Locale locale) throws IllegalStateException, IOException {
 		if(!file.isEmpty()){
 			job.setImgUrl(Utils.saveFile(file, request));	
 		}
+		job.setLang(locale.getLanguage());
 		this.jobMapper.insertSelective(job);
 		return "redirect:/admin/jobs";
 	}

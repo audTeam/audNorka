@@ -38,10 +38,10 @@
     select *
     from team_members
   </select>
-  <select id="getTeamMemberByTeamId" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+  <select id="getTeamMemberByTeamId" resultMap="ResultMapWithBLOBs">
     select *
     from team_members
-    where nav_menu_id = #{teamId,jdbcType=INTEGER}
+    where nav_menu_id = #{0} AND lang = #{1}
   </select>
   <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
     select 

@@ -64,8 +64,9 @@ public class TeamsController {
 	}
 	
 	@RequestMapping(value = "", method = RequestMethod.POST)
-	public String create(NavMenu navMenu) {
+	public String create(NavMenu navMenu, Locale locale) {
 		navMenu.setParentNav(2);
+		navMenu.setLang(locale.getLanguage());
 		this.navMenuMapper.insertSelective(navMenu);
 		return "redirect:/admin/teams";
 	}

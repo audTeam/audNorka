@@ -26,7 +26,8 @@
     <div class="col-md-10" id="imgUrls">
       <input id="imgUrl" type="file" multiple class="file-loading form-control">
       <c:forEach var="image" items="${images}">
-        <input type='hidden' name='imgUrls' class="imagePaths" data-image-id="${image.id }" data-image-path="${pageContext.request.contextPath}/${image.imgUrl}" value="${image.imgUrl}">
+        <%-- <input type='hidden' name='imgUrls' class="imagePaths" data-image-id="${image.id }" data-image-path="${pageContext.request.contextPath}/${image.imgUrl}" value="${image.imgUrl}"> --%>
+        <input type='hidden' class="imagePaths" data-image-id="${image.id }" data-image-path="${pageContext.request.contextPath}/${image.imgUrl}">
       </c:forEach>
       <p class="help-block">支持jpg、jpeg、png、gif格式，大小不超过2.0M，图片宽x高:980x524</p>
     </div>
@@ -40,8 +41,7 @@
   <div class="form-group">
     <label class="control-label col-md-2">内容</label>
     <div class="col-md-10">
-      <script id="container" name="content" type="text/plain" name="content">${project.content}</script>
-      <!-- <textarea rows="10" class="form-control" name="content">${project.content}</textarea> -->
+      <script id="container" name="content" type="text/plain" name="content" style="height:500px">${project.content}</script>
     </div>
   </div>
   <div class="form-group">

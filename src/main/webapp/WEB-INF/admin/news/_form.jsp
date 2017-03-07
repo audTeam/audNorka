@@ -39,8 +39,7 @@
   <div class="form-group">
     <label class="col-md-2 control-label">新闻内容</label>
     <div class="col-md-10">
-      <script id="container" type="text/plain" name="content">${news.content}</script>
-      <%-- <textarea rows="5" class="form-control" name="content">${news.content}</textarea> --%>
+      <script id="container" type="text/plain" name="content" style="height:500px">${news.content}</script>
     </div>
   </div>
   <div class="row">

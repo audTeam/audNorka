@@ -35,12 +35,11 @@ public class TeamMembersController {
     private TeamMemberProjectMapper teamMemberProjectMapper;
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String index(@PathVariable("teamId") int teamId, ModelMap model,
+    		Locale locale,
 			@RequestParam(value="pageNo", required=false, defaultValue="1") Integer pageNo,
-			@RequestParam(value="pageSize", required=false, defaultValue="10") Integer pageSize,
-			Locale locale){
+			@RequestParam(value="pageSize", required=false, defaultValue="10") Integer pageSize){
 
         model.addAttribute("team", this.navMenuMapper.selectByPrimaryKey(teamId));
-
 		PageHelper.startPage(pageNo, pageSize);
 	    List<TeamMember> list = this.teamMemberMapper.getTeamMemberByTeamId(teamId, locale.getLanguage());
 	    PageInfo<TeamMember> page = new PageInfo<TeamMember>(list);

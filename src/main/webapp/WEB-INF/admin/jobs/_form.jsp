@@ -25,7 +25,7 @@
   </div>
   <div class="form-group">
     <div class="col-md-12">
-      <script id="container" type="text/plain" name="content">${job.content}</script>
+      <script id="container" type="text/plain" name="content" style="height:500px">${job.content}</script>
     </div>
   </div>
   <div class="form-group">

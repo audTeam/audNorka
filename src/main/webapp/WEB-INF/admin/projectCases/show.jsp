@@ -54,7 +54,7 @@
               <a class="btn btn-info" href="${pageContext.request.contextPath}/admin/projectCases/${navMenu.id}/projects/new">新增案例</a>
             </div>
           </div>
-          <div class="row">
+          <div class="row" style="margin-top: 20px;">
             <div class="col-md-12">
               <table class="table table-striped table-hover">
                 <tr>

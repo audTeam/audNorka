@@ -37,26 +37,26 @@
               <button class="btn btn-success" data-toggle="modal" data-target="#addCooperationCompany">新增合作伙伴</button>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-8">
+          <div class="row" style="margin-top:20px;">
+            <div class="col-md-12">
               <form class="form-horizontal" method="post" action="${pageContext.request.contextPath}/admin/aboutUs/historyIntroduce/update" enctype="multipart/form-data">
 				<div class="form-group">
-				  <label class="col-md-3 control-label">宣传视频</label>
-				  <div class="col-md-9">
+				  <label class="col-md-2 control-label">宣传视频</label>
+				  <div class="col-md-10">
 				    <input name="video" type="text" class="form-control" value="${historyIntroduce.video}">
 				    <p class="help-block">请上传优酷视频链接</p>
 				  </div>
 				</div>
 				<c:if test="${historyIntroduce.headImg != null}">
 				  <div class="form-group">
-				    <label class="col-md-3 control-label">公司图片</label>
-				    <div class="col-md-9">
+				    <label class="col-md-2 control-label">公司图片</label>
+				    <div class="col-md-10">
 				      <img class="img-responsive" src="${pageContext.request.contextPath}/${historyIntroduce.headImg}">
 				    </div>
 				  </div>
 				</c:if>
 		        <div class="form-group">
-				  <label class="col-md-3 control-label">公司图片</label>
+				  <label class="col-md-2 control-label">公司图片</label>
 				  <div id="uploadFileDiv" class="col-md-9">
 				    <input id="pdFile" name="file" type="file">
 				    <div id="fileError" class="help-block"></div>
@@ -65,14 +65,14 @@
 				</div>
 				<c:if test="${historyIntroduce.serviceHeadImg != null}">
 				  <div class="form-group">
-				    <label class="col-md-3 control-label">服务范围图片</label>
-				    <div class="col-md-9">
+				    <label class="col-md-2 control-label">服务范围图片</label>
+				    <div class="col-md-10">
 				      <img class="img-responsive" src="${pageContext.request.contextPath}/${historyIntroduce.serviceHeadImg}">
 				    </div>
 				  </div>
 				</c:if>
 				<div class="form-group">
-				  <label class="col-md-3 control-label">服务范围图片</label>
+				  <label class="col-md-2 control-label">服务范围图片</label>
 				  <div id="uploadFileDiv" class="col-md-9">
 				    <input id="serviceFile" name="serviceFile" type="file">
 				    <div id="fileError" class="help-block"></div>
@@ -80,15 +80,15 @@
 				  </div>
 				</div>
 				<div class="form-group">
-				  <label class="col-md-3 control-label">公司历程</label>
-				  <div class="col-md-9">
-				    <script id="container" name="companyHistory" type="text/plain" name="content">${historyIntroduce.companyHistory}</script>
+				  <label class="col-md-2 control-label">公司历程</label>
+				  <div class="col-md-10">
+				    <script id="container" name="companyHistory" type="text/plain" name="content" style="height:500px" style="height:500px" style="height:500px">${historyIntroduce.companyHistory}</script>
 				  </div>
 				</div>
 				<div class="form-group">
-				  <label class="col-md-3 control-label">服务范围</label>
-				  <div class="col-md-9">
-				    <script id="serviceContainer" name="serviceContent" type="text/plain" name="serviceContent">${historyIntroduce.serviceContent}</script>
+				  <label class="col-md-2 control-label">服务范围</label>
+				  <div class="col-md-10">
+				    <script id="serviceContainer" name="serviceContent" type="text/plain" name="serviceContent" style="height:500px" style="height:500px">${historyIntroduce.serviceContent}</script>
 				  </div>
 				</div>
 				<div class="form-group">
