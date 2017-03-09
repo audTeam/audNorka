@@ -50,7 +50,7 @@
     <ul class="sidebar-menu">
       <li <c:if test="${fn:contains(currentUrl, 'dashborad')||fn:contains(currentUrl, 'leaveMessages')}">class="active"</c:if> >
         <a href="<%=baseUrl%>/admin/dashborad">
-          <i class="fa fa-bars" aria-hidden="true"></i>
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
           <span>留言管理</span>
         </a>
       </li>

@@ -17,7 +17,13 @@ public class LeaveMessage {
 
     private String phoneNumber;
 
-    public Integer getId() {
+    @Override
+	public String toString() {
+		return "LeaveMessage [id=" + id + ", name=" + name + ", message=" + message + ", email=" + email
+				+ ", createdAt=" + createdAt + ", isRead=" + isRead + ", phoneNumber=" + phoneNumber + "]";
+	}
+
+	public Integer getId() {
         return id;
     }
 

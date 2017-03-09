@@ -21,7 +21,14 @@ public class Project {
     
     private List<Image> images;
 
-    public List<Image> getImages() {
+    @Override
+	public String toString() {
+		return "Project [id=" + id + ", zhName=" + zhName + ", cnName=" + cnName + ", address=" + address + ", content="
+				+ content + ", lang=" + lang + ", navMenuId=" + navMenuId + ", imgUrls=" + imgUrls + ", images="
+				+ images + "]";
+	}
+
+	public List<Image> getImages() {
 		return images;
 	}
 

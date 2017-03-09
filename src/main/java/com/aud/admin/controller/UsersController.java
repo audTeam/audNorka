@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.aud.mapper.UserMapper;
 import com.aud.pojo.User;
+import com.aud.service.IUserService;
 import com.aud.tool.CryptographyUtil;
 
 @Controller("adminUser")
@@ -16,6 +17,8 @@ import com.aud.tool.CryptographyUtil;
 public class UsersController {
 	@Autowired
 	private UserMapper userMapper;
+	@Autowired
+	private IUserService userService;
 
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String index(ModelMap model) {
@@ -36,7 +39,8 @@ public class UsersController {
 			return "/admin/users/new";
 		}else{
 			user.setPassword(CryptographyUtil.md5(user.getPassword(), "aud"));
-			this.userMapper.insertSelective(user);
+			this.userService.save(user);
+			//this.userMapper.insertSelective(user);
 			return "redirect:/admin/users";	
 		}
 	}

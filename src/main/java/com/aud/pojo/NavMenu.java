@@ -15,7 +15,13 @@ public class NavMenu {
 
     private String imgUrl;
 
-    public Integer getId() {
+    @Override
+	public String toString() {
+		return "NavMenu [id=" + id + ", name=" + name + ", lang=" + lang + ", parentNav=" + parentNav + ", navMenuDesc="
+				+ navMenuDesc + ", content=" + content + ", imgUrl=" + imgUrl + "]";
+	}
+
+	public Integer getId() {
         return id;
     }
 

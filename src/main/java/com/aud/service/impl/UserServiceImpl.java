@@ -6,6 +6,9 @@ import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.aud.mapper.UserMapper;
 import com.aud.pojo.User;
@@ -35,4 +38,9 @@ public class UserServiceImpl implements IUserService {
 		return roles;
 	}
 
+	@Override
+	public int save(User user) {
+		this.userMapper.insertSelective(user);
+		throw new RuntimeException();
+	}
 }

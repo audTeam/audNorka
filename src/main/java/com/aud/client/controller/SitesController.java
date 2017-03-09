@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,11 +26,10 @@ public class SitesController extends BaseController {
     private BannerMapper bannerMapper;
     @Autowired
     private NewsMapper newsMapper;
+    private final Log logger = LogFactory.getLog(SitesController.class);  
 
     @RequestMapping(value = "", method=RequestMethod.GET)
     public String show(ModelMap model, Locale locale){
-    	Map<String, Object> testMap = new HashMap<>();
-    	testMap.put("test", "testHash");
 
     	PageHelper.startPage(1, 4);
 	    List<News> list = this.newsMapper.all(locale.getLanguage());

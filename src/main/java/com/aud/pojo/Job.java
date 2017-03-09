@@ -17,7 +17,13 @@ public class Job {
     
     private String lang;
 
-    public String getLang() {
+    @Override
+	public String toString() {
+		return "Job [id=" + id + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + ", content=" + content
+				+ ", title=" + title + ", imgUrl=" + imgUrl + ", lang=" + lang + "]";
+	}
+
+	public String getLang() {
 		return lang;
 	}
 

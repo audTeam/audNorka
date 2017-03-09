@@ -1,5 +1,9 @@
 package com.aud.pojo;
 
+/**
+ * @author Administrator
+ *
+ */
 public class Cooperation {
     private Integer id;
 
@@ -11,10 +15,16 @@ public class Cooperation {
     
     private String lang;
     
-    public String getLang() {
-		return lang;
+    @Override
+	public String toString() {
+		return "Cooperation [id=" + id + ", name=" + name + ", link=" + link + ", logoUrl=" + logoUrl + ", lang=" + lang
+				+ "]";
 	}
 
+	public String getLang() {
+		return lang;
+	}
+    
 	public void setLang(String lang) {
 		this.lang = lang;
 	}

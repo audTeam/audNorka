@@ -17,7 +17,14 @@ public class HistoryIntroduce {
     
     private String lang;
     
-    public String getLang() {
+    @Override
+	public String toString() {
+		return "HistoryIntroduce [id=" + id + ", companyHistory=" + companyHistory + ", cooperationCompany="
+				+ cooperationCompany + ", video=" + video + ", headImg=" + headImg + ", serviceHeadImg="
+				+ serviceHeadImg + ", serviceContent=" + serviceContent + ", lang=" + lang + "]";
+	}
+
+	public String getLang() {
 		return lang;
 	}
 

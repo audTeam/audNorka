@@ -33,7 +33,15 @@ public class TeamMember {
 
     private String brief;
 
-    public Integer getId() {
+    @Override
+	public String toString() {
+		return "TeamMember [id=" + id + ", name=" + name + ", position=" + position + ", zhAddress=" + zhAddress
+				+ ", cnAddress=" + cnAddress + ", phoneNumber=" + phoneNumber + ", imgUrl=" + imgUrl + ", card=" + card
+				+ ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + ", lang=" + lang + ", navMenuId="
+				+ navMenuId + ", honor=" + honor + ", goodAt=" + goodAt + ", brief=" + brief + "]";
+	}
+
+	public Integer getId() {
         return id;
     }
 

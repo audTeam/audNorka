@@ -9,7 +9,13 @@ public class TeamMemberProject {
     
     private Project project;
 
-    public Project getProject() {
+    @Override
+	public String toString() {
+		return "TeamMemberProject [id=" + id + ", teamMemberId=" + teamMemberId + ", projectId=" + projectId
+				+ ", project=" + project + "]";
+	}
+
+	public Project getProject() {
 		return project;
 	}
 

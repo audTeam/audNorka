@@ -7,7 +7,12 @@ public class Image {
 
     private Integer resourceId;
 
-    public Integer getId() {
+    @Override
+	public String toString() {
+		return "Image [id=" + id + ", imgUrl=" + imgUrl + ", resourceId=" + resourceId + "]";
+	}
+
+	public Integer getId() {
         return id;
     }
 
