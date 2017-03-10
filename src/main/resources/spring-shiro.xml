@@ -23,7 +23,7 @@
 	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">  
   	  <property name="realm" ref="myRealm"/>  
 	</bean>  
-		
+
 	<!-- Shiro过滤器 -->
 	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">  
 	    <!-- Shiro的核心安全接口,这个属性是必须的 -->  
@@ -76,16 +76,15 @@
             <tx:method name="check*" propagation="REQUIRED" />  
             <tx:method name="get*" propagation="REQUIRED" read-only="true" />  
             <tx:method name="find*" propagation="REQUIRED" read-only="true" />  
-            <tx:method name="load*" propagation="REQUIRED" read-only="true" />  
-            <!-- <tx:method name="*" propagation="REQUIRED" read-only="true" /> -->
+            <tx:method name="load*" propagation="REQUIRED" read-only="true" />
             <tx:method name="*" rollback-for="Exception" />
         </tx:attributes>  
     </tx:advice>  
 
     <!-- 配置事务切面 -->  
-    <aop:config>  
+    <aop:config>
         <aop:pointcut id="serviceOperation"  
-            expression="execution(* com.aud.service.*.*(..))" />  
+            expression="execution(* com.aud.service.impl.*(..))" />  
         <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceOperation" />  
     </aop:config>  
     

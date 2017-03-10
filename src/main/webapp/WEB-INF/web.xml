@@ -50,6 +50,7 @@
         <param-value>
           classpath*:spring-shiro.xml
           classpath*:spring-mybatis.xml
+          classpath*:applicationContext-ehcache.xml
         </param-value>
     </context-param>
     <!-- Spring配置文件 -->

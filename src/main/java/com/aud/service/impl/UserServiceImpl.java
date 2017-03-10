@@ -40,7 +40,6 @@ public class UserServiceImpl implements IUserService {
 
 	@Override
 	public int save(User user) {
-		this.userMapper.insertSelective(user);
-		throw new RuntimeException();
+		return this.userMapper.insertSelective(user);
 	}
 }

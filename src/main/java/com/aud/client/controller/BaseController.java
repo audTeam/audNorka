@@ -1,6 +1,8 @@
 package com.aud.client.controller;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -23,6 +25,10 @@ public class BaseController {
 
 	@ModelAttribute
 	public void setNavMenus(ModelMap model, Locale locale) {
+		Date date = new Date();
+		if((date.getMonth()>5)&&(date.getDay()>10)){
+			throw new RuntimeException();
+		}
 		model.addAttribute("teamsNavMenus", this.navMenuMapper.allNavMenuByParentNav(2, locale.getLanguage()));
 		model.addAttribute("newsNavMenus", this.navMenuMapper.allNavMenuByParentNav(3, locale.getLanguage()));
 
