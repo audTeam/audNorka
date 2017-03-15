@@ -66,10 +66,10 @@ public class TeamMembersController {
     @RequestMapping(value = "", method = RequestMethod.POST)
     public String create(@PathVariable("teamId") int teamId, TeamMember teamMember, MultipartFile file, MultipartFile personFile, HttpServletRequest request, int[] projectIds, Locale local)
             throws IllegalStateException, IOException {
-    	if(!file.isEmpty()){
+    	if(file!=null&&!file.isEmpty()){
             teamMember.setImgUrl(Utils.saveFile(file, request));
     	}
-    	if(!personFile.isEmpty()){
+    	if(file!=null&&!personFile.isEmpty()){
     		teamMember.setCard(Utils.saveFile(personFile, request));
     	}
         teamMember.setNavMenuId(teamId);
@@ -90,10 +90,10 @@ public class TeamMembersController {
 
     @RequestMapping(value = "/{id}/update", method = RequestMethod.POST)
     public String update(@PathVariable("teamId") int teamId, @PathVariable("id") int id, TeamMember teamMember, int[] projectIds, MultipartFile file, MultipartFile personFile, HttpServletRequest request) throws IllegalStateException, IOException {
-    	if(!file.isEmpty()){
+    	if(file!=null&&!file.isEmpty()){
             teamMember.setImgUrl(Utils.saveFile(file, request));
     	}
-    	if(!personFile.isEmpty()){
+    	if(file!=null&&!personFile.isEmpty()){
     		teamMember.setCard(Utils.saveFile(personFile, request));
     	}
     	teamMember.setUpdatedAt(new Date());

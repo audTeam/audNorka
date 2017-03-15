@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.aud.component.JedisClient;
 import com.aud.mapper.UserMapper;
 import com.aud.pojo.User;
 import com.aud.tool.CryptographyUtil;

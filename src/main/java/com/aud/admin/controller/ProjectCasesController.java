@@ -80,7 +80,7 @@ public class ProjectCasesController {
 	
 	@RequestMapping(value = "/{id}/update", method=RequestMethod.POST)
 	public String update(NavMenu navMenu, MultipartFile file, HttpServletRequest request, Locale locale) throws IllegalStateException, IOException{
-		if(!file.isEmpty()){
+		if(file!=null&&!file.isEmpty()){
 			navMenu.setImgUrl(Utils.saveFile(file, request));	
 		}
 		this.navMenuMapper.updateByPrimaryKeySelective(navMenu);
@@ -89,7 +89,7 @@ public class ProjectCasesController {
 
 	@RequestMapping(value = "", method=RequestMethod.POST)
 	public String create(NavMenu navMenu, MultipartFile file, HttpServletRequest request, Locale locale) throws IllegalStateException, IOException{
-		if(!file.isEmpty()){
+		if(file!=null&&!file.isEmpty()){
 			navMenu.setImgUrl(Utils.saveFile(file, request));	
 		}
 		navMenu.setParentNav(1);

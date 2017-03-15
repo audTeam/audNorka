@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.aud.component.JedisClient;
 import com.aud.mapper.BannerMapper;
 import com.aud.pojo.Banner;
 import com.aud.tool.Utils;
@@ -22,6 +23,8 @@ import com.aud.tool.Utils;
 public class BannersController {
 	@Autowired
 	private BannerMapper bannerMapper;
+	@Autowired
+	private JedisClient jedisClient;
 	
 	@RequestMapping(value = "/new", method = RequestMethod.GET)
 	public String newPage(ModelMap model) {
@@ -52,7 +55,7 @@ public class BannersController {
 	
 	@RequestMapping(value = "/{id}/update", method = RequestMethod.POST)
 	public String update(Banner banner, MultipartFile file, HttpServletRequest request, ModelMap model) throws IllegalStateException, IOException {
-		if (!file.isEmpty()) {
+		if (file!=null&&!file.isEmpty()) {
 			banner.setImgUrl(Utils.saveFile(file, request));
 		}
 		this.bannerMapper.updateByPrimaryKeySelective(banner);

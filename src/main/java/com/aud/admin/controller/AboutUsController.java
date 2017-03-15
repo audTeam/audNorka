@@ -51,10 +51,10 @@ public class AboutUsController {
 
 	@RequestMapping(value = "/historyIntroduce/update", method = RequestMethod.POST)
 	public String update(HistoryIntroduce historyIntroduce, MultipartFile file, MultipartFile serviceFile, HttpServletRequest request, Locale locale) throws IllegalStateException, IOException {
-		if(!file.isEmpty()){
+		if(file!=null&&!file.isEmpty()){
 			historyIntroduce.setHeadImg(Utils.saveFile(file, request));	
 		}
-		if(!serviceFile.isEmpty()){
+		if(file!=null&&!serviceFile.isEmpty()){
 			historyIntroduce.setServiceHeadImg(Utils.saveFile(serviceFile, request));
 		}
 		List<HistoryIntroduce> all = this.historyIntroduceMapper.all(locale.getLanguage());
@@ -66,7 +66,7 @@ public class AboutUsController {
 
 	@RequestMapping(value = "/historyIntroduce/cooperations", method = RequestMethod.POST)
 	public String addCooperation(Cooperation cooperation, MultipartFile file, HttpServletRequest request, Locale locale) throws IllegalStateException, IOException {
-		if(!file.isEmpty()){
+		if(file!=null&&!file.isEmpty()){
 			cooperation.setLogoUrl(Utils.saveFile(file, request));	
 		}
 		cooperation.setLang(locale.getLanguage());
@@ -88,7 +88,7 @@ public class AboutUsController {
 
 	@RequestMapping(value = "/historyIntroduce/cooperations/{id}/update", method = RequestMethod.POST)
 	public String updateCooperation(@PathVariable("id") int id, Cooperation cooperation, ModelMap model, MultipartFile file, HttpServletRequest request, Locale locale) throws IllegalStateException, IOException {
-		if(!file.isEmpty()){
+		if(file!=null&&!file.isEmpty()){
 			cooperation.setLogoUrl(Utils.saveFile(file, request));	
 		}
 		cooperation.setLang(locale.getLanguage());

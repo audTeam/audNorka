@@ -62,7 +62,7 @@ public class NewsController {
 
     @RequestMapping(value = "/{id}/update", method = RequestMethod.POST)
     public String update(@PathVariable("newsCategoryId") int id, News news,MultipartFile file, HttpServletRequest request)throws IllegalStateException, IOException {
-        if(!file.isEmpty()){
+        if(file!=null&&!file.isEmpty()){
             news.setHeadImg(Utils.saveFile(file, request));	
         }
         this.newsMapper.updateByPrimaryKeySelective(news);

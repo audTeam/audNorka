@@ -47,7 +47,7 @@ public class JobsController {
 
 	@RequestMapping(value = "/{id}/update", method = RequestMethod.POST)
 	public String update(@PathVariable("id") int id, Job job, MultipartFile file, HttpServletRequest request) throws IllegalStateException, IOException {
-		if(!file.isEmpty()){
+		if(file!=null&&!file.isEmpty()){
 			job.setImgUrl(Utils.saveFile(file, request));	
 		}
 		this.jobMapper.updateByPrimaryKeySelective(job);
@@ -56,7 +56,7 @@ public class JobsController {
 
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public String create(Job job, MultipartFile file, HttpServletRequest request, Locale locale) throws IllegalStateException, IOException {
-		if(!file.isEmpty()){
+		if(file!=null&&!file.isEmpty()){
 			job.setImgUrl(Utils.saveFile(file, request));	
 		}
 		job.setLang(locale.getLanguage());

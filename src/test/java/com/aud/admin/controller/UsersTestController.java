@@ -10,12 +10,11 @@ public class UsersTestController {
 	@Test
 	public void test() {
 		ApplicationContext ax = new ClassPathXmlApplicationContext(new String[]{
-				"classpath:spring-mvc.xml",
-				"classpath:spring-shiro.xml"
+				"classpath*:*.xml",
+				"classpath*:*.properties"
 		});
 		UsersController userController = ax.getBean(UsersController.class);
 		userController.index(new ModelMap());
-		System.out.println("-----start test");
 	}
 
 }
