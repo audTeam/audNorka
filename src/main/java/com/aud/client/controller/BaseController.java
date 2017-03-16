@@ -11,6 +11,7 @@ import java.util.Map;
 
 import org.apache.maven.shared.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
@@ -27,14 +28,12 @@ public class BaseController {
 	private ProjectMapper projectMapper;
 	@Autowired
 	private JedisClient jedisClient;
+	private String REDIS_CONTENT_KEY = "cacheNavMenus";
 
-	//@Value("${REDIS_CONTENT_KEY}")
-	private String REDIS_CONTENT_KEY = "abc";
-	
-	public List<NavMenu> getTeamsNavMenus(Locale locale){
+	public List<NavMenu> getCacheNavMenus(Locale locale, String objectItem, int parentId){
 		List<NavMenu> teamsNavMenus = null;
 		try {
-			String json = jedisClient.hget(REDIS_CONTENT_KEY, "teamsNavMenus");
+			String json = jedisClient.hget(REDIS_CONTENT_KEY, objectItem);
 			if (!StringUtils.isBlank(json)) {
 				teamsNavMenus = JsonUtils.jsonToList(json, NavMenu.class);
 			}
@@ -43,10 +42,10 @@ public class BaseController {
 		}
 		if (teamsNavMenus == null) {
 			System.out.println("开始查询数据库");
-			teamsNavMenus = this.navMenuMapper.allNavMenuByParentNav(2, locale.getLanguage());
+			teamsNavMenus = this.navMenuMapper.allNavMenuByParentNav(parentId, locale.getLanguage());
 		}
 		try {
-			jedisClient.hset(REDIS_CONTENT_KEY, "teamsNavMenus", JsonUtils.objectToJson(teamsNavMenus));
+			jedisClient.hset(REDIS_CONTENT_KEY, objectItem, JsonUtils.objectToJson(teamsNavMenus));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -59,13 +58,18 @@ public class BaseController {
 		if ((date.getMonth() > 5) && (date.getDay() > 10)) {
 			throw new RuntimeException();
 		}
-		// 通过redis获取teamsNavMenus缓存数据
-		model.addAttribute("teamsNavMenus", getTeamsNavMenus(locale));
+
+		// 通过redis获取teamsNavMenus缓存数据 
+		model.addAttribute("teamsNavMenus", getCacheNavMenus(locale, "teamsNavMenus", 2));
+		model.addAttribute("newsNavMenus", getCacheNavMenus(locale, "newsNavMenus", 3));
+		List<NavMenu> projectNavMenus = getCacheNavMenus(locale, "projectNavMenus", 1);
+
 		//不使用redis缓存
 		//model.addAttribute("teamsNavMenus", this.navMenuMapper.allNavMenuByParentNav(2, locale.getLanguage()));
-		model.addAttribute("newsNavMenus", this.navMenuMapper.allNavMenuByParentNav(3, locale.getLanguage()));
+		//model.addAttribute("newsNavMenus", this.navMenuMapper.allNavMenuByParentNav(3, locale.getLanguage()));
+		//List<NavMenu> projectNavMenus = this.navMenuMapper.allNavMenuByParentNav(1, locale.getLanguage());
+
 		// 获取项目列表
-		List<NavMenu> projectNavMenus = this.navMenuMapper.allNavMenuByParentNav(1, locale.getLanguage());
 		Iterator<NavMenu> iter = projectNavMenus.iterator();
 		List<Map<String, Object>> projectMenus = new ArrayList<Map<String, Object>>();
 

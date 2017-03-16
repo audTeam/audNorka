@@ -5,6 +5,7 @@ public interface JedisClient {
 	String get(String key);
 	Long hset(String key, String item, String value);
 	String hget(String key, String item);
+	Long hdele(String key, String item);
 	Long incr(String key);
 	Long decr(String key);
 	Long ttl(String key);

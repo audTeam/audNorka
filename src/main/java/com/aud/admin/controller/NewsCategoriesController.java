@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.aud.mapper.NavMenuMapper;
 import com.aud.mapper.NewsMapper;
 import com.aud.pojo.NavMenu;
+import com.aud.service.INavMenuService;
 
 @Controller("adminCatetory")
 @RequestMapping("/admin/newsCategories")
@@ -20,13 +21,15 @@ public class NewsCategoriesController {
 	private NavMenuMapper navMenuMapper;
 	@Autowired
 	private NewsMapper newsMapper;
+	@Autowired
+	private INavMenuService navMenuServiceImpl; 
 
 	@RequestMapping(value="", method=RequestMethod.GET)
 	public String index(ModelMap model, Locale locale){
 		model.addAttribute("newsCategories", this.navMenuMapper.allNavMenuByParentNav(3, locale.getLanguage()));
 		return "admin/newsCategories/index";
 	}
-	
+
 	@RequestMapping(value="/{id}/edit", method=RequestMethod.GET)
 	public String edit(ModelMap model, @PathVariable("id") int id){
 		model.addAttribute("newsCategory", this.navMenuMapper.selectByPrimaryKey(id));
@@ -35,13 +38,13 @@ public class NewsCategoriesController {
 
 	@RequestMapping(value="/{id}/update", method=RequestMethod.POST)
 	public String update(ModelMap model, @PathVariable("id") int id, NavMenu navMenu){
-		this.navMenuMapper.updateByPrimaryKeySelective(navMenu);
+		this.navMenuServiceImpl.updateByPrimaryKeySelective(navMenu);
 		return "redirect:/admin/newsCategories";
 	}
 
 	@RequestMapping(value="/{id}/delete", method=RequestMethod.POST)
 	public String delete(ModelMap model, @PathVariable("id") int id){
-		this.navMenuMapper.deleteByPrimaryKey(id);
+		this.navMenuServiceImpl.deleteByPrimaryKey(id);
 		this.newsMapper.deleteByNavMenuId(id);
 		return "redirect:/admin/newsCategories";
 	}
@@ -55,7 +58,7 @@ public class NewsCategoriesController {
 	public String create(NavMenu navMenu, Locale locale){
 		navMenu.setParentNav(3);
 		navMenu.setLang(locale.getLanguage());
-		this.navMenuMapper.insertSelective(navMenu);
+		this.navMenuServiceImpl.insertSelective(navMenu);
 		return "redirect:/admin/newsCategories";
 	}
 

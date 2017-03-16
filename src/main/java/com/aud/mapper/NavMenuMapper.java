@@ -11,13 +11,13 @@ public interface NavMenuMapper {
 
     int insertSelective(NavMenu record);
 
-    NavMenu selectByPrimaryKey(Integer id);
-
     int updateByPrimaryKeySelective(NavMenu record);
 
     int updateByPrimaryKey(NavMenu record);
-    
-    List<NavMenu> allNavMenuByParentNav(int parentNav, String lang);
-    
+
+    NavMenu selectByPrimaryKey(Integer id);
+
     List<NavMenu> all();
+
+    List<NavMenu> allNavMenuByParentNav(int parentNav, String lang);
 }

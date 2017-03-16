@@ -9,11 +9,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.aud.mapper.NavMenuMapper;
 import com.aud.pojo.NavMenu;
+import com.aud.service.INavMenuService;
 
 @Controller
 @RequestMapping("/admin/navMenus")
 public class NavMenusController {
-	@Autowired NavMenuMapper navMenuMapper;
+	@Autowired
+	private NavMenuMapper navMenuMapper;
+	@Autowired
+	private INavMenuService navMenuService;
 	
 	@RequestMapping(value="", method=RequestMethod.GET)
 	public String index(ModelMap model){
@@ -28,13 +32,13 @@ public class NavMenusController {
 
 	@RequestMapping(value="", method=RequestMethod.POST)
 	public String create(NavMenu navMenu){
-		this.navMenuMapper.insertSelective(navMenu);
+		this.navMenuService.insertSelective(navMenu);
 		return "redirect:/admin/navMenus";
 	}
 
 	@RequestMapping(value="/{navMenuId}", method=RequestMethod.POST)
 	public String delete(@PathVariable("navMenuId") Integer navMenuId){
-		this.navMenuMapper.deleteByPrimaryKey(navMenuId);
+		this.navMenuService.deleteByPrimaryKey(navMenuId);
 		return "redirect:/admin/navMenus"; 
 	}
 	
@@ -46,26 +50,7 @@ public class NavMenusController {
 	
 	@RequestMapping(value="/{navMenuId}", method=RequestMethod.PATCH)
 	public String update(NavMenu navMenu){
-		this.navMenuMapper.updateByPrimaryKeySelective(navMenu);
+		this.navMenuService.updateByPrimaryKeySelective(navMenu);
 		return "redirect:/admin/navMenus";
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

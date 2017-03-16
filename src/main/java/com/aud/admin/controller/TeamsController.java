@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.aud.mapper.NavMenuMapper;
 import com.aud.mapper.TeamMemberMapper;
 import com.aud.pojo.NavMenu;
+import com.aud.service.INavMenuService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
@@ -24,10 +25,12 @@ public class TeamsController {
 	private NavMenuMapper navMenuMapper;
 	@Autowired
 	private TeamMemberMapper teamMemberMapper;
+	@Autowired
+	private INavMenuService navMenuService;
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public String delete(@PathVariable("id") int id) {
-		this.navMenuMapper.deleteByPrimaryKey(id);
+		this.navMenuService.deleteByPrimaryKey(id);
 		this.teamMemberMapper.deleteByNavMenuId(id);
 		return "redirect:/admin/teams";
 	}
@@ -59,7 +62,7 @@ public class TeamsController {
 
 	@RequestMapping(value = "/{id}/update", method = RequestMethod.POST)
 	public String update(NavMenu navMenu) {
-		this.navMenuMapper.updateByPrimaryKeySelective(navMenu);
+		this.navMenuService.updateByPrimaryKeySelective(navMenu);
 		return "redirect:/admin/teams";
 	}
 	
@@ -67,7 +70,7 @@ public class TeamsController {
 	public String create(NavMenu navMenu, Locale locale) {
 		navMenu.setParentNav(2);
 		navMenu.setLang(locale.getLanguage());
-		this.navMenuMapper.insertSelective(navMenu);
+		this.navMenuService.insertSelective(navMenu);
 		return "redirect:/admin/teams";
 	}
 }

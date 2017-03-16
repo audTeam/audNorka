@@ -19,6 +19,7 @@ import com.aud.mapper.NavMenuMapper;
 import com.aud.mapper.ProjectMapper;
 import com.aud.pojo.NavMenu;
 import com.aud.pojo.Project;
+import com.aud.service.INavMenuService;
 import com.aud.tool.Utils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -30,6 +31,8 @@ public class ProjectCasesController {
 	private NavMenuMapper navMenuMapper;
 	@Autowired
 	private ProjectMapper projectMapper;
+	@Autowired
+	private INavMenuService navMenuService;
 
 	@RequestMapping(value = "/{id}", method=RequestMethod.GET)
 	public String show(@PathVariable("id") int id, ModelMap model,
@@ -73,7 +76,7 @@ public class ProjectCasesController {
 	
 	@RequestMapping(value = "/{id}/delete", method=RequestMethod.POST)
 	public String delete(@PathVariable("id") int id){
-		this.navMenuMapper.deleteByPrimaryKey(id);
+		this.navMenuService.deleteByPrimaryKey(id);
 		this.projectMapper.deleteByNavMenuId(id);
 		return "redirect:/admin/projectCases";
 	}
@@ -83,7 +86,7 @@ public class ProjectCasesController {
 		if(file!=null&&!file.isEmpty()){
 			navMenu.setImgUrl(Utils.saveFile(file, request));	
 		}
-		this.navMenuMapper.updateByPrimaryKeySelective(navMenu);
+		this.navMenuService.updateByPrimaryKeySelective(navMenu);
 		return "redirect:/admin/projectCases";
 	}
 
@@ -95,7 +98,7 @@ public class ProjectCasesController {
 		navMenu.setParentNav(1);
 		navMenu.setLang(locale.getLanguage());
 
-		this.navMenuMapper.insertSelective(navMenu);
+		this.navMenuService.insertSelective(navMenu);
 		return "redirect:/admin/projectCases";
 	}
 }
