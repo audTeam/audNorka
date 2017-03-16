@@ -88,9 +88,12 @@
         <li><a href="<%=baseUrl%>/client/aboutUs/service" class="second-nav"><spring:message code="companyService" /></a></li>
         <li><a href="<%=baseUrl%>/client/aboutUs/contactUs" class="second-nav"><spring:message code="contactUs" /></a></li>
       </ul>
-      <form class="search-form">
+      <form class="search-form" method="get" action="<%=baseUrl%>/client/searchs">
         <div class="search-input clearfix">
-          <label class="pull-right"><span class="glyphicon glyphicon-search"></span></label> <input type="text" class="form-control pull-right" id="inputText">
+          <button class="pull-right">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+          <input name="keyword" type="text" class="form-control pull-right" id="inputText">
         </div>
       </form>
     </nav>

@@ -39,7 +39,7 @@ public class BaseController {
 				teamsNavMenus = JsonUtils.jsonToList(json, NavMenu.class);
 			}
 		} catch (Exception e) {
-
+          e.printStackTrace();
 		}
 		if (teamsNavMenus == null) {
 			System.out.println("开始查询数据库");
@@ -48,7 +48,7 @@ public class BaseController {
 		try {
 			jedisClient.hset(REDIS_CONTENT_KEY, "teamsNavMenus", JsonUtils.objectToJson(teamsNavMenus));
 		} catch (Exception e) {
-
+			e.printStackTrace();
 		}
 		return teamsNavMenus;
 	}
