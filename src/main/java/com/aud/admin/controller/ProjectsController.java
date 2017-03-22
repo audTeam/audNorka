@@ -14,6 +14,7 @@ import com.aud.mapper.NavMenuMapper;
 import com.aud.mapper.ProjectMapper;
 import com.aud.pojo.Image;
 import com.aud.pojo.Project;
+import com.google.gson.Gson;
 
 @Controller("adminProjects")
 @RequestMapping("/admin/projectCases/{caseId}/projects")
@@ -63,8 +64,8 @@ public class ProjectsController {
 	public String create(@PathVariable("caseId") int caseId, Project project, String[] imgUrls, Locale locale) {
 		project.setLang(locale.getLanguage());
 		this.projectMapper.insertSelective(project);
-
 		int projectId = this.projectMapper.getMaxId();
+		System.out.println("---------方法:"+new Gson().toJson(imgUrls));
 		if(imgUrls!=null){
 		  for (String imgUrl : imgUrls) {
 			Image image = new Image();
@@ -73,6 +74,7 @@ public class ProjectsController {
 			this.imageMapper.insertSelective(image);
 		  }
 		}
+		
 		return "redirect:/admin/projectCases/" + caseId;
 	}
 }

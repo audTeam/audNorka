@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <% String baseUrl = request.getContextPath(); %>
 
 <!DOCTYPE html>
@@ -62,7 +63,7 @@
                 <c:forEach var="project" items="${projects}">
                   <div class="col-sm-3">
                     <a href="${pageContext.request.contextPath}/client/projects/${project.project.id}">
-                      <img src="${pageContext.request.contextPath}/${project.project.imgUrls}" alt="pic" class="img-responsive">
+                      <img src="${pageContext.request.contextPath}/${fn:split(project.project.imgUrls,',')[0]}" alt="pic" class="img-responsive">
                       <p>${project.project.zhName}</p>
                     </a>
                   </div>
