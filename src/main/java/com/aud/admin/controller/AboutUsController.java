@@ -19,6 +19,7 @@ import com.aud.mapper.HistoryIntroduceMapper;
 import com.aud.pojo.Cooperation;
 import com.aud.pojo.HistoryIntroduce;
 import com.aud.tool.Utils;
+import com.google.gson.Gson;
 
 @Controller("adminAboutUs")
 @RequestMapping("/admin/aboutUs")
@@ -41,7 +42,7 @@ public class AboutUsController {
 			historyIntroduce.setHeadImg("");
 			historyIntroduce.setServiceContent("");
 			historyIntroduce.setServiceHeadImg("");
-
+			historyIntroduce.setLang(locale.getLanguage());
 			historyIntroduceMapper.insertSelective(historyIntroduce);
 			model.addAttribute("historyIntroduce", new HistoryIntroduce());
 		}
@@ -57,7 +58,9 @@ public class AboutUsController {
 		if(file!=null&&!serviceFile.isEmpty()){
 			historyIntroduce.setServiceHeadImg(Utils.saveFile(serviceFile, request));
 		}
+		
 		List<HistoryIntroduce> all = this.historyIntroduceMapper.all(locale.getLanguage());
+		System.out.println("---------all:"+new Gson().toJson(all));
 		historyIntroduce.setId(all.get(0).getId());
 		historyIntroduce.setLang(locale.getLanguage());
 		this.historyIntroduceMapper.updateByPrimaryKeySelective(historyIntroduce);

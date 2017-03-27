@@ -31,6 +31,6 @@ public class AccessLog {
 		}
         log.setParameters(sb.toString());
         log.setCreateAt(new Date());
-        logMapper.insertSelective(log);
+        /*logMapper.insertSelective(log);*/
 	}
 }
