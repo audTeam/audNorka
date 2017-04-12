@@ -10,8 +10,28 @@ public class Banner {
     private String imgUrl;
     
     private String lang;
+    
+    private String address;
+    
+    private String bannerCategory;
 
-    public String getLang() {
+    public String getBannerCategory() {
+		return bannerCategory;
+	}
+
+	public void setBannerCategory(String bannerCategory) {
+		this.bannerCategory = bannerCategory;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getLang() {
 		return lang;
 	}
 

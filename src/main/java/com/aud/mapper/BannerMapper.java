@@ -6,7 +6,7 @@ import com.aud.pojo.Banner;
 
 public interface BannerMapper {
 
-	List<Banner> all(String lang);
+	List<Banner> all(String bannerCategory, String lang);
 	
 	int deleteByPrimaryKey(Integer id);
 	

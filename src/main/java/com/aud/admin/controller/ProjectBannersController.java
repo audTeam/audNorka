@@ -17,8 +17,8 @@ import com.aud.pojo.Banner;
 import com.aud.service.ImageService;
 
 @Controller
-@RequestMapping("/admin/banners")
-public class BannersController {
+@RequestMapping("/admin/projectBanners")
+public class ProjectBannersController {
 	@Autowired
 	private BannerMapper bannerMapper;
 	@Autowired
@@ -27,28 +27,28 @@ public class BannersController {
 	@RequestMapping(value = "/new", method = RequestMethod.GET)
 	public String newPage(ModelMap model) {
 		model.addAttribute("banner", new Banner());
-		return "admin/banners/new";
+		return "admin/projectBanners/new";
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String index(ModelMap model, Locale locale) {
-		model.addAttribute("banners", this.bannerMapper.all("sites", locale.getLanguage()));
-		return "admin/banners/index";
+		model.addAttribute("banners", this.bannerMapper.all("projectBanners", locale.getLanguage()));
+		return "admin/projectBanners/index";
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public String create(Banner banner, MultipartFile file, HttpServletRequest request, Locale locale){
 		banner.setLang(locale.getLanguage());
 		banner.setImgUrl(imageService.uploadFile(file));
-		banner.setBannerCategory("sites");
+		banner.setBannerCategory("projectBanners");
 		this.bannerMapper.insertSelective(banner);
-		return "redirect:/admin/banners";
+		return "redirect:/admin/projectBanners";
 	}
 	
 	@RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
 	public String edit(@PathVariable("id") int id, ModelMap model) {
 		model.addAttribute("banner", this.bannerMapper.selectByPrimaryKey(id));
-		return "admin/banners/edit";
+		return "admin/projectBanners/edit";
 	}
 	
 	@RequestMapping(value = "/{id}/update", method = RequestMethod.POST)
@@ -59,7 +59,7 @@ public class BannersController {
 			imageService.deleteFile(oldbanner.getImgUrl());
 		}
 		this.bannerMapper.updateByPrimaryKeySelective(banner);
-		return "redirect:/admin/banners";
+		return "redirect:/admin/projectBanners";
 	}
 	
 	@RequestMapping(value = "/{id}/delete", method = RequestMethod.POST)
@@ -69,6 +69,6 @@ public class BannersController {
 			imageService.deleteFile(banner.getImgUrl());
 		}
 		this.bannerMapper.deleteByPrimaryKey(id);
-		return "redirect:/admin/banners";
+		return "redirect:/admin/projectBanners";
 	}
 }

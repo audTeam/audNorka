@@ -34,7 +34,7 @@ public class SitesController extends BaseController {
 	    List<News> list = this.newsMapper.all(locale.getLanguage());
 	    PageInfo<News> page = new PageInfo<News>(list);
 	    model.addAttribute("pages", page);
-        model.addAttribute("banners", this.bannerMapper.all(locale.getLanguage()));
+        model.addAttribute("banners", this.bannerMapper.all("sites", locale.getLanguage()));
 
         return "client/sites/show";
     }

@@ -66,7 +66,13 @@
       <li <c:if test="${fn:contains(currentUrl, 'banners')}">class="active"</c:if> >
         <a href="<%=baseUrl%>/admin/banners">
           <i class="fa fa-bars" aria-hidden="true"></i>
-          <span>banner设置</span>
+          <span>首页banner设置</span>
+        </a>
+      </li>
+      <li <c:if test="${fn:contains(currentUrl, 'projectBanners')}">class="active"</c:if> >
+        <a href="<%=baseUrl%>/admin/projectBanners">
+          <i class="fa fa-bars" aria-hidden="true"></i>
+          <span>案例列表banner设置</span>
         </a>
       </li>
       <li class="hidden"><a href="<%=baseUrl%>/admin/navMenus"><i class="fa fa-bars" aria-hidden="true"></i><span>二级导航</span></a></li>

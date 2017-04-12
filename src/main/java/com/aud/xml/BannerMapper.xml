@@ -7,13 +7,15 @@
     <result column="url" property="url" jdbcType="VARCHAR" />
     <result column="img_url" property="imgUrl" jdbcType="VARCHAR" />
     <result column="lang" property="lang" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="banner_category" property="bannerCategory" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, name, url, img_url, lang
+    id, name, url, img_url, lang, address, banner_category
   </sql>
 
-  <select id="all" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select * from banners where lang = #{lang,jdbcType=VARCHAR}
+  <select id="all" resultMap="BaseResultMap" >
+    select * from banners where banner_category = #{0} AND lang =#{1}
   </select>
 
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
@@ -26,12 +28,6 @@
     delete from banners
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.aud.pojo.Banner" >
-    insert into banners (id, name, 
-      url, img_url, lang)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
-      #{url,jdbcType=VARCHAR}, #{imgUrl,jdbcType=VARCHAR}, #{lang,jdbcType=VARCHAR})
-  </insert>
   <insert id="insertSelective" parameterType="com.aud.pojo.Banner" >
     insert into banners
     <trim prefix="(" suffix=")" suffixOverrides="," >
@@ -50,6 +46,12 @@
       <if test="lang != null" >
         lang,
       </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="bannerCategory != null" >
+        banner_category,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -66,6 +68,12 @@
       </if>
       <if test="lang != null" >
         #{lang,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="bannerCategory != null" >
+        #{bannerCategory,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -84,6 +92,12 @@
       <if test="lang != null" >
         lang = #{lang,jdbcType=VARCHAR},
       </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="bannerCategory != null" >
+        banner_category = #{bannerCategory,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -92,7 +106,8 @@
     set name = #{name,jdbcType=VARCHAR},
       url = #{url,jdbcType=VARCHAR},
       img_url = #{imgUrl,jdbcType=VARCHAR},
-      lang = #{lang,jdbcType=VARCHAR}
+      lang = #{lang,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

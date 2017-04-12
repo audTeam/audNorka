@@ -46,21 +46,12 @@
               <tr>
                 <td>#</td>
                 <td>标题</td>
-                <td>副标题</td>
                 <td>操作</td>
               </tr>
-              <c:forEach var="navMenu" items="${pages.list}">
+              <c:forEach var="navMenu" items="${pages.list}" varStatus="status">
                 <tr>
-                  <td>${navMenu.id}</td>
+                  <td>${status.index+1}</td>
                   <td>${navMenu.name}</td>
-                  <td>
-                    <c:if test="${fn:length(navMenu.navMenuDesc)>12 }">  
-                      ${fn:substring(navMenu.navMenuDesc, 0, 12)}......  
-                    </c:if>  
-                    <c:if test="${fn:length(navMenu.navMenuDesc)<=12 }">  
-                      ${navMenu.navMenuDesc }  
-                     </c:if>
-                  </td>
                   <td>
                     <a href="<%=baseUrl%>/admin/projectCases/${navMenu.id}/edit" class="btn btn-default">编辑</a>
                     <a href="<%=baseUrl%>/admin/projectCases/${navMenu.id}" class="btn btn-info">配置详情</a>

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<% String imageServer=application.getInitParameter("imageServer") %>
+<% String imageServer=application.getInitParameter("imageServer"); %>
 
 <form class="form-horizontal" method="POST" action="${param.actionUrl}" id="uploadForm" enctype="multipart/form-data">
   <c:if test="${param.method=='PATCH'}">
@@ -9,37 +9,9 @@
     <input type="hidden" name="id" value="${navMenu.id}">
   </c:if>
   <div class="form-group">
-    <label class="col-md-3 control-label">标题</label>
+    <label class="col-md-3 control-label">案例分组名称</label>
     <div class="col-md-9">
       <input class="form-control" type="text" name="name" value="${navMenu.name}">
-    </div>
-  </div>
-  <div class="form-group">
-    <label class="col-md-3 control-label">副标题</label>
-    <div class="col-md-9">
-      <textarea class="form-control" rows="3" name="navMenuDesc">${navMenu.navMenuDesc}</textarea>
-    </div>
-  </div>
-  <div class="form-group">
-    <label class="col-md-3 control-label">案例简介</label>
-    <div class="col-md-9">
-      <script id="container" name="content" type="text/plain" name="content" style="height:500px">${navMenu.content}</script>
-    </div>
-  </div>
-  <c:if test="${navMenu.imgUrl != null}">
-    <div class="form-group">
-      <label class="col-md-3 control-label">图片</label>
-      <div class="col-md-9">
-        <img alt="banner图片" class="img-responsive" src="<%=imageServer%>/${navMenu.imgUrl}">
-      </div>
-    </div>
-  </c:if>
-  <div class="form-group">
-    <label class="col-md-3 control-label">图片文件</label>
-    <div id="uploadFileDiv" class="col-md-9">
-      <input id="pdFile" name="file" type="file">
-      <div id="fileError" class="help-block"></div>
-      <p class="help-block">支持jpg、jpeg、png、gif格式，大小不超过2.0M，宽x高:980x524</p>
     </div>
   </div>
   <div class="form-group">
