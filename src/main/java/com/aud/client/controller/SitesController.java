@@ -26,7 +26,6 @@ public class SitesController extends BaseController {
     private BannerMapper bannerMapper;
     @Autowired
     private NewsMapper newsMapper;
-    private final Log logger = LogFactory.getLog(SitesController.class);  
 
     @RequestMapping(value = "", method=RequestMethod.GET)
     public String show(ModelMap model, Locale locale){

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<% String imageServer=application.getInitParameter("imageServer") %>
 
 <form class="form-horizontal" method="POST" action="${param.actionUrl}" id="uploadForm" enctype="multipart/form-data">
   <c:if test="${param.method=='PATCH'}">
@@ -29,7 +30,7 @@
     <div class="form-group">
       <label class="col-md-3 control-label">图片</label>
       <div class="col-md-9">
-        <img alt="banner图片" class="img-responsive" src="${pageContext.request.contextPath}/${navMenu.imgUrl}">
+        <img alt="banner图片" class="img-responsive" src="<%=imageServer%>/${navMenu.imgUrl}">
       </div>
     </div>
   </c:if>

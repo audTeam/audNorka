@@ -44,7 +44,6 @@ public class TeamMembersController extends BaseController {
 	    PageInfo<TeamMember> page = new PageInfo<TeamMember>(list);
 
 		model.addAttribute("teamMembers", page.getList());
-		System.out.println("-------:"+new Gson().toJson(this.teamMemberProjectMapper.selectByTeamMemberId(id)));
 		model.addAttribute("projects", this.teamMemberProjectMapper.selectByTeamMemberId(id));
 		return "client/teamMembers/show";
 	}

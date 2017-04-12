@@ -36,7 +36,7 @@
                   <c:if test="${status.index!=0}">
                     <div class="item">
                   </c:if>
-                    <img src="${pageContext.request.contextPath}/${image.imgUrl}" alt="pic" class="img-responsive">
+                    <img src="<%=application.getInitParameter("imageServer") %>/${image.imgUrl}" alt="pic" class="img-responsive">
                   </div>
                 </c:forEach>
             </div>
@@ -68,7 +68,7 @@
                           <c:set var="teamMember" value="${teamMembera.teamMember}"></c:set>
                           <div class="col-sm-4 design-pic">
                             <a href="${pageContext.request.contextPath }/client/teams/${teamMember.navMenuId}/teamMembers/${teamMember.id}">
-                            <img src="${pageContext.request.contextPath }/${teamMember.imgUrl}" alt="pic" class="img-responsive">
+                            <img src="<%=application.getInitParameter("imageServer") %>/${teamMember.imgUrl}" alt="pic" class="img-responsive">
                             <p>${teamMember.name}</p><p>${teamMember.goodAt}</p></a>
                           </div>
                         </c:forEach>
@@ -84,7 +84,7 @@
                          <li class="clearfix">
                            <div class="col-xs-5 case-pic">
                              <a href="<%=baseUrl%>/client/projects/${project.id}">
-                               <img src="${pageContext.request.contextPath }/${imageUrl}" alt="pic" class="img-responsive">
+                               <img src="<%=application.getInitParameter("imageServer")%>/${imageUrl}" alt="pic" class="img-responsive">
                              </div>
                              <div class="col-xs-7 case-text" style="font-size: 12px;"><a href="<%=baseUrl%>/client/projects/${project.id}">${project.zhName}</a></div>
                          </li>

@@ -1,6 +1,5 @@
 package com.aud.admin.controller;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
@@ -18,8 +17,7 @@ import com.aud.mapper.CooperationMapper;
 import com.aud.mapper.HistoryIntroduceMapper;
 import com.aud.pojo.Cooperation;
 import com.aud.pojo.HistoryIntroduce;
-import com.aud.tool.Utils;
-import com.google.gson.Gson;
+import com.aud.service.ImageService;
 
 @Controller("adminAboutUs")
 @RequestMapping("/admin/aboutUs")
@@ -28,6 +26,8 @@ public class AboutUsController {
 	private HistoryIntroduceMapper historyIntroduceMapper;
 	@Autowired
 	private CooperationMapper cooperationMapper;
+	@Autowired
+	private ImageService imageService;
 
 	@RequestMapping(value = "/historyIntroduce", method = RequestMethod.GET)
 	public String edit(ModelMap model, Locale locale) {
@@ -51,16 +51,15 @@ public class AboutUsController {
 	}
 
 	@RequestMapping(value = "/historyIntroduce/update", method = RequestMethod.POST)
-	public String update(HistoryIntroduce historyIntroduce, MultipartFile file, MultipartFile serviceFile, HttpServletRequest request, Locale locale) throws IllegalStateException, IOException {
+	public String update(HistoryIntroduce historyIntroduce, MultipartFile file, MultipartFile serviceFile, HttpServletRequest request, Locale locale){
 		if(file!=null&&!file.isEmpty()){
-			historyIntroduce.setHeadImg(Utils.saveFile(file, request));	
+			historyIntroduce.setHeadImg(imageService.uploadFile(file));	
 		}
 		if(file!=null&&!serviceFile.isEmpty()){
-			historyIntroduce.setServiceHeadImg(Utils.saveFile(serviceFile, request));
+			historyIntroduce.setServiceHeadImg(imageService.uploadFile(serviceFile));
 		}
 		
 		List<HistoryIntroduce> all = this.historyIntroduceMapper.all(locale.getLanguage());
-		System.out.println("---------all:"+new Gson().toJson(all));
 		historyIntroduce.setId(all.get(0).getId());
 		historyIntroduce.setLang(locale.getLanguage());
 		this.historyIntroduceMapper.updateByPrimaryKeySelective(historyIntroduce);
@@ -68,9 +67,9 @@ public class AboutUsController {
 	}
 
 	@RequestMapping(value = "/historyIntroduce/cooperations", method = RequestMethod.POST)
-	public String addCooperation(Cooperation cooperation, MultipartFile file, HttpServletRequest request, Locale locale) throws IllegalStateException, IOException {
+	public String addCooperation(Cooperation cooperation, MultipartFile file, HttpServletRequest request, Locale locale) {
 		if(file!=null&&!file.isEmpty()){
-			cooperation.setLogoUrl(Utils.saveFile(file, request));	
+			cooperation.setLogoUrl(imageService.uploadFile(file));	
 		}
 		cooperation.setLang(locale.getLanguage());
 		this.cooperationMapper.insertSelective(cooperation);
@@ -90,9 +89,9 @@ public class AboutUsController {
 	}
 
 	@RequestMapping(value = "/historyIntroduce/cooperations/{id}/update", method = RequestMethod.POST)
-	public String updateCooperation(@PathVariable("id") int id, Cooperation cooperation, ModelMap model, MultipartFile file, HttpServletRequest request, Locale locale) throws IllegalStateException, IOException {
+	public String updateCooperation(@PathVariable("id") int id, Cooperation cooperation, ModelMap model, MultipartFile file, HttpServletRequest request, Locale locale) {
 		if(file!=null&&!file.isEmpty()){
-			cooperation.setLogoUrl(Utils.saveFile(file, request));	
+			cooperation.setLogoUrl(imageService.uploadFile(file));	
 		}
 		cooperation.setLang(locale.getLanguage());
 		this.cooperationMapper.updateByPrimaryKeySelective(cooperation);

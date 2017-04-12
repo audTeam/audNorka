@@ -19,6 +19,7 @@ import com.aud.mapper.TeamMemberMapper;
 import com.aud.mapper.TeamMemberProjectMapper;
 import com.aud.pojo.TeamMember;
 import com.aud.pojo.TeamMemberProject;
+import com.aud.service.ImageService;
 import com.aud.tool.Utils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -33,6 +34,9 @@ public class TeamMembersController {
     private ProjectMapper projectMapper;
     @Autowired
     private TeamMemberProjectMapper teamMemberProjectMapper;
+    @Autowired
+    private ImageService imageService;
+
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String index(@PathVariable("teamId") int teamId, ModelMap model,
     		Locale locale,
@@ -65,12 +69,12 @@ public class TeamMembersController {
 
     @RequestMapping(value = "", method = RequestMethod.POST)
     public String create(@PathVariable("teamId") int teamId, TeamMember teamMember, MultipartFile file, MultipartFile personFile, HttpServletRequest request, int[] projectIds, Locale local)
-            throws IllegalStateException, IOException {
+            {
     	if(file!=null&&!file.isEmpty()){
-            teamMember.setImgUrl(Utils.saveFile(file, request));
+            teamMember.setImgUrl(imageService.uploadFile(file));
     	}
     	if(file!=null&&!personFile.isEmpty()){
-    		teamMember.setCard(Utils.saveFile(personFile, request));
+    		teamMember.setCard(imageService.uploadFile(personFile));
     	}
         teamMember.setNavMenuId(teamId);
         teamMember.setLang(local.getLanguage());
@@ -89,12 +93,12 @@ public class TeamMembersController {
     }
 
     @RequestMapping(value = "/{id}/update", method = RequestMethod.POST)
-    public String update(@PathVariable("teamId") int teamId, @PathVariable("id") int id, TeamMember teamMember, int[] projectIds, MultipartFile file, MultipartFile personFile, HttpServletRequest request) throws IllegalStateException, IOException {
+    public String update(@PathVariable("teamId") int teamId, @PathVariable("id") int id, TeamMember teamMember, int[] projectIds, MultipartFile file, MultipartFile personFile, HttpServletRequest request) {
     	if(file!=null&&!file.isEmpty()){
-            teamMember.setImgUrl(Utils.saveFile(file, request));
+            teamMember.setImgUrl(imageService.uploadFile(file));
     	}
     	if(file!=null&&!personFile.isEmpty()){
-    		teamMember.setCard(Utils.saveFile(personFile, request));
+    		teamMember.setCard(imageService.uploadFile(personFile));
     	}
     	teamMember.setUpdatedAt(new Date());
         this.teamMemberMapper.updateByPrimaryKeySelective(teamMember);

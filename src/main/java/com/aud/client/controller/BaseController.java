@@ -60,14 +60,14 @@ public class BaseController {
 		}
 
 		// 通过redis获取teamsNavMenus缓存数据 
-		model.addAttribute("teamsNavMenus", getCacheNavMenus(locale, "teamsNavMenus", 2));
+/*		model.addAttribute("teamsNavMenus", getCacheNavMenus(locale, "teamsNavMenus", 2));
 		model.addAttribute("newsNavMenus", getCacheNavMenus(locale, "newsNavMenus", 3));
 		List<NavMenu> projectNavMenus = getCacheNavMenus(locale, "projectNavMenus", 1);
-
+*/
 		//不使用redis缓存
-		//model.addAttribute("teamsNavMenus", this.navMenuMapper.allNavMenuByParentNav(2, locale.getLanguage()));
-		//model.addAttribute("newsNavMenus", this.navMenuMapper.allNavMenuByParentNav(3, locale.getLanguage()));
-		//List<NavMenu> projectNavMenus = this.navMenuMapper.allNavMenuByParentNav(1, locale.getLanguage());
+		model.addAttribute("teamsNavMenus", this.navMenuMapper.allNavMenuByParentNav(2, locale.getLanguage()));
+		model.addAttribute("newsNavMenus", this.navMenuMapper.allNavMenuByParentNav(3, locale.getLanguage()));
+		List<NavMenu> projectNavMenus = this.navMenuMapper.allNavMenuByParentNav(1, locale.getLanguage());
 
 		// 获取项目列表
 		Iterator<NavMenu> iter = projectNavMenus.iterator();

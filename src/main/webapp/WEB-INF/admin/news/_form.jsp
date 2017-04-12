@@ -23,7 +23,7 @@
   <div class="form-group">
     <label class="col-md-2 control-label">头图图片</label>
     <div class="col-md-20">
-      <img alt="banner图片" class="img-responsive" src="${pageContext.request.contextPath}/${news.headImg}">
+      <img alt="banner图片" class="img-responsive" src="<%=application.getInitParameter("imageServer")%>/${news.headImg}">
     </div>
   </div>
   </c:if>

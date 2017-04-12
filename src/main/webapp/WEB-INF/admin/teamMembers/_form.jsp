@@ -67,7 +67,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label">头像</label>
       <div class="col-md-8">
-        <img alt="banner图片" class="img-responsive" src="${pageContext.request.contextPath}/${teamMember.imgUrl}">
+        <img alt="banner图片" class="img-responsive" src="<%=application.getInitParameter("imageServer")%>/${teamMember.imgUrl}">
       </div>
     </div>
   </c:if>
@@ -83,7 +83,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label">个人名片</label>
       <div class="col-md-8">
-        <a href="${pageContext.request.contextPath}/${teamMember.card}">点击查看</a>
+        <a href="<%=application.getInitParameter("imageServer")%>/${teamMember.card}">点击查看</a>
       </div>
     </div>
   </c:if>

@@ -20,6 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.aud.mapper.ImageMapper;
+import com.aud.service.ImageService;
 import com.aud.tool.Utils;
 
 @Controller
@@ -27,6 +28,8 @@ import com.aud.tool.Utils;
 public class UploadFileController {
     @Autowired
     private ImageMapper imageMapper;
+    @Autowired
+    private ImageService imageService;
     
 	@RequestMapping(value = "/image/{id}/delete", method = RequestMethod.POST)
 	@ResponseBody
@@ -40,7 +43,7 @@ public class UploadFileController {
 	@RequestMapping(value = "/image", method = RequestMethod.POST)
 	@ResponseBody
 	public Object uploadFile(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+			throws  Exception, IOException {
 		// 转型为MultipartHttpServletRequest
 		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 		// 获取文件到map容器中
@@ -52,7 +55,7 @@ public class UploadFileController {
 			MultipartFile f = entity.getValue();
 			if (f != null && !f.isEmpty()) {
 				Map<String, String> item = new HashMap<>();
-				item.put("imgUrl", Utils.saveFile(f, request));
+				item.put("imgUrl", imageService.uploadFile(f));
 				collection.add(item);
 			}
 		}

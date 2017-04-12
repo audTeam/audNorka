@@ -65,7 +65,6 @@ public class ProjectsController {
 		project.setLang(locale.getLanguage());
 		this.projectMapper.insertSelective(project);
 		int projectId = this.projectMapper.getMaxId();
-		System.out.println("---------方法:"+new Gson().toJson(imgUrls));
 		if(imgUrls!=null){
 		  for (String imgUrl : imgUrls) {
 			Image image = new Image();

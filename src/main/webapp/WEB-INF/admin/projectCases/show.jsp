@@ -47,7 +47,7 @@
             <div class="col-md-8">${navMenu.content}</div>
             <div class="col-md-12"><hr></div>
             <div class="col-md-2">图片：</div>
-            <div class="col-md-8"><img alt="图片" class="img-responsive" src="${pageContext.request.contextPath}/${navMenu.imgUrl}"></div>
+            <div class="col-md-8"><img alt="图片" class="img-responsive" src="<%= application.getInitParameter("imageServer") %>/${navMenu.imgUrl}"></div>
           </div>
           <div class="row">
             <div class="col-md-12 text-right">

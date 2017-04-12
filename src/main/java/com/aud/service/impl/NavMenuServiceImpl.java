@@ -8,6 +8,12 @@ import com.aud.mapper.NavMenuMapper;
 import com.aud.pojo.NavMenu;
 import com.aud.service.INavMenuService;
 
+/**
+ * 暂时不使用redis缓存
+ * @author Administrator
+ *
+ */
+
 @Service
 public class NavMenuServiceImpl implements INavMenuService {
 	@Autowired
@@ -24,19 +30,19 @@ public class NavMenuServiceImpl implements INavMenuService {
 
 	@Override
 	public int deleteByPrimaryKey(Integer id) {
-		clearCache();
+		/*clearCache();*/
 		return navMenuMapper.deleteByPrimaryKey(id);
 	}
 
 	@Override
 	public int insertSelective(NavMenu record) {
-		clearCache();
+		/*clearCache();*/
 		return navMenuMapper.insertSelective(record);
 	}
 
 	@Override
 	public int updateByPrimaryKeySelective(NavMenu record) {
-		clearCache();
+		/*clearCache();*/
 		return navMenuMapper.updateByPrimaryKeySelective(record);
 	}
 

@@ -18,7 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.aud.mapper.NavMenuMapper;
 import com.aud.mapper.NewsMapper;
 import com.aud.pojo.News;
-import com.aud.tool.Utils;
+import com.aud.service.ImageService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 @Controller("adminNews")
@@ -28,6 +28,9 @@ public class NewsController {
     private NavMenuMapper navMenuMapper;
     @Autowired
     private NewsMapper newsMapper;
+	@Autowired
+	private ImageService imageService;
+	
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String index(@PathVariable("newsCategoryId") int id, ModelMap model,	
     		@RequestParam(value="pageNo", required=false, defaultValue="1") Integer pageNo,
@@ -50,7 +53,9 @@ public class NewsController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public String delete(@PathVariable("newsCategoryId") int newsCategoryId, @PathVariable("id") int id, ModelMap model) {
-        this.newsMapper.deleteByPrimaryKey(id);
+        News oldNews = this.newsMapper.selectByPrimaryKey(id);
+    	this.imageService.deleteFile(oldNews.getHeadImg());
+    	this.newsMapper.deleteByPrimaryKey(id);
         return "redirect:/admin/newsCategories/"+newsCategoryId+"/news";
     }
 
@@ -61,19 +66,21 @@ public class NewsController {
     }
 
     @RequestMapping(value = "/{id}/update", method = RequestMethod.POST)
-    public String update(@PathVariable("newsCategoryId") int id, News news,MultipartFile file, HttpServletRequest request)throws IllegalStateException, IOException {
-        if(file!=null&&!file.isEmpty()){
-            news.setHeadImg(Utils.saveFile(file, request));	
+    public String update(@PathVariable("newsCategoryId") int newsCategoryId, @PathVariable("id") Integer id, News news,MultipartFile file){
+        News oldNews = this.newsMapper.selectByPrimaryKey(id);
+    	if(file!=null&&!file.isEmpty()){
+            news.setHeadImg(imageService.uploadFile(file));	
+            imageService.deleteFile(oldNews.getHeadImg());
         }
         this.newsMapper.updateByPrimaryKeySelective(news);
-        return "redirect:/admin/newsCategories/"+id+"/news";
+        return "redirect:/admin/newsCategories/"+newsCategoryId+"/news";
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public String create(@PathVariable("newsCategoryId") int id, News news,MultipartFile file, HttpServletRequest request, Locale locale)throws IllegalStateException, IOException {
+    public String create(@PathVariable("newsCategoryId") int id, News news,MultipartFile file, HttpServletRequest request, Locale locale) {
         news.setNavmenueId(id);
         news.setPublishAt(new Date());
-        news.setHeadImg(Utils.saveFile(file, request));
+        news.setHeadImg(imageService.uploadFile(file));
         news.setLang(locale.getLanguage());
         this.newsMapper.insertSelective(news);
         return "redirect:/admin/newsCategories/"+id+"/news";

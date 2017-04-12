@@ -20,6 +20,7 @@ import com.aud.mapper.ProjectMapper;
 import com.aud.pojo.NavMenu;
 import com.aud.pojo.Project;
 import com.aud.service.INavMenuService;
+import com.aud.service.ImageService;
 import com.aud.tool.Utils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -33,6 +34,8 @@ public class ProjectCasesController {
 	private ProjectMapper projectMapper;
 	@Autowired
 	private INavMenuService navMenuService;
+	@Autowired
+	private ImageService imageService;
 
 	@RequestMapping(value = "/{id}", method=RequestMethod.GET)
 	public String show(@PathVariable("id") int id, ModelMap model,
@@ -82,18 +85,18 @@ public class ProjectCasesController {
 	}
 	
 	@RequestMapping(value = "/{id}/update", method=RequestMethod.POST)
-	public String update(NavMenu navMenu, MultipartFile file, HttpServletRequest request, Locale locale) throws IllegalStateException, IOException{
+	public String update(NavMenu navMenu, MultipartFile file, HttpServletRequest request, Locale locale) throws  Exception, IOException{
 		if(file!=null&&!file.isEmpty()){
-			navMenu.setImgUrl(Utils.saveFile(file, request));	
+			navMenu.setImgUrl(imageService.uploadFile(file));	
 		}
 		this.navMenuService.updateByPrimaryKeySelective(navMenu);
 		return "redirect:/admin/projectCases";
 	}
 
 	@RequestMapping(value = "", method=RequestMethod.POST)
-	public String create(NavMenu navMenu, MultipartFile file, HttpServletRequest request, Locale locale) throws IllegalStateException, IOException{
+	public String create(NavMenu navMenu, MultipartFile file, HttpServletRequest request, Locale locale) throws  Exception, IOException{
 		if(file!=null&&!file.isEmpty()){
-			navMenu.setImgUrl(Utils.saveFile(file, request));	
+			navMenu.setImgUrl(imageService.uploadFile(file));	
 		}
 		navMenu.setParentNav(1);
 		navMenu.setLang(locale.getLanguage());

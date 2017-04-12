@@ -28,19 +28,19 @@
 	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">  
 	    <!-- Shiro的核心安全接口,这个属性是必须的 -->  
 	    <property name="securityManager" ref="securityManager"/>
-	    <!-- 身份认证失败，则跳转到登录页面的配置 -->  
-	    <!-- <property name="loginUrl" value="/admin/sessions/new"/> -->
+	    <!-- 身份认证失败，则跳转到登录页面的配置 -->
+	    <property name="loginUrl" value="/admin/sessions/new"/>
 	    <!-- 权限认证失败，则跳转到指定页面 -->
-	    <!-- <property name="unauthorizedUrl" value="/unauthor.jsp"/>   -->
+	    <property name="unauthorizedUrl" value="/unauthor.jsp"/>
 	    <!-- Shiro连接约束配置,即过滤链的定义 -->  
-	    <!-- <property name="filterChainDefinitions">  
+	     <property name="filterChainDefinitions">  
 	        <value>
 	            /admin/sessions/**=anon
 	            /admin/sessions=anon
 				/admin*/**=authc
 				/admin/users/**=roles[admin]
 	        </value>  
-	    </property> -->
+	    </property>
 	</bean>  
 
 	<!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->  

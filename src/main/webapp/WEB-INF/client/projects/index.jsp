@@ -26,7 +26,7 @@
                   <c:set var="imageUrl" value="${item.images[0].imgUrl}"></c:set>
                   <div class="col-sm-3">
                     <a href="<%=baseUrl%>/client/projects/${project.id}">
-                      <img src="${pageContext.request.contextPath }/${imageUrl}" alt="pic" class="img-responsive">
+                      <img src="<%=application.getInitParameter("imageServer")%>/${imageUrl}" alt="pic" class="img-responsive">
                       <p>${project.zhName}</p>
                     </a>
                   </div>                

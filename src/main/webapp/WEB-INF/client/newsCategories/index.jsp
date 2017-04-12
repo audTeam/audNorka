@@ -35,12 +35,11 @@
                     <li class="clearfix">
                         <div class="col-xs-4 case-pic">
                           <a href="<%=baseUrl%>/client/newsCategories/${newItem.navmenueId}/news/${newItem.id}">
-                            <img src="${pageContext.request.contextPath}/${newItem.headImg}" alt="pic" class="img-responsive">
+                            <img src="<%=application.getInitParameter("imageServer")%>/${newItem.headImg}" alt="pic" class="img-responsive">
                           </a>
                         </div>
                         <div class="col-xs-8 case-text">
-                            <!--  ${newItem.publishAt} -->
-                            <p class="date">2017-2-7</p>
+                            <p class="date">${newItem.publishAt}</p>
                             <h4>${newItem.title}</h4>
                             <div class="text">
                                 <p>${newItem.subTitle}</p>

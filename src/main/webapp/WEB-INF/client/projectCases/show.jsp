@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <% String baseUrl = request.getContextPath(); %>
+<% String imageServer = application.getInitParameter("imageServer") %>
 
 <!DOCTYPE html>
 <html>
@@ -19,7 +20,7 @@
     <jsp:include page="../shared/_header.jsp"></jsp:include>
     <div class="main container">
         <section class="part-one">
-            <img src="<%=baseUrl%>/${navMenu.imgUrl}" alt="pic" class="img-responsive">
+            <img src="<%=imageServer%>/${navMenu.imgUrl}" alt="pic" class="img-responsive">
             <div class="city-title">
                 <h1>${navMenu.name}</h1>
                 <h4>${navMenu.navMenuDesc}</h4>
@@ -35,7 +36,7 @@
                 <c:set var="project" value="${item.project}"></c:set>
                   <div class="col-sm-3">
                     <a href="<%=baseUrl%>/client/projects/${project.id}">
-                      <img src="${pageContext.request.contextPath}/${item.imags[0].imgUrl}" alt="pic" class="img-responsive">
+                      <img src="<%=imageServer%>/${item.imags[0].imgUrl}" alt="pic" class="img-responsive">
                       <p>${project.zhName}</p>
                     </a>
                   </div>

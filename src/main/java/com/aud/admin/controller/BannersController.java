@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.aud.component.JedisClient;
 import com.aud.mapper.BannerMapper;
 import com.aud.pojo.Banner;
+import com.aud.service.ImageService;
 import com.aud.tool.Utils;
 
 @Controller
@@ -24,8 +24,8 @@ public class BannersController {
 	@Autowired
 	private BannerMapper bannerMapper;
 	@Autowired
-	private JedisClient jedisClient;
-	
+	private ImageService imageService;
+
 	@RequestMapping(value = "/new", method = RequestMethod.GET)
 	public String newPage(ModelMap model) {
 		model.addAttribute("banner", new Banner());
@@ -39,10 +39,9 @@ public class BannersController {
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.POST)
-	public String create(Banner banner, MultipartFile file, HttpServletRequest request, Locale locale)
-	    throws IllegalStateException, IOException {
+	public String create(Banner banner, MultipartFile file, HttpServletRequest request, Locale locale){
 		banner.setLang(locale.getLanguage());
-		banner.setImgUrl(Utils.saveFile(file, request));
+		banner.setImgUrl(imageService.uploadFile(file));
 		this.bannerMapper.insertSelective(banner);
 		return "redirect:/admin/banners";
 	}
@@ -54,9 +53,13 @@ public class BannersController {
 	}
 	
 	@RequestMapping(value = "/{id}/update", method = RequestMethod.POST)
-	public String update(Banner banner, MultipartFile file, HttpServletRequest request, ModelMap model) throws IllegalStateException, IOException {
+	public String update(@PathVariable("id") int id, Banner banner, MultipartFile file, ModelMap model){
+		Banner oldbanner = bannerMapper.selectByPrimaryKey(id);
+		if(oldbanner.getImgUrl()!=null){
+			imageService.deleteFile(oldbanner.getImgUrl());
+		}
 		if (file!=null&&!file.isEmpty()) {
-			banner.setImgUrl(Utils.saveFile(file, request));
+			banner.setImgUrl(imageService.uploadFile(file));
 		}
 		this.bannerMapper.updateByPrimaryKeySelective(banner);
 		return "redirect:/admin/banners";
@@ -64,6 +67,10 @@ public class BannersController {
 	
 	@RequestMapping(value = "/{id}/delete", method = RequestMethod.POST)
 	public String delete(@PathVariable("id") int id) {
+		Banner banner = bannerMapper.selectByPrimaryKey(id);
+		if(banner.getImgUrl()!=null){
+			imageService.deleteFile(banner.getImgUrl());
+		}
 		this.bannerMapper.deleteByPrimaryKey(id);
 		return "redirect:/admin/banners";
 	}

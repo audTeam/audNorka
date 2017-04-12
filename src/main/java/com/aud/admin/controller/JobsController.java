@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.aud.mapper.JobMapper;
 import com.aud.pojo.Job;
+import com.aud.service.ImageService;
 import com.aud.tool.Utils;
 
 @Controller("adminJobs")
@@ -23,6 +24,8 @@ public class JobsController {
 
 	@Autowired
 	private JobMapper jobMapper;
+	@Autowired
+	private ImageService imageService;
 
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String show(ModelMap model, Locale locale) {
@@ -46,18 +49,18 @@ public class JobsController {
 	}
 
 	@RequestMapping(value = "/{id}/update", method = RequestMethod.POST)
-	public String update(@PathVariable("id") int id, Job job, MultipartFile file, HttpServletRequest request) throws IllegalStateException, IOException {
+	public String update(@PathVariable("id") int id, Job job, MultipartFile file, HttpServletRequest request){
 		if(file!=null&&!file.isEmpty()){
-			job.setImgUrl(Utils.saveFile(file, request));	
+			job.setImgUrl(imageService.uploadFile(file));	
 		}
 		this.jobMapper.updateByPrimaryKeySelective(job);
 		return "redirect:/admin/jobs";
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.POST)
-	public String create(Job job, MultipartFile file, HttpServletRequest request, Locale locale) throws IllegalStateException, IOException {
+	public String create(Job job, MultipartFile file, HttpServletRequest request, Locale locale){
 		if(file!=null&&!file.isEmpty()){
-			job.setImgUrl(Utils.saveFile(file, request));	
+			job.setImgUrl(imageService.uploadFile(file));	
 		}
 		job.setLang(locale.getLanguage());
 		this.jobMapper.insertSelective(job);

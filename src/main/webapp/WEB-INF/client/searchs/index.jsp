@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <% String baseUrl = request.getContextPath(); %>
-<% String imageServer = application.getInitParameter("imageServer"); %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
@@ -46,7 +45,7 @@
                     <c:if test="${status.index!=0}">
                       <div class="item">
                     </c:if>
-                        <img src="<%=imageServer%>/${banner.imgUrl }" alt="pic" class="img-responsive">
+                        <img src="<%=baseUrl%>/${banner.imgUrl }" alt="pic" class="img-responsive">
                     </div>
                   </c:forEach>
                 </div>
@@ -65,7 +64,7 @@
             <div class="row">
               <c:forEach var="newsItem" items="${pages.list}">
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                    <img src="<%=imageServer%>/${newsItem.headImg}" alt="pic" class="img-responsive">
+                    <img src="${pageContext.request.contextPath}/${newsItem.headImg}" alt="pic" class="img-responsive">
                     <div class="text">
                         <a href="${pageContext.request.contextPath}/client/newsCategories/${newsItem.navmenueId}/news/${newsItem.id}">
                             <p class="text-one">${newsItem.title}</p>

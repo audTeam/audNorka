@@ -25,12 +25,14 @@ public class AccessLog {
 		log.setClassName(j.getSignature().getDeclaringTypeName());
 		log.setMethodName(j.getSignature().getName());
 		log.setExecuteTime(System.currentTimeMillis()-startData);
-		StringBuilder sb=new StringBuilder("");
+
+/*		StringBuilder sb=new StringBuilder("");
 		for(Object object : j.getArgs()){
 			sb.append(object);
 		}
-        log.setParameters(sb.toString());
+        log.setParameters(sb.toString());*/
+        
         log.setCreateAt(new Date());
-        /*logMapper.insertSelective(log);*/
+        logMapper.insertSelective(log);
 	}
 }
