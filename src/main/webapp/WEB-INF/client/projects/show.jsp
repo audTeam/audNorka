@@ -67,7 +67,7 @@
         </div>
         <section class="part_two">
             <div class="row">
-                <div class="col-xs-12 pic-title col-md-offset-3 col-xs-offset-1"><p>Sky GarDen</p></div>
+                <div class="col-xs-12 pic-title col-md-offset-3 col-xs-offset-1"><p>${project.name}</p></div>
                 <div class="col-md-3 col-xs-12 col-xs-offset-1 col-md-offset-0">
                     <ul class="info">
                         <li class="title-text">Information</li>
@@ -98,25 +98,28 @@
                     </ul>
                     <ul class="team">
                         <li class="title-text">Team</li>
-                        <c:forEach var="teamMember" items="${teamMembercollection}">
+                        <c:forEach var="item" items="${teamMembercollection}">
                           <li class="col-md-4 team-pic">
-                            <a href="#">
-                              <img src="<%=application.getInitParameter("imageServer")%>/${teamMember.imgUrl}" alt="pic" class="img-responsive"></a>
-                              <a href="#"><h5>${teamMember.name}</h5></a><h6>shanghai</h6></li>
+                            <a href="<%=baseUrl%>/client/teamMembers/${item.teamMember.id}">
+                              <img src="<%=application.getInitParameter("imageServer")%>/${item.teamMember.imgUrl}" alt="pic" class="img-responsive">
+                            </a>
+                            <a href="<%=baseUrl%>/client/teamMembers"><h5>${item.teamMember.name}</h5></a>
+                            <h6>${item.teamMember.position}</h6></li>
                         </c:forEach>
                     </ul>
                 </div>
                 <div class="col-md-2 col-xs-12 col-xs-offset-1 col-md-offset-1">
                     <ul class="similar">
                         <li class="title-text">Similar</li>
-                        <li><a href="#"><img src="<%=baseUrl%>/static/common/client/images/sites/porject1.png" alt="pic" class="img-responsive"></a><a
-                                href="#"><h5>Mixc ZhengZhou</h5></a><h6>shanghai</h6></li>
-                        <li><a href="#"><img src="<%=baseUrl%>/static/common/client/images/sites/porject1.png" alt="pic" class="img-responsive"></a><a
-                                href="#"><h5>Mixc ZhengZhou</h5></a><h6>shanghai</h6></li>
-                        <li><a href="#"><img src="<%=baseUrl%>/static/common/client/images/sites/porject1.png" alt="pic" class="img-responsive"></a><a
-                                href="#"><h5>Mixc ZhengZhou</h5></a><h6>shanghai</h6></li>
-                        <li><a href="#"><img src="<%=baseUrl%>/static/common/client/images/sites/porject1.png" alt="pic" class="img-responsive"></a><a
-                                href="#"><h5>Mixc ZhengZhou</h5></a><h6>shanghai</h6></li>
+                        <c:forEach var="project" items="${collection}">
+                          <li>
+                            <a href="<%=baseUrl%>/client/projects/${project.project.id}">
+                              <img src="<%=application.getInitParameter("imageServer")%>/${project.images[0].imgUrl}" alt="pic" class="img-responsive">
+                            </a>
+                            <a href="<%=baseUrl%>/client/projects/${project.project.id}"><h5>${project.project.name}</h5></a>
+                            <h6>${project.project.address}</h6>
+                          </li>
+                        </c:forEach>
                         <li class="view_more"><a href="#">VIEW MORE</a></li>
                     </ul>
                 </div>

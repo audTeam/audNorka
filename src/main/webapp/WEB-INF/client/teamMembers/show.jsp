@@ -23,48 +23,41 @@
 <div class="main container-fluid">
     <div row>
         <div class="col-md-7 design-pic">
-            <img src="<%=baseUrl%>/static/common/client/images/sites/designer7.png" alt="pic" class="img-responsive">
+            <img src="<%=application.getInitParameter("imageServer")%>/${teamMember.imgUrl}" alt="pic" class="img-responsive">
             <ul>
-                <li class="people-intro"><h6>LA Live dsd ddww frfr grerg gregg gegrgr gergrLA Live dsd ddww frfr grerg gregg gegrgr gergr</h6></li>
-                <li class="people-intro"><h6>LA Live dsd ddww frfr grerg gregg gegrgr gergrLA Live dsd ddww frfr grerg gregg gegrgr gergr</h6></li>
+                <li class="people-intro"><h6>${teamMember.brief }</h6></li>
             </ul>
         </div>
         <div class="col-md-5">
             <ul>
                 <li>
-                    <h3 class="bold-text">NU GUO</h3>
-                    <h6>Chief Architect</h6>
+                    <h3 class="bold-text">${teamMember.name }</h3>
+                    <h6>${teamMember.position }</h6>
                 </li>
                 <li>
                     <h6 class="bold-text">EDUCATION BACKGROUND</h6>
-                    <h6>Calison LLC(U.S.A)</h6>
+                    <h6>${teamMember.educationBackground }</h6>
                 </li>
                 <li>
                     <h6 class="bold-text">WORK EXPERIENCE</h6>
-                    <h6>Calison LLC(U.S.A)</h6>
+                    <h6>${teamMember.educationBackground }</h6>
                 </li>
                 <li>
                     <h6 class="bold-text">WORK EXPERIENCE</h6>
-                    <h6>Calison LLC(U.S.A)</h6>
+                    <h6>${teamMember.workExperience }</h6>
                 </li>
                 <li class="key-project">Key Projects</li>
-                <li><h6>LA Live dsd ddww frfr grerg gregg gegrgr gergr</h6></li>
+                <li><h6>${teamMember.keyProject }</h6></li>
             </ul>
         </div>
         <div class="col-md-12 contact-work">
             <div class="col-md-12 key-project">Featured Work</div>
-            <div class="col-md-2 work-pic"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/sites/porject1.png" alt="pic" class="img-responsive"></a><a
-                    href="#"><h5>Mixc ZhengZhou</h5></a><h6>shanghai</h6></div>
-            <div class="col-md-2 work-pic"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/sites/porject1.png" alt="pic" class="img-responsive"></a><a
-                    href="#"><h5>Mixc ZhengZhou</h5></a><h6>shanghai</h6></div>
-            <div class="col-md-2 work-pic"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/sites/porject1.png" alt="pic" class="img-responsive"></a><a
-                    href="#"><h5>Mixc ZhengZhou</h5></a><h6>shanghai</h6></div>
-            <div class="col-md-2 work-pic"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/sites/porject1.png" alt="pic" class="img-responsive"></a><a
-                    href="#"><h5>Mixc ZhengZhou</h5></a><h6>shanghai</h6></div>
-            <div class="col-md-2 work-pic"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/sites/porject1.png" alt="pic" class="img-responsive"></a><a
-                    href="#"><h5>Mixc ZhengZhou</h5></a><h6>shanghai</h6></div>
-            <div class="col-md-2 work-pic"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/sites/porject1.png" alt="pic" class="img-responsive"></a><a
-                    href="#"><h5>Mixc ZhengZhou</h5></a><h6>shanghai</h6></div>
+            <c:forEach var="project" items="${projects}">
+              <div class="col-md-2 work-pic">
+                <a href="<%= baseUrl%>/client/projects/${project.id}">
+                  <img src="<%=baseUrl%>/static/common/client/images/sites/porject1.png" alt="pic" class="img-responsive"></a>
+                  <a href="#"><h5>${project.name}</h5></a><h6>${project.address }</h6></div>
+            </c:forEach>
         </div>
     </div>
 </div>

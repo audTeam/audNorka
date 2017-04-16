@@ -36,7 +36,6 @@ public class TeamMembersController extends BaseController {
 
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public String show(@PathVariable("id") int id, ModelMap model, Locale locale){
-		/*
 		model.addAttribute("teamMember", this.teamMemberMapper.selectByPrimaryKey(id));
 
 		PageHelper.startPage(1, 6);
@@ -45,7 +44,7 @@ public class TeamMembersController extends BaseController {
 
 		model.addAttribute("teamMembers", page.getList());
 		model.addAttribute("projects", this.teamMemberProjectMapper.selectByTeamMemberId(id));
-		*/
+
 		return "client/teamMembers/show";
 	}
 }
