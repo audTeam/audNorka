@@ -45,11 +45,6 @@
      <ul class="nav navbar-nav ul_two" data-tag="2"> <!--PROJECTS导航 -->
      	<li>
      	  <a href="#" class="second-nav">Urban Design</a>
-     	  	<ul class="nav ul-three">
-              <li><a href="#">Urban Complex</a></li>
-              <li><a href="#">High Rise</a></li>
-              <li><a href="#">Lifestyle</a></li>
-            </ul>
      	 </li>
      	<li>
           <a href="#" class="second-nav">Architecture</a>
@@ -61,11 +56,6 @@
         </li>
           <li>
             <a href="#" class="second-nav">Interior</a>
-            <ul class="nav ul-three">
-              <li><a href="#">Urban Complex</a></li>
-              <li><a href="#">High Rise</a></li>
-              <li><a href="#">Lifestyle</a></li>
-            </ul>
           </li>
      </ul>
      <ul class="nav navbar-nav ul_two" data-tag="3"><!--ABOUT US导航 -->
