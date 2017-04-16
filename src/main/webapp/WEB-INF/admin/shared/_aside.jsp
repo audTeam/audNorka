@@ -75,6 +75,12 @@
           <span>案例列表banner设置</span>
         </a>
       </li>
+      <li <c:if test="${fn:contains(currentUrl, 'companyBanners')}">class="active"</c:if> >
+        <a href="<%=baseUrl%>/admin/companyBanners">
+          <i class="fa fa-bars" aria-hidden="true"></i>
+          <span>公司信息banner设置</span>
+        </a>
+      </li>
       <li class="hidden"><a href="<%=baseUrl%>/admin/navMenus"><i class="fa fa-bars" aria-hidden="true"></i><span>二级导航</span></a></li>
       <li <c:if test="${fn:contains(currentUrl, 'projectCases')||fn:contains(currentUrl, 'projects')}">class="active"</c:if> >
         <a href="<%=baseUrl%>/admin/projectCases">
@@ -82,8 +88,8 @@
           <span>案例管理</span>
         </a>
       </li>
-      <li <c:if test="${fn:contains(currentUrl, 'teams')||fn:contains(currentUrl, 'teamMembers')}">class="active"</c:if> >
-        <a href="<%=baseUrl%>/admin/teams"><i class="fa fa-users" aria-hidden="true"></i>
+      <li <c:if test="${fn:contains(currentUrl, 'teamMembers')}">class="active"</c:if> >
+        <a href="<%=baseUrl%>/admin/teamMembers"><i class="fa fa-users" aria-hidden="true"></i>
           <span>团队介绍</span>
         </a>
       </li>

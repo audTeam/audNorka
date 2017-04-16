@@ -51,14 +51,14 @@ public class AboutUsController {
 	}
 
 	@RequestMapping(value = "/historyIntroduce/update", method = RequestMethod.POST)
-	public String update(HistoryIntroduce historyIntroduce, MultipartFile file, MultipartFile serviceFile, HttpServletRequest request, Locale locale){
-		if(file!=null&&!file.isEmpty()){
+	public String update(HistoryIntroduce historyIntroduce, HttpServletRequest request, Locale locale){
+		/*if(file!=null&&!file.isEmpty()){
 			historyIntroduce.setHeadImg(imageService.uploadFile(file));	
 		}
 		if(file!=null&&!serviceFile.isEmpty()){
 			historyIntroduce.setServiceHeadImg(imageService.uploadFile(serviceFile));
 		}
-		
+		*/
 		List<HistoryIntroduce> all = this.historyIntroduceMapper.all(locale.getLanguage());
 		historyIntroduce.setId(all.get(0).getId());
 		historyIntroduce.setLang(locale.getLanguage());

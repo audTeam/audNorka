@@ -21,27 +21,27 @@
     </div>
   </div>
   <div class="form-group">
-    <label class="control-label col-md-4">地址</label>
+    <label class="control-label col-md-4">education_background</label>
     <div class="col-md-8">
-      <input type="text" class="form-control" name="zhAddress" value="${teamMember.zhAddress}">
+      <input type="text" class="form-control" name="educationBackground" value="${teamMember.educationBackground}">
     </div>
   </div>
   <div class="form-group">
-    <label class="control-label col-md-4">联系电话</label>
+    <label class="control-label col-md-4">workExperience</label>
     <div class="col-md-8">
-      <input type="text" class="form-control" name="phoneNumber" value="${teamMember.phoneNumber}">
+      <input type="text" class="form-control" name="workExperience" value="${teamMember.workExperience}">
     </div>
   </div>
   <div class="form-group">
-    <label class="control-label col-md-4">荣誉</label>
+    <label class="control-label col-md-4">membership</label>
     <div class="col-md-8">
-      <input type="text" class="form-control" name="honor" value="${teamMember.honor}">
+      <input type="text" class="form-control" name="membership" value="${teamMember.membership}">
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-md-4">擅长领域</label>
     <div class="col-md-8">
-      <input type="text" class="form-control" name="goodAt" value="${teamMember.goodAt}">
+      <input type="text" class="form-control" name="keyProject" value="${teamMember.keyProject}">
     </div>
   </div>
   <div class="form-group">
@@ -55,10 +55,10 @@
           </c:if>
         </c:forEach>
         <c:if test="${hasFind==true}">
-          <div><input type="checkbox" name="projectIds" value="${project.id}" checked="checked">${project.zhName}</div>
+          <div><input type="checkbox" name="projectIds" value="${project.id}" checked="checked">${project.name}</div>
         </c:if>
         <c:if test="${hasFind==false}">
-          <div><input type="checkbox" name="projectIds" value="${project.id}">${project.zhName}</div>
+          <div><input type="checkbox" name="projectIds" value="${project.id}">${project.name}</div>
         </c:if>
       </c:forEach>
     </div>
@@ -67,7 +67,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label">头像</label>
       <div class="col-md-8">
-        <img alt="banner图片" class="img-responsive" src="<%=application.getInitParameter("imageServer")%>/${teamMember.imgUrl}">
+        <img alt="团队头像" class="img-responsive" src="<%=application.getInitParameter("imageServer")%>/${teamMember.imgUrl}">
       </div>
     </div>
   </c:if>
@@ -77,22 +77,6 @@
       <input id="pdFile" name="file" type="file">
       <div id="fileError" class="help-block"></div>
       <p class="help-block">支持jpg、jpeg、png、gif格式，大小不超过2.0M，宽x高:215x117</p>
-    </div>
-  </div>
-  <c:if test="${teamMember.card!=null}">
-    <div class="form-group">
-      <label class="col-md-4 control-label">个人名片</label>
-      <div class="col-md-8">
-        <a href="<%=application.getInitParameter("imageServer")%>/${teamMember.card}">点击查看</a>
-      </div>
-    </div>
-  </c:if>
-  <div class="form-group">
-    <label class="col-md-4 control-label">个人名片</label>
-    <div id="docFileDiv" class="col-md-8">
-      <input id="docFile" name="personFile" type="file">
-      <div id="docFileError" class="help-block"></div>
-      <p class="help-block">支持jpg, png, gif, doc, docx, ppt</p>
     </div>
   </div>
   <div class="form-group">

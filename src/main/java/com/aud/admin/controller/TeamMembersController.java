@@ -1,5 +1,4 @@
 package com.aud.admin.controller;
-import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -24,7 +23,7 @@ import com.aud.tool.Utils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 @Controller("adminTeamMembers")
-@RequestMapping("/admin/teams/{teamId}/teamMembers")
+@RequestMapping("/admin/teamMembers")
 public class TeamMembersController {
     @Autowired
     private NavMenuMapper navMenuMapper;
@@ -38,29 +37,27 @@ public class TeamMembersController {
     private ImageService imageService;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public String index(@PathVariable("teamId") int teamId, ModelMap model,
+    public String index(ModelMap model,
     		Locale locale,
 			@RequestParam(value="pageNo", required=false, defaultValue="1") Integer pageNo,
 			@RequestParam(value="pageSize", required=false, defaultValue="10") Integer pageSize){
 
-        model.addAttribute("team", this.navMenuMapper.selectByPrimaryKey(teamId));
 		PageHelper.startPage(pageNo, pageSize);
-	    List<TeamMember> list = this.teamMemberMapper.getTeamMemberByTeamId(teamId, locale.getLanguage());
+	    List<TeamMember> list = this.teamMemberMapper.getTeamMemberByLang(locale.getLanguage());
 	    PageInfo<TeamMember> page = new PageInfo<TeamMember>(list);
 	    model.addAttribute("pages", page);
 
         return "admin/teamMembers/index";
     }
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public String delete(@PathVariable("teamId") int teamId, @PathVariable("id") int id) {
+    public String delete(@PathVariable("id") int id) {
         this.teamMemberMapper.deleteByPrimaryKey(id);
         
-        return "redirect:/admin/teams/" + teamId + "/teamMembers";
+        return "redirect:/admin/teamMembers";
     }
 
     @RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
-    public String edit(@PathVariable("teamId") int teamId, @PathVariable("id") int id, ModelMap model, Locale locale) {
-        model.addAttribute("team", this.navMenuMapper.selectByPrimaryKey(teamId));
+    public String edit(@PathVariable("id") int id, ModelMap model, Locale locale) {
         model.addAttribute("teamMember", this.teamMemberMapper.selectByPrimaryKey(id));
         model.addAttribute("projects", this.projectMapper.all(locale.getLanguage()));
         model.addAttribute("teamMemberProjects", this.teamMemberProjectMapper.selectByTeamMemberId(id));
@@ -68,15 +65,11 @@ public class TeamMembersController {
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public String create(@PathVariable("teamId") int teamId, TeamMember teamMember, MultipartFile file, MultipartFile personFile, HttpServletRequest request, int[] projectIds, Locale local)
+    public String create(TeamMember teamMember, MultipartFile file,  HttpServletRequest request, int[] projectIds, Locale local)
             {
     	if(file!=null&&!file.isEmpty()){
             teamMember.setImgUrl(imageService.uploadFile(file));
     	}
-    	if(file!=null&&!personFile.isEmpty()){
-    		teamMember.setCard(imageService.uploadFile(personFile));
-    	}
-        teamMember.setNavMenuId(teamId);
         teamMember.setLang(local.getLanguage());
         teamMember.setCreatedAt(new Date());
         this.teamMemberMapper.insertSelective(teamMember);
@@ -89,16 +82,13 @@ public class TeamMembersController {
             this.teamMemberProjectMapper.insertSelective(relation);
           }
         }
-        return "redirect:/admin/teams/" + teamMember.getNavMenuId() + "/teamMembers";
+        return "redirect:/admin/teamMembers";
     }
 
     @RequestMapping(value = "/{id}/update", method = RequestMethod.POST)
-    public String update(@PathVariable("teamId") int teamId, @PathVariable("id") int id, TeamMember teamMember, int[] projectIds, MultipartFile file, MultipartFile personFile, HttpServletRequest request) {
+    public String update(@PathVariable("id") int id, TeamMember teamMember, int[] projectIds, MultipartFile file,  HttpServletRequest request) {
     	if(file!=null&&!file.isEmpty()){
             teamMember.setImgUrl(imageService.uploadFile(file));
-    	}
-    	if(file!=null&&!personFile.isEmpty()){
-    		teamMember.setCard(imageService.uploadFile(personFile));
     	}
     	teamMember.setUpdatedAt(new Date());
         this.teamMemberMapper.updateByPrimaryKeySelective(teamMember);
@@ -110,11 +100,10 @@ public class TeamMembersController {
                 this.teamMemberProjectMapper.insertSelective(relation);
             }
         }
-        return "redirect:/admin/teams/" + teamId + "/teamMembers";
+        return "redirect:/admin/teamMembers";
     }
     @RequestMapping(value = "/new", method = RequestMethod.GET)
-    public String newPage(@PathVariable("teamId") int teamId, ModelMap model, Locale locale) {
-        model.addAttribute("team", this.navMenuMapper.selectByPrimaryKey(teamId));
+    public String newPage(ModelMap model, Locale locale) {
         model.addAttribute("projects", this.projectMapper.all(locale.getLanguage()));
         return "admin/teamMembers/new";
     }

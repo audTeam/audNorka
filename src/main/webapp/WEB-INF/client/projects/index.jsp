@@ -27,7 +27,7 @@
                   <div class="col-sm-3">
                     <a href="<%=baseUrl%>/client/projects/${project.id}">
                       <img src="<%=application.getInitParameter("imageServer")%>/${imageUrl}" alt="pic" class="img-responsive">
-                      <p>${project.zhName}</p>
+                      <p>${project.name}</p>
                     </a>
                   </div>                
                 </c:forEach>

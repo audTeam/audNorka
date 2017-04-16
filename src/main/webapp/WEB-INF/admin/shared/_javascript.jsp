@@ -28,6 +28,7 @@
     locale file as mentioned below -->
 <script src="<%=baseUrl%>/static/lib/bower_components/bootstrap-fileinput/js/locales/zh.js"></script>
 
-<script src="<%=baseUrl%>/ueditor/ueditor.config.js"></script>
-<script src="<%=baseUrl%>/ueditor/ueditor.all.min.js"></script>
-<script src="<%=baseUrl%>/ueditor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" src="<%=baseUrl%>/ueditor/third-party/template.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="<%=baseUrl%>/ueditor/umeditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="<%=baseUrl%>/ueditor/umeditor.min.js"></script>
+<script type="text/javascript" src="<%=baseUrl%>/ueditor/lang/zh-cn/zh-cn.js"></script>

@@ -3,46 +3,39 @@
 <mapper namespace="com.aud.mapper.ProjectMapper" >
   <resultMap id="BaseResultMap" type="com.aud.pojo.Project" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="zh_name" property="zhName" jdbcType="VARCHAR" />
-    <result column="cn_name" property="cnName" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="address" property="address" jdbcType="VARCHAR" />
-    <result column="content" property="content" jdbcType="VARCHAR" />
     <result column="lang" property="lang" jdbcType="VARCHAR" />
     <result column="nav_menu_id" property="navMenuId" jdbcType="INTEGER" />
+    <result column="client" property="client" jdbcType="VARCHAR" />
+    <result column="size" property="size" jdbcType="VARCHAR" />
+    <result column="location" property="location" jdbcType="VARCHAR" />
+    <result column="scope" property="scope" jdbcType="VARCHAR" />
+    <result column="service" property="service" jdbcType="VARCHAR" />
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="com.aud.pojo.Project" extends="BaseResultMap" >
-    <result column="img_urls" property="imgUrls" jdbcType="LONGVARCHAR" />
+    <result column="content" property="content" jdbcType="LONGVARCHAR" />
   </resultMap>
-  <resultMap id="projectAndImage"  type="com.aud.pojo.Project">
-	<id column="id" property="id" jdbcType="INTEGER" />
-	<result column="zh_name" property="zhName" jdbcType="VARCHAR" />
-	<result column="cn_name" property="cnName" jdbcType="VARCHAR" />
-	<result column="address" property="address" jdbcType="VARCHAR" />
-	<result column="content" property="content" jdbcType="VARCHAR" />
-	<result column="lang" property="lang" jdbcType="VARCHAR" />
-	<result column="nav_menu_id" property="navMenuId" jdbcType="INTEGER" />
-    <collection property="images" ofType="com.aud.pojo.Image">
-	  <id column="image_id" property="id" jdbcType="INTEGER" />
-	  <result column="resource_id" property="resourceId" jdbcType="INTEGER" />
-	  <result column="img_url" property="imgUrl" jdbcType="VARCHAR" />
-    </collection>
-  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, address, lang, nav_menu_id, client, size, location, scope, service
+  </sql>
+  <sql id="Blob_Column_List" >
+    content
+  </sql>
+  <delete id="deleteByNavMenuId" parameterType="java.lang.Integer">
+    delete from projects
+    where nav_menu_id = #{id,jdbcType=INTEGER}
+  </delete>
+  <select id="getByNavMenuId" resultMap="ResultMapWithBLOBs">
+    select * from projects
+    where nav_menu_id = #{0,jdbcType=INTEGER} and lang = #{1, jdbcType=INTEGER}
+  </select>
   <select id="getMaxId" resultType="java.lang.Integer">
     select id from projects ORDER BY id DESC LIMIT 0, 1
   </select>
   <select id="all" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select * from projects where lang = #{lang, jdbcType=VARCHAR}
   </select>
-  <select id="getByNavMenuId" resultMap="ResultMapWithBLOBs">
-    select * from projects
-    where nav_menu_id = #{0,jdbcType=INTEGER} and lang = #{1, jdbcType=INTEGER}
-  </select>
-  <sql id="Base_Column_List" >
-    id, zh_name, cn_name, address, content, lang, nav_menu_id
-  </sql>
-  <sql id="Blob_Column_List" >
-    img_urls
-  </sql>
   <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
@@ -51,21 +44,19 @@
     from projects
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByNavMenuId" parameterType="java.lang.Integer">
-    delete from projects
-    where nav_menu_id = #{id,jdbcType=INTEGER}
-  </delete>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from projects
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.aud.pojo.Project" >
-    insert into projects (id, zh_name, cn_name, 
-      address, content, lang, 
-      nav_menu_id, img_urls)
-    values (#{id,jdbcType=INTEGER}, #{zhName,jdbcType=VARCHAR}, #{cnName,jdbcType=VARCHAR}, 
-      #{address,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{lang,jdbcType=VARCHAR}, 
-      #{navMenuId,jdbcType=INTEGER}, #{imgUrls,jdbcType=LONGVARCHAR})
+    insert into projects (id, name, address, 
+      lang, nav_menu_id, client, 
+      size, location, scope, 
+      service, content)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{lang,jdbcType=VARCHAR}, #{navMenuId,jdbcType=INTEGER}, #{client,jdbcType=VARCHAR}, 
+      #{size,jdbcType=VARCHAR}, #{location,jdbcType=VARCHAR}, #{scope,jdbcType=VARCHAR}, 
+      #{service,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.aud.pojo.Project" >
     insert into projects
@@ -73,17 +64,11 @@
       <if test="id != null" >
         id,
       </if>
-      <if test="zhName != null" >
-        zh_name,
-      </if>
-      <if test="cnName != null" >
-        cn_name,
+      <if test="name != null" >
+        name,
       </if>
       <if test="address != null" >
         address,
-      </if>
-      <if test="content != null" >
-        content,
       </if>
       <if test="lang != null" >
         lang,
@@ -91,25 +76,34 @@
       <if test="navMenuId != null" >
         nav_menu_id,
       </if>
-      <if test="imgUrls != null" >
-        img_urls,
+      <if test="client != null" >
+        client,
+      </if>
+      <if test="size != null" >
+        size,
+      </if>
+      <if test="location != null" >
+        location,
+      </if>
+      <if test="scope != null" >
+        scope,
+      </if>
+      <if test="service != null" >
+        service,
+      </if>
+      <if test="content != null" >
+        content,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="zhName != null" >
-        #{zhName,jdbcType=VARCHAR},
-      </if>
-      <if test="cnName != null" >
-        #{cnName,jdbcType=VARCHAR},
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
       </if>
       <if test="address != null" >
         #{address,jdbcType=VARCHAR},
-      </if>
-      <if test="content != null" >
-        #{content,jdbcType=VARCHAR},
       </if>
       <if test="lang != null" >
         #{lang,jdbcType=VARCHAR},
@@ -117,25 +111,34 @@
       <if test="navMenuId != null" >
         #{navMenuId,jdbcType=INTEGER},
       </if>
-      <if test="imgUrls != null" >
-        #{imgUrls,jdbcType=LONGVARCHAR},
+      <if test="client != null" >
+        #{client,jdbcType=VARCHAR},
+      </if>
+      <if test="size != null" >
+        #{size,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null" >
+        #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="scope != null" >
+        #{scope,jdbcType=VARCHAR},
+      </if>
+      <if test="service != null" >
+        #{service,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=LONGVARCHAR},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.aud.pojo.Project" >
     update projects
     <set >
-      <if test="zhName != null" >
-        zh_name = #{zhName,jdbcType=VARCHAR},
-      </if>
-      <if test="cnName != null" >
-        cn_name = #{cnName,jdbcType=VARCHAR},
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
       </if>
       <if test="address != null" >
         address = #{address,jdbcType=VARCHAR},
-      </if>
-      <if test="content != null" >
-        content = #{content,jdbcType=VARCHAR},
       </if>
       <if test="lang != null" >
         lang = #{lang,jdbcType=VARCHAR},
@@ -143,31 +146,52 @@
       <if test="navMenuId != null" >
         nav_menu_id = #{navMenuId,jdbcType=INTEGER},
       </if>
-      <if test="imgUrls != null" >
-        img_urls = #{imgUrls,jdbcType=LONGVARCHAR},
+      <if test="client != null" >
+        client = #{client,jdbcType=VARCHAR},
+      </if>
+      <if test="size != null" >
+        size = #{size,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null" >
+        location = #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="scope != null" >
+        scope = #{scope,jdbcType=VARCHAR},
+      </if>
+      <if test="service != null" >
+        service = #{service,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=LONGVARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.aud.pojo.Project" >
     update projects
-    set zh_name = #{zhName,jdbcType=VARCHAR},
-      cn_name = #{cnName,jdbcType=VARCHAR},
+    set name = #{name,jdbcType=VARCHAR},
       address = #{address,jdbcType=VARCHAR},
-      content = #{content,jdbcType=VARCHAR},
       lang = #{lang,jdbcType=VARCHAR},
       nav_menu_id = #{navMenuId,jdbcType=INTEGER},
-      img_urls = #{imgUrls,jdbcType=LONGVARCHAR}
+      client = #{client,jdbcType=VARCHAR},
+      size = #{size,jdbcType=VARCHAR},
+      location = #{location,jdbcType=VARCHAR},
+      scope = #{scope,jdbcType=VARCHAR},
+      service = #{service,jdbcType=VARCHAR},
+      content = #{content,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.aud.pojo.Project" >
     update projects
-    set zh_name = #{zhName,jdbcType=VARCHAR},
-      cn_name = #{cnName,jdbcType=VARCHAR},
+    set name = #{name,jdbcType=VARCHAR},
       address = #{address,jdbcType=VARCHAR},
-      content = #{content,jdbcType=VARCHAR},
       lang = #{lang,jdbcType=VARCHAR},
-      nav_menu_id = #{navMenuId,jdbcType=INTEGER}
+      nav_menu_id = #{navMenuId,jdbcType=INTEGER},
+      client = #{client,jdbcType=VARCHAR},
+      size = #{size,jdbcType=VARCHAR},
+      location = #{location,jdbcType=VARCHAR},
+      scope = #{scope,jdbcType=VARCHAR},
+      service = #{service,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -10,15 +10,45 @@
   </c:if>
   <input type="hidden" name="navMenuId" value="${menu.id}">
   <div class="form-group">
-    <label class="control-label col-md-2">案例中文名称</label>
+    <label class="control-label col-md-2">案例名称</label>
     <div class="col-md-10">
-      <input type="text" class="form-control" name="zhName" value="${project.zhName}">
+      <input type="text" class="form-control" name="name" value="${project.name}">
     </div>
   </div>
   <div class="form-group">
-    <label class="control-label col-md-2">案例英文名称</label>
+    <label class="control-label col-md-2">项目地址</label>
     <div class="col-md-10">
-      <input type="text" class="form-control" name="cnName" value="${project.cnName}">
+      <input type="text" class="form-control" name="address" value="${project.address}">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-md-2">client</label>
+    <div class="col-md-10">
+      <input type="text" class="form-control" name="client" value="${project.client}">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-md-2">size</label>
+    <div class="col-md-10">
+      <input type="text" class="form-control" name="size" value="${project.size}">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-md-2">location</label>
+    <div class="col-md-10">
+      <input type="text" class="form-control" name="location" value="${project.location}">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-md-2">scope</label>
+    <div class="col-md-10">
+      <input type="text" class="form-control" name="scope" value="${project.scope}">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-md-2">service</label>
+    <div class="col-md-10">
+      <input type="text" class="form-control" name="service" value="${project.service}">
     </div>
   </div>
   <div class="form-group">
@@ -26,18 +56,12 @@
     <div class="col-md-10" id="imgUrls">
       <input id="imgUrl" type="file" multiple class="file-loading form-control">
       <c:forEach var="image" items="${images}">
-        <%-- <input type='hidden' name='imgUrls' class="imagePaths" data-image-id="${image.id }" data-image-path="${pageContext.request.contextPath}/${image.imgUrl}" value="${image.imgUrl}"> --%>
+        <!-- <input type='hidden' name='imgUrls' class="imagePaths" data-image-id="${image.id }" data-image-path="${pageContext.request.contextPath}/${image.imgUrl}" value="${image.imgUrl}"> -->
         <input type='hidden' class="imagePaths" data-image-id="${image.id }" data-image-path="<%=application.getInitParameter("imageServer") %>/${image.imgUrl}">
       </c:forEach>
       <p class="help-block">支持jpg、jpeg、png、gif格式，大小不超过2.0M，图片宽x高:980x524</p>
     </div>
-  </div>  
-  <div class="form-group">
-    <label class="control-label col-md-2">项目地址</label>
-    <div class="col-md-10">
-      <input type="text" class="form-control" name="address" value="${project.address}">
-    </div>
-  </div>
+  </div> 
   <div class="form-group">
     <label class="control-label col-md-2">内容</label>
     <div class="col-md-10">
@@ -52,6 +76,3 @@
     </div>
   </div>
 </form> 
-<script>
-
-</script>

@@ -55,8 +55,8 @@
             <div class="row">
                 <div class="col-sm-12 col-lg-8">
                     <div class="title">
-                        <h2>${project.zhName}</h2>
-                        <h3>${project.cnName}</h3>
+                        <h2>${project.name}</h2>
+                        <h3>${project.name}</h3>
                         <h4>${project.address}</h4>
                     </div>
                     <div class="content">
@@ -86,7 +86,7 @@
                              <a href="<%=baseUrl%>/client/projects/${project.id}">
                                <img src="<%=application.getInitParameter("imageServer")%>/${imageUrl}" alt="pic" class="img-responsive">
                              </div>
-                             <div class="col-xs-7 case-text" style="font-size: 12px;"><a href="<%=baseUrl%>/client/projects/${project.id}">${project.zhName}</a></div>
+                             <div class="col-xs-7 case-text" style="font-size: 12px;"><a href="<%=baseUrl%>/client/projects/${project.id}">${project.name}</a></div>
                          </li>
                        </c:forEach>
                    </ul>

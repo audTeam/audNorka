@@ -18,7 +18,7 @@ function initFileInput(ctrlName, uploadUrl) {
 		allowedFileExtensions : ['jpg', 'png','gif'],//接收的文件后缀
 		showUpload: true, //是否显示上传按钮
 		showCaption: false,//是否显示标题
-		browseClass: "btn btn-primary", //按钮样式			 
+		browseClass: "btn btn-primary", //按钮样式
 		previewFileIcon: "<i class='glyphicon glyphicon-king'></i>", 
 		initialPreview: images,
 	    initialPreviewConfig: initialPreviewConfig

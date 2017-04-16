@@ -19,7 +19,7 @@ import com.github.pagehelper.PageInfo;
 import com.google.gson.Gson;
 
 @Controller("clientTeamMembers")
-@RequestMapping("/client/teams/{teamId}/teamMembers")
+@RequestMapping("/client/teamMembers")
 public class TeamMembersController extends BaseController {
 	@Autowired
 	private NavMenuMapper navMenuMapper;
@@ -29,9 +29,8 @@ public class TeamMembersController extends BaseController {
 	private TeamMemberProjectMapper teamMemberProjectMapper;
 
 	@RequestMapping(value="", method=RequestMethod.GET)
-	public String index(@PathVariable("teamId") int teamId, ModelMap model, Locale locale){
-		model.addAttribute("teamMembers", this.teamMemberMapper.getTeamMemberByTeamId(teamId, locale.getLanguage()));
-		model.addAttribute("team", this.navMenuMapper.selectByPrimaryKey(teamId));
+	public String index(ModelMap model, Locale locale){
+		model.addAttribute("teamMembers", this.teamMemberMapper.getTeamMemberByLang(locale.getLanguage()));
 		return "client/teamMembers/index";
 	}
 
@@ -40,7 +39,7 @@ public class TeamMembersController extends BaseController {
 		model.addAttribute("teamMember", this.teamMemberMapper.selectByPrimaryKey(id));
 
 		PageHelper.startPage(1, 6);
-	    List<TeamMember> list = this.teamMemberMapper.getTeamMemberByTeamId(teamId, locale.getLanguage());
+	    List<TeamMember> list = this.teamMemberMapper.getTeamMemberByLang(locale.getLanguage());
 	    PageInfo<TeamMember> page = new PageInfo<TeamMember>(list);
 
 		model.addAttribute("teamMembers", page.getList());

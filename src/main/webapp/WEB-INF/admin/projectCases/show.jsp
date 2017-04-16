@@ -52,7 +52,7 @@
                 <c:forEach var="project" items="${pages.list}" varStatus="status">
                   <tr>
                     <td>${status.index+1}</td>
-                    <td>${project.zhName}</td>
+                    <td>${project.name}</td>
                     <td>
                       <a class="btn btn-default" href="<%=baseUrl%>/admin/projectCases/${project.navMenuId}/projects/${project.id}/edit">编辑</a>
                       <form style="display: inline-block;" action="${pageContext.request.contextPath}/admin/projectCases/${navMenu.id}/projects/${project.id}/delete" method="post">

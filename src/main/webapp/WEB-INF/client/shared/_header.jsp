@@ -4,7 +4,101 @@
 	String baseUrl = request.getContextPath();
 %>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+    <header>
+        <div class="container-fluid">
+            <div class="row">
+            <div class="col-xs-12">
+            <nav class="navbar navbar-default nav_one" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#topBar" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><img alt="Brand" src="<%=baseUrl%>/static/common/client/images/sites/Group_65.png"></a>
+                </div>
+                <div id="" class="collapse navbar-collapse" >
+                    <ul class="nav navbar-nav ul_one">
+                        <li><a href="#"><span data-tag="0">首页</span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic current"/></li>
+                        <li><a href="#"><span data-tag="1">团队介绍</span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic"/></li>
+                        <li><a href="#"><span data-tag="2">新闻动态</span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic"/></li>
+                        <li><a href="#"><span data-tag="3">关于AUD</span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic"/></li>
+                        <li><a href="#"><span data-tag="4">招聘信息</span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic"/></li>
+                    </ul>
+                    <div class="change-language"><a href="#">EN</a> <a href="#">中文</a></div>
+                </div>
+            </nav>
+            </div>
+            </div>
+            <nav class="navbar navbar-default nav_two" role="navigation">
 
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">
+                            <div class="brand-pic"></div>
+                        </a>
+                        <a class="navbar-brand" href="#">
+                            <img alt="Brand" src="<%=baseUrl%>/static/common/client/images/sites/Rectangle29.png" class="img-responsive">
+                        </a>
+                    </div>
+                        <ul class="nav navbar-nav ul_two" data-tag="1">
+                            
+                            <li>
+                                <a href="#" class="second-nav">城市设计</a>
+                                <ul class="nav ul-three">
+                                    <li><a href="#">城市绿地竞赛</a></li>
+                                    <li><a href="#">中信泰富神州半岛</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" class="second-nav">城市综合体</a>
+                                <ul class="nav ul-three">
+                                    <li><a href="#">昆明山水新城</a></li>
+                                    <li><a href="#">南京永嘉</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" class="second-nav">塔楼</a>
+                                <ul class="nav ul-three">
+                                    <li><a href="#">HRB tower</a></li>
+                                    <li><a href="#">百荣百尚——雅加达</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" class="second-nav">室内设计</a>
+                                <ul class="nav ul-three">
+                                    <li><a href="#">华润萧山万象会</a></li>
+                                    <li><a href="#">哈尔滨欢乐颂</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav ul_two" data-tag="2">
+                            
+                            <li><a href="#" class="second-nav">建筑设计团队</a></li>
+                            <li><a href="#" class="second-nav">室内设计团队</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav ul_two" data-tag="3">
+                            <!-- <img src="images/triangle.png" alt="pic" class="flg-pic"/> -->
+                            <li><a href="#" class="second-nav">Ongoing项目</a></li>
+                            <li><a href="#" class="second-nav">公司动态</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav ul_two" data-tag="4">
+                            <!-- <img src="images/triangle.png" alt="pic" class="flg-pic"/> -->
+                            <li><a href="#" class="second-nav">公司历史介绍</a></li>
+                            <li><a href="#" class="second-nav">公司服务范围</a></li>
+                            <li><a href="#" class="second-nav">联系我们</a></li>
+                        </ul>
+                        <form class="search-form">
+                            <div class="search-input clearfix">
+                                <label class="pull-right"><span class="glyphicon glyphicon-search"></span></label>
+                                <input type="text" class="form-control pull-right" id="inputText" style="border:1px solid #fff;">
+                            </div>
+                        </form>
+            </nav>
+        </div>
+
+    </header>
+<!-- 
 <header>
   <div class="container">
     <nav class="navbar navbar-default nav_one" role="navigation">
@@ -18,7 +112,7 @@
           <c:forEach var="projectNavMenu" items="${projectNavMenus}">
             <li>--${projectNavMenu.secondNavMenu.name}</li>
             <c:forEach var="thridNavMenu" items="${projectNavMenu.thridNavMenu }">
-              <li><a href="<%=baseUrl%>/client/projects/${thridNavMenu.id}">--${thridNavMenu.zhName}</a></li>
+              <li><a href="<%=baseUrl%>/client/projects/${thridNavMenu.id}">--${thridNavMenu.name}</a></li>
             </c:forEach>
           </c:forEach>
 
@@ -68,7 +162,7 @@
           <li><a href="<%=baseUrl%>/client/projectCases/${projectNavMenu.secondNavMenu.id}" class="second-nav">${projectNavMenu.secondNavMenu.name}</a>
             <ul class="nav ul-three">
               <c:forEach var="thridNavMenu" items="${projectNavMenu.thridNavMenu }">
-                <li><a href="<%=baseUrl%>/client/projects/${thridNavMenu.id}">${thridNavMenu.zhName}</a></li>
+                <li><a href="<%=baseUrl%>/client/projects/${thridNavMenu.id}">${thridNavMenu.name}</a></li>
               </c:forEach>
             </ul></li>
         </c:forEach>
@@ -98,4 +192,4 @@
       </form>
     </nav>
   </div>
-</header>
+</header>  -->

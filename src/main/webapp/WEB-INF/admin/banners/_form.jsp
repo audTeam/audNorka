@@ -4,7 +4,7 @@
 <% String imageServer = application.getInitParameter("imageServer"); %>
 <form class="form-horizontal" method="post" action="${param.actionUrl}" id="uploadForm" enctype="multipart/form-data">
   <c:if test="${param.method=='PATCH'}">
-    <input type="hidden" name="_method" value="PUT">
+    <!-- <input type="hidden" name="_method" value="PUT"> -->
     <input type="hidden" name="id" value="${banner.id}">
   </c:if>
   <div class="form-group">

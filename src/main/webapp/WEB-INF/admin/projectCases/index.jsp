@@ -45,7 +45,7 @@
             <table class="table table-striped table-hover">
               <tr>
                 <td>#</td>
-                <td>标题</td>
+                <td>分组名称</td>
                 <td>操作</td>
               </tr>
               <c:forEach var="navMenu" items="${pages.list}" varStatus="status">

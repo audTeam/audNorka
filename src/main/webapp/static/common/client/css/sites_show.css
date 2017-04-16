@@ -1,27 +1,26 @@
-.part_two{
-    padding-top: 20px;
+.main{
+    position: relative;
+    top:-25px;
 }
-.part_two p{
-    margin-top: 10px;
-    font-size: 12px;
+.icon-next:before{
+    content: url("/audNorka/static/common/client/images/sites/XMLID_16_.png") !important;
 }
-.part_two .text a{
-    text-decoration: none;
+.icon-prev:before{
+    content: url("/audNorka/static/common/client/images/sites/XMLID_16_.png") !important;
 }
-.part_two .text a:hover p{
-    color: #337ab7;
+.carousel-control{
+    opacity: 0;
 }
-.part_two .text-one{
-    color:#000;
+.carousel-control.left,.carousel-control.right{
+    background-image: none;
 }
-.part_two .text-two{
-    color:#999a9f;
-}
-.part_two .news a{
-    color: #000;
-}
-.part_two .news a:hover,footer .list-one ul li a:hover{
-    color: #337ab7;
-    text-decoration: none;
+.carousel-caption{
+    right:60%;
+    display: none;
 }
 
+.brand-pic{
+    width: 155px;
+    height: 25px;
+    background: url("/audNorka/static/common/client/images/sites/stripline-1.png") no-repeat 0 5px;
+}

@@ -15,16 +15,10 @@ public interface TeamMemberMapper {
 
     int updateByPrimaryKeySelective(TeamMember record);
 
-    int updateByPrimaryKeyWithBLOBs(TeamMember record);
-
     int updateByPrimaryKey(TeamMember record);
     
-    List<TeamMember> getTeamMemberByTeamId(int teamId, String lang);
+    //新增加的内容
+    List<TeamMember> getTeamMemberByLang(String lang);
     
-    List<TeamMember> all(String lang); 
-    
-    int deleteByNavMenuId(int id);
-    
-    int getMaxId(); 
-
+    int getMaxId();
 }

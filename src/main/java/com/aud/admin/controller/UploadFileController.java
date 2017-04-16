@@ -39,6 +39,14 @@ public class UploadFileController {
 		result.put("success", true);
 		return result;
 	}
+	
+
+	@RequestMapping(value = "/newImage", method = RequestMethod.POST)
+	@ResponseBody
+	public Object MEditor(){
+		System.out.println("---------进入了47行");
+		return "";
+	}
 
 	@RequestMapping(value = "/image", method = RequestMethod.POST)
 	@ResponseBody

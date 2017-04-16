@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50624
 File Encoding         : 65001
 
-Date: 2017-04-12 17:42:37
+Date: 2017-04-16 12:48:59
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -29,7 +29,7 @@ CREATE TABLE `banners` (
   `banner_category` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `name` (`lang`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for cooperations
@@ -69,7 +69,7 @@ CREATE TABLE `images` (
   `img_url` varchar(255) DEFAULT NULL,
   `resource_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for jobs
@@ -114,7 +114,7 @@ CREATE TABLE `logs` (
   `method_name` varchar(255) DEFAULT NULL,
   `create_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=385 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=592 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for navmenus
@@ -155,15 +155,18 @@ CREATE TABLE `news` (
 DROP TABLE IF EXISTS `projects`;
 CREATE TABLE `projects` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `zh_name` varchar(500) DEFAULT NULL,
-  `cn_name` varchar(500) DEFAULT NULL,
+  `name` varchar(500) DEFAULT NULL,
   `address` varchar(500) DEFAULT NULL,
-  `content` varchar(20000) DEFAULT NULL,
+  `content` text,
   `lang` varchar(255) DEFAULT '',
-  `img_urls` text,
   `nav_menu_id` int(11) DEFAULT NULL,
+  `client` varchar(255) DEFAULT NULL,
+  `size` varchar(255) DEFAULT NULL,
+  `location` varchar(255) DEFAULT NULL,
+  `scope` varchar(255) DEFAULT NULL,
+  `service` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for team_members
@@ -173,20 +176,17 @@ CREATE TABLE `team_members` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `position` varchar(255) DEFAULT NULL,
-  `zh_address` varchar(255) DEFAULT NULL,
-  `cn_address` varchar(255) DEFAULT NULL,
-  `phone_number` varchar(255) DEFAULT NULL,
   `img_url` varchar(255) DEFAULT NULL,
-  `card` varchar(255) DEFAULT NULL,
-  `brief` text,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `lang` varchar(5) DEFAULT NULL,
-  `nav_menu_id` int(11) DEFAULT NULL,
-  `honor` varchar(500) DEFAULT NULL,
-  `good_at` varchar(500) DEFAULT NULL,
+  `education_background` varchar(255) DEFAULT NULL,
+  `work_experience` varchar(255) DEFAULT NULL,
+  `membership` varchar(255) DEFAULT NULL,
+  `key_project` text,
+  `brief` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for team_member_projects

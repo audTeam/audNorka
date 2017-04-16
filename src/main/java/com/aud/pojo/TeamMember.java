@@ -9,15 +9,7 @@ public class TeamMember {
 
     private String position;
 
-    private String zhAddress;
-
-    private String cnAddress;
-
-    private String phoneNumber;
-
     private String imgUrl;
-
-    private String card;
 
     private Date createdAt;
 
@@ -25,23 +17,17 @@ public class TeamMember {
 
     private String lang;
 
-    private Integer navMenuId;
+    private String educationBackground;
 
-    private String honor;
+    private String workExperience;
 
-    private String goodAt;
+    private String membership;
+
+    private String keyProject;
 
     private String brief;
 
-    @Override
-	public String toString() {
-		return "TeamMember [id=" + id + ", name=" + name + ", position=" + position + ", zhAddress=" + zhAddress
-				+ ", cnAddress=" + cnAddress + ", phoneNumber=" + phoneNumber + ", imgUrl=" + imgUrl + ", card=" + card
-				+ ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + ", lang=" + lang + ", navMenuId="
-				+ navMenuId + ", honor=" + honor + ", goodAt=" + goodAt + ", brief=" + brief + "]";
-	}
-
-	public Integer getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -65,44 +51,12 @@ public class TeamMember {
         this.position = position == null ? null : position.trim();
     }
 
-    public String getZhAddress() {
-        return zhAddress;
-    }
-
-    public void setZhAddress(String zhAddress) {
-        this.zhAddress = zhAddress == null ? null : zhAddress.trim();
-    }
-
-    public String getCnAddress() {
-        return cnAddress;
-    }
-
-    public void setCnAddress(String cnAddress) {
-        this.cnAddress = cnAddress == null ? null : cnAddress.trim();
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber == null ? null : phoneNumber.trim();
-    }
-
     public String getImgUrl() {
         return imgUrl;
     }
 
     public void setImgUrl(String imgUrl) {
         this.imgUrl = imgUrl == null ? null : imgUrl.trim();
-    }
-
-    public String getCard() {
-        return card;
-    }
-
-    public void setCard(String card) {
-        this.card = card == null ? null : card.trim();
     }
 
     public Date getCreatedAt() {
@@ -129,28 +83,36 @@ public class TeamMember {
         this.lang = lang == null ? null : lang.trim();
     }
 
-    public Integer getNavMenuId() {
-        return navMenuId;
+    public String getEducationBackground() {
+        return educationBackground;
     }
 
-    public void setNavMenuId(Integer navMenuId) {
-        this.navMenuId = navMenuId;
+    public void setEducationBackground(String educationBackground) {
+        this.educationBackground = educationBackground == null ? null : educationBackground.trim();
     }
 
-    public String getHonor() {
-        return honor;
+    public String getWorkExperience() {
+        return workExperience;
     }
 
-    public void setHonor(String honor) {
-        this.honor = honor == null ? null : honor.trim();
+    public void setWorkExperience(String workExperience) {
+        this.workExperience = workExperience == null ? null : workExperience.trim();
     }
 
-    public String getGoodAt() {
-        return goodAt;
+    public String getMembership() {
+        return membership;
     }
 
-    public void setGoodAt(String goodAt) {
-        this.goodAt = goodAt == null ? null : goodAt.trim();
+    public void setMembership(String membership) {
+        this.membership = membership == null ? null : membership.trim();
+    }
+
+    public String getKeyProject() {
+        return keyProject;
+    }
+
+    public void setKeyProject(String keyProject) {
+        this.keyProject = keyProject == null ? null : keyProject.trim();
     }
 
     public String getBrief() {

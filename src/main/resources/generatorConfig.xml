@@ -33,10 +33,12 @@
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 
-		<table tableName="logs" domainObjectName="Log"
+		<table tableName="team_members" domainObjectName="TeamMember"
 			enableCountByExample="false" enableUpdateByExample="false"
 			enableDeleteByExample="false" enableSelectByExample="false"
 			selectByExampleQueryId="false">
+          <columnOverride column="key_project" javaType="java.lang.String" jdbcType="VARCHAR" />
+          <columnOverride column="brief" javaType="java.lang.String" jdbcType="VARCHAR" />  
 		</table>
 
 	</context>

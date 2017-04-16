@@ -47,38 +47,6 @@
 				    <p class="help-block">请上传优酷视频链接</p>
 				  </div>
 				</div>
-				<c:if test="${historyIntroduce.headImg != null}">
-				  <div class="form-group">
-				    <label class="col-md-2 control-label">公司图片</label>
-				    <div class="col-md-10">
-				      <img class="img-responsive" src="${pageContext.request.contextPath}/${historyIntroduce.headImg}">
-				    </div>
-				  </div>
-				</c:if>
-		        <div class="form-group">
-				  <label class="col-md-2 control-label">公司图片</label>
-				  <div id="uploadFileDiv" class="col-md-9">
-				    <input id="pdFile" name="file" type="file">
-				    <div id="fileError" class="help-block"></div>
-				    <p class="help-block"></p>
-				  </div>
-				</div>
-				<c:if test="${historyIntroduce.serviceHeadImg != null}">
-				  <div class="form-group">
-				    <label class="col-md-2 control-label">服务范围图片</label>
-				    <div class="col-md-10">
-				      <img class="img-responsive" src="${pageContext.request.contextPath}/${historyIntroduce.serviceHeadImg}">
-				    </div>
-				  </div>
-				</c:if>
-				<div class="form-group">
-				  <label class="col-md-2 control-label">服务范围图片</label>
-				  <div id="uploadFileDiv" class="col-md-9">
-				    <input id="serviceFile" name="serviceFile" type="file">
-				    <div id="fileError" class="help-block"></div>
-				    <p class="help-block"></p>
-				  </div>
-				</div>
 				<div class="form-group">
 				  <label class="col-md-2 control-label">公司历程</label>
 				  <div class="col-md-10">
@@ -196,8 +164,8 @@
 <c:import url="../shared/_javascript.jsp"></c:import>
 <script src="<%=baseUrl%>/static/common/admin/js/image_upload.js" type="text/javascript"></script>
 <script type="text/javascript">
-   UE.getEditor('container');
-   UE.getEditor('serviceContainer');
+   UM.getEditor('container');
+   UM.getEditor('serviceContainer');
    $(function(){
 	   $("#pdFileLogo").fileinput({
 	     showPreview : true,

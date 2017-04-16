@@ -64,7 +64,7 @@
                   <div class="col-sm-3">
                     <a href="${pageContext.request.contextPath}/client/projects/${project.project.id}">
                       <img src="${pageContext.request.contextPath}/${fn:split(project.project.imgUrls,',')[0]}" alt="pic" class="img-responsive">
-                      <p>${project.project.zhName}</p>
+                      <p>${project.project.name}</p>
                     </a>
                   </div>
                 </c:forEach>
