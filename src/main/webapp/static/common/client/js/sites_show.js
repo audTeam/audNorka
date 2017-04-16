@@ -14,8 +14,10 @@ $(".ul_one>li>a>span").mouseenter(function () {
 $(".second-nav").mouseenter(function () {
     /*$(this).addClass("active2")*/
     var index = $(".second-nav").index(this);
-    $(".ul-three").removeClass("current2")
-    $(".ul-three").eq(index).addClass("current2");
+    $(".ul-three").removeClass("current2");
+    /*console.log($(this).children(".ul-three"));
+    $(this).children(".ul-three").addClass("current2")*/
+   $(".ul-three").eq(index).addClass("current2");
 
 })
 /*$(".second-nav").mouseleave(function () {
