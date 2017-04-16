@@ -1,0 +1,36 @@
+.main{
+    padding-left: 155px;
+    padding-top: 50px;
+    padding-bottom: 70px;
+
+}
+.brand-pic{
+    width: 155px;
+    height: 25px;
+    background: url("../images/stripline2.png") no-repeat 0 5px;
+}
+
+
+footer .footer-text{
+    top:0;
+}
+
+.work-pic{
+    color: #808080;
+}
+
+.work-pic>a{
+    color: #505050;
+    text-decoration: none;
+}
+.work-pic>a:hover{
+    color: #505050;
+    text-decoration: none;
+}
+.work-pic>a:hover img{
+    -webkit-filter: blur(2px);
+    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=2, MakeShadow=false);
+}
+h6{
+    padding-bottom: 30px;
+}
