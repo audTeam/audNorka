@@ -25,26 +25,32 @@
                     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                         <!-- Indicators -->
                         <ol class="carousel-indicators">
-                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                          <c:forEach var = "item" items="images" varStatus="status">
+                            <c:if test="${status.index==0}">
+                              <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                            </c:if>
+                            <c:if test="${status.index!=0}">
+                              <li data-target="#carousel-example-generic" data-slide-to="${status.index}"></li>
+                            </c:if>
+                          </c:forEach>
                         </ol>
 
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner" role="listbox">
-                            <div class="item active">
-                                <img src="<%=baseUrl%>/static/common/client/images/sites/cs1.jpg" alt="pic" class="img-responsive">
+                          <c:forEach var="item" items="${images }" varStatus="status">
+                            <c:if test="${status.index==0}">
+                              <div class="item active">
+                            </c:if>
+                            <c:if test="${status.index!=0}">
+                              <div class="item">
+                            </c:if>
+                                <img src="<%=application.getInitParameter("imageServer")%>/${item.imgUrl}" alt="pic" class="img-responsive">
                                 <div class="carousel-caption">
-                                    <h1>Sky Garder</h1>
-                                    <h3>London,UK</h3>
+                                    <h1>${project.name}</h1>
+                                    <h3>${project.address}</h3>
                                 </div>
-                            </div>
-                            <div class="item">
-                                <img src="<%=baseUrl%>/static/common/client/images/sites/cs2.jpg" alt="pic" class="img-responsive">
-                            </div>
-                            <div class="item">
-                                <img src="<%=baseUrl%>/static/common/client/images/sites/cs3.jpg" alt="pic" class="img-responsive" >
-                            </div>
+                              </div>
+                          </c:forEach>
                         </div>
                         <!-- Controls -->
                         <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
@@ -73,38 +79,31 @@
                                 <li>Scope:</li>
                             </ul>
                             <ul class="right-inf">
-                                <li>CCPACIFIC</li>
-                                <li>70kkkk</li>
-                                <li>London,UK</li>
-                                <li>CCPACIFIC</li>
+                                <li>${project.client }</li>
+                                <li>${project.size }</li>
+                                <li>${project.location }</li>
+                                <li>${project.scope }</li>
                             </ul>
                         </li>
                     </ul>
                     <ul class="serv">
                         <li class="title-text">Service</li>
-                        <li>CCPACIFIC</li>
+                        <li>${project.service }</li>
                     </ul>
                 </div>
                 <div class="col-md-6 col-xs-12 col-xs-offset-1 col-md-offset-0">
                     <ul>
                         <li class="title-text">Concept</li>
-                        <li class="content-text">In the early 19th century</li>
-                        <li class="content-text">The 19th-century English art critic</li>
+                        <li class="content-text">${project.content }</li>
                     </ul>
                     <ul class="team">
                         <li class="title-text">Team</li>
-                        <li class="col-md-4 team-pic"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/sites/designer1.png" alt="pic" class="img-responsive"></a><a
-                                href="#"><h5>YUE CHEN</h5></a><h6>shanghai</h6></li>
-                        <li class="col-md-4 team-pic"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/sites/designer1.png" alt="pic" class="img-responsive"></a><a
-                                href="#"><h5>YUE CHEN</h5></a><h6>shanghai</h6></li>
-                        <li class="col-md-4 team-pic"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/sites/designer1.png" alt="pic" class="img-responsive"></a><a
-                                href="#"><h5>YUE CHEN</h5></a><h6>shanghai</h6></li>
-                        <li class="col-md-4 team-pic"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/sites/designer1.png" alt="pic" class="img-responsive"></a><a
-                                href="#"><h5>YUE CHEN</h5></a><h6>shanghai</h6></li>
-                        <li class="col-md-4 team-pic"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/sites/designer1.png" alt="pic" class="img-responsive"></a><a
-                                href="#"><h5>YUE CHEN</h5></a><h6>shanghai</h6></li>
-                        <li class="col-md-4 team-pic"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/sites/designer1.png" alt="pic" class="img-responsive"></a><a
-                                href="#"><h5>YUE CHEN</h5></a><h6>shanghai</h6></li>
+                        <c:forEach var="teamMember" items="${teamMembercollection}">
+                          <li class="col-md-4 team-pic">
+                            <a href="#">
+                              <img src="<%=application.getInitParameter("imageServer")%>/${teamMember.imgUrl}" alt="pic" class="img-responsive"></a>
+                              <a href="#"><h5>${teamMember.name}</h5></a><h6>shanghai</h6></li>
+                        </c:forEach>
                     </ul>
                 </div>
                 <div class="col-md-2 col-xs-12 col-xs-offset-1 col-md-offset-1">

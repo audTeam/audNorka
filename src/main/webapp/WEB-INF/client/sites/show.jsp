@@ -29,26 +29,38 @@
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
-                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                <c:forEach items="${banners}" var="banner" varStatus="status">
+                  <c:if test="${status.index==0}">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                  </c:if>
+                  <c:if test="${status.index!=0}">
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                  </c:if>
+                </c:forEach>
             </ol>
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
-                <div class="item active">
-                    <img src="<%=baseUrl%>/static/common/client/images/sites/cs1.jpg" alt="pic" class="img-responsive">
+              <c:forEach items="${banners}" var="banner" varStatus="status">
+                <c:if test="${status.index==0}">
+                  <div class="item active">
+                    <img src="<%=application.getInitParameter("imageServer")%>/${banner.imgUrl}" alt="pic" class="img-responsive">
                     <div class="carousel-caption">
-                        <h1>Sky Garder</h1>
-                        <h3>London,UK</h3>
+                        <h1>${banner.name}</h1>
+                        <h3>${banner.address}</h3>
                     </div>
-                </div>
-                <div class="item">
-                    <img src="<%=baseUrl%>/static/common/client/images/sites/cs2.jpg" alt="pic" class="img-responsive">
-                </div>
-                <div class="item">
-                    <img src="<%=baseUrl%>/static/common/client/images/sites/cs3.jpg" alt="pic" class="img-responsive" >
-                </div>
+                  </div>
+                </c:if>
+                <c:if test="${status.index!=0}">
+                  <div class="item">
+                    <img src="<%=application.getInitParameter("imageServer")%>/${banner.imgUrl}" alt="pic" class="img-responsive">
+                    <div class="carousel-caption">
+                        <h1>${banner.name}</h1>
+                        <h3>${banner.address}</h3>
+                    </div>
+                  </div>
+                </c:if>
+              </c:forEach>
             </div>
             <!-- Controls -->
             <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
