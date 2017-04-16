@@ -20,57 +20,54 @@
 </head>
 <body>
     <jsp:include page="../shared/_header.jsp"></jsp:include>
-    <div class="main container">
-        <section class="part-one">
-            <div class="row">
-                <div class="col-sm-12 col-lg-8 designer-desc">
-                    <div class="col-sm-7">
-                        <img src="${pageContext.request.contextPath}/${teamMember.imgUrl}" alt="pic" class="img-responsive">
-                    </div>
-                    <div class="col-sm-5 designer-detail">
-                        <h3>${teamMember.name}</h3>
-                        <h4>${teamMember.honor}</h4>
-                        <p>${teamMember.position}</p>
-                        <p>${teamMember.zhAddress}</p>
-                        <p>${teamMember.phoneNumber}</p>
-                        <p><a href="${pageContext.request.contextPath}/${teamMember.card}">download vCard</a></p>
-                    </div>
-                    <div class="content col-sm-12">
-                        <p>${teamMember.brief}</p>
-                    </div>
-                </div>
-
-                <div class="col-sm-12 col-lg-4">
-                    <ul class="nav more-case">
-                        <li><a href="${pageContext.request.contextPath}/client/teams/${teamMember.navMenuId}/teamMembers">更多</a></li>
-                        <c:forEach var="teamMember" items="${teamMembers}">
-                          <li class="clearfix">
-                            <div class="col-xs-5 case-pic">
-                              <a href="${pageContext.request.contextPath}/client/teams/${teamMember.navMenuId}/teamMembers/${teamMember.id}"><img src="${pageContext.request.contextPath}/${teamMember.imgUrl}" alt="pic" class="img-responsive"></a>
-                            </div>
-                            <div class="col-xs-7 case-text">
-                              <a href="${pageContext.request.contextPath}/client/teams/${teamMember.navMenuId}/teamMembers/${teamMember.id}"><p>${teamMember.name}</p><p>${teamMember.goodAt}</p></a>
-                            </div>
-                          </li>
-                        </c:forEach>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        <section class="part-two">
-            <div class="row all-case">
-                <div class="col-sm-12"><span>参与设计案例</span></div>
-                <c:forEach var="project" items="${projects}">
-                  <div class="col-sm-3">
-                    <a href="${pageContext.request.contextPath}/client/projects/${project.project.id}">
-                      <img src="${pageContext.request.contextPath}/${fn:split(project.project.imgUrls,',')[0]}" alt="pic" class="img-responsive">
-                      <p>${project.project.name}</p>
-                    </a>
-                  </div>
-                </c:forEach>
-            </div>
-        </section>
+<div class="main container-fluid">
+    <div row>
+        <div class="col-md-7 design-pic">
+            <img src="<%=baseUrl%>/static/common/client/images/sites/designer7.png" alt="pic" class="img-responsive">
+            <ul>
+                <li class="people-intro"><h6>LA Live dsd ddww frfr grerg gregg gegrgr gergrLA Live dsd ddww frfr grerg gregg gegrgr gergr</h6></li>
+                <li class="people-intro"><h6>LA Live dsd ddww frfr grerg gregg gegrgr gergrLA Live dsd ddww frfr grerg gregg gegrgr gergr</h6></li>
+            </ul>
+        </div>
+        <div class="col-md-5">
+            <ul>
+                <li>
+                    <h3 class="bold-text">NU GUO</h3>
+                    <h6>Chief Architect</h6>
+                </li>
+                <li>
+                    <h6 class="bold-text">EDUCATION BACKGROUND</h6>
+                    <h6>Calison LLC(U.S.A)</h6>
+                </li>
+                <li>
+                    <h6 class="bold-text">WORK EXPERIENCE</h6>
+                    <h6>Calison LLC(U.S.A)</h6>
+                </li>
+                <li>
+                    <h6 class="bold-text">WORK EXPERIENCE</h6>
+                    <h6>Calison LLC(U.S.A)</h6>
+                </li>
+                <li class="key-project">Key Projects</li>
+                <li><h6>LA Live dsd ddww frfr grerg gregg gegrgr gergr</h6></li>
+            </ul>
+        </div>
+        <div class="col-md-12 contact-work">
+            <div class="col-md-12 key-project">Featured Work</div>
+            <div class="col-md-2 work-pic"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/sites/porject1.png" alt="pic" class="img-responsive"></a><a
+                    href="#"><h5>Mixc ZhengZhou</h5></a><h6>shanghai</h6></div>
+            <div class="col-md-2 work-pic"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/sites/porject1.png" alt="pic" class="img-responsive"></a><a
+                    href="#"><h5>Mixc ZhengZhou</h5></a><h6>shanghai</h6></div>
+            <div class="col-md-2 work-pic"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/sites/porject1.png" alt="pic" class="img-responsive"></a><a
+                    href="#"><h5>Mixc ZhengZhou</h5></a><h6>shanghai</h6></div>
+            <div class="col-md-2 work-pic"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/sites/porject1.png" alt="pic" class="img-responsive"></a><a
+                    href="#"><h5>Mixc ZhengZhou</h5></a><h6>shanghai</h6></div>
+            <div class="col-md-2 work-pic"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/sites/porject1.png" alt="pic" class="img-responsive"></a><a
+                    href="#"><h5>Mixc ZhengZhou</h5></a><h6>shanghai</h6></div>
+            <div class="col-md-2 work-pic"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/sites/porject1.png" alt="pic" class="img-responsive"></a><a
+                    href="#"><h5>Mixc ZhengZhou</h5></a><h6>shanghai</h6></div>
+        </div>
     </div>
+</div>
     <jsp:include page="../shared/_footer.jsp"></jsp:include>
 </body>
 <script type="text/javascript" src="<%=baseUrl%>/static/lib/bower_components/jquery/dist/jquery.min.js"></script>

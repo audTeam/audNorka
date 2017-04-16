@@ -64,6 +64,7 @@ public class ProjectsController extends BaseController {
 
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public String show(@PathVariable("id") int id, ModelMap model, Locale locale){
+		/*
 		Project project = this.projectMapper.selectByPrimaryKey(id);
 		model.addAttribute("project", project);
 		model.addAttribute("images", this.imageMapper.selectByResourceId(id));
@@ -93,6 +94,8 @@ public class ProjectsController extends BaseController {
 			teamMembercollection.add(item);
 		}
 		model.addAttribute("teamMembercollection", teamMembercollection);
+		*/
+
 		return "client/projects/show";
 	}
 }

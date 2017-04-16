@@ -1,0 +1,62 @@
+.part_two{
+    margin-top: 30px;
+}
+.part_two .pic-title{
+    font-size: 25px;
+    color: #ca3726;
+    padding-bottom: 20px;
+}
+ul{
+    padding-left: 0;
+    color: #808080;
+
+}
+.part_two .left-inf{
+    float: left;
+    font-weight: bold;
+    color: #505050;
+}
+.part_two .right-inf{
+    float: right;
+}
+ul{
+    padding-left: 0;
+}
+.info>li{
+    width: 55%;
+}
+.info{
+    margin-bottom: 45px;
+}
+.part_two ul .title-text{
+    color: #ca3726;
+    padding-bottom: 15px;
+}
+.info>li:nth-child(2){
+    overflow: hidden;
+}
+.content-text{
+    padding-bottom: 10px;
+}
+.team-pic{
+    padding-left: 0;
+}
+p{
+    margin: 0;
+}
+.team li ,.similar li{
+    padding-bottom: 20px;
+}
+li>a{
+    color: #505050;
+    text-decoration: none;
+}
+li>a:hover{
+    color: #505050;
+    text-decoration: none;
+}
+
+.view_more a{
+    color: #ca3726;
+    font-size: 15px;
+}

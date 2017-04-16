@@ -1,0 +1,34 @@
+.part-one{
+    margin-top: 24px;
+}
+.part-one .all-case p{
+    margin: 0;
+}
+.part-one .all-case .view_more{
+    text-align: center;
+}
+.part-one .all-case .view_more a{
+    color: #ca3726;
+    font-size: 15px;
+}
+.part-one .all-case div{
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+.part-one .all-case div>a{
+    font-size: 15px;
+    color:#505050;
+    overflow: hidden;
+}
+h6{
+    color: #808080;
+}
+.part-one .all-case div>a:hover img{
+    -webkit-filter: blur(2px);
+    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=2, MakeShadow=false);
+
+}
+.part-one .all-case div>a:hover{
+    color: #808080;
+    text-decoration: none;
+}

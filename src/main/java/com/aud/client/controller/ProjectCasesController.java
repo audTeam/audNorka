@@ -21,7 +21,11 @@ import com.aud.mapper.ProjectMapper;
 import com.aud.pojo.Project;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-
+/**
+ * 此为暂时需要注释的
+ * @author Administrator
+ *
+ */
 @Controller("clientProjectCase")
 @RequestMapping("/client/projectCases")
 public class ProjectCasesController extends BaseController {

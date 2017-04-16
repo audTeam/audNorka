@@ -1,20 +1,44 @@
-.part-two .comany-introduce-content p{
-    margin-top: 16px;
-    font-size:12px;
-}
-.part-two h3{
-    font-weight: bold;
-    padding-bottom: 16px;
-}
-.part-two{
-    padding-bottom: 40px;
-}
-.part-two .icon img{
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-.part-two .icon{
-
+.part_two{
+    margin-top: 30px;
     margin-bottom: 30px;
+}
 
+.video{
+    padding-top: 30px
+}
+ul{
+    padding-left: 0;
+    color: #808080;
+
+}
+.company-service>li{
+    padding-bottom: 10px;
+}
+.part_two ul .title-text{
+    color: #ca3726;
+    padding-bottom: 15px;
+}
+.content-text{
+    padding-bottom: 10px;
+}
+.team-pic{
+    padding-left: 0;
+}
+p{
+    margin: 0;
+}
+.clients li{
+    padding-bottom: 20px;
+}
+li>a{
+    color: #505050;
+    text-decoration: none;
+}
+li>a:hover{
+    color: #505050;
+    text-decoration: none;
+}
+.part_two ul .company-profile{
+    font-size: 25px;
+    padding-bottom: 0
 }
