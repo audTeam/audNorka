@@ -20,12 +20,12 @@
           </div>
           <div id="" class="collapse navbar-collapse" >
             <ul class="nav navbar-nav ul_one">
-              <li><a href="<%=baseUrl%>"><span data-tag="0">首页</span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic current"/></li>
-              <li><a href="<%=baseUrl%>/client/projects"><span data-tag="1">项目列表</span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic"/></li>
-              <li><a href="#"><span data-tag="2">关于AUD</span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic"/></li>
-              <li><a href="#"><span data-tag="3">新闻动态</span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic"/></li>
-              <li><a href="#"><span data-tag="4">招聘信息</span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic"/></li>
-              <li><a href="#"><span data-tag="5">联系我们</span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic"/></li>
+              <li><a href="<%=baseUrl%>"><span data-tag="0">HOME</span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic current"/></li>
+              <li><a href="<%=baseUrl%>/client/projects"><span data-tag="1">PROJECTS</span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic"/></li>
+              <li><a href="#"><span data-tag="2">ABOUT US</span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic"/></li>
+              <li><a href="#"><span data-tag="3">NEWS</span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic"/></li>
+              <li><a href="#"><span data-tag="4">CAREER</span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic"/></li>
+              <li><a href="#"><span data-tag="5">CONTACT</span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic"/></li>
             </ul>
             <div class="change-language"><a href="#">EN</a> <a href="#">中文</a></div>
           </div>
@@ -41,49 +41,40 @@
           <img alt="Brand" src="<%=baseUrl%>/static/common/client/images/sites/Rectangle29.png" class="img-responsive">
         </a>
       </div>
-      <ul class="nav navbar-nav ul_two" data-tag="1">
-        <li>
-          <a href="#" class="second-nav">城市设计</a>
+     <ul class="nav navbar-nav ul_two" data-tag="1"></ul> <!--HOME导航 -->
+     <ul class="nav navbar-nav ul_two" data-tag="2"> <!--PROJECTS导航 -->
+     	<li>
+     	  <a href="#" class="second-nav">Urban Design</a>
+     	  	<ul class="nav ul-three">
+              <li><a href="#">Urban Complex</a></li>
+              <li><a href="#">High Rise</a></li>
+              <li><a href="#">Lifestyle</a></li>
+            </ul>
+     	 </li>
+     	<li>
+          <a href="#" class="second-nav">Architecture</a>
             <ul class="nav ul-three">
-              <li><a href="#">城市绿地竞赛</a></li>
-              <li><a href="#">中信泰富神州半岛</a></li>
+              <li><a href="#">Urban Complex</a></li>
+              <li><a href="#">High Rise</a></li>
+              <li><a href="#">Lifestyle</a></li>
+            </ul>
+        </li>
+          <li>
+            <a href="#" class="second-nav">Interior</a>
+            <ul class="nav ul-three">
+              <li><a href="#">Urban Complex</a></li>
+              <li><a href="#">High Rise</a></li>
+              <li><a href="#">Lifestyle</a></li>
             </ul>
           </li>
-          <li>
-            <a href="#" class="second-nav">城市综合体</a>
-              <ul class="nav ul-three">
-                                <li><a href="#">昆明山水新城</a></li>
-                                <li><a href="#">南京永嘉</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#" class="second-nav">塔楼</a>
-                            <ul class="nav ul-three">
-                                <li><a href="#">HRB tower</a></li>
-                                <li><a href="#">百荣百尚——雅加达</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#" class="second-nav">室内设计</a>
-                            <ul class="nav ul-three">
-                                <li><a href="#">华润萧山万象会</a></li>
-                                <li><a href="#">哈尔滨欢乐颂</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-     <ul class="nav navbar-nav ul_two" data-tag="3">
-         <li><a href="#" class="second-nav">建筑设计团队</a></li>
-         <li><a href="#" class="second-nav">室内设计团队</a></li>
      </ul>
-     <ul class="nav navbar-nav ul_two" data-tag="4">
-         <li><a href="#" class="second-nav">Ongoing项目</a></li>
-         <li><a href="#" class="second-nav">公司动态</a></li>
+     <ul class="nav navbar-nav ul_two" data-tag="3"><!--ABOUT US导航 -->
+         <li><a href="#" class="second-nav">Company Profile</a></li>
+         <li><a href="#" class="second-nav">Our people</a></li>
      </ul>
-     <ul class="nav navbar-nav ul_two" data-tag="5">
-         <li><a href="#" class="second-nav">公司历史介绍</a></li>
-         <li><a href="#" class="second-nav">公司服务范围</a></li>
-         <li><a href="#" class="second-nav">联系我们</a></li>
-     </ul>
+     <ul class="nav navbar-nav ul_two" data-tag="4"></ul><!--NEWS导航 -->
+     <ul class="nav navbar-nav ul_two" data-tag="5"></ul><!--CAREER导航 -->
+     <ul class="nav navbar-nav ul_two" data-tag="6"></ul><!--CONTACT导航 -->
      <form class="search-form">
          <div class="search-input clearfix">
              <label class="pull-right"><span class="glyphicon glyphicon-search"></span></label>
