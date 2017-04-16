@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.aud.mapper.BannerMapper;
 import com.aud.mapper.ImageMapper;
 import com.aud.mapper.ProjectMapper;
 import com.aud.mapper.TeamMemberMapper;
@@ -36,6 +37,8 @@ public class ProjectsController extends BaseController {
 	private TeamMemberProjectMapper teamMemberProjectMapper;
 	@Autowired
 	private TeamMemberMapper teamMemberMapper;
+	@Autowired
+    private BannerMapper bannerMapper;
 
 	@RequestMapping(value="", method=RequestMethod.GET)
 	public String index(ModelMap model,
@@ -58,13 +61,13 @@ public class ProjectsController extends BaseController {
 			collection.add(item);
 		}
 		model.addAttribute("collection", collection);
+		model.addAttribute("banners", this.bannerMapper.all("projectBanners", locale.getLanguage()));
 		
 		return "client/projects/index";
 	}
 
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public String show(@PathVariable("id") int id, ModelMap model, Locale locale){
-		/*
 		Project project = this.projectMapper.selectByPrimaryKey(id);
 		model.addAttribute("project", project);
 		model.addAttribute("images", this.imageMapper.selectByResourceId(id));
@@ -94,7 +97,6 @@ public class ProjectsController extends BaseController {
 			teamMembercollection.add(item);
 		}
 		model.addAttribute("teamMembercollection", teamMembercollection);
-		*/
 
 		return "client/projects/show";
 	}

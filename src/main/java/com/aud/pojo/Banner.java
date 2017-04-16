@@ -14,7 +14,7 @@ public class Banner {
     private String address;
     
     private String bannerCategory;
-
+    
     public String getBannerCategory() {
 		return bannerCategory;
 	}
@@ -44,9 +44,10 @@ public class Banner {
     }
 
     @Override
-		public String toString() {
-			return "Banner [id=" + id + ", name=" + name + ", url=" + url + ", imgUrl=" + imgUrl + "]";
-		}
+	public String toString() {
+		return "Banner [id=" + id + ", name=" + name + ", url=" + url + ", imgUrl=" + imgUrl + ", lang=" + lang
+				+ ", address=" + address + ", bannerCategory=" + bannerCategory + "]";
+	}
 
 		public void setId(Integer id) {
         this.id = id;
