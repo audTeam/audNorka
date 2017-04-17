@@ -65,11 +65,12 @@
                 <div class="col-sm-3">
                   <a href="<%=baseUrl%>/client/projects/${item.project.id}">
                     <img src="<%=application.getInitParameter("imageServer")%>/${item.images[0].imgUrl}" alt="pic" class="img-responsive">
-                  </a><a href="#">
+                  </a><a href="<%=baseUrl%>/client/projects/${item.project.id}">
                   <h5>${item.project.name}</h5></a>
                   <h6 class="address">${item.project.address}</h6></div>
               </c:forEach>
-                <div class="col-sm-12 view_more">
+              <!-- 暂时注释 -->
+                <div class="col-sm-12 view_more hidden">
                     <a href="#">查看更多</a>
                 </div>
             </div>

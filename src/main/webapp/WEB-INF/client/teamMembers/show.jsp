@@ -56,7 +56,7 @@
               <div class="col-md-2 work-pic">
                 <a href="<%= baseUrl%>/client/projects/${project.id}">
                   <img src="<%=baseUrl%>/static/common/client/images/sites/porject1.png" alt="pic" class="img-responsive"></a>
-                  <a href="#"><h5>${project.name}</h5></a><h6>${project.address }</h6></div>
+                  <a href="<%= baseUrl%>/client/projects/${project.id}"><h5>硬编码项目名称</h5></a><h6>硬编码项目地址</h6></div>
             </c:forEach>
         </div>
     </div>

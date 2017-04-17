@@ -43,24 +43,18 @@
       </div>
      <ul class="nav navbar-nav ul_two" data-tag="1"></ul> <!--HOME导航 -->
      <ul class="nav navbar-nav ul_two" data-tag="2"> <!--PROJECTS导航 -->
-     	<li>
-     	  <a href="#" class="second-nav">Urban Design</a>
-     	 </li>
-     	<li>
-          <a href="#" class="second-nav">Architecture</a>
+       <c:forEach var="projectNavMenu" items="${projectNavMenus}">
+          <li><a href="#" class="second-nav">${projectNavMenu.secondNavMenu.name}</a>
             <ul class="nav ul-three">
-              <li><a href="#">Urban Complex</a></li>
-              <li><a href="#">High Rise</a></li>
-              <li><a href="#">Lifestyle</a></li>
-            </ul>
-        </li>
-          <li>
-            <a href="#" class="second-nav">Interior</a>
-          </li>
+              <c:forEach var="thridNavMenu" items="${projectNavMenu.thridNavMenu }">
+                <li><a href="<%=baseUrl%>/client/projects/${thridNavMenu.id}">${thridNavMenu.name}</a></li>
+              </c:forEach>
+            </ul></li>
+        </c:forEach>
      </ul>
      <ul class="nav navbar-nav ul_two" data-tag="3"><!--ABOUT US导航 -->
-         <li><a href="#" class="second-nav">Company Profile</a></li>
-         <li><a href="#" class="second-nav">Our people</a></li>
+       <li><a href="<%=baseUrl%>/client/aboutUs" class="second-nav">Company Profile</a></li>
+       <li><a href="<%=baseUrl%>/client/teamMembers" class="second-nav">Our people</a></li>
      </ul>
      <ul class="nav navbar-nav ul_two" data-tag="4"></ul><!--NEWS导航 -->
      <ul class="nav navbar-nav ul_two" data-tag="5"></ul><!--CAREER导航 -->
