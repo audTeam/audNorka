@@ -9,6 +9,7 @@ $(".ul_one>li>a>span").mouseenter(function () {
     $(".ul_one>li>.flg-pic").removeClass("current");
     $(".ul_one>li>.flg-pic").removeClass("home-pic");
     $(".ul_one>li>.flg-pic").removeClass("project-pic");
+    $(".ul_one>li>.flg-pic").removeClass("about-pic");
     $(this).parent().siblings().addClass("current");
 })
 $(".second-nav").mouseenter(function () {

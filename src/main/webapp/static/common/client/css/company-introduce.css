@@ -42,3 +42,9 @@ li>a:hover{
     font-size: 25px;
     padding-bottom: 0
 }
+.about-color{
+	color:#ca3726
+}
+.about-pic{
+	display:block
+}

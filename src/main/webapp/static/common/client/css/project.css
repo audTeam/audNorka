@@ -19,6 +19,11 @@ ul{
 .part_two .right-inf{
     float: right;
 }
+ .part_two .right-inf>li{
+	word-wrap: break-word;
+	white-space: pre-wrap;
+	width:80px;
+} 
 ul{
     padding-left: 0;
 }
