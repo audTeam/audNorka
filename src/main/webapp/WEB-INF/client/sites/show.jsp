@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="<%=baseUrl%>/static/lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/shared_show.css">
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/sites_show.css">
+<link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/home-color.css">
 <title><spring:message code="sites" /> </title>
 <!--[if lt IE 9]>
       <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -28,7 +29,7 @@
         <section>
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
-            <ol class="carousel-indicators">
+            <%-- <ol class="carousel-indicators">
                 <c:forEach items="${banners}" var="banner" varStatus="status">
                   <c:if test="${status.index==0}">
                     <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -37,7 +38,7 @@
                     <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                   </c:if>
                 </c:forEach>
-            </ol>
+            </ol> --%>
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">

@@ -20,12 +20,12 @@
           </div>
           <div id="" class="collapse navbar-collapse" >
             <ul class="nav navbar-nav ul_one">
-              <li><a href="<%=baseUrl%>"><span data-tag="0">HOME</span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic current"/></li>
-              <li><a href="<%=baseUrl%>/client/projects"><span data-tag="1">PROJECTS</span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic"/></li>
-              <li><a href="#"><span data-tag="2">ABOUT US</span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic"/></li>
-              <li><a href="#"><span data-tag="3">NEWS</span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic"/></li>
-              <li><a href="#"><span data-tag="4">CAREER</span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic"/></li>
-              <li><a href="#"><span data-tag="5">CONTACT</span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic"/></li>
+              <li><a href="<%=baseUrl%>"><span data-tag="0" class="home-color">HOME</span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic home-pic"/></li>
+              <li><a href="<%=baseUrl%>/client/projects"><span data-tag="1" class="project-color">PROJECTS</span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic project-pic"/></li>
+              <li><a href="#"><span data-tag="2" class="about-color">ABOUT US</span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic"/></li>
+              <li><a href="#"><span data-tag="3" class="new-color">NEWS</span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic"/></li>
+              <li><a href="#"><span data-tag="4" class="career-color">CAREER</span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic"/></li>
+              <li><a href="#"><span data-tag="5" class="contact-color">CONTACT</span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic"/></li>
             </ul>
             <div class="change-language"><a href="#">EN</a> <a href="#">中文</a></div>
           </div>

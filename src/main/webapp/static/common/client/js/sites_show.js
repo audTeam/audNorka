@@ -7,6 +7,8 @@ $(".ul_one>li>a>span").mouseenter(function () {
     $(".nav_two .ul_two").removeClass("current");
     $(el).addClass("current");
     $(".ul_one>li>.flg-pic").removeClass("current");
+    $(".ul_one>li>.flg-pic").removeClass("home-pic");
+    $(".ul_one>li>.flg-pic").removeClass("project-pic");
     $(this).parent().siblings().addClass("current");
 })
 $(".second-nav").mouseenter(function () {
@@ -14,11 +16,6 @@ $(".second-nav").mouseenter(function () {
     $(".ul-three").removeClass("current2");
     $(this).siblings(".ul-three").addClass("current2")
 
-})
-
-
-$(".nav_two .ul_two>li").mouseleave(function () {
-    $(".ul-three").removeClass("current2")
 })
 
 $(".nav_two .ul_two").mouseleave(function () {

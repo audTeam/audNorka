@@ -102,7 +102,7 @@ footer{
     display: none;
 }
 .current{
-    display: block;
+	display:block;
 }
 .nav>li{
     width: 148px;
@@ -161,20 +161,20 @@ footer{
     padding-bottom: 4px;
 }
 .ul-three>li>a:link{
-    color: #505050;
+    color: #A1A1A1;
     background-color:transparent;
 }
 .ul-three>li>a:visited{
     background-color:transparent;
-    color: #505050;
+    color: #A1A1A1;
 }
 .ul-three>li>a:hover{
     background-color:transparent;
-    color: #808080;
+    color: #5F5D5D;
 }
 .ul-three>li>a:active{
     background-color:transparent;
-    color: #505050;
+    color: #A1A1A1;
 }
 .ul-three>li>a:visited{
     background-color:transparent;
@@ -190,15 +190,15 @@ footer{
     font-size: 13px;
 }
 .change-language a:link,.ul_one>li>a>span:link{
-    color: #808080;
+    color: #5F5D5D;
     text-decoration: none;
 }
 .change-language a:visited,.ul_one>li>a>span:visited{
-    color: #808080;
+    color: #ca3726;
     text-decoration: none;
 }
 .change-language a:hover,.ul_one>li>a>span:hover{
-    color: #505050;
+    color: #A1A1A1;
     text-decoration: none;
 }
 
@@ -230,6 +230,11 @@ footer .footer-text{
 
 
 /*ÐÞ¸Ä*/
+
+@font-face { 
+	font-family: Helvetica Neue Light; 
+	src: url('/audNorka/static/common/client/Fonts/Helvetica Neue.ttf'); 
+} 
 .navbar-default{
     background-color: transparent;
     border-color: #fff;
@@ -239,7 +244,7 @@ footer .footer-text{
 }
 
 *{
-    font-family: "Helvetica Neue Regular";
+    font-family: "Helvetica Neue Light";
 }
 .glyphicon-search:before{
     content: url("/audNorka/static/common/client/images/sites/Path_35.png") !important;
@@ -248,9 +253,11 @@ footer .footer-text{
 h1,h2,h3,h4,h5,h6{
     margin: 0;
     padding: 0;
+    font-family: "Helvetica Neue Light";
 }
 h5,h6{
     font-weight: 100;
+    font-family: "Helvetica Neue Light";
 }
 h5{
     margin-top: 10px;

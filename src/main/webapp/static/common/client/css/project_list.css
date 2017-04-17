@@ -32,3 +32,9 @@ h6{
     color: #808080;
     text-decoration: none;
 }
+.project-color{
+	color:#ca3726;
+}
+.project-pic{
+    display: block;
+}

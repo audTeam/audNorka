@@ -10,6 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="<%=baseUrl%>/static/lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/shared_show.css">
+<link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/sites_show.css">
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/project_list.css">
 <title>城市设计全部案例</title>
 <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -22,18 +23,6 @@
             <div class="col-xs-12">
                 <section>
                     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                        <!-- Indicators -->
-                        <ol class="carousel-indicators">
-                          <c:forEach items="${banners}" var="banner" varStatus="status">
-                            <c:if test="${status.index==0}">
-                              <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                            </c:if>
-                            <c:if test="${status.index!=0}">
-                              <li data-target="#carousel-example-generic" data-slide-to="${status.index}"></li>
-                            </c:if>
-                          </c:forEach>
-                        </ol>
-
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner" role="listbox">
                           <c:forEach items="${banners}" var="banner" varStatus="status">
