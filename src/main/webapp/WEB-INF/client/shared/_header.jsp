@@ -20,14 +20,17 @@
           </div>
           <div id="" class="collapse navbar-collapse" >
             <ul class="nav navbar-nav ul_one">
-              <li><a href="<%=baseUrl%>"><span data-tag="0" class="home-color">HOME</span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic home-pic"/></li>
-              <li><a href="<%=baseUrl%>/client/projects"><span data-tag="1" class="project-color">PROJECTS</span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic project-pic"/></li>
-              <li><a href="<%=baseUrl%>/client/aboutUs"><span data-tag="2" class="about-color">ABOUT US</span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic about-pic"/></li>
-              <li><a href="#"><span data-tag="3" class="new-color">NEWS</span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic new-pic"/></li>
-              <li><a href="#"><span data-tag="4" class="career-color">CAREER</span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic career-pic"/></li>
-              <li><a href="#"><span data-tag="5" class="contact-color">CONTACT</span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic contact-pic"/></li>
+              <li><a href="<%=baseUrl%>"><span data-tag="0" class="home-color"><spring:message code="home" /></span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic home-pic"/></li>
+              <li><a href="<%=baseUrl%>/client/projects"><span data-tag="1" class="project-color"><spring:message code="projects" /></span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic project-pic"/></li>
+              <li><a href="<%=baseUrl%>/client/aboutUs"><span data-tag="2" class="about-color"><spring:message code="aboutAud" /></span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic about-pic"/></li>
+              <li><a href="<%=baseUrl%>/client/news"><span data-tag="3" class="new-color"><spring:message code="news" /></span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic new-pic"/></li>
+              <li><a href="<%=baseUrl%>/client/jobs"><span data-tag="4" class="career-color"><spring:message code="jobs" /></span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic career-pic"/></li>
+              <li><a href="<%=baseUrl%>/client/aboutUs/contactUs"><span data-tag="5" class="contact-color"><spring:message code="contactUs" /></span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic contact-pic"/></li>
             </ul>
-            <div class="change-language"><a href="#">EN</a> <a href="#">中文</a></div>
+            <div class="change-language">
+              <a href="${pageContext.request.contextPath}/sites?lang=zh_CN">中文</a>
+              <a href="${pageContext.request.contextPath}/sites?lang=en_US">EN</a>
+            </div>
           </div>
         </nav>
       </div>
@@ -53,8 +56,8 @@
         </c:forEach>
      </ul>
      <ul class="nav navbar-nav ul_two" data-tag="3"><!--ABOUT US导航 -->
-       <li><a href="<%=baseUrl%>/client/aboutUs" class="second-nav">Company Profile</a></li>
-       <li><a href="<%=baseUrl%>/client/teamMembers" class="second-nav">Our people</a></li>
+       <li><a href="<%=baseUrl%>/client/aboutUs" class="second-nav"><spring:message code="companyProfile" /></a></li>
+       <li><a href="<%=baseUrl%>/client/teamMembers" class="second-nav"><spring:message code="ourPeople" /></a></li>
      </ul>
      <ul class="nav navbar-nav ul_two" data-tag="4"></ul><!--NEWS导航 -->
      <ul class="nav navbar-nav ul_two" data-tag="5"></ul><!--CAREER导航 -->

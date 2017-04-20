@@ -16,23 +16,15 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
 @Controller
-@RequestMapping("/client/newsCategories/{newsCategoryId}/news")
+@RequestMapping("/client/news")
 public class NewsController extends BaseController {
 
 	@Autowired
 	private NewsMapper newsMapper;
 
-	@RequestMapping(value="/{id}", method=RequestMethod.GET)
-	public String show(@PathVariable("newsCategoryId") int newsCategoryId, @PathVariable("id") int id, ModelMap model,
-			@RequestParam(value="pageNo", required=false, defaultValue="1") Integer pageNo,
-			@RequestParam(value="pageSize", required=false, defaultValue="10") Integer pageSize){
+	@RequestMapping(value="", method=RequestMethod.GET)
+	public String show(){
 		
-		PageHelper.startPage(pageNo, pageSize);
-		List<News> list = this.newsMapper.selectByNewsCategoryId(newsCategoryId);
-		PageInfo<News> page = new PageInfo<News>(list);
-		model.addAttribute("pages", page);
-    
-		model.addAttribute("newItem", this.newsMapper.selectByPrimaryKey(id));
-		return "client/news/show";
+		return "client/news/index";
 	}
 }

@@ -18,36 +18,7 @@
 <body>
   <jsp:include page="../shared/_header.jsp"></jsp:include>
     <div class="main container">
-        <div class="row">
-            <div class="col-sm-3">
-                <ul class="nav news-tag">
-                    <li><a href="#" class="news-active">最新动态<span>></span></a></li>
-                    <li><a href="#">项目动态<span>></span></a></li>
-                    <li><a href="<%=baseUrl%>/client/news/1">公司动态<span>></span></a></li>
-                </ul>
-            </div>
-            <div class="col-sm-9">
-                <ul class="nav more-case">
-                  <c:forEach var="newItem" items="${pages.list}">
-                    <li class="clearfix">
-                        <div class="col-xs-4 case-pic"><a href="<%=baseUrl%>/client/news/1"><img src="${pageContext.request.contextPath}/${newItem.headImg}" alt="pic" class="img-responsive"></a></div>
-                        <div class="col-xs-8 case-text">
-                            <p class="date">12.0.6</p>
-                            <h4>${newItem.title}</h4>
-                            <div class="text">
-                                <p>${newItem.subTitle}</p>
-                            </div>
-                        </div>
-                    </li>
-                    </c:forEach>
-                </ul>
-            </div>
-            <div class="col-sm-12">
-              <c:import url="../shared/_page.jsp">
-                <c:param name="pageUrl" value="${pageContext.request.contextPath}/client/newsCategories/${newItem.id}"></c:param>
-              </c:import>
-            </div>
-        </div>
+      <h1><center>此处完成新闻节目开发</center></h1>
     </div>
     <jsp:include page="../shared/_footer.jsp"></jsp:include>
 </body>

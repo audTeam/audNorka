@@ -17,26 +17,11 @@
 <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
 </head>
 <body>
-<jsp:include page="../shared/_header.jsp"></jsp:include>
-<div class="main container">
-        <section class="part-one text-center">
-          <c:if test="${job.imgUrl!=null}">
-            <img src="${pageContext.request.contextPath}/${job.imgUrl}" alt="pic" class="img-responsive">
-          </c:if>
-        </section>
-        <section class="part-two">
-            <div class="job-info-content">
-                <h3>招聘信息</h3>
-                <c:if test="${job!=null}">
-                  <p>${job.content}</p>
-                </c:if>
-                <c:if test="${job==null}">
-                  <p>暂无招聘信息</p>
-                </c:if>
-            </div>
-        </section>
+  <jsp:include page="../shared/_header.jsp"></jsp:include>
+    <div class="main container">
+      <h1><center>此处完成招聘界面开发</center></h1>
     </div>
- <jsp:include page="../shared/_footer.jsp"></jsp:include>
+  <jsp:include page="../shared/_footer.jsp"></jsp:include>
 </body>
 <script type="text/javascript" src="<%=baseUrl%>/static/lib/bower_components/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="<%=baseUrl%>/static/lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>

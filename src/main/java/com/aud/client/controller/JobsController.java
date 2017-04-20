@@ -18,11 +18,7 @@ public class JobsController extends BaseController{
 
 	@RequestMapping(value="", method=RequestMethod.GET)
 	public String index(ModelMap model, Locale locale){
-		if (this.jobMapper.all(locale.getLanguage()).size() >0 ) {
-			model.addAttribute("job", this.jobMapper.all(locale.getLanguage()).get(0));
-		} else {
-			model.addAttribute("job", null);
-		}
+
 		return "client/jobs/index";
 	}
 	

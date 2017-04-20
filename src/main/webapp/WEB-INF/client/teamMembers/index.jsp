@@ -26,7 +26,7 @@
         <div class="col-md-4 work-pic">
           <a href="<%=baseUrl%>/client/teamMembers/${teamMember.id}">
           <img src="<%=application.getInitParameter("imageServer") %>/${teamMember.imgUrl}" alt="pic" class="img-responsive"></a>
-          <a href="<%=baseUrl%>/client/teamMembers/${teamMember.id}"><h5>${teamMember.name}</h5></a><h6>${teamMember.location}</h6></div>
+          <a href="<%=baseUrl%>/client/teamMembers/${teamMember.id}"><h5>${teamMember.name}</h5></a><h6>${teamMember.name}</h6></div>
       </c:forEach>
     </div>
    </div>
