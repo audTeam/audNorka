@@ -16,63 +16,66 @@
 <title>联系我们</title>
 <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Gy1azRsvQiyGnMGymKTOvjaTrllOwN1W"></script>
 </head>
 <body>
 <jsp:include page="../shared/_header.jsp"></jsp:include>
-<div class="main container">
-        <div class="row">
-          <c:if test="${param.message!=null}">
-            <div class="alert alert-success" role="alert">感谢您的留言。我们会认真处理您的留言信息</div>
-          </c:if>
-            <div class="col-sm-8">
-                <form class="form-horizontal" action="<%=baseUrl%>/client/aboutUs/leaveMessages" method="POST">
-                    <div class="form-group">
-                        <label for="name" class="col-sm-1 control-label input-text">姓名</label>
-                        <div class="col-sm-7">
-                            <input type="text" class="form-control" id="name" name="name" placeholder="姓名">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="tel" class="col-sm-1 control-label input-text">电话</label>
-                        <div class="col-sm-7">
-                            <input type="text" class="form-control" id="tel" name="phoneNumber" placeholder="电话" >
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="email" class="col-sm-1 control-label input-text">邮箱</label>
-                        <div class="col-sm-7">
-                            <input type="text" class="form-control" id="email" name="email" placeholder="邮箱">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="message" class="col-sm-1 control-label input-text">留言</label>
-                        <div class="col-sm-11">
-                            <textarea type="text" class="form-control" id="message" name="message" rows="7"></textarea>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-offset-1 col-sm-2">
-                            <button type="reset" class="btn btn-default">　清空　</button>
-                        </div>
-                        <div class="col-sm-4">
-                            <button type="submit" class="btn btn-danger">　发送　</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="col-xs-4 info">
-                <img src="<%=baseUrl%>/static/common/client/images/contact-us/contact_03.png" alt="pic" class="img-responsive">
-                <p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span><span>ADD:中国.广东揭阳人民政府左侧酒店五楼M1156间</span></p>
-                <p><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span><span>PHONE:4000-123-456</span></p>
-                <p><i class="fa fa-volume-control-phone asome" aria-hidden="true"></i><span>TEL:+86-11111-2222</span></p>
-                <p><i class="fa fa-qq asome" aria-hidden="true"></i><span>QQ:1111111111</span></p>
-            </div>
-        </div>
-
+<div class="part-one container-fluid">
+    <div class="row">
+        <div class="col-xs-12"><h3>Contact</h3></div>
+        <ul class="col-xs-6">
+          <li>Architect</li>
+          <li>Architect</li>
+          <li class="form-area">
+            <form>
+              <div class="form-group">
+                  <label class="sign-up">SIGN UP TO RECEIVE NEWS</label>
+              </div>
+              <div class="form-group">
+                <label for="inputEmail">Email address:*</label>
+                <input type="email" class="form-control" id="inputEmail">
+              </div>
+              <div class="form-group">
+                <label for="inputFirstName">First Name:</label>
+                <input type="text" class="form-control" id="inputFirstName">
+              </div>
+              <div class="form-group">
+                <label for="inputLastName">Last Name:</label>
+                <input type="text" class="form-control" id="inputLastName">
+              </div>
+              <div class="form-group">
+                <label for="inputCountry">Country:*</label>
+                <select class="form-control my-select">
+                <option></option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="inputCity">City:</label>
+                <input type="text" class="form-control city" id="inputCity">
+              </div>
+              <div class="form-group">
+                <label for="inputMessage">Message:</label>
+                <textarea class="form-control" id="inputMessage"></textarea>
+              </div>
+    
+              <button type="submit" class="btn join-btn">Join Now</button>
+            </form>
+          </li>
+        </ul>
+        <ul class="col-xs-4 col-xs-offset-2">
+            <li style="color: #ca3726">Our Office</li>
+            <li style="font-weight: bold;">AUD Design Consulting Inc.</li>
+            <li>100 Century Avenue,67F 100 Century Avenue,67F</li>
+            <li>T:86.21 61057318</li>
+            <li id="allmap"></li>
+        </ul>
     </div>
+</div>
  <jsp:include page="../shared/_footer.jsp"></jsp:include>
 </body>
 <script type="text/javascript" src="<%=baseUrl%>/static/lib/bower_components/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="<%=baseUrl%>/static/lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<%=baseUrl%>/static/common/client/js/sites_show.js"></script>
+<script type="text/javascript" src="<%=baseUrl%>/static/common/client/js/countryCity.js"></script>
+<script type="text/javascript" src="<%=baseUrl%>/static/common/client/js/map.js"></script>
 </html>

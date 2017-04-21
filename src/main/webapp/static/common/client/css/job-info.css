@@ -1,11 +1,43 @@
-.part-two .job-info-content p{
-    margin-top: 16px;
-    font-size:12px;
+p{
+	padding: 0;
+	margin: 0;
 }
-.part-two h3{
-    font-weight: bold;
-    padding-bottom: 16px;
+.position{
+	padding: 0
+}
+.position-title{
+	margin: 0;
+}
+.position-content{
+	border-bottom: 1px solid #ca3726;
+	border-top: 1px solid #ca3726;
+	margin: 0;
+	padding-top: 15px;
+	padding-bottom: 15px;
 }
 .part-two{
-    padding-bottom: 40px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.position-detail{
+	padding-bottom: 15px;
+	word-wrap:break-word;
+}
+.main a{
+	color: #5f5d5d;
+    text-decoration: none;
+}
+.main a:hover{
+	color: #a1a1a1;
+    text-decoration: none;
+}
+.main .position-content>a:hover{
+	color:#ca3726;
+}
+.main h4{
+	color:#ca3726;
+	font-weight: bold;
+}
+.main .open{
+	padding-bottom:15px;
 }
