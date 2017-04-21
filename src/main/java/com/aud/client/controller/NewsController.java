@@ -1,7 +1,9 @@
 package com.aud.client.controller;
 
 import java.util.List;
+import java.util.Locale;
 
+import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -21,10 +23,27 @@ public class NewsController extends BaseController {
 
 	@Autowired
 	private NewsMapper newsMapper;
-
-	@RequestMapping(value="", method=RequestMethod.GET)
-	public String show(){
+	
+    @RequestMapping(value = "", method = RequestMethod.GET)
+    public String show(ModelMap model,	
+    		@RequestParam(value="pageNo", required=false, defaultValue="1") Integer pageNo,
+			@RequestParam(value="pageSize", required=false, defaultValue="10") Integer pageSize,
+			@RequestParam(value="id", required=false) Integer id, Locale locale){
 		
+		PageHelper.startPage(pageNo, pageSize);
+	    List<News> list = this.newsMapper.all(locale.getLanguage());
+	    PageInfo<News> page = new PageInfo<News>(list);
+	    model.addAttribute("pages", page);
+	    News currentNews = new News();
+	    if(id==null){
+	    	if(list!=null){
+	    		currentNews = list.get(0);
+	    	}
+	    }else{
+	    	currentNews = this.newsMapper.selectByPrimaryKey(id);
+	    }
+	    model.addAttribute("currentNew", currentNews);
+
 		return "client/news/index";
-	}
+    }
 }

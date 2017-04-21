@@ -35,7 +35,7 @@
         <div class="box-body">
           <div class="row">
             <div class="col-md-12">
-              <a href="<%= baseUrl%>/admin/newsCategories/${newsCategory.id}/news/new" class="btn btn-info col-md-offset-10">发布新闻</a>
+              <a href="<%= baseUrl%>/admin/news/new" class="btn btn-info col-md-offset-10">发布新闻</a>
             </div>
           </div>
           <div class="row">
@@ -54,8 +54,8 @@
                     <!-- <td><fmt:formatDate value="${newItem.publishAt}" type="both" /></td>  -->
                     <!-- <td>${newItem.publishAt}</td> -->
                     <td>
-                      <a class="btn btn-default" href="${pageContext.request.contextPath}/admin/newsCategories/${newItem.navmenueId}/news/${newItem.id}/edit">编辑</a>
-                      <form action="${pageContext.request.contextPath}/admin/newsCategories/${newItem.navmenueId}/news/${newItem.id}" method="post" style="display: inline-block;">
+                      <a class="btn btn-default" href="${pageContext.request.contextPath}/admin//news/${newItem.id}/edit">编辑</a>
+                      <form action="${pageContext.request.contextPath}/admin/news/${newItem.id}" method="post" style="display: inline-block;">
                         <input type="hidden" name="_method" value="DELETE">
                         <button type="submit" class="btn btn-danger">删除</button>
                       </form>
@@ -65,7 +65,7 @@
             </div>
             <div class="col-md-12">
               <c:import url="../shared/_page.jsp">
-                <c:param name="pageUrl" value="${pageContext.request.contextPath}/admin/newsCategories/${newsCategory.id}/news"></c:param>
+                <c:param name="pageUrl" value="${pageContext.request.contextPath}/admin/news"></c:param>
               </c:import>
             </div>
           </div>

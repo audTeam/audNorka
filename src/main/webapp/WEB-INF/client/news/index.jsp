@@ -22,27 +22,14 @@
         <div class="col-md-12">
             <ul>
                 <li>
-                    <h3>New LandMark Building</h3>
-                    <h4>a new built landmark building design by aud</h4>
+                    <h3>${currentNew.title}</h3>
+                    <h4>${currentNew.subTitle }</h4>
                 </li>
-                <li>10/24/2017 Becak Li</li>
+                <li>${currentNew.publishAt } ${currentNew.author }</li>
             </ul>
         </div>
         <div class="col-md-7">
-            <ul>
-                <li>
-                    <img src="<%=baseUrl%>/static/common/client/images/sites/designer7.png" alt="pic" class="img-responsive">
-                </li>
-                <li>
-                   An architect someone who plans,designs,and reviews the construction of buildings.
-                </li>
-                <li>
-                    An architect someone who plans,designs,and reviews the construction of buildings.
-                </li>
-                <li>
-                   An architect someone who plans,designs,and reviews the construction of buildings.
-                </li>
-            </ul>
+            ${currentNew.content }
         </div>
         <div class="col-md-3 col-md-offset-2">
             <ul class="col-md-12">
@@ -53,10 +40,11 @@
             </ul>
             <ul class="col-md-12">
                 <li class="first-title">Recent News</li>
-                <li><a href="#"><h5>New LandMark Building</h5><h5>design by Becak Li</h5></a><h6>10/24/2017</h6></li>
-                <li><a href="#"><h5>New LandMark Building</h5><h5>design by Becak Li</h5></a><h6>10/24/2017</h6></li>
-                <li><a href="#"><h5>New LandMark Building</h5><h5>design by Becak Li</h5></a><h6>10/24/2017</h6></li>
-                <li><a href="#"><h5>New LandMark Building</h5><h5>design by Becak Li</h5></a><h6>10/24/2017</h6></li>
+                <c:forEach var="newItem" items="${pages.list}">
+                  <li><a href="#">
+                        <h5>${newItem.title}</h5><h5>${newItem.author}</h5>
+                        </a><h6>${newItem.publishAt }</h6></li>
+                </c:forEach>
                 <li class="view-more"><a href="#">VIEW MORE</a></li>
             </ul>
             <ul class="col-md-12">

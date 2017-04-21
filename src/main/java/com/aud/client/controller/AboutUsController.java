@@ -10,6 +10,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.aud.mapper.BannerMapper;
 import com.aud.mapper.CooperationMapper;
 import com.aud.mapper.HistoryIntroduceMapper;
 import com.aud.mapper.LeaveMessageMapper;
@@ -25,6 +26,8 @@ public class AboutUsController  extends BaseController{
 	private HistoryIntroduceMapper historyIntroduceMapper;
 	@Autowired
 	private CooperationMapper cooperationMapper;
+	@Autowired
+	private BannerMapper bannerMapper;
 
 	@RequestMapping(value="/leaveMessages", method=RequestMethod.POST)
 	public String leaveMessages(LeaveMessage leaveMessage){
@@ -50,6 +53,7 @@ public class AboutUsController  extends BaseController{
 			model.addAttribute("historyIntroduce", new HistoryIntroduce());
 		}
 		model.addAttribute("cooperations", this.cooperationMapper.all());
+		model.addAttribute("banners", this.bannerMapper.all("companyBanners", locale.getLanguage()));
 		return "client/aboutUs/show";
 	}
 

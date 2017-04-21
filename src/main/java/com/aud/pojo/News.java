@@ -18,6 +18,16 @@ public class News {
 	private String content;
 	
 	private String lang;
+	
+	private String author;
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
 
 	public String getLang() {
 		return lang;

@@ -40,7 +40,7 @@
           <div class="row">
             <div class="col-md-12">
               <c:import url="_form.jsp">
-                <c:param name="actionUrl" value="${pageContext.request.contextPath}/admin/newsCategories/${newsCategory.id}/news"></c:param>
+                <c:param name="actionUrl" value="${pageContext.request.contextPath}/admin/news"></c:param>
               </c:import>
             </div>
           </div>
@@ -61,7 +61,7 @@
 <c:import url="../shared/_javascript.jsp"></c:import>
 <script src="<%=baseUrl%>/static/common/admin/js/image_upload.js" type="text/javascript"></script>
 <script type="text/javascript">
-   var editor = UE.getEditor('container');
+   UM.getEditor('container');
 </script>
 
 </body>

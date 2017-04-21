@@ -22,7 +22,7 @@ import com.aud.service.ImageService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 @Controller("adminNews")
-@RequestMapping("/admin/newsCategories/{newsCategoryId}/news")
+@RequestMapping("/admin/news")
 public class NewsController {
     @Autowired
     private NavMenuMapper navMenuMapper;
@@ -32,16 +32,15 @@ public class NewsController {
 	private ImageService imageService;
 	
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public String index(@PathVariable("newsCategoryId") int id, ModelMap model,	
+    public String index(ModelMap model,	
     		@RequestParam(value="pageNo", required=false, defaultValue="1") Integer pageNo,
-			@RequestParam(value="pageSize", required=false, defaultValue="10") Integer pageSize){
+			@RequestParam(value="pageSize", required=false, defaultValue="10") Integer pageSize, Locale locale){
 		
 		PageHelper.startPage(pageNo, pageSize);
-	    List<News> list = this.newsMapper.selectByNewsCategoryId(id);
+	    List<News> list = this.newsMapper.all(locale.getLanguage());
 	    PageInfo<News> page = new PageInfo<News>(list);
 	    model.addAttribute("pages", page);
 
-        model.addAttribute("newsCategory", this.navMenuMapper.selectByPrimaryKey(id));
         return "admin/news/index";
     }
 
@@ -52,37 +51,35 @@ public class NewsController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public String delete(@PathVariable("newsCategoryId") int newsCategoryId, @PathVariable("id") int id, ModelMap model) {
+    public String delete(@PathVariable("id") int id, ModelMap model) {
         News oldNews = this.newsMapper.selectByPrimaryKey(id);
     	this.imageService.deleteFile(oldNews.getHeadImg());
     	this.newsMapper.deleteByPrimaryKey(id);
-        return "redirect:/admin/newsCategories/"+newsCategoryId+"/news";
+        return "redirect:/admin/news";
     }
 
     @RequestMapping(value = "/new", method = RequestMethod.GET)
-    public String newPage(@PathVariable("newsCategoryId") int newsCategoryId, ModelMap model) {
-        model.addAttribute("newsCategory", this.navMenuMapper.selectByPrimaryKey(newsCategoryId));
+    public String newPage(ModelMap model) {
         return "admin/news/new";
     }
 
     @RequestMapping(value = "/{id}/update", method = RequestMethod.POST)
-    public String update(@PathVariable("newsCategoryId") int newsCategoryId, @PathVariable("id") Integer id, News news,MultipartFile file){
+    public String update(@PathVariable("id") Integer id, News news,MultipartFile file){
         News oldNews = this.newsMapper.selectByPrimaryKey(id);
     	if(file!=null&&!file.isEmpty()){
             news.setHeadImg(imageService.uploadFile(file));	
             imageService.deleteFile(oldNews.getHeadImg());
         }
         this.newsMapper.updateByPrimaryKeySelective(news);
-        return "redirect:/admin/newsCategories/"+newsCategoryId+"/news";
+        return "redirect:/admin/news";
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public String create(@PathVariable("newsCategoryId") int id, News news,MultipartFile file, HttpServletRequest request, Locale locale) {
-        news.setNavmenueId(id);
+    public String create(News news,MultipartFile file, HttpServletRequest request, Locale locale) {
         news.setPublishAt(new Date());
         news.setHeadImg(imageService.uploadFile(file));
         news.setLang(locale.getLanguage());
         this.newsMapper.insertSelective(news);
-        return "redirect:/admin/newsCategories/"+id+"/news";
+        return "redirect:/admin/news";
     }
 }

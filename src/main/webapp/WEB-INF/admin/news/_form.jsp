@@ -19,21 +19,10 @@
       <input type="text" name="subTitle" value="${news.subTitle}" class="form-control">
     </div>
   </div>
-  <c:if test="${news.headImg != null}">
   <div class="form-group">
-    <label class="col-md-2 control-label">头图图片</label>
-    <div class="col-md-20">
-      <img alt="banner图片" class="img-responsive" src="<%=application.getInitParameter("imageServer")%>/${news.headImg}">
-    </div>
-  </div>
-  </c:if>
-  <div class="form-group">
-    <label class="col-md-2 control-label">头图图片</label>
-    <div id="uploadFileDiv" class="col-md-10">
-      <input id="pdFile" name="file" type="file">
-      <div id="fileError" class="help-block"></div>
-      <p class="help-block">支持jpg、jpeg、png、gif格式，大小不超过2.0M，宽x高:227x123</p>
-      <br />
+    <label class="col-md-2 control-label">作者</label>
+    <div class="col-md-10">
+      <input type="text" name="author" value="${news.author}" class="form-control">
     </div>
   </div>
   <div class="form-group">
