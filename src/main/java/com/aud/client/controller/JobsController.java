@@ -21,5 +21,10 @@ public class JobsController extends BaseController{
 
 		return "client/jobs/index";
 	}
-	
+
+	@RequestMapping(value="/jobDetail", method=RequestMethod.GET)
+	public String show(ModelMap model, Locale locale){
+
+		return "client/jobs/show";
+	}
 }

@@ -65,7 +65,7 @@
      <form class="search-form">
          <div class="search-input clearfix">
              <label class="pull-right"><span class="glyphicon glyphicon-search"></span></label>
-             <input type="text" class="form-control pull-right" id="inputText" style="border:1px solid #fff;">
+             <input type="text" class="form-control pull-right" id="bdcsMain" style="border:1px solid #fff;">
          </div>
      </form>
    </nav>
