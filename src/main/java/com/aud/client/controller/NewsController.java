@@ -1,5 +1,7 @@
 package com.aud.client.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -24,6 +26,14 @@ public class NewsController extends BaseController {
 	@Autowired
 	private NewsMapper newsMapper;
 	
+	@Test
+	public void test(){
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
+		System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+		String SendTime=df.format(new Date());
+		System.out.println("----SendTime: "+SendTime);
+	}
+	
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String show(ModelMap model,	
     		@RequestParam(value="pageNo", required=false, defaultValue="1") Integer pageNo,
@@ -34,6 +44,7 @@ public class NewsController extends BaseController {
 	    List<News> list = this.newsMapper.all(locale.getLanguage());
 	    PageInfo<News> page = new PageInfo<News>(list);
 	    model.addAttribute("pages", page);
+
 	    News currentNews = new News();
 	    if(id==null){
 	    	if(list!=null){

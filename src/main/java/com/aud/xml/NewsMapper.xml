@@ -11,9 +11,10 @@
     <result column="content" property="content" jdbcType="VARCHAR" />
     <result column="lang" property="lang" jdbcType="VARCHAR" />
     <result column="author" property="author" jdbcType="VARCHAR" />
+    <result column="tags" property="tags" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, title, publish_at, head_img, sub_title, navmenue_id, content, lang, author
+    id, title, publish_at, head_img, sub_title, navmenue_id, content, lang, author, tags
   </sql>
   <delete id="deleteByNavMenuId" parameterType="java.lang.Integer">
     delete from news
@@ -74,6 +75,9 @@
       <if test="author != null" >
         author,
       </if>
+      <if test="tags != null" >
+        tags,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -103,6 +107,9 @@
       <if test="author != null" >
         #{author,jdbcType=VARCHAR},
       </if>
+      <if test="tags != null" >
+        #{tags,jdbcType=VARCHAR},
+      </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.aud.pojo.News" >
@@ -131,6 +138,9 @@
       </if>
       <if test="author != null" >
         author = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="tags != null" >
+        tags = #{tags,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}

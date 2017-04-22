@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <% String baseUrl = request.getContextPath(); %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <!DOCTYPE html>
 <html>
@@ -25,7 +28,9 @@
                     <h3>${currentNew.title}</h3>
                     <h4>${currentNew.subTitle }</h4>
                 </li>
-                <li>${currentNew.publishAt } ${currentNew.author }</li>
+                <li>
+                  <fmt:formatDate value="${currentNew.publishAt}" pattern="yyyy-M-d"/> ${currentNew.author }
+                </li>
             </ul>
         </div>
         <div class="col-md-7">
@@ -41,16 +46,23 @@
             <ul class="col-md-12">
                 <li class="first-title">Recent News</li>
                 <c:forEach var="newItem" items="${pages.list}">
-                  <li><a href="#">
-                        <h5>${newItem.title}</h5><h5>${newItem.author}</h5>
-                        </a><h6>${newItem.publishAt }</h6></li>
+                  <li>
+                    <a href="<%=baseUrl%>/client/news?id=${newItem.id }">
+                      <h5>${newItem.title}</h5><h5>${newItem.author}</h5>
+                    </a>
+                    <h6><fmt:formatDate value="${newItem.publishAt}" pattern="yyyy-M-d"/></h6>
+                  </li>
                 </c:forEach>
                 <li class="view-more"><a href="#">VIEW MORE</a></li>
             </ul>
+            <c:set value="${ fn:split(currentNew.tags, '；') }" var="tags" />
             <ul class="col-md-12">
                 <li class="first-title">Tages</li>
-                <li><h5>inspiration accessories outfie cultural chinese</h5></li>
-                
+                <li><h5>
+                  <c:forEach var="tag" items="${tags}">
+                    ${tag}
+                  </c:forEach>
+                </h5></li>
             </ul>
         </div>
     </div>

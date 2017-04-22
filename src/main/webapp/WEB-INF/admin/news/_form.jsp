@@ -26,6 +26,13 @@
     </div>
   </div>
   <div class="form-group">
+    <label class="col-md-2 control-label">标签</label>
+    <div class="col-md-10">
+      <input type="text" name="tags" value="${news.tags}" class="form-control">
+      <span id="helpBlock2" class="help-block">添加标签，以英文分号分开</span>
+    </div>
+  </div>
+  <div class="form-group">
     <label class="col-md-2 control-label">新闻内容</label>
     <div class="col-md-10">
       <script id="container" type="text/plain" name="content" style="height:500px">${news.content}</script>
