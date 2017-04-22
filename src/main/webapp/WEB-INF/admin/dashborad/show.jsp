@@ -103,7 +103,7 @@
                   <tr>
                     <td>id</td>
                     <td>名字</td>
-                    <td>联系电话</td>
+                    <td>email</td>
                     <td>留言</td>
                     <td>操作</td>
                   </tr>
@@ -111,7 +111,7 @@
                    <tr>
                     <td>${leaveMessage.id}</td>
                     <td>${leaveMessage.name}</td>
-                    <td>${leaveMessage.phoneNumber}</td>
+                    <td>${leaveMessage.email}</td>
                     <td><a href="${pageContext.request.contextPath}/admin/leaveMessages/${leaveMessage.id}">${fn:substring(leaveMessage.message, 0, 12)}...</a></td>
                     <td>
                       <form action="${pageContext.request.contextPath}/admin/dashborad/leaveMessages/${leaveMessage.id}/delete" method="post">

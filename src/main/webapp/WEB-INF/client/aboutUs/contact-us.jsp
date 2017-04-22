@@ -26,36 +26,44 @@
         <ul class="col-xs-6">
           <li>Architect</li>
           <li>Architect</li>
+          <c:if test="${param.message=='success' }">
+			<div class="alert alert-warning">
+				<a href="#" class="close" data-dismiss="alert">
+					&times;
+				</a>
+				<strong>警告！</strong>您的网络连接有问题。
+			</div>
+          </c:if>
           <li class="form-area">
-            <form>
+            <form action="<%=baseUrl%>/client/aboutUs/leaveMessages" method="post">
               <div class="form-group">
                   <label class="sign-up">SIGN UP TO RECEIVE NEWS</label>
               </div>
               <div class="form-group">
                 <label for="inputEmail">Email address:*</label>
-                <input type="email" class="form-control" id="inputEmail">
+                <input type="email" name="email" class="form-control" id="inputEmail">
               </div>
               <div class="form-group">
                 <label for="inputFirstName">First Name:</label>
-                <input type="text" class="form-control" id="inputFirstName">
+                <input type="text" class="form-control" id="inputFirstName" name="firstName">
               </div>
               <div class="form-group">
                 <label for="inputLastName">Last Name:</label>
-                <input type="text" class="form-control" id="inputLastName">
+                <input type="text" class="form-control" id="inputLastName" name="lastName">
               </div>
               <div class="form-group">
                 <label for="inputCountry">Country:*</label>
-                <select class="form-control my-select">
+                <select class="form-control my-select" name="country">
                 <option></option>
                 </select>
               </div>
               <div class="form-group">
                 <label for="inputCity">City:</label>
-                <input type="text" class="form-control city" id="inputCity">
+                <input type="text" class="form-control city" id="inputCity" name="city">
               </div>
               <div class="form-group">
                 <label for="inputMessage">Message:</label>
-                <textarea class="form-control" id="inputMessage"></textarea>
+                <textarea class="form-control" id="inputMessage" name="message"></textarea>
               </div>
     
               <button type="submit" class="btn join-btn">Join Now</button>

@@ -3,15 +3,21 @@
 <mapper namespace="com.aud.mapper.LeaveMessageMapper" >
   <resultMap id="BaseResultMap" type="com.aud.pojo.LeaveMessage" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="first_name" property="firstName" jdbcType="VARCHAR" />
     <result column="message" property="message" jdbcType="VARCHAR" />
     <result column="email" property="email" jdbcType="VARCHAR" />
     <result column="created_at" property="createdAt" jdbcType="TIMESTAMP" />
     <result column="is_read" property="isRead" jdbcType="VARCHAR" />
     <result column="phone_number" property="phoneNumber" jdbcType="VARCHAR" />
+    <result column="lang" property="lang" jdbcType="VARCHAR" />
+    <result column="last_name" property="lastName" jdbcType="VARCHAR" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="country" property="country" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, name, message, email, created_at, is_read, phone_number
+    id, first_name, message, email, created_at, is_read, phone_number, lang, last_name, 
+    city, country, name
   </sql>
   <select id="all" resultMap="BaseResultMap" parameterType="java.lang.Integer">
     select * from leave_messages
@@ -27,12 +33,16 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.aud.pojo.LeaveMessage" >
-    insert into leave_messages (id, name, message, 
+    insert into leave_messages (id, first_name, message, 
       email, created_at, is_read, 
-      phone_number)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{message,jdbcType=VARCHAR}, 
+      phone_number, lang, last_name, 
+      city, country, name
+      )
+    values (#{id,jdbcType=INTEGER}, #{firstName,jdbcType=VARCHAR}, #{message,jdbcType=VARCHAR}, 
       #{email,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, #{isRead,jdbcType=VARCHAR}, 
-      #{phoneNumber,jdbcType=VARCHAR})
+      #{phoneNumber,jdbcType=VARCHAR}, #{lang,jdbcType=VARCHAR}, #{lastName,jdbcType=VARCHAR}, 
+      #{city,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.aud.pojo.LeaveMessage" >
     insert into leave_messages
@@ -40,8 +50,8 @@
       <if test="id != null" >
         id,
       </if>
-      <if test="name != null" >
-        name,
+      <if test="firstName != null" >
+        first_name,
       </if>
       <if test="message != null" >
         message,
@@ -58,13 +68,28 @@
       <if test="phoneNumber != null" >
         phone_number,
       </if>
+      <if test="lang != null" >
+        lang,
+      </if>
+      <if test="lastName != null" >
+        last_name,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="country != null" >
+        country,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="name != null" >
-        #{name,jdbcType=VARCHAR},
+      <if test="firstName != null" >
+        #{firstName,jdbcType=VARCHAR},
       </if>
       <if test="message != null" >
         #{message,jdbcType=VARCHAR},
@@ -81,13 +106,28 @@
       <if test="phoneNumber != null" >
         #{phoneNumber,jdbcType=VARCHAR},
       </if>
+      <if test="lang != null" >
+        #{lang,jdbcType=VARCHAR},
+      </if>
+      <if test="lastName != null" >
+        #{lastName,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null" >
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.aud.pojo.LeaveMessage" >
     update leave_messages
     <set >
-      <if test="name != null" >
-        name = #{name,jdbcType=VARCHAR},
+      <if test="firstName != null" >
+        first_name = #{firstName,jdbcType=VARCHAR},
       </if>
       <if test="message != null" >
         message = #{message,jdbcType=VARCHAR},
@@ -104,17 +144,37 @@
       <if test="phoneNumber != null" >
         phone_number = #{phoneNumber,jdbcType=VARCHAR},
       </if>
+      <if test="lang != null" >
+        lang = #{lang,jdbcType=VARCHAR},
+      </if>
+      <if test="lastName != null" >
+        last_name = #{lastName,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null" >
+        country = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.aud.pojo.LeaveMessage" >
     update leave_messages
-    set name = #{name,jdbcType=VARCHAR},
+    set first_name = #{firstName,jdbcType=VARCHAR},
       message = #{message,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR},
       created_at = #{createdAt,jdbcType=TIMESTAMP},
       is_read = #{isRead,jdbcType=VARCHAR},
-      phone_number = #{phoneNumber,jdbcType=VARCHAR}
+      phone_number = #{phoneNumber,jdbcType=VARCHAR},
+      lang = #{lang,jdbcType=VARCHAR},
+      last_name = #{lastName,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      country = #{country,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

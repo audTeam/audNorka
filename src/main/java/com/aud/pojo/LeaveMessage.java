@@ -5,7 +5,7 @@ import java.util.Date;
 public class LeaveMessage {
     private Integer id;
 
-    private String name;
+    private String firstName;
 
     private String message;
 
@@ -17,13 +17,17 @@ public class LeaveMessage {
 
     private String phoneNumber;
 
-    @Override
-	public String toString() {
-		return "LeaveMessage [id=" + id + ", name=" + name + ", message=" + message + ", email=" + email
-				+ ", createdAt=" + createdAt + ", isRead=" + isRead + ", phoneNumber=" + phoneNumber + "]";
-	}
+    private String lang;
 
-	public Integer getId() {
+    private String lastName;
+
+    private String city;
+
+    private String country;
+
+    private String name;
+
+    public Integer getId() {
         return id;
     }
 
@@ -31,12 +35,12 @@ public class LeaveMessage {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+    public void setFirstName(String firstName) {
+        this.firstName = firstName == null ? null : firstName.trim();
     }
 
     public String getMessage() {
@@ -77,5 +81,45 @@ public class LeaveMessage {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber == null ? null : phoneNumber.trim();
+    }
+
+    public String getLang() {
+        return lang;
+    }
+
+    public void setLang(String lang) {
+        this.lang = lang == null ? null : lang.trim();
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName == null ? null : lastName.trim();
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city == null ? null : city.trim();
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country == null ? null : country.trim();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
     }
 }
