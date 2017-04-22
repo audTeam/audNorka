@@ -15,11 +15,12 @@
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/shared_show.css">
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/news.css">
 <title>新闻动态</title>
-<script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-<script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+<!-- <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+<script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script> -->
 </head>
 <body>
   <jsp:include page="../shared/_header.jsp"></jsp:include>
+    <div id="base-url" data-base-url="<%=baseUrl%>" class="hidden"></div>
     <div class="main container-fluid">
       <div class="row">
         <div class="col-md-12">
@@ -43,7 +44,7 @@
                 <li class="col-md-2 share-icon"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/sites//Messages icon.png"></a></li>
                 <li class="col-md-2 share-icon"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/sites//Messages icon.png"></a></li>
             </ul>
-            <ul class="col-md-12">
+            <ul id="newsContainer" class="col-md-12">
                 <li class="first-title">Recent News</li>
                 <c:forEach var="newItem" items="${pages.list}">
                   <li>
@@ -53,8 +54,11 @@
                     <h6><fmt:formatDate value="${newItem.publishAt}" pattern="yyyy-M-d"/></h6>
                   </li>
                 </c:forEach>
-                <li class="view-more"><a href="#">VIEW MORE</a></li>
             </ul>
+            <ul class="col-md-12">
+                <li id="loadMoreButton" class="view-more" style="cursor:pointer;">VIEW MORE</li>
+            </ul>
+            
             <c:set value="${ fn:split(currentNew.tags, '；') }" var="tags" />
             <ul class="col-md-12">
                 <li class="first-title">Tages</li>
@@ -73,4 +77,5 @@
 <script type="text/javascript" src="<%=baseUrl%>/static/lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<%=baseUrl%>/static/common/client/js/sites_show.js"></script>
 <script type="text/javascript" src="<%=baseUrl%>/static/common/client/js/news.js"></script>
+<script type="text/javascript" src="<%=baseUrl%>/static/common/client/js/news_show.js"></script>
 </html>

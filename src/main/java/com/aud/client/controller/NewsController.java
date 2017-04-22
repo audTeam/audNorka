@@ -2,8 +2,10 @@ package com.aud.client.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.aud.mapper.NewsMapper;
 import com.aud.pojo.News;
@@ -25,13 +28,19 @@ public class NewsController extends BaseController {
 
 	@Autowired
 	private NewsMapper newsMapper;
-	
-	@Test
-	public void test(){
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
-		System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
-		String SendTime=df.format(new Date());
-		System.out.println("----SendTime: "+SendTime);
+
+	@RequestMapping(value="/getNewsList", method=RequestMethod.GET)
+	@ResponseBody
+	public Object getNewsList(@RequestParam(value="pageNo", required=false, defaultValue="1") Integer pageNo,
+			@RequestParam(value="pageSize", required=false, defaultValue="10") Integer pageSize,Locale locale){
+		Map<String, Object> result = new HashMap<>();
+
+		PageHelper.startPage(pageNo, pageSize);
+	    List<News> list = this.newsMapper.all(locale.getLanguage());
+	    PageInfo<News> page = new PageInfo<News>(list);
+	    result.put("collection", page);
+		
+		return result;
 	}
 	
     @RequestMapping(value = "", method = RequestMethod.GET)

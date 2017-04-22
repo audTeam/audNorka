@@ -46,9 +46,9 @@
                   <!-- <td>发布日期</td> -->
                   <td>操作</td>
                 </tr>
-                <c:forEach var="newItem" items="${pages.list}">
+                <c:forEach var="newItem" items="${pages.list}" varStatus="status">
                   <tr>
-                    <td>${newItem.id}</td>
+                    <td>${status.index+1}</td>
                     <td>${newItem.title}</td>
                     <!-- <td><fmt:formatDate value="${newItem.publishAt}" type="both" /></td>  -->
                     <!-- <td>${newItem.publishAt}</td> -->
