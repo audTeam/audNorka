@@ -22,13 +22,12 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>发布招聘</h1>
+      <h1>工作列表</h1>
       <ol class="breadcrumb">
         <li><a href="<%=baseUrl%>/admin/dashborad"><i class="fa fa-dashboard"></i> 首页</a></li>
-        <li class="active">新增招聘</li>
+        <li class="active">招聘工作列表</li>
       </ol>
     </section>
-
     <!-- Main content -->
     <section class="content">
 
@@ -36,17 +35,40 @@
       <div class="box">
         <div class="box-body">
           <div class="row">
+            <div class="col-md-12 text-right">
+              <a class="btn btn-default" href="<%=baseUrl%>/admin/categories/${jobCategory.id}/jobs/new">新增</a>
+            </div>
+          </div>
+          <div class="row">
             <div class="col-md-12">
-              <c:import url="_form.jsp">
-                <c:param name="actionUrl" value="${pageContext.request.contextPath}/admin/categories/${jobCategory.id}/jobs"></c:param>
-              </c:import>
+              <table class="table table-strip table-hover">
+                <tr>
+                  <td>序号</td>
+                  <td>职位名称</td>
+                  <td>地址</td>
+                  <td>操作</td>
+                </tr>
+                <c:forEach var="job" items="${jobs}" varStatus="status">
+                  <tr>
+                    <td>${status.index+1}</td>
+                    <td>${job.position}</td>
+                    <td>${job.location}</td>
+                    <td>
+                      <a class="btn btn-default" href="<%=baseUrl%>/admin/categories/${jobCategory.id}/jobs/${job.id}/edit">编辑</a>
+                      <form action="<%=baseUrl%>/admin/categories/${jobCategory.id}/jobs/${job.id}/delete" method="POST" style="display: inline;">
+                        <!-- <input type="hidden" name="_method" value="DELETE"> -->
+                        <button class="btn btn-danger" type="submit">删除</button>
+                      </form>
+                    </td>
+                  </tr>
+                </c:forEach>
+              </table>
             </div>
           </div>
         </div>
       </div>
 
     </section>
-    <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
   <jsp:include page="../shared/_footer.jsp"></jsp:include>
@@ -58,8 +80,6 @@
 <!-- REQUIRED JS SCRIPTS -->
 
 <c:import url="../shared/_javascript.jsp"></c:import>
-<script type="text/javascript">
-   UM.getEditor('container');
-</script>
+
 </body>
 </html>

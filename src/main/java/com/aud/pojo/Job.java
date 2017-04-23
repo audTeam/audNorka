@@ -9,29 +9,25 @@ public class Job {
 
     private Date updatedAt;
 
-    private String content;
+    private String position;
 
-    private String title;
+    private String department;
 
-    private String imgUrl;
-    
+    private String location;
+
+    private String description;
+
+    private String locationDetail;
+
+    private Integer jobNumber;
+
     private String lang;
 
-    @Override
-	public String toString() {
-		return "Job [id=" + id + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + ", content=" + content
-				+ ", title=" + title + ", imgUrl=" + imgUrl + ", lang=" + lang + "]";
-	}
+    private Integer categoryId;
 
-	public String getLang() {
-		return lang;
-	}
+    private String content;
 
-	public void setLang(String lang) {
-		this.lang = lang;
-	}
-
-	public Integer getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -55,27 +51,75 @@ public class Job {
         this.updatedAt = updatedAt;
     }
 
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position == null ? null : position.trim();
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department == null ? null : department.trim();
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location == null ? null : location.trim();
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description == null ? null : description.trim();
+    }
+
+    public String getLocationDetail() {
+        return locationDetail;
+    }
+
+    public void setLocationDetail(String locationDetail) {
+        this.locationDetail = locationDetail == null ? null : locationDetail.trim();
+    }
+
+    public Integer getJobNumber() {
+        return jobNumber;
+    }
+
+    public void setJobNumber(Integer jobNumber) {
+        this.jobNumber = jobNumber;
+    }
+
+    public String getLang() {
+        return lang;
+    }
+
+    public void setLang(String lang) {
+        this.lang = lang == null ? null : lang.trim();
+    }
+
+    public Integer getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(Integer categoryId) {
+        this.categoryId = categoryId;
+    }
+
     public String getContent() {
         return content;
     }
 
     public void setContent(String content) {
         this.content = content == null ? null : content.trim();
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title == null ? null : title.trim();
-    }
-
-    public String getImgUrl() {
-        return imgUrl;
-    }
-
-    public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl == null ? null : imgUrl.trim();
     }
 }

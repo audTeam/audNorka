@@ -25,7 +25,6 @@
       <h1>编辑招聘</h1>
       <ol class="breadcrumb">
         <li><a href="<%=baseUrl%>/admin/dashborad"><i class="fa fa-dashboard"></i> 首页</a></li>
-        <li><a href="<%=baseUrl%>/admin/jobs">招聘详情</a></li>
         <li class="active">编辑招聘</li>
       </ol>
     </section>
@@ -39,7 +38,7 @@
           <div class="row">
             <div class="col-md-12">
               <c:import url="_form.jsp">
-                <c:param name="actionUrl" value="${pageContext.request.contextPath}/admin/jobs/${job.id}/update"></c:param>
+                <c:param name="actionUrl" value="${pageContext.request.contextPath}/admin/categories/${jobCategory.id}/jobs/${job.id}/update"></c:param>
                 <c:param name="method" value="PATCH"></c:param>
               </c:import>
             </div>
@@ -60,9 +59,8 @@
 <!-- REQUIRED JS SCRIPTS -->
 
 <c:import url="../shared/_javascript.jsp"></c:import>
-<script src="<%=baseUrl%>/static/common/admin/js/banner_image_upload.js" type="text/javascript"></script>
 <script type="text/javascript">
-   var editor = UE.getEditor('container');
+   UM.getEditor('container');
 </script>
 </body>
 </html>

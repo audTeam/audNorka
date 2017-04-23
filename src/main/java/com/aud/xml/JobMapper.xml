@@ -3,22 +3,36 @@
 <mapper namespace="com.aud.mapper.JobMapper" >
   <resultMap id="BaseResultMap" type="com.aud.pojo.Job" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="created_at" property="createdAt" jdbcType="TIMESTAMP" />
-    <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP" />
-    <result column="content" property="content" jdbcType="VARCHAR" />
-    <result column="title" property="title" jdbcType="VARCHAR" />
-    <result column="img_url" property="imgUrl" jdbcType="VARCHAR" />
+    <result column="created_at" property="createdAt" jdbcType="DATE" />
+    <result column="updated_at" property="updatedAt" jdbcType="DATE" />
+    <result column="position" property="position" jdbcType="VARCHAR" />
+    <result column="department" property="department" jdbcType="VARCHAR" />
+    <result column="location" property="location" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="location_detail" property="locationDetail" jdbcType="VARCHAR" />
+    <result column="job_number" property="jobNumber" jdbcType="INTEGER" />
     <result column="lang" property="lang" jdbcType="VARCHAR" />
+    <result column="category_id" property="categoryId" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.aud.pojo.Job" extends="BaseResultMap" >
+    <result column="content" property="content" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, created_at, updated_at, content, title, img_url, lang
+    id, created_at, updated_at, position, department, location, description, location_detail, 
+    job_number, lang, category_id
   </sql>
-  <select id="all" resultMap="BaseResultMap" parameterType="java.lang.String">
-    select * from jobs where lang = #{lang, jdbcType=VARCHAR}
+  <sql id="Blob_Column_List" >
+    content
+  </sql>
+  <select id="selectByCategoryId" resultMap="ResultMapWithBLOBs" >
+    select * from jobs
+    where category_id = #{0} AND lang = #{1}
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
     from jobs
     where id = #{id,jdbcType=INTEGER}
   </select>
@@ -28,10 +42,14 @@
   </delete>
   <insert id="insert" parameterType="com.aud.pojo.Job" >
     insert into jobs (id, created_at, updated_at, 
-      content, title, img_url, lang
+      position, department, location, 
+      description, location_detail, job_number, 
+      lang, category_id, content
       )
-    values (#{id,jdbcType=INTEGER}, #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}, 
-      #{content,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{imgUrl,jdbcType=VARCHAR}, #{lang,jdbcType=VARCHAR}
+    values (#{id,jdbcType=INTEGER}, #{createdAt,jdbcType=DATE}, #{updatedAt,jdbcType=DATE}, 
+      #{position,jdbcType=VARCHAR}, #{department,jdbcType=VARCHAR}, #{location,jdbcType=VARCHAR}, 
+      #{description,jdbcType=VARCHAR}, #{locationDetail,jdbcType=VARCHAR}, #{jobNumber,jdbcType=INTEGER}, 
+      #{lang,jdbcType=VARCHAR}, #{categoryId,jdbcType=INTEGER}, #{content,jdbcType=LONGVARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.aud.pojo.Job" >
@@ -46,17 +64,32 @@
       <if test="updatedAt != null" >
         updated_at,
       </if>
-      <if test="content != null" >
-        content,
+      <if test="position != null" >
+        position,
       </if>
-      <if test="title != null" >
-        title,
+      <if test="department != null" >
+        department,
       </if>
-      <if test="imgUrl != null" >
-        img_url,
+      <if test="location != null" >
+        location,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="locationDetail != null" >
+        location_detail,
+      </if>
+      <if test="jobNumber != null" >
+        job_number,
       </if>
       <if test="lang != null" >
         lang,
+      </if>
+      <if test="categoryId != null" >
+        category_id,
+      </if>
+      <if test="content != null" >
+        content,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -64,22 +97,37 @@
         #{id,jdbcType=INTEGER},
       </if>
       <if test="createdAt != null" >
-        #{createdAt,jdbcType=TIMESTAMP},
+        #{createdAt,jdbcType=DATE},
       </if>
       <if test="updatedAt != null" >
-        #{updatedAt,jdbcType=TIMESTAMP},
+        #{updatedAt,jdbcType=DATE},
       </if>
-      <if test="content != null" >
-        #{content,jdbcType=VARCHAR},
+      <if test="position != null" >
+        #{position,jdbcType=VARCHAR},
       </if>
-      <if test="title != null" >
-        #{title,jdbcType=VARCHAR},
+      <if test="department != null" >
+        #{department,jdbcType=VARCHAR},
       </if>
-      <if test="imgUrl != null" >
-        #{imgUrl,jdbcType=VARCHAR},
+      <if test="location != null" >
+        #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="locationDetail != null" >
+        #{locationDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="jobNumber != null" >
+        #{jobNumber,jdbcType=INTEGER},
       </if>
       <if test="lang != null" >
         #{lang,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryId != null" >
+        #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=LONGVARCHAR},
       </if>
     </trim>
   </insert>
@@ -87,34 +135,68 @@
     update jobs
     <set >
       <if test="createdAt != null" >
-        created_at = #{createdAt,jdbcType=TIMESTAMP},
+        created_at = #{createdAt,jdbcType=DATE},
       </if>
       <if test="updatedAt != null" >
-        updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+        updated_at = #{updatedAt,jdbcType=DATE},
       </if>
-      <if test="content != null" >
-        content = #{content,jdbcType=VARCHAR},
+      <if test="position != null" >
+        position = #{position,jdbcType=VARCHAR},
       </if>
-      <if test="title != null" >
-        title = #{title,jdbcType=VARCHAR},
+      <if test="department != null" >
+        department = #{department,jdbcType=VARCHAR},
       </if>
-      <if test="imgUrl != null" >
-        img_url = #{imgUrl,jdbcType=VARCHAR},
+      <if test="location != null" >
+        location = #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="locationDetail != null" >
+        location_detail = #{locationDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="jobNumber != null" >
+        job_number = #{jobNumber,jdbcType=INTEGER},
       </if>
       <if test="lang != null" >
         lang = #{lang,jdbcType=VARCHAR},
       </if>
+      <if test="categoryId != null" >
+        category_id = #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
     </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.aud.pojo.Job" >
+    update jobs
+    set created_at = #{createdAt,jdbcType=DATE},
+      updated_at = #{updatedAt,jdbcType=DATE},
+      position = #{position,jdbcType=VARCHAR},
+      department = #{department,jdbcType=VARCHAR},
+      location = #{location,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      location_detail = #{locationDetail,jdbcType=VARCHAR},
+      job_number = #{jobNumber,jdbcType=INTEGER},
+      lang = #{lang,jdbcType=VARCHAR},
+      category_id = #{categoryId,jdbcType=INTEGER},
+      content = #{content,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.aud.pojo.Job" >
     update jobs
-    set created_at = #{createdAt,jdbcType=TIMESTAMP},
-      updated_at = #{updatedAt,jdbcType=TIMESTAMP},
-      content = #{content,jdbcType=VARCHAR},
-      title = #{title,jdbcType=VARCHAR},
-      img_url = #{imgUrl,jdbcType=VARCHAR},
-      lang = #{lang,jdbcType=VARCHAR}
+    set created_at = #{createdAt,jdbcType=DATE},
+      updated_at = #{updatedAt,jdbcType=DATE},
+      position = #{position,jdbcType=VARCHAR},
+      department = #{department,jdbcType=VARCHAR},
+      location = #{location,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      location_detail = #{locationDetail,jdbcType=VARCHAR},
+      job_number = #{jobNumber,jdbcType=INTEGER},
+      lang = #{lang,jdbcType=VARCHAR},
+      category_id = #{categoryId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

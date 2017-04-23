@@ -7,25 +7,34 @@
     <!-- <input type="hidden" name="_method" value="PATCH"> -->
     <input type="hidden" name="id" value="${job.id}">
   </c:if>
-  <c:if test="${job.imgUrl != null}">
-    <div class="form-group">
-      <label class="col-md-3 control-label">图片</label>
-      <div class="col-md-9">
-        <img alt="图片" class="img-responsive" src="${pageContext.request.contextPath}/${job.imgUrl}">
-      </div>
-    </div>
-  </c:if>
   <div class="form-group">
-    <label class="col-md-3 control-label">图片文件</label>
-    <div id="uploadFileDiv" class="col-md-9">
-      <input id="pdFile" name="file" type="file">
-      <div id="fileError" class="help-block"></div>
-      <p class="help-block">支持jpg、jpeg、png、gif格式，大小不超过2.0M，宽x高:980x524</p>
+    <label class="col-md-4 control-label">职位名称</label>
+    <div class="col-md-8">
+      <input type="text" name="position" value="${job.position}" class="form-control">
     </div>
   </div>
   <div class="form-group">
-    <div class="col-md-12">
-      <script id="container" type="text/plain" name="content" style="height:500px">${job.content}</script>
+    <label class="col-md-4 control-label">招聘人数</label>
+    <div class="col-md-8">
+      <input type="text" name="jobNumber" value="${job.jobNumber}" class="form-control">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-md-4 control-label">地址</label>
+    <div class="col-md-8">
+      <input type="text" name="location" value="${job.location}" class="form-control">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-md-4 control-label">详细地址</label>
+    <div class="col-md-8">
+      <input type="text" name="locationDetail" value="${job.locationDetail}" class="form-control">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-md-4 control-label">职位描述</label>
+    <div class="col-md-8">
+      <script id="container" type="text/plain" name="description" class="form-control" style="height:500px">${job.description}</script>
     </div>
   </div>
   <div class="form-group">

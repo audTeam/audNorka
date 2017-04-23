@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <%String baseUrl = request.getContextPath(); %>
 <!DOCTYPE html>
 <html>
@@ -11,6 +12,7 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <c:import url="../shared/_stylesheet.jsp"></c:import>
+  <link type="text/css" href="<%=baseUrl%>/static/lib/bower_components/bootstrap-fileinput/css/fileinput.min.css"></link>
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -22,10 +24,11 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>发布招聘</h1>
+      <h1>编辑分类</h1>
       <ol class="breadcrumb">
         <li><a href="<%=baseUrl%>/admin/dashborad"><i class="fa fa-dashboard"></i> 首页</a></li>
-        <li class="active">新增招聘</li>
+        <li><a href="<%=baseUrl%>/admin/jobCategories">banner列表</a></li>
+        <li>编辑分类</li>
       </ol>
     </section>
 
@@ -36,9 +39,10 @@
       <div class="box">
         <div class="box-body">
           <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-8">
               <c:import url="_form.jsp">
-                <c:param name="actionUrl" value="${pageContext.request.contextPath}/admin/categories/${jobCategory.id}/jobs"></c:param>
+                <c:param name="actionUrl" value="${pageContext.request.contextPath}/admin/jobCategories/${jobCategory.id}/update"></c:param>
+                <c:param name="method" value="PATCH"></c:param>
               </c:import>
             </div>
           </div>
@@ -58,6 +62,10 @@
 <!-- REQUIRED JS SCRIPTS -->
 
 <c:import url="../shared/_javascript.jsp"></c:import>
+<script src="<%=baseUrl%>/static/lib/bower_components/AdminLTE/dist/js/app.min.js"></script>
+<script src="<%=baseUrl%>/static/lib/bower_components/bootstrap-fileinput/js/fileinput.min.js" type="text/javascript"></script>
+<script src="<%=baseUrl%>/static/lib/bower_components/bootstrap-fileinput/js/locales/zh.js"  type="text/javascript"></script>
+<script src="<%=baseUrl%>/static/common/admin/js/banner_image_upload.js"  type="text/javascript"></script>
 <script type="text/javascript">
    UM.getEditor('container');
 </script>
