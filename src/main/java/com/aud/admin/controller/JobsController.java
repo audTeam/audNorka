@@ -1,5 +1,6 @@
 package com.aud.admin.controller;
 
+import java.util.Date;
 import java.util.Locale;
 
 
@@ -58,6 +59,7 @@ public class JobsController {
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public String create(Job job, @PathVariable("categoryId") int categoryId, Locale locale){
 		job.setCategoryId(categoryId);
+		job.setCreatedAt(new Date());
 		job.setLang(locale.getLanguage());
 		this.jobMapper.insertSelective(job);
 		return "redirect:/admin/categories/"+categoryId+"/jobs";

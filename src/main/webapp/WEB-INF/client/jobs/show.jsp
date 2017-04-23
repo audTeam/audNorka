@@ -21,9 +21,9 @@
     <div class="row">
         <div class="col-xs-12"><h4>OPEN POSITIONS</h4></div>
         <ul class="col-xs-3">
-          <li><a href="#">Architect</a></li>
-          <li><a href="#">Architect</a></li>
-          <li><a href="#">Architect</a></li>
+          <c:forEach var="jobCategory" items="${jobCategories }">
+            <li><a href="<%=baseUrl%>/client/jobs?id=${jobCategory.id}">${jobCategory.name}</a></li>
+          </c:forEach>
         </ul>
     </div>
 </div>
@@ -36,13 +36,11 @@
         <li>Description</li>
     </ul>
     <ul class="content">
-        <li>17-0101</li>
-        <li>3/17/2017</li>
-        <li>Architect</li>
-        <li>Shanghai</li>
-        <li><span>Role & Responsibilites</span><p>To work directly with clients from initial work directly with clients from initial</p></li>
-        <li><span>Role & Responsibilites</span><p>To work directly with clients from initial work directly with clients from initial</p></li>
-        <li class="content-footer"><span style="color: #ca3726">Apply</span> by sending your CV and Portfolio to <a href="#">tingting.ni@audinc.com</a><p>Or Send This Job to a Friend</p></li>
+        <li>${currentJob.jobNumber }</li>
+        <li>${currentJob.createdAt }</li>
+        <li>${currentJob.position }</li>
+        <li>${currentJob.location }/${currentJob.location }</li>
+        <li>${currentJob.description }</li>
     </ul>
 </div>
 <jsp:include page="../shared/_footer.jsp"></jsp:include>

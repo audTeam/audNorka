@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <% String baseUrl = request.getContextPath(); %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <!DOCTYPE html>
 <html>
@@ -28,13 +30,12 @@
         <div class="row part-two">
             <div class="col-xs-12 open"><h4>Open position</h4></div>
             <ul class="col-xs-3">
-                <li><a href="#">Architect</a></li>
-                <li><a href="#">Architect</a></li>
-                <li><a href="#">Architect</a></li>
+              <c:forEach var="jobCategory" items="${jobCategories}">
+                <li><a href="<%=baseUrl%>/client/jobs?id=${jobCategory.id}">${jobCategory.name}</a></li>
+              </c:forEach>
             </ul>
             <div class="col-xs-9">
-                <div class="position-detail">ffffffffffffffffffffffffffffffffffff</div>
-                <div class="position-detail">ffffffffffffffffffffffffffffffffffff</div>
+                <div class="position-detail">${currentCategory.content }</div>
                 <div class="row position-title">
                     <p class="col-xs-2 position">Date</p>
                     <p class="col-xs-2 position">Position</p>
@@ -43,34 +44,17 @@
                     <p class="col-xs-3 position">Location</p>
                 </div>
                 <div class="row position-content">
-                    <a href="#">
-                    <p class="col-xs-2 position">17/04/2017</p>
-                    <p class="col-xs-2 position">Architect</p>
-                    <p class="col-xs-2 position">Architect</p>
-                    <p class="col-xs-2 position">Shanghai</p>
-                    <p class="col-xs-3 position">dsddsffgdgdgdgdg</p>
+                  <c:forEach var="job" items="${currentJobs}">
+                    <a href="<%=baseUrl%>/client/jobs/jobDetail?id=${job.id}">
+                    <p class="col-xs-2 position">
+                      <fmt:formatDate value="${job.createdAt }" pattern="yyyy-M-d"/>
+                    </p>
+                    <p class="col-xs-2 position">${job.position }</p>
+                    <p class="col-xs-2 position">${job.department }</p>
+                    <p class="col-xs-2 position">${job.location }</p>
+                    <p class="col-xs-3 position">${job.locationDetail }</p>
                     </a>
-                    <a href="#">
-                    <p class="col-xs-2 position">17/04/2017</p>
-                    <p class="col-xs-2 position">Architect</p>
-                    <p class="col-xs-2 position">Architect</p>
-                    <p class="col-xs-2 position">Shanghai</p>
-                    <p class="col-xs-3 position">dsddsffgdgdgdgdg</p>
-                    </a>
-                    <a href="#">
-                    <p class="col-xs-2 position">17/04/2017</p>
-                    <p class="col-xs-2 position">Architect</p>
-                    <p class="col-xs-2 position">Architect</p>
-                    <p class="col-xs-2 position">Shanghai</p>
-                    <p class="col-xs-3 position">dsddsffgdgdgdgdg</p>
-                    </a>
-                    <a href="#">
-                    <p class="col-xs-2 position">17/04/2017</p>
-                    <p class="col-xs-2 position">Architect</p>
-                    <p class="col-xs-2 position">Architect</p>
-                    <p class="col-xs-2 position">Shanghai</p>
-                    <p class="col-xs-3 position">dsddsffgdgdgdgdg</p>
-                    </a>
+                  </c:forEach>
                 </div>
                 <div class="col-xs-12"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/sites/left.png"></a>　<a href="#"><img src="<%=baseUrl%>/static/common/client/images/sites/right.png"></a></div>
             </div>
