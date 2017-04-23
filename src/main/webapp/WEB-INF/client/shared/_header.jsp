@@ -10,12 +10,60 @@
       <div class="col-xs-12">
         <nav class="navbar navbar-default nav_one" role="navigation">
           <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#topBar" aria-expanded="false">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="modal" data-target=".bs-example-modal-sm" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+                    <div class="modal bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                      <div class="modal-dialog modal-sm" role="document">
+                        <div class="modal-content">
+                         <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <img src="<%=baseUrl%>/static/common/client/images/sites/Group_65.png" class="phone-brand">
+                          </div>
+                          <div class="modal-body">
+                            <ul class="firstNav">
+                                <li><a href="<%=baseUrl%>">HOME</a></li>
+                                <li>
+                                    <a href="<%=baseUrl%>/client/projects">PROJECTS</a>
+                                    <ul class="secondNav">
+                                        <li><a href="#">Urban Design</a></li>
+                                        <li><a href="#">Architecture</a></li>
+                                        <li>
+                                            <ul class="thirdNav">
+                                                <li><a href="#">Urban Complex</a></li>
+                                                <li><a href="#">High Rise</a></li>
+                                                <li><a href="#">Lifestyle</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">Interior</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="<%=baseUrl%>/client/aboutUs">ABOUT US</a>
+                                    <ul class="secondNav">
+                                        <li><a href="#">Company Profile</a></li>
+                                        <li><a href="#">Our People</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="<%=baseUrl%>/client/news">NEWS</a></li>
+                                <li><a href="<%=baseUrl%>/client/jobs">CAREER</a></li>
+                                <li><a href="<%=baseUrl%>/client/aboutUs/contactUs">CONTACT</a></li>
+                                <li style="border-color: #000;">
+                                    <form class="search-form">
+                                        <div class="search-input clearfix">
+                                            <label class="pull-left"><span class="glyphicon glyphicon-search2"></span></label>
+                                            <input type="text" class="form-control pull-left" id="inputText" placeholder="Search AUD">
+                                        </div>
+                                    </form>
+                                </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
             <a class="navbar-brand" href="<%=baseUrl%>"><img alt="Brand" src="<%=baseUrl%>/static/common/client/images/sites/Group_65.png"></a>
           </div>
           <div id="" class="collapse navbar-collapse" >

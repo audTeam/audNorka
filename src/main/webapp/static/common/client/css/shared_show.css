@@ -32,10 +32,10 @@ footer{
     padding-top: 50px;
 }
 .footer-text .footer-pic {
-    left:42% !important;
+    left:47% !important;
 }
 .navbar-brand{
-    margin-left: 13%;
+    margin-left: 6%;
 }
 }
 @media screen and (min-width: 767px) {
@@ -232,7 +232,7 @@ footer .footer-text{
 /*ÐÞ¸Ä*/
 
 @font-face { 
-	font-family: Helvetica Neue Light; 
+	font-family: HelveticaNeueLight; 
 	src: url('/audNorka/static/common/client/Fonts/Helvetica Neue.ttf'); 
 } 
 .navbar-default{
@@ -244,7 +244,7 @@ footer .footer-text{
 }
 
 *{
-    font-family: "Helvetica Neue Light";
+    font-family: "HelveticaNeueLight";
 }
 .glyphicon-search:before{
     content: url("/audNorka/static/common/client/images/sites/Path_35.png") !important;
@@ -253,11 +253,11 @@ footer .footer-text{
 h1,h2,h3,h4,h5,h6{
     margin: 0;
     padding: 0;
-    font-family: "Helvetica Neue Light";
+    font-family: "HelveticaNeueLight";
 }
 h5,h6{
     font-weight: 100;
-    font-family: "Helvetica Neue Light";
+    font-family: "HelveticaNeueLight";
 }
 h5{
     margin-top: 10px;

@@ -1,0 +1,105 @@
+@media screen and (max-width: 767px){
+         .modal-content{
+            border: none;
+            border-radius: 0;
+            height: 100%;
+            background-color:#ca3726; 
+
+         }
+         .modal-dialog{
+            margin: 0;
+            height: 100%;
+         }
+         .close{
+            float: left;
+            color: #fff;
+            opacity: 1;
+         }
+         .phone-brand{
+            position: relative;
+            top:-24px;
+            left: 42px;
+         }
+         .modal-header{
+            border-bottom: none;
+         }
+         .modal-body{
+            padding-left: 35px;
+         }
+         .firstNav{
+            padding-left: 0;
+
+         }
+         .firstNav>li{
+            padding-bottom: 5px;
+            padding-top: 5PX;
+            border-bottom: 1px solid #a1a1a1;
+         }
+         .firstNav>li>a{
+            color: #fff;
+            font-size: 15px;
+         }
+         .secondNav{
+            padding-left:20px;
+            
+         }
+         .secondNav>li>a{
+            color: #a1a1a1;
+            font-size: 14px;
+         }
+         .thirdNav>li>a{
+            color: #000;
+            font-size: 13px;
+         }
+
+         .glyphicon-search2:before{
+            content: url("/audNorka/static/common/client/images/sites/search icon.png") !important;
+        }
+        .search-form{
+            position: static;
+            width: 300px;
+            right:0;
+            top:4px;
+        }
+        .search-input{
+            width: 300px;
+        }
+        .search-input input{
+            height: 18px;
+            width: 130px;
+            line-height:20px;
+            background-color: rgba(255,255,255,0);
+            position: relative;
+            top:12px;
+            border-color: #ca3726;
+            color: #FFF;
+        }
+
+       .search-input input::-webkit-input-placeholder { /* WebKit browsers */ 
+        color: #000; 
+        font-size: 15px;
+        } 
+        .search-input label{
+            margin: 0;
+            padding-top: 4px;
+            padding-left: 0;
+            position: relative;
+            top: 4px;
+        }
+        .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover{
+            background-color:transparent; 
+        }
+        li>a:focus,li>a:hover{
+        	text-decoration: none;
+        }
+        
+        .navbar-header:after{
+        	content:url("/audNorka/static/common/client/images/sites/stripline-1.png");
+        	position:absolute;
+        	top:66px;
+        	left:80px;
+        	z-index:1000;
+        }
+        
+
+}
