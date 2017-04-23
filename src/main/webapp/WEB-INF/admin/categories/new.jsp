@@ -40,7 +40,7 @@
           <div class="row">
             <div class="col-md-8">
               <c:import url="_form.jsp">
-                <c:param name="actionUrl" value="${pageContext.request.contextPath }/admin/jobCategories" />
+                <c:param name="actionUrl" value="${pageContext.request.contextPath }/admin/categories" />
               </c:import>
             </div>
           </div>

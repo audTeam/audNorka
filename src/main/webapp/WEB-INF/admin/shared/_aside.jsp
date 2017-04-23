@@ -99,13 +99,12 @@
           <span>新闻动态</span>
         </a>
       </li>
-      <li <c:if test="${fn:contains(currentUrl, 'categories')}">class="active"</c:if> >
+      <li <c:if test="${fn:contains(currentUrl, 'categories')||fn:contains(currentUrl, 'jobs')}">class="active"</c:if> >
         <a href="<%=baseUrl%>/admin/categories">
           <i class="fa fa-newspaper-o" aria-hidden="true"></i>
           <span>招聘分类</span>
         </a>
       </li>
-      <li <c:if test="${fn:contains(currentUrl, 'jobs')}">class="active"</c:if>><a href="<%=baseUrl%>/admin/jobs"><i class="fa fa-search" aria-hidden="true"></i><span>招聘信息</span></a></li>
       <li <c:if test="${fn:contains(currentUrl, 'historyIntroduce')||fn:contains(currentUrl, 'cooperations')}">class="active"</c:if>><a href="<%=baseUrl%>/admin/aboutUs/historyIntroduce"><i class="fa fa-link"></i><span>公司基本信息</span></a></li>
 
       <!-- <c:if test="${fn:contains(currentUrl, 'historyIntroduce')==true}">

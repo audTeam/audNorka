@@ -25,37 +25,37 @@ public class JobCategoriesController {
 
 	@RequestMapping(value = "/new", method = RequestMethod.GET)
 	public String newPage(ModelMap model) {
-		return "admin/jobCategories/new";
+		return "admin/categories/new";
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String index(ModelMap model, Locale locale) {
 		model.addAttribute("jobCategories", this.jobCategoryMapper.all(locale.getLanguage()));
-		return "admin/jobCategories/index";
+		return "admin/categories/index";
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public String create(JobCategory jobCategory, Locale locale){
 		jobCategory.setLang(locale.getLanguage());
 		this.jobCategoryMapper.insertSelective(jobCategory);
-		return "redirect:/admin/jobCategories";
+		return "redirect:/admin/categories";
 	}
 	
 	@RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
 	public String edit(@PathVariable("id") int id, ModelMap model) {
 		model.addAttribute("jobCategory", this.jobCategoryMapper.selectByPrimaryKey(id));
-		return "admin/jobCategories/edit";
+		return "admin/categories/edit";
 	}
 	
 	@RequestMapping(value = "/{id}/update", method = RequestMethod.POST)
 	public String update(@PathVariable("id") int id, JobCategory jobCategory, ModelMap model){
 		this.jobCategoryMapper.updateByPrimaryKeySelective(jobCategory);
-		return "redirect:/admin/jobCategories";
+		return "redirect:/admin/categories";
 	}
-	
+
 	@RequestMapping(value = "/{id}/delete", method = RequestMethod.POST)
 	public String delete(@PathVariable("id") int id) {
 		this.jobCategoryMapper.deleteByPrimaryKey(id);
-		return "redirect:/admin/jobCategories";
+		return "redirect:/admin/categories";
 	}
 }

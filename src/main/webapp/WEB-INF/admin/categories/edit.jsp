@@ -41,7 +41,7 @@
           <div class="row">
             <div class="col-md-8">
               <c:import url="_form.jsp">
-                <c:param name="actionUrl" value="${pageContext.request.contextPath}/admin/jobCategories/${jobCategory.id}/update"></c:param>
+                <c:param name="actionUrl" value="${pageContext.request.contextPath}/admin/categories/${jobCategory.id}/update"></c:param>
                 <c:param name="method" value="PATCH"></c:param>
               </c:import>
             </div>

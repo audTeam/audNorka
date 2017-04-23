@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50624
 File Encoding         : 65001
 
-Date: 2017-04-22 10:24:55
+Date: 2017-04-23 21:33:54
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -45,6 +45,15 @@ CREATE TABLE `cooperations` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
+-- Table structure for demos
+-- ----------------------------
+DROP TABLE IF EXISTS `demos`;
+CREATE TABLE `demos` (
+  `nage` varchar(255) DEFAULT NULL,
+  `age` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
 -- Table structure for history_introduces
 -- ----------------------------
 DROP TABLE IF EXISTS `history_introduces`;
@@ -57,6 +66,7 @@ CREATE TABLE `history_introduces` (
   `service_head_img` varchar(255) DEFAULT NULL,
   `service_content` varchar(6000) DEFAULT NULL,
   `lang` varchar(255) DEFAULT NULL,
+  `job_head_img` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
@@ -77,14 +87,32 @@ CREATE TABLE `images` (
 DROP TABLE IF EXISTS `jobs`;
 CREATE TABLE `jobs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
+  `created_at` date DEFAULT NULL,
+  `updated_at` date DEFAULT NULL,
   `content` text,
-  `title` varchar(255) DEFAULT NULL,
-  `img_url` varchar(255) DEFAULT NULL,
+  `position` varchar(255) DEFAULT NULL,
+  `department` varchar(255) DEFAULT NULL,
+  `location` varchar(255) DEFAULT NULL,
+  `description` text,
+  `location_detail` varchar(255) DEFAULT NULL,
+  `job_number` int(11) DEFAULT NULL,
   `lang` varchar(255) DEFAULT NULL,
+  `category_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for job_categories
+-- ----------------------------
+DROP TABLE IF EXISTS `job_categories`;
+CREATE TABLE `job_categories` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `created_at` varchar(255) DEFAULT NULL,
+  `content` text,
+  `lang` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for leave_messages
@@ -92,15 +120,19 @@ CREATE TABLE `jobs` (
 DROP TABLE IF EXISTS `leave_messages`;
 CREATE TABLE `leave_messages` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
+  `first_name` varchar(255) DEFAULT NULL,
   `message` varchar(2000) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `created_at` datetime(6) DEFAULT NULL,
   `is_read` varchar(1) DEFAULT NULL,
   `phone_number` varchar(15) DEFAULT NULL,
   `lang` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `country` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for logs
@@ -114,7 +146,7 @@ CREATE TABLE `logs` (
   `method_name` varchar(255) DEFAULT NULL,
   `create_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=929 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1086 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for navmenus

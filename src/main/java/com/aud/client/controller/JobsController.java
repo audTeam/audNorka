@@ -33,9 +33,9 @@ public class JobsController extends BaseController{
 			model.addAttribute("currentCategory", this.jobCategoryMapper.selectByPrimaryKey(id));
 			model.addAttribute("currentJobs", this.jobMapper.selectByCategoryId(id, locale.getLanguage()));
 		}else{
-			if(jobCategories!=null){
-				model.addAttribute("currentCategory", this.jobCategoryMapper.all(locale.getLanguage()).get(0));
-				int categoryId = this.jobCategoryMapper.all(locale.getLanguage()).get(0).getId();
+			if(jobCategories!=null&&jobCategories.size()>0){
+				model.addAttribute("currentCategory", jobCategories.get(0));
+				int categoryId = jobCategories.get(0).getId();
 				model.addAttribute("currentJobs", this.jobMapper.selectByCategoryId(categoryId, locale.getLanguage()));
 			}else{
 				model.addAttribute("currentCategory", new JobCategory());
