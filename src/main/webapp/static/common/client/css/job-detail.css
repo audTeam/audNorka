@@ -1,0 +1,55 @@
+.part-one{
+    padding-left: 155px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #ca3726;
+
+}
+.brand-pic{
+    width: 155px;
+    height: 25px;
+    background: url("/audNorka/static/common/client/images/sites/stripline2.png") no-repeat 0 5px;
+}
+.part-one a{
+    color: #5f5d5d;
+    text-decoration: none;
+}
+.part-one a:hover{
+    color: #a1a1a1;
+    text-decoration: none;
+}
+.part-one h4{
+    color:#ca3726;
+    font-weight: bold;
+    padding-bottom: 20PX;
+}
+
+footer .footer-text{
+    top:0;
+}
+*{
+    color: #5f5d5d;
+}
+.part-two{
+    padding-top: 30px;
+}
+.title,.content{
+    float: left;
+    font-weight: bold;
+}
+.title li{
+    color: #ca3726;
+}
+.content li p{
+    font-weight: 100;
+    margin-bottom: 15px;
+    word-wrap: break-word;
+}
+.content li.content-footer{
+    font-weight: 100;
+    padding-top: 50px;
+    padding-bottom: 30px;
+}
+.content li.content-footer p{
+    font-weight: bold;
+}

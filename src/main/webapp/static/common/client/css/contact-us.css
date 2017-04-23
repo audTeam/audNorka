@@ -90,3 +90,9 @@ footer .footer-text{
             color: #fff;
         }
          #allmap{height: 230px;overflow: hidden;margin:0;}
+.contact-color{
+	color:#ca3726
+}
+.contact-pic{
+	display:block
+}
