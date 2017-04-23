@@ -10,9 +10,10 @@
     <result column="service_head_img" property="serviceHeadImg" jdbcType="VARCHAR" />
     <result column="service_content" property="serviceContent" jdbcType="VARCHAR" />
     <result column="lang" property="lang" jdbcType="VARCHAR" />
+    <result column="job_head_img" property="jobHeadImg" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, company_history, cooperation_company, video, head_img, service_head_img, service_content, lang
+    id, company_history, cooperation_company, video, head_img, service_head_img, service_content, lang, job_head_img
   </sql>
 
   <select id="all" resultMap="BaseResultMap" parameterType="java.lang.String">
@@ -63,6 +64,9 @@
       <if test="lang != null" >
         lang,
       </if>
+      <if test="jobHeadImg != null" >
+        job_head_img,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -89,6 +93,9 @@
       <if test="lang != null" >
         #{lang,jdbcType=VARCHAR},
       </if>
+      <if test="jobHeadImg != null" >
+        #{jobHeadImg,jdbcType=VARCHAR},
+      </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.aud.pojo.HistoryIntroduce" >
@@ -114,6 +121,9 @@
       </if>
       <if test="lang != null" >
         lang = #{lang,jdbcType=VARCHAR},
+      </if>
+      <if test="jobHeadImg != null" >
+        job_head_img = #{jobHeadImg,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}

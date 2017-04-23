@@ -47,6 +47,23 @@
 				    <p class="help-block">请上传优酷视频链接</p>
 				  </div>
 				</div>
+			  <c:if test="${historyIntroduce.jobHeadImg != null}">
+			  <div class="form-group">
+			    <label class="col-md-2 control-label">招聘页面图片</label>
+			    <div class="col-md-10">
+			      <img alt="banner图片" class="img-responsive" src="<%=application.getInitParameter("imageServer")%>/${historyIntroduce.jobHeadImg}">
+			    </div>
+			  </div>
+			  </c:if>
+			  <div class="form-group">
+			    <label class="col-md-2 control-label">图片文件</label>
+			    <div id="uploadFileDiv" class="col-md-10">
+			      <input id="pdFile" name="jobPic" type="file">
+			      <div id="fileError" class="help-block"></div>
+			      <!-- <p class="help-block">支持jpg、jpeg、png、gif格式，大小不超过2.0M，宽x高:980x524</p> -->
+			      <br />
+			    </div>
+			  </div>
 				<div class="form-group">
 				  <label class="col-md-2 control-label">公司历程</label>
 				  <div class="col-md-10">

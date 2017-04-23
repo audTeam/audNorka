@@ -16,7 +16,16 @@ public class HistoryIntroduce {
     private String serviceContent;
     
     private String lang;
+
+    private String jobHeadImg;
     
+    public String getJobHeadImg() {
+		return jobHeadImg;
+	}
+
+	public void setJobHeadImg(String jobHeadImg) {
+		this.jobHeadImg = jobHeadImg;
+	}
     @Override
 	public String toString() {
 		return "HistoryIntroduce [id=" + id + ", companyHistory=" + companyHistory + ", cooperationCompany="

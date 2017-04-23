@@ -24,7 +24,7 @@
     <div class="main container-fluid">
         <div class="row">
             <div class="col-xs-12">
-                <img src="<%=baseUrl%>/static/common/client/images/sites/cs1.jpg" class="img-responsive">
+                <img src="<%= application.getInitParameter("imageServer")%>/${historyIntroduce.jobHeadImg}" class="img-responsive">
             </div>
         </div>
         <div class="row part-two">

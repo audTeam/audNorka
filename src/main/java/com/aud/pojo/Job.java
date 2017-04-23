@@ -27,7 +27,7 @@ public class Job {
 
     private String content;
 
-    public Integer getId() {
+	public Integer getId() {
         return id;
     }
 

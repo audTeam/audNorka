@@ -42,6 +42,7 @@ public class AboutUsController {
 			historyIntroduce.setHeadImg("");
 			historyIntroduce.setServiceContent("");
 			historyIntroduce.setServiceHeadImg("");
+			historyIntroduce.setJobHeadImg("");
 			historyIntroduce.setLang(locale.getLanguage());
 			historyIntroduceMapper.insertSelective(historyIntroduce);
 			model.addAttribute("historyIntroduce", new HistoryIntroduce());
@@ -51,11 +52,11 @@ public class AboutUsController {
 	}
 
 	@RequestMapping(value = "/historyIntroduce/update", method = RequestMethod.POST)
-	public String update(HistoryIntroduce historyIntroduce, HttpServletRequest request, Locale locale){
-		/*if(file!=null&&!file.isEmpty()){
-			historyIntroduce.setHeadImg(imageService.uploadFile(file));	
+	public String update(HistoryIntroduce historyIntroduce, MultipartFile jobPic, HttpServletRequest request, Locale locale){
+		if(jobPic!=null&&!jobPic.isEmpty()){
+			historyIntroduce.setJobHeadImg(imageService.uploadFile(jobPic));	
 		}
-		if(file!=null&&!serviceFile.isEmpty()){
+		/*if(file!=null&&!serviceFile.isEmpty()){
 			historyIntroduce.setServiceHeadImg(imageService.uploadFile(serviceFile));
 		}
 		*/

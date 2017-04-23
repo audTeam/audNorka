@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.aud.mapper.HistoryIntroduceMapper;
 import com.aud.mapper.JobCategoryMapper;
 import com.aud.mapper.JobMapper;
+import com.aud.pojo.HistoryIntroduce;
 import com.aud.pojo.JobCategory;
 
 @Controller
@@ -21,6 +23,8 @@ public class JobsController extends BaseController{
 	private JobMapper jobMapper;
 	@Autowired
 	private JobCategoryMapper jobCategoryMapper;
+	@Autowired
+	private HistoryIntroduceMapper historyIntroduceMapper;
 
 	@RequestMapping(value="", method=RequestMethod.GET)
 	public String index(ModelMap model, Locale locale, @RequestParam(value="id", required=false) Integer id){
@@ -37,6 +41,12 @@ public class JobsController extends BaseController{
 				model.addAttribute("currentCategory", new JobCategory());
 				model.addAttribute("currentJobs", null);
 			}
+		}
+		List<HistoryIntroduce> all = this.historyIntroduceMapper.all(locale.getLanguage());
+		if(all!=null){
+			model.addAttribute("historyIntroduce", all.get(0));
+		}else{
+			model.addAttribute("historyIntroduce", new HistoryIntroduce());
 		}
 		model.addAttribute("jobCategories", jobCategories);
 		return "client/jobs/index";

@@ -14,6 +14,12 @@
     </div>
   </div>
   <div class="form-group">
+    <label class="col-md-4 control-label">部门</label>
+    <div class="col-md-8">
+      <input type="text" name="department" value="${job.department}" class="form-control">
+    </div>
+  </div>
+  <div class="form-group">
     <label class="col-md-4 control-label">招聘人数</label>
     <div class="col-md-8">
       <input type="text" name="jobNumber" value="${job.jobNumber}" class="form-control">
