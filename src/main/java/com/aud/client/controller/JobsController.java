@@ -43,7 +43,7 @@ public class JobsController extends BaseController{
 			}
 		}
 		List<HistoryIntroduce> all = this.historyIntroduceMapper.all(locale.getLanguage());
-		if(all!=null){
+		if(all!=null&&all.size()>0){
 			model.addAttribute("historyIntroduce", all.get(0));
 		}else{
 			model.addAttribute("historyIntroduce", new HistoryIntroduce());
