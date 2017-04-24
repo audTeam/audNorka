@@ -9,20 +9,20 @@
     <input type="hidden" name="id" value="${user.id}">
   </c:if>
   <div class="form-group">
-    <label class="control-label col-md-3">用户名</label>
-    <div class="col-md-6">
+    <label class="control-label col-md-2">用户名</label>
+    <div class="col-md-9">
       <input type="text" class="form-control" name="name" value="${user.name}">
     </div>
   </div>
   <div class="form-group">
-    <label class="control-label col-md-3">密码</label>
-    <div class="col-md-6">
+    <label class="control-label col-md-2">密码</label>
+    <div class="col-md-9">
       <input type="text" class="form-control" name="password" value="">
     </div>
   </div>
   <div class="form-group">
-    <label class="control-label col-md-3">是否为超级用户</label>
-    <div class="col-md-6">
+    <label class="control-label col-md-2">是否为超级用户</label>
+    <div class="col-md-9">
       <select class="form-control" name="root">
         <option value="Y" ${user.root == 'Y'? 'selected' : ''}>是</option>
         <option value="N" ${user.root == 'N'? 'selected' : ''}>否</option>

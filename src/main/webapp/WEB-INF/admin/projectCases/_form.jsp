@@ -9,15 +9,15 @@
     <input type="hidden" name="id" value="${navMenu.id}">
   </c:if>
   <div class="form-group">
-    <label class="col-md-3 control-label">案例分组名称</label>
+    <label class="col-md-2 control-label">案例分组名称</label>
     <div class="col-md-9">
       <input class="form-control" type="text" name="name" value="${navMenu.name}">
     </div>
   </div>
   <div class="form-group">
     <div class="row">
-      <div class="col-md-12">
-        <button type="submit" class="btn btn-info col-md-offset-6">提交</button>
+      <div class="col-md-4 col-md-offset-5">
+        <button type="submit" class="btn btn-info">提交</button>
       </div>
     </div>
   </div>

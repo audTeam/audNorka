@@ -39,7 +39,7 @@
       <div class="box">
         <div class="box-body">
           <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
               <c:import url="_form.jsp">
                 <c:param name="actionUrl" value="${pageContext.request.contextPath}/admin/banners/${banner.id}/update"></c:param>
                 <c:param name="method" value="PATCH"></c:param>

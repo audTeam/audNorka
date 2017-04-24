@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.aud.mapper.BannerMapper;
 import com.aud.mapper.ImageMapper;
@@ -40,6 +41,33 @@ public class ProjectsController extends BaseController {
 	@Autowired
     private BannerMapper bannerMapper;
 
+	@RequestMapping(value="loadMore", method=RequestMethod.GET)
+	@ResponseBody
+	public Object loadMore(@RequestParam(value="pageNo", required=false, defaultValue="1") Integer pageNo,
+			@RequestParam(value="pageSize", required=false, defaultValue="12") Integer pageSize,
+			Locale locale){
+		List<Map<String, Object>> collection = new ArrayList<Map<String, Object>>();
+		
+		PageHelper.startPage(pageNo, pageSize);
+		List<Project> list = this.projectMapper.all(locale.getLanguage());
+		PageInfo<Project> page = new PageInfo<Project>(list);
+
+		Iterator<Project> iter = page.getList().iterator();
+		while(iter.hasNext()){
+			Project project = iter.next();
+			Map<String, Object> item = new HashMap<>();
+			item.put("project", project);
+			item.put("images", this.imageMapper.selectByResourceId(project.getId()));
+			collection.add(item);
+		}
+		
+		Map<String, Object> result = new HashMap<>();
+		result.put("collection", collection);
+		result.put("page", page);
+		
+		return result;
+	}
+	
 	@RequestMapping(value="", method=RequestMethod.GET)
 	public String index(ModelMap model,
 			@RequestParam(value="pageNo", required=false, defaultValue="1") Integer pageNo,

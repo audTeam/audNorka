@@ -8,15 +8,15 @@
     <input type="hidden" name="id" value="${jobCategory.id}">
   </c:if>
   <div class="form-group">
-    <label class="col-md-4 control-label">分类名称</label>
-    <div class="col-md-8">
+    <label class="col-md-2 control-label">分类名称</label>
+    <div class="col-md-9">
       <input type="text" name="name" value="${jobCategory.name}" class="form-control">
     </div>
   </div>
  <div class="form-group">
-    <label class="col-md-4 control-label">分类简介</label>
-    <div class="col-md-8">
-      <script id="container" type="text/plain" name="content" style="height:500px">${jobCategory.content}</script> 
+    <label class="col-md-2 control-label">分类简介</label>
+    <div class="col-md-9">
+      <script id="container" type="text/plain" name="content" style="height:500px; width: 100%;">${jobCategory.content}</script> 
     </div>
   </div>
   <div class="row">

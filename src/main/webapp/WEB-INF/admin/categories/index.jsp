@@ -50,6 +50,7 @@
         <div class="box-body">
           <div class="row">
             <div class="col-md-12 text-right">
+              <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">头图管理</button>
               <a class="btn btn-default" href="<%=baseUrl%>/admin/categories/new">新增</a>
             </div>
           </div>
@@ -92,7 +93,46 @@
 <!-- ./wrapper -->
 
 <!-- REQUIRED JS SCRIPTS -->
-
+<!-- Button trigger modal -->
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+		<form class="form-horizontal" method="post" action="<%=baseUrl%>/admin/categories/headImg/update" id="uploadForm" enctype="multipart/form-data">
+          <c:if test="${historyIntroduce.jobHeadImg != null}">
+          <div class="form-group">
+			<label class="col-md-2 control-label">招聘页面图片</label>
+			    <div class="col-md-10">
+			      <img alt="banner图片" class="img-responsive" src="<%=application.getInitParameter("imageServer")%>/${historyIntroduce.jobHeadImg}">
+			    </div>
+			  </div>
+			  </c:if>
+			  <div class="form-group">
+			    <label class="col-md-2 control-label">图片文件</label>
+			    <div id="uploadFileDiv" class="col-md-10">
+			      <input id="pdFile" name="jobPic" type="file">
+			      <div id="fileError" class="help-block"></div>
+			      <!-- <p class="help-block">支持jpg、jpeg、png、gif格式，大小不超过2.0M，宽x高:980x524</p> -->
+			      <br />
+			    </div>
+			  </div>
+              <div class="form-group">
+			    <div class="row">
+			      <div class="col-md-4 col-md-offset-4">
+			        <button class="btn btn-default" type="submit">提交</button>
+			      </div>
+			    </div>
+			  </div>
+		</form>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- jQuery 2.2.3 -->
 <script type="text/javascript" src="<%=baseUrl%>/static/lib/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.6 -->

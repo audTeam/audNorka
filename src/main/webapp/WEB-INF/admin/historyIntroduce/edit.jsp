@@ -42,43 +42,26 @@
               <form class="form-horizontal" method="post" action="${pageContext.request.contextPath}/admin/aboutUs/historyIntroduce/update" enctype="multipart/form-data">
 				<div class="form-group">
 				  <label class="col-md-2 control-label">宣传视频</label>
-				  <div class="col-md-10">
+				  <div class="col-md-9">
 				    <input name="video" type="text" class="form-control" value="${historyIntroduce.video}">
 				    <p class="help-block">请上传优酷视频链接</p>
 				  </div>
 				</div>
-			  <c:if test="${historyIntroduce.jobHeadImg != null}">
-			  <div class="form-group">
-			    <label class="col-md-2 control-label">招聘页面图片</label>
-			    <div class="col-md-10">
-			      <img alt="banner图片" class="img-responsive" src="<%=application.getInitParameter("imageServer")%>/${historyIntroduce.jobHeadImg}">
-			    </div>
-			  </div>
-			  </c:if>
-			  <div class="form-group">
-			    <label class="col-md-2 control-label">图片文件</label>
-			    <div id="uploadFileDiv" class="col-md-10">
-			      <input id="pdFile" name="jobPic" type="file">
-			      <div id="fileError" class="help-block"></div>
-			      <!-- <p class="help-block">支持jpg、jpeg、png、gif格式，大小不超过2.0M，宽x高:980x524</p> -->
-			      <br />
-			    </div>
-			  </div>
 				<div class="form-group">
 				  <label class="col-md-2 control-label">公司历程</label>
-				  <div class="col-md-10">
-				    <script id="container" name="companyHistory" type="text/plain" name="content" style="height:500px" style="height:500px" style="height:500px">${historyIntroduce.companyHistory}</script>
+				  <div class="col-md-9">
+				    <script id="container" name="companyHistory" type="text/plain" name="content" style="height:500px; width: 100%;">${historyIntroduce.companyHistory}</script>
 				  </div>
 				</div>
 				<div class="form-group">
 				  <label class="col-md-2 control-label">服务范围</label>
-				  <div class="col-md-10">
-				    <script id="serviceContainer" name="serviceContent" type="text/plain" name="serviceContent" style="height:500px" style="height:500px">${historyIntroduce.serviceContent}</script>
+				  <div class="col-md-9">
+				    <script id="serviceContainer" name="serviceContent" type="text/plain" name="serviceContent" style="height:500px; width: 100%;">${historyIntroduce.serviceContent}</script>
 				  </div>
 				</div>
 				<div class="form-group">
 				  <div class="row">
-				    <div class="col-md-6 col-md-offset-4">
+				    <div class="col-md-4 col-md-offset-5">
 				      <button class="btn btn-success" type="submit">提交</button>
 				    </div>
 				  </div>

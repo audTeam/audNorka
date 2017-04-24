@@ -38,7 +38,7 @@
       <div class="box">
         <div class="box-body">
           <div class="row">
-            <div class="col-md-10">
+            <div class="col-md-12">
               <c:import url="_form.jsp">
                 <c:param name="actionUrl" value="${pageContext.request.contextPath}/admin/teamMembers"></c:param>
               </c:import>

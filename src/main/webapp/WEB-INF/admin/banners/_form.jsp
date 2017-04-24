@@ -8,28 +8,28 @@
     <input type="hidden" name="id" value="${banner.id}">
   </c:if>
   <div class="form-group">
-    <label class="col-md-4 control-label">项目名称</label>
-    <div class="col-md-8">
+    <label class="col-md-2 control-label">项目名称</label>
+    <div class="col-md-9">
       <input type="text" name="name" value="${banner.name}" class="form-control">
     </div>
   </div>
  <div class="form-group">
-    <label class="col-md-4 control-label">项目地址</label>
-    <div class="col-md-8">
+    <label class="col-md-2 control-label">项目地址</label>
+    <div class="col-md-9">
       <input type="text" name="address" value="${banner.address}" class="form-control"> 
     </div>
   </div>
   <c:if test="${banner.imgUrl != null}">
   <div class="form-group">
-    <label class="col-md-4 control-label">图片</label>
-    <div class="col-md-8">
+    <label class="col-md-2 control-label">图片</label>
+    <div class="col-md-9">
       <img alt="banner图片" class="img-responsive" src="<%=imageServer%>/${banner.imgUrl}">
     </div>
   </div>
   </c:if>
   <div class="form-group">
-    <label class="col-md-4 control-label">图片文件</label>
-    <div id="uploadFileDiv" class="col-md-8">
+    <label class="col-md-2 control-label">图片文件</label>
+    <div id="uploadFileDiv" class="col-md-9">
       <input id="pdFile" name="file" type="file">
       <div id="fileError" class="help-block"></div>
       <p class="help-block">支持jpg、jpeg、png、gif格式，大小不超过2.0M，宽x高:980x524</p>
@@ -37,7 +37,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-4 col-md-offset-3">
+    <div class="col-md-4 col-md-offset-5">
       <button class="btn btn-info" type="submit">提交</button>
     </div>
   </div>

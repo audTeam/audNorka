@@ -18,6 +18,7 @@
 </head>
 <body>
     <jsp:include page="../shared/_header.jsp"></jsp:include>
+    <div id="base-url" data-base-url="<%=baseUrl%>" class="hidden"></div>
     <div class="main container-fluid">
         <div class="row">
             <div class="col-xs-12">
@@ -60,19 +61,21 @@
             </div>
         </div>
         <section class="part-one">
-            <div class="row all-case">
+            <div id="projectContainer" class="row all-case">
               <c:forEach var="item" items="${collection }">
                 <div class="col-sm-3">
                   <a href="<%=baseUrl%>/client/projects/${item.project.id}">
                     <img src="<%=application.getInitParameter("imageServer")%>/${item.images[0].imgUrl}" alt="pic" class="img-responsive">
                   </a><a href="<%=baseUrl%>/client/projects/${item.project.id}">
                   <h5>${item.project.name}</h5></a>
-                  <h6 class="address">${item.project.address}</h6></div>
-              </c:forEach>
-              <!-- 暂时注释 -->
-                <div class="col-sm-12 view_more hidden">
-                    <a href="#">查看更多</a>
+                  <h6 class="address">${item.project.address}</h6>
                 </div>
+              </c:forEach>
+            </div>
+            <div id="projectContainer" class="row all-case">
+              <div id="loadMoreButton" class="col-sm-12 view_more">
+                <span style="cursor:pointer;">查看更多</span>
+              </div>
             </div>
         </section>
     </div>
@@ -81,4 +84,5 @@
 <script type="text/javascript" src="<%=baseUrl%>/static/lib/bower_components/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="<%=baseUrl%>/static/lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<%=baseUrl%>/static/common/client/js/sites_show.js"></script>
+<script type="text/javascript" src="<%=baseUrl%>/static/common/client/js/projects_index.js"></script>
 </html>

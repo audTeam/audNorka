@@ -9,37 +9,37 @@
   </c:if>
   <div class="form-group">
     <label class="col-md-2 control-label">标题</label>
-    <div class="col-md-10">
+    <div class="col-md-9">
       <input type="text" name="title" value="${news.title}" class="form-control">
     </div>
   </div>
   <div class="form-group">
     <label class="col-md-2 control-label">新闻摘要</label>
-    <div class="col-md-10">
+    <div class="col-md-9">
       <input type="text" name="subTitle" value="${news.subTitle}" class="form-control">
     </div>
   </div>
   <div class="form-group">
     <label class="col-md-2 control-label">作者</label>
-    <div class="col-md-10">
+    <div class="col-md-9">
       <input type="text" name="author" value="${news.author}" class="form-control">
     </div>
   </div>
   <div class="form-group">
     <label class="col-md-2 control-label">标签</label>
-    <div class="col-md-10">
+    <div class="col-md-9">
       <input type="text" name="tags" value="${news.tags}" class="form-control">
       <span id="helpBlock2" class="help-block">添加标签，以英文分号分开</span>
     </div>
   </div>
   <div class="form-group">
     <label class="col-md-2 control-label">新闻内容</label>
-    <div class="col-md-10">
-      <script id="container" type="text/plain" name="content" style="height:500px">${news.content}</script>
+    <div class="col-md-9">
+      <script id="container" type="text/plain" name="content" style="height:500px; width: 100%;">${news.content}</script>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-4 col-md-offset-3">
+    <div class="col-md-4 col-md-offset-5">
       <button class="btn btn-info" type="submit">提交</button>
     </div>
   </div>

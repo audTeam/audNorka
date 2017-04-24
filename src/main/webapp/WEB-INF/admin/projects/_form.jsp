@@ -11,49 +11,49 @@
   <input type="hidden" name="navMenuId" value="${menu.id}">
   <div class="form-group">
     <label class="control-label col-md-2">案例名称</label>
-    <div class="col-md-10">
+    <div class="col-md-9">
       <input type="text" class="form-control" name="name" value="${project.name}">
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-md-2">项目地址</label>
-    <div class="col-md-10">
+    <div class="col-md-9">
       <input type="text" class="form-control" name="address" value="${project.address}">
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-md-2">client</label>
-    <div class="col-md-10">
+    <div class="col-md-9">
       <input type="text" class="form-control" name="client" value="${project.client}">
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-md-2">size</label>
-    <div class="col-md-10">
+    <div class="col-md-9">
       <input type="text" class="form-control" name="size" value="${project.size}">
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-md-2">location</label>
-    <div class="col-md-10">
+    <div class="col-md-9">
       <input type="text" class="form-control" name="location" value="${project.location}">
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-md-2">scope</label>
-    <div class="col-md-10">
+    <div class="col-md-9">
       <input type="text" class="form-control" name="scope" value="${project.scope}">
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-md-2">service</label>
-    <div class="col-md-10">
+    <div class="col-md-9">
       <input type="text" class="form-control" name="service" value="${project.service}">
     </div>
   </div>
   <div class="form-group">
     <label for="" class="col-md-2 control-label">项目图片</label>
-    <div class="col-md-10" id="imgUrls">
+    <div class="col-md-9" id="imgUrls">
       <input id="imgUrl" type="file" multiple class="file-loading form-control">
       <c:forEach var="image" items="${images}">
         <!-- <input type='hidden' name='imgUrls' class="imagePaths" data-image-id="${image.id }" data-image-path="${pageContext.request.contextPath}/${image.imgUrl}" value="${image.imgUrl}"> -->
@@ -64,13 +64,13 @@
   </div> 
   <div class="form-group">
     <label class="control-label col-md-2">内容</label>
-    <div class="col-md-10">
+    <div class="col-md-9">
       <script id="container" name="content" type="text/plain" name="content" style="height:500px">${project.content}</script>
     </div>
   </div>
   <div class="form-group">
     <div class="row">
-      <div class="col-md-4 col-md-offset-6">
+      <div class="col-md-4 col-md-offset-5">
         <button type="submit" class="btn btn-info">提交</button>
       </div>
     </div>

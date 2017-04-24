@@ -52,10 +52,7 @@ public class AboutUsController {
 	}
 
 	@RequestMapping(value = "/historyIntroduce/update", method = RequestMethod.POST)
-	public String update(HistoryIntroduce historyIntroduce, MultipartFile jobPic, HttpServletRequest request, Locale locale){
-		if(jobPic!=null&&!jobPic.isEmpty()){
-			historyIntroduce.setJobHeadImg(imageService.uploadFile(jobPic));	
-		}
+	public String update(HistoryIntroduce historyIntroduce, Locale locale){
 		/*if(file!=null&&!serviceFile.isEmpty()){
 			historyIntroduce.setServiceHeadImg(imageService.uploadFile(serviceFile));
 		}
