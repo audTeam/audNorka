@@ -109,7 +109,8 @@
                             <h6>${project.project.address}</h6>
                           </li>
                         </c:forEach>
-                        <li class="view_more"><a href="#">VIEW MORE</a></li>
+                        <!-- 暂时注释显示完所有数据 -->
+                        <li class="view_more hidden"><a href="#">VIEW MORE</a></li>
                     </ul>
                 </div>
             </div>

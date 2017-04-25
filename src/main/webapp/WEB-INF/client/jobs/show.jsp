@@ -2,7 +2,10 @@
     pageEncoding="utf-8"%>
 <% String baseUrl = request.getContextPath(); %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -38,7 +41,7 @@
     </ul>
     <ul class="content">
         <li>${currentJob.jobNumber }</li>
-        <li>${currentJob.createdAt }</li>
+        <li><fmt:formatDate value="${currentJob.createdAt }" pattern="yyyy-M-d"/></li>
         <li>${currentJob.position }</li>
         <li>${currentJob.location }/${currentJob.location }</li>
         <li>${currentJob.description }</li>

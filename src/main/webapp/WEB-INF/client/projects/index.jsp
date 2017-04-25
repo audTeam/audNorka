@@ -74,7 +74,9 @@
             </div>
             <div id="projectContainer" class="row all-case">
               <div id="loadMoreButton" class="col-sm-12 view_more">
-                <span style="cursor:pointer;">查看更多</span>
+                <c:if test="${pages.pages>1}">
+                  <span style="cursor:pointer;">查看更多</span>
+                </c:if>
               </div>
             </div>
         </section>

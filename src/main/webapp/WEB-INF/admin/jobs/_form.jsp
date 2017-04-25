@@ -14,6 +14,7 @@
     </div>
   </div>
   <div class="form-group">
+    <label class="col-md-2 control-label">部门</label>
     <div class="col-md-9">
       <input type="text" name="department" value="${job.department}" class="form-control">
     </div>

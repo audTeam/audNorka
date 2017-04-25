@@ -102,11 +102,11 @@ public class ProjectsController extends BaseController {
 
 		List<Map<String, Object>> collection = new ArrayList<Map<String, Object>>();
 
-		PageHelper.startPage(1, 6);
+		//PageHelper.startPage(1, 6);
 	    List<Project> list = this.projectMapper.getByNavMenuId(project.getNavMenuId(), locale.getLanguage());
-	    PageInfo<Project> page = new PageInfo<Project>(list);
+	    //PageInfo<Project> page = new PageInfo<Project>(list);
 
-		Iterator<Project> iter = page.getList().iterator();
+		Iterator<Project> iter = list.iterator();
 		while(iter.hasNext()){
 			project = iter.next();
 			Map<String, Object> item = new HashMap<>();

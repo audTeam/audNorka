@@ -58,7 +58,15 @@
                     </a>
                   </c:forEach>
                 </div>
-                <div class="col-xs-12"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/sites/left.png"></a>　<a href="#"><img src="<%=baseUrl%>/static/common/client/images/sites/right.png"></a></div>
+                <!-- 暂时取消分页处理 -->
+                <div class="col-xs-12 hidden">
+                  <a href="#">
+                    <img src="<%=baseUrl%>/static/common/client/images/sites/left.png">
+                  </a>
+                  <a href="#">
+                    <img src="<%=baseUrl%>/static/common/client/images/sites/right.png">
+                  </a>
+                </div>
             </div>
         </div>
     </div>

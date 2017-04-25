@@ -36,15 +36,19 @@
                     <li class="content-text">${historyIntroduce.companyHistory} </li>
                     <li class="content-text video">
                        ${historyIntroduce.video}
-                        <!-- <embed src="${historyIntroduce.video}" allowfullscreen="true" quality="high" width="100%" height="400" align="middle" allowscriptaccess="always" type="application/x-shockwave-flash"></embed> -->
                     </li>
                 </ul>
             </div>
             <div class="col-md-2 col-xs-12 col-xs-offset-1 col-md-offset-0 phone-company">
                 <ul class="company-service">
-                    <li class="title-text">Our Service</li>
-                    ${historyIntroduce.serviceContent }
+                    <li class="title-text">Our Service123${companyServices}</li>
                 </ul>
+                <c:forEach var="companyService" items="${companyServices}">
+                  <div>
+                    <img alt="" src="<%= application.getInitParameter("imageServer") %>/${companyService.imgUrl}" class="img-responsive">
+                    <p>${companyService.content}</p>
+                  </div>
+                </c:forEach>
             </div>
             <div class="col-md-2 col-xs-12 col-xs-offset-1 col-md-offset-1 phone-clients">
                 <ul class="clients">
