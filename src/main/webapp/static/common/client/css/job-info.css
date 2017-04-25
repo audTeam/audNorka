@@ -47,3 +47,28 @@ p{
 .career-pic{
 	display:block
 }
+.brand-pic{
+    width: 155px;
+    height: 25px;
+    background: url("/audNorka/static/common/client/images/sites/stripline-1.png") no-repeat 0 5px;
+}
+
+.phone-detail{
+	display:none;
+}
+
+
+@media screen and (max-width: 767px){
+	.part-two{
+		padding:15px;
+	}
+	.phone-position{
+		display:none;
+	}
+	.pc-detail{
+		display:none;
+	}
+	.phone-detail{
+	display:block;
+	}
+}

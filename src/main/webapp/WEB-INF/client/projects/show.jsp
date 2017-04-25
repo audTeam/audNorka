@@ -7,10 +7,11 @@
 <head>
 <meta charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=320,maximum-scale=1.3,user-scalable=no">
 <link rel="stylesheet" href="<%=baseUrl%>/static/lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/shared_show.css">
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/sites_show.css">
+<link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/phone.css">
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/project.css">
 <title>案例详情</title>
 <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -87,7 +88,7 @@
                     <ul class="team">
                         <li class="title-text">Team</li>
                         <c:forEach var="item" items="${teamMembercollection}">
-                          <li class="col-md-4 team-pic">
+                          <li class="col-md-4 col-xs-6 team-pic">
                             <a href="<%=baseUrl%>/client/teamMembers/${item.teamMember.id}">
                               <img src="<%=application.getInitParameter("imageServer")%>/${item.teamMember.imgUrl}" alt="pic" class="img-responsive">
                             </a>
@@ -96,7 +97,7 @@
                         </c:forEach>
                     </ul>
                 </div>
-                <div class="col-md-2 col-xs-12 col-xs-offset-1 col-md-offset-1">
+                <div class="col-md-2 col-xs-12 col-xs-offset-1 col-md-offset-1 similar-ul">
                     <ul class="similar">
                         <li class="title-text">Similar</li>
                         <c:forEach var="project" items="${collection}">

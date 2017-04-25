@@ -21,7 +21,7 @@
                         <div class="modal-content">
                          <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <img src="<%=baseUrl%>/static/common/client/images/sites/Group_65.png" class="phone-brand">
+                            <a href="<%=baseUrl%>"><img src="<%=baseUrl%>/static/common/client/images/sites/Group_65.png" class="phone-brand"></a>
                           </div>
                           <div class="modal-body">
                             <ul class="firstNav">
@@ -29,7 +29,15 @@
                                 <li>
                                     <a href="<%=baseUrl%>/client/projects">PROJECTS</a>
                                     <ul class="secondNav">
-                                        <li><a href="#">Urban Design</a></li>
+                                    	<c:forEach var="projectNavMenu" items="${projectNavMenus}">
+								          <li><a href="#">${projectNavMenu.secondNavMenu.name}</a>
+								            <ul class="thirdNav">
+								              <c:forEach var="thridNavMenu" items="${projectNavMenu.thridNavMenu }">
+								                <li><a href="<%=baseUrl%>/client/projects/${thridNavMenu.id}">${thridNavMenu.name}</a></li>
+								              </c:forEach>
+								            </ul></li>
+								        </c:forEach>
+                                        <!-- <li><a href="#">Urban Design</a></li>
                                         <li><a href="#">Architecture</a></li>
                                         <li>
                                             <ul class="thirdNav">
@@ -38,14 +46,14 @@
                                                 <li><a href="#">Lifestyle</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="#">Interior</a></li>
+                                        <li><a href="#">Interior</a></li> -->
                                     </ul>
                                 </li>
                                 <li>
                                     <a href="<%=baseUrl%>/client/aboutUs">ABOUT US</a>
                                     <ul class="secondNav">
-                                        <li><a href="#">Company Profile</a></li>
-                                        <li><a href="#">Our People</a></li>
+                                        <li><a href="<%=baseUrl%>/client/aboutUs">Company Profile</a></li>
+                                        <li><a href="<%=baseUrl%>/client/teamMembers">Our People</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="<%=baseUrl%>/client/news">NEWS</a></li>

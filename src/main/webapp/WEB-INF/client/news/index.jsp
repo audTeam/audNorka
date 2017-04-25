@@ -10,9 +10,10 @@
 <head>
 <meta charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=320,maximum-scale=1.3,user-scalable=no">
 <link rel="stylesheet" href="<%=baseUrl%>/static/lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/shared_show.css">
+<link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/phone.css">
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/news.css">
 <title>新闻动态</title>
 <!-- <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -39,12 +40,12 @@
         </div>
         <div class="col-md-3 col-md-offset-2">
             <ul class="col-md-12">
-                <li class="col-md-2 share-icon"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/sites//Messages icon.png"></a></li>
-                <li class="col-md-2 share-icon"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/sites//Messages icon.png"></a></li>
-                <li class="col-md-2 share-icon"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/sites//Messages icon.png"></a></li>
-                <li class="col-md-2 share-icon"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/sites//Messages icon.png"></a></li>
+                <li class="col-md-2 col-xs-2 share-icon"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/sites//Messages icon.png"></a></li>
+                <li class="col-md-2 col-xs-2 share-icon"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/sites//Messages icon.png"></a></li>
+                <li class="col-md-2 col-xs-2 share-icon"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/sites//Messages icon.png"></a></li>
+                <li class="col-md-2 col-xs-2 share-icon"><a href="#"><img src="<%=baseUrl%>/static/common/client/images/sites//Messages icon.png"></a></li>
             </ul>
-            <ul id="newsContainer" class="col-md-12">
+            <ul id="newsContainer" class="col-md-12 col-xs-12">
                 <li class="first-title">Recent News</li>
                 <c:forEach var="newItem" items="${pages.list}">
                   <li>
@@ -55,12 +56,12 @@
                   </li>
                 </c:forEach>
             </ul>
-            <ul class="col-md-12">
+            <ul class="col-md-12 col-xs-12">
                 <li id="loadMoreButton" class="view-more" style="cursor:pointer;">VIEW MORE</li>
             </ul>
             
             <c:set value="${ fn:split(currentNew.tags, '；') }" var="tags" />
-            <ul class="col-md-12">
+            <ul class="col-md-12 col-xs-12">
                 <li class="first-title">Tages</li>
                 <li><h5>
                   <c:forEach var="tag" items="${tags}">

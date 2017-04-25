@@ -8,9 +8,10 @@
 <head>
 <meta charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=320,maximum-scale=1.3,user-scalable=no">
 <link rel="stylesheet" href="<%=baseUrl%>/static/lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/shared_show.css">
+<link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/phone.css">
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/designer-detail.css">
 <title>设计团队</title>
 <!--[if lt IE 9]>
@@ -28,7 +29,7 @@
                 <li class="people-intro"><h6>${teamMember.brief }</h6></li>
             </ul>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-5 design-intro">
             <ul>
                 <li>
                     <h3 class="bold-text">${teamMember.name }</h3>

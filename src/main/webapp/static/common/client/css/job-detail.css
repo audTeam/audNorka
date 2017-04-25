@@ -53,3 +53,18 @@ footer .footer-text{
 .content li.content-footer p{
     font-weight: bold;
 }
+
+@media screen and (max-width: 767px){
+    .part-one{
+        padding:0;
+    }
+    .part-one>div{
+        padding: 15px;
+    }
+    .part-one .open-pos{
+        padding-left: 15px;
+    }
+    .part-two ul{
+        padding-left: 0;
+    }
+}

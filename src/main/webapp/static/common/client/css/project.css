@@ -68,3 +68,8 @@ li>a:hover{
 .project-color{
 	color:#ca3726;
 }
+@media screen and (max-width: 767px){
+    .similar-ul{
+        display: none;
+    }
+}

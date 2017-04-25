@@ -8,10 +8,11 @@
 <head>
 <meta charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=320,maximum-scale=1.3,user-scalable=no">
 <link rel="stylesheet" href="<%=baseUrl%>/static/lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="<%=baseUrl%>/static/lib/bower_components/font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/shared_show.css">
+<link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/phone.css">
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/contact-us.css">
 <title>联系我们</title>
 <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -22,8 +23,8 @@
 <jsp:include page="../shared/_header.jsp"></jsp:include>
 <div class="part-one container-fluid">
     <div class="row">
-        <div class="col-xs-12"><h3>Contact</h3></div>
-        <ul class="col-xs-6">
+        <div class="col-xs-12 content-contact"><h3>Contact</h3></div>
+        <ul class="col-md-6 col-xs-12 content-ul">
           <li>Architect</li>
           <li>Architect</li>
           <c:if test="${param.message=='success' }">
@@ -70,7 +71,7 @@
             </form>
           </li>
         </ul>
-        <ul class="col-xs-4 col-xs-offset-2">
+        <ul class="col-md-4 col-md-offset-2 col-xs-12 content-ul">
             <li style="color: #ca3726">Our Office</li>
             <li style="font-weight: bold;">AUD Design Consulting Inc.</li>
             <li>100 Century Avenue,67F 100 Century Avenue,67F</li>

@@ -34,3 +34,18 @@ footer .footer-text{
 h6{
     padding-bottom: 30px;
 }
+@media screen and (max-width: 767px){
+    .main{
+        padding: 0;
+    }
+    .work-pic h5{
+        position: absolute;
+        top:170px;
+        left:30px;
+    }
+    .work-pic h6{
+        position: absolute;
+        top:194px;
+        left:30px;
+    }
+}

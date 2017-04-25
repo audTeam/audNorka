@@ -7,9 +7,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=320,maximum-scale=1.3,user-scalable=no">
 <link rel="stylesheet" href="<%=baseUrl%>/static/lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/shared_show.css">
+<link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/phone.css">
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/job-detail.css">
 <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
@@ -19,7 +20,7 @@
 <jsp:include page="../shared/_header.jsp"></jsp:include>
 <div class="part-one container-fluid">
     <div class="row">
-        <div class="col-xs-12"><h4>OPEN POSITIONS</h4></div>
+        <div class="col-xs-12 open-pos"><h4>OPEN POSITIONS</h4></div>
         <ul class="col-xs-3">
           <c:forEach var="jobCategory" items="${jobCategories }">
             <li><a href="<%=baseUrl%>/client/jobs?id=${jobCategory.id}">${jobCategory.name}</a></li>

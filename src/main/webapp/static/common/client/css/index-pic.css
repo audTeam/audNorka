@@ -11,14 +11,5 @@
         .row,.myslides,#carousel-example-generic,.carousel-inner,.item,.carousel-inner>.item>img{
             height: 100%;
         }
-        .col-xs-12{
-            padding: 0;
-        }
-        .phone-footer{
-            padding: 0;
-        }
-         .carousel-control .icon-next {
-            margin-right: 0px;
-            width:40px; 
-         }
+        
 }

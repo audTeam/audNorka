@@ -96,3 +96,21 @@ footer .footer-text{
 .contact-pic{
 	display:block
 }
+
+@media screen and (max-width:767px){
+	.content-contact{
+		display:none;
+	}
+	.part-one{
+		padding:15px;
+	}
+	.content-ul>li{
+		padding-left:20px;
+	}
+	.content-ul>.form-area,.content-ul>#allmap{
+		padding-left:0;
+	}
+	.close span{
+		color:#fff !important;
+	}
+}

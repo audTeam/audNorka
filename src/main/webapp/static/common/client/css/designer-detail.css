@@ -56,3 +56,29 @@ footer .footer-text{
     color: #505050;
     text-decoration: none;
 }
+
+
+@media screen and (max-width: 767px){
+    .main{
+        padding: 0;
+    }
+    .design-pic{
+        padding-right: 0;
+    }
+    .design-pic>ul{
+        display: none;
+    }
+    .design-intro>ul{
+        padding-left: 0;
+    }
+    .contact-work{
+        padding-right: 0;
+    }
+    .contact-work>.key-project{
+        padding-left: 15px;
+    }
+    .contact-work>.work-pic{
+        padding-right: 0;
+    }
+}
+
