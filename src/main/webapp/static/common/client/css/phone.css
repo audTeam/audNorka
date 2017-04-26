@@ -63,7 +63,7 @@
          }
 
          .glyphicon-search2:before{
-            content: url("/audNorka/static/common/client/images/sites/search icon.png") !important;
+            content: url("../images/sites/search_icon.png") !important;
         }
         .search-form{
             position: static;
@@ -104,7 +104,7 @@
         }
         
         .navbar-header:after{
-        	content:url("/audNorka/static/common/client/images/sites/stripline-1.png");
+        	content:url("../images/sites/stripline-1.png");
         	position:absolute;
         	top:66px;
         	left:80px;

@@ -3,10 +3,10 @@
     top:-25px;
 }
 .icon-next:before{
-    content: url("/audNorka/static/common/client/images/sites/XMLID_16_.png") !important;
+    content: url("../images/sites/XMLID_next.png") !important;
 }
 .icon-prev:before{
-    content: url("/audNorka/static/common/client/images/sites/XMLID_-1.png") !important;
+    content: url("../images/sites/XMLID_prv.png") !important;
 }
 .carousel-control{
     opacity: 0;
@@ -20,13 +20,13 @@
     display:block;
     text-align: left;
     padding-left:13px;
-    background:url("/audNorka/static/common/client/images/sites/2141_03.png") no-repeat 0 28px;
+    background:url("../images/sites/2141_03.png") no-repeat 0 28px;
 }
 
 .brand-pic{
     width: 155px;
     height: 25px;
-    background: url("/audNorka/static/common/client/images/sites/stripline-1.png") no-repeat 0 5px;
+    background: url("../images/sites/stripline-1.png") no-repeat 0 5px;
 }
 .carousel-caption h1{
 	font-size:24px;

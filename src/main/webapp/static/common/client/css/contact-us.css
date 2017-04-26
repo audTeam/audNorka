@@ -6,7 +6,7 @@
 .brand-pic{
     width: 155px;
     height: 25px;
-    background: url("/audNorka/static/common/client/images/sites/stripline2.png") no-repeat 0 5px;
+    background: url("../images/sites/stripline2.png") no-repeat 0 5px;
 }
 .part-one a{
     color: #5f5d5d;
@@ -39,7 +39,7 @@ footer .footer-text{
           -webkit-appearance:none;
 
           /*在选择框的最右侧中间显示小箭头图片*/
-          background: url("/audNorka/static/common/client/images/sites/Group 62.png") no-repeat scroll 240px center transparent;
+          background: url("../images/sites/Group_62.png") no-repeat scroll 240px center transparent;
 
 
           /*为下拉小箭头留出一点位置，避免被文字覆盖*/

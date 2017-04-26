@@ -8,7 +8,7 @@
 .brand-pic{
     width: 155px;
     height: 25px;
-    background: url("/audNorka/static/common/client/images/sites/stripline2.png") no-repeat 0 5px;
+    background: url("../images/sites/stripline2.png") no-repeat 0 5px;
 }
 .part-one a{
     color: #5f5d5d;
