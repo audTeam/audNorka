@@ -56,7 +56,7 @@ public class NewsController extends BaseController {
 
 	    News currentNews = new News();
 	    if(id==null){
-	    	if(list!=null){
+	    	if(list!=null&&list.size()>0){
 	    		currentNews = list.get(0);
 	    	}
 	    }else{
