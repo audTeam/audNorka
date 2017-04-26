@@ -3,12 +3,13 @@ function initFileInput(ctrlName, uploadUrl) {
 	var control = $('#' + ctrlName); 
 	var images = [];
 	var initialPreviewConfig = [];
+	var baseUrl = $("#base-url").data("base-url");
 	$('.imagePaths').each(function (i){
       images.push("<img src='"+$(this).data('image-path')+"' class='file-preview-image img-responsive' />");
       initialPreviewConfig.push({
     	caption: '案例图片', 
         width: '50px', 
-        url: '/audNorka/admin/uploads/image/'+$(this).data("image-id")+'/delete', // server delete action 
+        url: baseUrl+'/admin/uploads/image/'+$(this).data("image-id")+'/delete', // server delete action 
         extra: {id: $(this).data("image-id")}
       });
 	});
@@ -29,6 +30,7 @@ function initFileInput(ctrlName, uploadUrl) {
 }
 
 $(function(){
+	var baseUrl = $("#base-url").data("base-url");
 	//初始化fileinput控件（第一次初始化）
-    initFileInput("imgUrl", "/audNorka/admin/uploads/image");
+    initFileInput("imgUrl", baseUrl+"/admin/uploads/image");
 });

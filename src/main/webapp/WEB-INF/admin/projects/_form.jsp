@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%String baseUrl = request.getContextPath(); %>
-
+<div id="base-url" data-base-url="<%=baseUrl%>" class="hidden"></div>
 <form action="${param.actionUrl}" method="POST" class="form-horizontal">
   <c:if test="${param.method=='PATCH'}">
     <!-- <input type="hidden" name="_method" value="PUT"> -->

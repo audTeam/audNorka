@@ -39,7 +39,7 @@
     </div>
   </div>
   <div class="form-group">
-    <label class="control-label col-md-2">擅长领域</label>
+    <label class="control-label col-md-2">重点项目</label>
     <div class="col-md-9">
       <input type="text" class="form-control" name="keyProject" value="${teamMember.keyProject}">
     </div>
