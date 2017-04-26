@@ -59,7 +59,7 @@
                 <ul class="clients">
                     <li class="title-text">Our clients</li>
                     <c:forEach var="cooperation" items="${cooperations}">
-                      <li class="col-xs-4 col-md-12"><img src="<%=application.getInitParameter("imageServer")%>/${cooperation.logoUrl }" alt="合作伙伴图片" class="img-responsive"></li>
+                      <li class="col-xs-4 col-md-12"><a href="${cooperation.link}"><img src="<%=application.getInitParameter("imageServer")%>/${cooperation.logoUrl }" alt="合作伙伴图片" class="img-responsive"></a></li>
                     </c:forEach>
                 </ul>
             </div>
