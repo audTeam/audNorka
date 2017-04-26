@@ -25,8 +25,7 @@
     <div class="row">
         <div class="col-xs-12 content-contact"><h3>Contact</h3></div>
         <ul class="col-md-6 col-xs-12 content-ul">
-          <li>Architect</li>
-          <li>Architect</li>
+          <li></li>
           <c:if test="${param.message=='success' }">
 			<div class="alert alert-warning">
 				<a href="#" class="close" data-dismiss="alert">

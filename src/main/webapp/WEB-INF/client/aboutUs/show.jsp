@@ -27,7 +27,12 @@
             <div class="col-md-2 col-xs-12 col-xs-offset-1 col-md-offset-0 pc-company">
                 <ul class="company-service">
                     <li class="title-text">Our Service</li>
-                    ${historyIntroduce.serviceContent }
+                <c:forEach var="companyService" items="${companyServices}">
+                  <div>
+                    <img alt="" src="<%= application.getInitParameter("imageServer") %>/${companyService.imgUrl}" class="img-responsive">
+                    <p>${companyService.content}</p>
+                  </div>
+                </c:forEach>
                 </ul>
             </div>
             <div class="col-md-6 col-xs-12 col-xs-offset-1 col-md-offset-1 company-video">
@@ -41,7 +46,7 @@
             </div>
             <div class="col-md-2 col-xs-12 col-xs-offset-1 col-md-offset-0 phone-company">
                 <ul class="company-service">
-                    <li class="title-text">Our Service123${companyServices}</li>
+                    <li class="title-text">Our Service</li>
                 </ul>
                 <c:forEach var="companyService" items="${companyServices}">
                   <div>

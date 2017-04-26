@@ -54,12 +54,6 @@
 				  </div>
 				</div>
 				<div class="form-group">
-				  <label class="col-md-2 control-label">服务范围</label>
-				  <div class="col-md-9">
-				    <script id="serviceContainer" name="serviceContent" type="text/plain" name="serviceContent" style="height:500px; width: 100%;">${historyIntroduce.serviceContent}</script>
-				  </div>
-				</div>
-				<div class="form-group">
 				  <div class="row">
 				    <div class="col-md-4 col-md-offset-5">
 				      <button class="btn btn-success" type="submit">提交</button>
@@ -165,7 +159,6 @@
 <script src="<%=baseUrl%>/static/common/admin/js/image_upload.js" type="text/javascript"></script>
 <script type="text/javascript">
    UM.getEditor('container');
-   UM.getEditor('serviceContainer');
    $(function(){
 	   $("#pdFileLogo").fileinput({
 	     showPreview : true,

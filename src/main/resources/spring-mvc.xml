@@ -17,7 +17,7 @@
     http://www.springframework.org/schema/aop
     http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
 
-	<bean id="accessLog" class="com.aud.aop.AccessLog" />
+<!-- 	<bean id="accessLog" class="com.aud.aop.AccessLog" />
 	<aop:config>
 		<aop:aspect id="myAop" ref="accessLog">
 			<aop:pointcut id="target"
@@ -25,7 +25,7 @@
 			<aop:before method="startTime" pointcut-ref="target" />
 			<aop:after method="addLog" pointcut-ref="target" />
 		</aop:aspect>
-	</aop:config>
+	</aop:config> -->
 
 	<context:component-scan base-package="com.aud" />
 
