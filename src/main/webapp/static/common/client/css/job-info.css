@@ -50,7 +50,7 @@ p{
 .brand-pic{
     width: 155px;
     height: 25px;
-    background: url("/audNorka/static/common/client/images/sites/stripline-1.png") no-repeat 0 5px;
+    background: url("../images/sites/stripline-1.png") no-repeat 0 5px;
 }
 
 .phone-detail{

@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="<%=baseUrl%>/static/lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/shared_show.css">
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/sites_show.css">
+<link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/phone.css">
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/project_list.css">
 <title>城市设计全部案例</title>
 <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -63,7 +64,7 @@
         <section class="part-one">
             <div id="projectContainer" class="row all-case">
               <c:forEach var="item" items="${collection }">
-                <div class="col-sm-3">
+                <div class="col-md-3 col-xs-12">
                   <a href="<%=baseUrl%>/client/projects/${item.project.id}">
                     <img src="<%=application.getInitParameter("imageServer")%>/${item.images[0].imgUrl}" alt="pic" class="img-responsive">
                   </a><a href="<%=baseUrl%>/client/projects/${item.project.id}">

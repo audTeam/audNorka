@@ -233,7 +233,7 @@ footer .footer-text{
 
 @font-face { 
 	font-family: HelveticaNeueLight; 
-	src: url('/audNorka/static/common/client/Fonts/Helvetica Neue.ttf'); 
+	src: url('../Fonts/Helvetica_Neue.ttf'); 
 } 
 .navbar-default{
     background-color: transparent;
@@ -247,7 +247,7 @@ footer .footer-text{
     font-family: "HelveticaNeueLight";
 }
 .glyphicon-search:before{
-    content: url("/audNorka/static/common/client/images/sites/Path_35.png") !important;
+    content: url("../images/sites/Path_35.png") !important;
 }
 
 h1,h2,h3,h4,h5,h6{

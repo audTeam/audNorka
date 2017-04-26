@@ -6,7 +6,7 @@
     map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
     
     var pt = new BMap.Point(121.514263, 31.240165);
-	var myIcon = new BMap.Icon("/audNorka/static/common/client/images/sites/Subtraction 1.png", new BMap.Size(300,157));
+	var myIcon = new BMap.Icon("../images/sites/Subtraction_1.png", new BMap.Size(300,157));
 	var marker2 = new BMap.Marker(pt,{icon:myIcon});  // 创建标注
 	map.addOverlay(marker2);
     
