@@ -65,7 +65,7 @@
   <div class="form-group">
     <label class="control-label col-md-2">内容</label>
     <div class="col-md-9">
-      <script id="container" name="content" type="text/plain" name="content" style="height:500px">${project.content}</script>
+      <script id="container" name="content" type="text/plain" name="content" style="height:500px; width: 100%;">${project.content}</script>
     </div>
   </div>
   <div class="form-group">
