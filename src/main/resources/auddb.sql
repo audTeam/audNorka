@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50624
 File Encoding         : 65001
 
-Date: 2017-04-23 21:33:54
+Date: 2017-04-28 15:31:50
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -30,6 +30,34 @@ CREATE TABLE `banners` (
   PRIMARY KEY (`id`),
   KEY `name` (`lang`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for company_services
+-- ----------------------------
+DROP TABLE IF EXISTS `company_services`;
+CREATE TABLE `company_services` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `content` varchar(500) DEFAULT NULL,
+  `img_url` varchar(255) DEFAULT NULL,
+  `lang` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for contact_us_page
+-- ----------------------------
+DROP TABLE IF EXISTS `contact_us_page`;
+CREATE TABLE `contact_us_page` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `content` varchar(500) DEFAULT NULL,
+  `lang` varchar(10) DEFAULT NULL,
+  `longitude` varchar(255) DEFAULT NULL,
+  `latitude` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `tel` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for cooperations
@@ -79,7 +107,7 @@ CREATE TABLE `images` (
   `img_url` varchar(255) DEFAULT NULL,
   `resource_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for jobs
@@ -99,7 +127,7 @@ CREATE TABLE `jobs` (
   `lang` varchar(255) DEFAULT NULL,
   `category_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for job_categories
@@ -112,7 +140,7 @@ CREATE TABLE `job_categories` (
   `content` text,
   `lang` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for leave_messages
@@ -146,7 +174,7 @@ CREATE TABLE `logs` (
   `method_name` varchar(255) DEFAULT NULL,
   `create_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1086 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1230 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for navmenus
@@ -200,7 +228,7 @@ CREATE TABLE `projects` (
   `scope` varchar(255) DEFAULT NULL,
   `service` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for team_members
