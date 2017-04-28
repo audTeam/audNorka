@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <% String baseUrl = request.getContextPath(); %>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <!DOCTYPE html>
 <html>
@@ -59,7 +60,7 @@
                 <div class="col-xs-12 pic-title col-md-offset-3 col-xs-offset-1"><p>${project.name}</p></div>
                 <div class="col-md-3 col-xs-12 col-xs-offset-1 col-md-offset-0">
                     <ul class="info">
-                        <li class="title-text">Information</li>
+                        <li class="title-text"><spring:message code="Information"/></li>
                         <li>
                             <ul class="left-inf">
                                 <li>Client:</li>
@@ -76,17 +77,17 @@
                         </li>
                     </ul>
                     <ul class="serv">
-                        <li class="title-text">Service</li>
+                        <li class="title-text"><spring:message code="Service"/></li>
                         <li>${project.service }</li>
                     </ul>
                 </div>
                 <div class="col-md-6 col-xs-12 col-xs-offset-1 col-md-offset-0">
                     <ul>
-                        <li class="title-text">Concept</li>
+                        <li class="title-text"><spring:message code="concept" /> </li>
                         <li class="content-text">${project.content }</li>
                     </ul>
                     <ul class="team">
-                        <li class="title-text">Team</li>
+                        <li class="title-text"><spring:message code="Team" /> </li>
                         <c:forEach var="item" items="${teamMembercollection}">
                           <li class="col-md-4 col-xs-6 team-pic">
                             <a href="<%=baseUrl%>/client/teamMembers/${item.teamMember.id}">
@@ -99,7 +100,7 @@
                 </div>
                 <div class="col-md-2 col-xs-12 col-xs-offset-1 col-md-offset-1 similar-ul">
                     <ul class="similar">
-                        <li class="title-text">Similar</li>
+                        <li class="title-text"><spring:message code="Similar" /> </li>
                         <c:forEach var="project" items="${collection}">
                           <li>
                             <a href="<%=baseUrl%>/client/projects/${project.project.id}">
@@ -110,7 +111,7 @@
                           </li>
                         </c:forEach>
                         <!-- 暂时注释显示完所有数据 -->
-                        <li class="view_more hidden"><a href="#">VIEW MORE</a></li>
+                        <li class="view_more hidden"><a href="#"><spring:message code="VIEW_MORE" /> </a></li>
                     </ul>
                 </div>
             </div>

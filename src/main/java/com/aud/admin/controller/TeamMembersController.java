@@ -92,6 +92,7 @@ public class TeamMembersController {
     	}
     	teamMember.setUpdatedAt(new Date());
         this.teamMemberMapper.updateByPrimaryKeySelective(teamMember);
+        this.teamMemberProjectMapper.deletedByTeamMemberId(id);
         if(projectIds!=null){
             for(int projectId : projectIds){
                 TeamMemberProject relation = new TeamMemberProject();
@@ -102,6 +103,7 @@ public class TeamMembersController {
         }
         return "redirect:/admin/teamMembers";
     }
+
     @RequestMapping(value = "/new", method = RequestMethod.GET)
     public String newPage(ModelMap model, Locale locale) {
         model.addAttribute("projects", this.projectMapper.all(locale.getLanguage()));

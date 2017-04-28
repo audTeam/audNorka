@@ -59,7 +59,7 @@
         <!-- <input type='hidden' name='imgUrls' class="imagePaths" data-image-id="${image.id }" data-image-path="${pageContext.request.contextPath}/${image.imgUrl}" value="${image.imgUrl}"> -->
         <input type='hidden' class="imagePaths" data-image-id="${image.id }" data-image-path="<%=application.getInitParameter("imageServer") %>/${image.imgUrl}">
       </c:forEach>
-      <p class="help-block">支持jpg、jpeg、png、gif格式，大小不超过2.0M，图片宽x高:980x524</p>
+      <p class="help-block">支持jpg、jpeg、png、gif格式，宽度1280px，高度500px</p>
     </div>
   </div> 
   <div class="form-group">

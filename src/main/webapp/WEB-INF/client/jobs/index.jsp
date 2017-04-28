@@ -4,6 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <!DOCTYPE html>
 <html>
@@ -30,7 +31,7 @@
         </div>
         <div class="row part-two">
         	<div class="col-xs-12 position-detail phone-detail">${currentCategory.content }</div>
-            <div class="col-xs-12 open"><h4>Open position</h4></div>
+            <div class="col-xs-12 open"><h4> <spring:message code="Open_position"/></h4></div>
             <ul class="col-md-3 col-xs-12">
               <c:forEach var="jobCategory" items="${jobCategories}">
                 <li><a href="<%=baseUrl%>/client/jobs?id=${jobCategory.id}">${jobCategory.name}</a></li>
@@ -39,11 +40,11 @@
             <div class="col-md-9 col-xs-12">
                 <div class="position-detail pc-detail">${currentCategory.content }</div>
                 <div class="row position-title">
-                    <p class="col-md-2 col-xs-4 position">Date</p>
-                    <p class="col-md-2 col-xs-4 position">Position</p>
-                    <p class="col-md-2 position phone-position">Department</p>
-                    <p class="col-md-2 col-xs-4 position">Location</p>
-                    <p class="col-md-3 position phone-position">Location</p>
+                    <p class="col-md-2 col-xs-4 position"> <spring:message code="Date" /></p>
+                    <p class="col-md-2 col-xs-4 position"> <spring:message code="Position" /> </p>
+                    <p class="col-md-2 position phone-position"> <spring:message code="Department" /> </p>
+                    <p class="col-md-2 col-xs-4 position"> <spring:message code="Location" /> </p>
+                    <p class="col-md-3 position phone-position"> <spring:message code="Location" /> </p>
                 </div>
                 <div class="row position-content">
                   <c:forEach var="job" items="${currentJobs}">

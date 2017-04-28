@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.aud.mapper.BannerMapper;
 import com.aud.mapper.CompanyServiceMapper;
+import com.aud.mapper.ContactUsPageMapper;
 import com.aud.mapper.CooperationMapper;
 import com.aud.mapper.HistoryIntroduceMapper;
 import com.aud.mapper.LeaveMessageMapper;
+import com.aud.pojo.ContactUsPage;
 import com.aud.pojo.HistoryIntroduce;
 import com.aud.pojo.LeaveMessage;
 
@@ -31,6 +33,8 @@ public class AboutUsController  extends BaseController{
 	private BannerMapper bannerMapper;
 	@Autowired
 	private CompanyServiceMapper companyServiceMapper;
+	@Autowired
+	private ContactUsPageMapper contactUsPageMapper;
 
 	@RequestMapping(value="/leaveMessages", method=RequestMethod.POST)
 	public String leaveMessages(LeaveMessage leaveMessage){
@@ -55,6 +59,7 @@ public class AboutUsController  extends BaseController{
 			historyIntroduceMapper.insertSelective(historyIntroduce);
 			model.addAttribute("historyIntroduce", new HistoryIntroduce());
 		}
+
 		model.addAttribute("companyServices", this.companyServiceMapper.all(locale.getLanguage()));
 		model.addAttribute("cooperations", this.cooperationMapper.all());
 		model.addAttribute("banners", this.bannerMapper.all("companyBanners", locale.getLanguage()));
@@ -81,7 +86,14 @@ public class AboutUsController  extends BaseController{
 	}
 
 	@RequestMapping(value="/contactUs", method=RequestMethod.GET)
-	public String showContactUs(){
+	public String showContactUs(ModelMap model, Locale locale){
+		List<ContactUsPage> contactUsPages = this.contactUsPageMapper.all(locale.getLanguage());
+		if(contactUsPages!=null&&contactUsPages.size()>0){
+			model.addAttribute("contactUsPage", contactUsPages.get(0));
+		}else{
+			model.addAttribute("contactUsPage", new ContactUsPage());
+		}
+
 		return "client/aboutUs/contact-us";
 	}
 }

@@ -32,7 +32,7 @@
     <label class="col-md-2 control-label">图片文件</label>
     <div id="uploadFileDiv" class="col-md-9">
       <input id="pdFile" name="file" type="file">
-      <div id="fileError" class="help-block"></div>
+      <p class="help-block">支持jpg、jpeg、png、gif格式，宽度250px，高度55px</p>
       <p class="help-block"></p>
       <br />
     </div>

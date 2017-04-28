@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <% String baseUrl = request.getContextPath(); %>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <!DOCTYPE html>
 <html>
@@ -36,23 +37,23 @@
                     <h6>${teamMember.position }</h6>
                 </li>
                 <li>
-                    <h6 class="bold-text">EDUCATION BACKGROUND</h6>
+                    <h6 class="bold-text"> <spring:message code="EDUCATION_BACKGROUND" /> </h6>
                     <h6>${teamMember.educationBackground }</h6>
                 </li>
                 <li>
-                    <h6 class="bold-text">WORK EXPERIENCE</h6>
+                    <h6 class="bold-text"><spring:message code="WORK_EXPERIENCE" /></h6>
                     <h6>${teamMember.educationBackground }</h6>
                 </li>
                 <li>
-                    <h6 class="bold-text">WORK EXPERIENCE</h6>
+                    <h6 class="bold-text"><spring:message code="WORK_EXPERIENCE" /></h6>
                     <h6>${teamMember.workExperience }</h6>
                 </li>
-                <li class="key-project">Key Projects</li>
+                <li class="key-project"><spring:message code="Key_Projects" /></li>
                 <li><h6>${teamMember.keyProject }</h6></li>
             </ul>
         </div>
         <div class="col-md-12 contact-work">
-            <div class="col-md-12 key-project">Featured Work</div>
+            <div class="col-md-12 key-project"><spring:message code="Featured_Work" /></div>
             <c:forEach var="relateProject" items="${projects}">
               <div class="col-md-2 work-pic">
                 <a href="<%= baseUrl%>/client/projects/${relateProject.project.id}">

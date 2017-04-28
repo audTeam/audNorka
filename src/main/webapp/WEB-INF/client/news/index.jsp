@@ -4,6 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <!DOCTYPE html>
 <html>
@@ -49,7 +50,7 @@
             </div>
             <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
             <ul id="newsContainer" class="col-md-12 col-xs-12">
-                <li class="first-title">Recent News</li>
+                <li class="first-title"> <spring:message code="Recent_News" /></li>
                 <c:forEach var="newItem" items="${pages.list}">
                   <li>
                     <a href="<%=baseUrl%>/client/news?id=${newItem.id }">
@@ -62,14 +63,14 @@
             <ul class="col-md-12 col-xs-12">
                 <li id="loadMoreButton" class="view-more" style="cursor:pointer;">
                   <c:if test="${pages.pages>1}">
-                    VIEW MORE
+                    <spring:message code="VIEW_MORE" />
                   </c:if>
                 </li>
             </ul>
             
             <c:set value="${ fn:split(currentNew.tags, '；') }" var="tags" />
             <ul class="col-md-12 col-xs-12">
-                <li class="first-title">Tages</li>
+                <li class="first-title"><spring:message code="Tages" /></li>
                 <li><h5>
                   <c:forEach var="tag" items="${tags}">
                     ${tag}

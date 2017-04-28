@@ -21,11 +21,11 @@
                         <div class="modal-content">
                          <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <a href="<%=baseUrl%>"><img src="<%=baseUrl%>/static/common/client/images/sites/Group_65.png" class="phone-brand"></a>
+                            <a href="<%=baseUrl%>/"><img src="<%=baseUrl%>/static/common/client/images/sites/Group_65.png" class="phone-brand"></a>
                           </div>
                           <div class="modal-body">
                             <ul class="firstNav">
-                                <li><a href="<%=baseUrl%>">HOME</a></li>
+                                <li><a href="<%=baseUrl%>/">HOME</a></li>
                                 <li>
                                     <a href="<%=baseUrl%>/client/projects">PROJECTS</a>
                                     <ul class="secondNav">
@@ -72,7 +72,7 @@
                         </div>
                       </div>
                     </div>
-            <a class="navbar-brand" href="<%=baseUrl%>"><img alt="Brand" src="<%=baseUrl%>/static/common/client/images/sites/Group_65.png"></a>
+            <a class="navbar-brand" href="<%=baseUrl%>/"><img alt="Brand" src="<%=baseUrl%>/static/common/client/images/sites/Group_65.png"></a>
           </div>
           <div id="" class="collapse navbar-collapse" >
             <ul class="nav navbar-nav ul_one">
@@ -93,10 +93,10 @@
     </div>
     <nav class="navbar navbar-default nav_two" role="navigation">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="<%=baseUrl%>/">
           <div class="brand-pic"></div>
         </a>
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="<%=baseUrl%>/">
           <img alt="Brand" src="<%=baseUrl%>/static/common/client/images/sites/Rectangle29.png" class="img-responsive">
         </a>
       </div>

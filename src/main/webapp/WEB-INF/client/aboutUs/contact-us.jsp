@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <% String baseUrl = request.getContextPath(); %>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <!DOCTYPE html>
 <html>
@@ -23,58 +24,58 @@
 <jsp:include page="../shared/_header.jsp"></jsp:include>
 <div class="part-one container-fluid">
     <div class="row">
-        <div class="col-xs-12 content-contact"><h3>Contact</h3></div>
+        <div class="col-xs-12 content-contact"><h3> <spring:message code="Contact" /> </h3></div>
         <ul class="col-md-6 col-xs-12 content-ul">
-          <li></li>
+          <li> ${contactUsPage.content} </li>
           <c:if test="${param.message=='success' }">
 			<div class="alert alert-warning">
 				<a href="#" class="close" data-dismiss="alert">
 					&times;
 				</a>
-				<strong>警告！</strong>您的网络连接有问题。
+				提交成功
 			</div>
           </c:if>
           <li class="form-area">
             <form action="<%=baseUrl%>/client/aboutUs/leaveMessages" method="post">
               <div class="form-group">
-                  <label class="sign-up">SIGN UP TO RECEIVE NEWS</label>
+                  <label class="sign-up"><spring:message code="SIGN_UP_TO_RECEIVE_NEWS" /></label>
               </div>
               <div class="form-group">
-                <label for="inputEmail">Email address:*</label>
+                <label for="inputEmail"><spring:message code="Email_address" /> :*</label>
                 <input type="email" name="email" class="form-control" id="inputEmail">
               </div>
               <div class="form-group">
-                <label for="inputFirstName">First Name:</label>
+                <label for="inputFirstName"> <spring:message code="First_Name" /> :</label>
                 <input type="text" class="form-control" id="inputFirstName" name="firstName">
               </div>
               <div class="form-group">
-                <label for="inputLastName">Last Name:</label>
+                <label for="inputLastName"><spring:message code="Last_Name" />:</label>
                 <input type="text" class="form-control" id="inputLastName" name="lastName">
               </div>
               <div class="form-group">
-                <label for="inputCountry">Country:*</label>
+                <label for="inputCountry"> <spring:message code="Country" /> :*</label>
                 <select class="form-control my-select" name="country">
                 <option></option>
                 </select>
               </div>
               <div class="form-group">
-                <label for="inputCity">City:</label>
+                <label for="inputCity"><spring:message code="City" /> :</label>
                 <input type="text" class="form-control city" id="inputCity" name="city">
               </div>
               <div class="form-group">
-                <label for="inputMessage">Message:</label>
+                <label for="inputMessage"><spring:message code="Message" /> :</label>
                 <textarea class="form-control" id="inputMessage" name="message"></textarea>
               </div>
     
-              <button type="submit" class="btn join-btn">Join Now</button>
+              <button type="submit" class="btn join-btn"> <spring:message code="join_now"/> </button>
             </form>
           </li>
         </ul>
         <ul class="col-md-4 col-md-offset-2 col-xs-12 content-ul">
-            <li style="color: #ca3726">Our Office</li>
-            <li style="font-weight: bold;">AUD Design Consulting Inc.</li>
-            <li>100 Century Avenue,67F 100 Century Avenue,67F</li>
-            <li>T:86.21 61057318</li>
+            <li style="color: #ca3726"> <spring:message code="Our_Office" /> </li>
+            <li style="font-weight: bold;"></li>
+            <li>${contactUsPage.content }</li>
+            <li><spring:message code="Tel" /> :${contactUsPage.tel }</li>
             <li id="allmap"></li>
         </ul>
     </div>

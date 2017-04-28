@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <% String baseUrl = request.getContextPath(); %>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <!DOCTYPE html>
 <html>
@@ -26,7 +27,7 @@
         <div class="row">
             <div class="col-md-2 col-xs-12 col-xs-offset-1 col-md-offset-0 pc-company">
                 <ul class="company-service">
-                    <li class="title-text">Our Service</li>
+                    <li class="title-text"><spring:message code="Our_Service" /></li>
                 <c:forEach var="companyService" items="${companyServices}">
                   <div>
                     <img alt="" src="<%= application.getInitParameter("imageServer") %>/${companyService.imgUrl}" class="img-responsive">
@@ -37,7 +38,7 @@
             </div>
             <div class="col-md-6 col-xs-12 col-xs-offset-1 col-md-offset-1 company-video">
                 <ul>
-                    <li class="title-text company-profile">Company Profile</li>
+                    <li class="title-text company-profile"><spring:message code="Company_Profile" /></li>
                     <li class="content-text">${historyIntroduce.companyHistory} </li>
                     <li class="content-text video">
                        ${historyIntroduce.video}
@@ -46,7 +47,7 @@
             </div>
             <div class="col-md-2 col-xs-12 col-xs-offset-1 col-md-offset-0 phone-company">
                 <ul class="company-service">
-                    <li class="title-text">Our Service</li>
+                    <li class="title-text"> <spring:message code="Our_Service" /> </li>
                 </ul>
                 <c:forEach var="companyService" items="${companyServices}">
                   <div>
@@ -57,7 +58,7 @@
             </div>
             <div class="col-md-2 col-xs-12 col-xs-offset-1 col-md-offset-1 phone-clients">
                 <ul class="clients">
-                    <li class="title-text">Our clients</li>
+                    <li class="title-text"> <spring:message code="Our_clients" /> </li>
                     <c:forEach var="cooperation" items="${cooperations}">
                       <li class="col-xs-4 col-md-12"><a href="${cooperation.link}"><img src="<%=application.getInitParameter("imageServer")%>/${cooperation.logoUrl }" alt="合作伙伴图片" class="img-responsive"></a></li>
                     </c:forEach>

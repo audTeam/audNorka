@@ -21,19 +21,19 @@
     </div>
   </div>
   <div class="form-group">
-    <label class="control-label col-md-2">education_background</label>
+    <label class="control-label col-md-2">教育背景</label>
     <div class="col-md-9">
       <input type="text" class="form-control" name="educationBackground" value="${teamMember.educationBackground}">
     </div>
   </div>
   <div class="form-group">
-    <label class="control-label col-md-2">workExperience</label>
+    <label class="control-label col-md-2">工作经历</label>
     <div class="col-md-9">
       <input type="text" class="form-control" name="workExperience" value="${teamMember.workExperience}">
     </div>
   </div>
   <div class="form-group">
-    <label class="control-label col-md-2">membership</label>
+    <label class="control-label col-md-2">会员身份</label>
     <div class="col-md-9">
       <input type="text" class="form-control" name="membership" value="${teamMember.membership}">
     </div>
@@ -76,7 +76,7 @@
     <div id="uploadFileDiv" class="col-md-9">
       <input id="pdFile" name="file" type="file">
       <div id="fileError" class="help-block"></div>
-      <p class="help-block">支持jpg、jpeg、png、gif格式，大小不超过2.0M，宽x高:215x117</p>
+      <p class="help-block">支持jpg、jpeg、png、gif格式，宽度650px，高度400px</p>
     </div>
   </div>
   <div class="form-group">

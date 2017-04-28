@@ -105,6 +105,12 @@
           <span>公司服务</span>
         </a>
       </li>
+      <li <c:if test="${fn:contains(currentUrl, 'contactUsPage')}">class="active"</c:if> >
+        <a href="<%=baseUrl%>/admin/contactUsPage/edit">
+          <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+          <span>留言界面</span>
+        </a>
+      </li>
       <li <c:if test="${fn:contains(currentUrl, 'categories')||fn:contains(currentUrl, 'jobs')}">class="active"</c:if> >
         <a href="<%=baseUrl%>/admin/categories">
           <i class="fa fa-newspaper-o" aria-hidden="true"></i>

@@ -4,6 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <!DOCTYPE html>
 <html>
@@ -23,7 +24,7 @@
 <jsp:include page="../shared/_header.jsp"></jsp:include>
 <div class="part-one container-fluid">
     <div class="row">
-        <div class="col-xs-12 open-pos"><h4>OPEN POSITIONS</h4></div>
+        <div class="col-xs-12 open-pos"><h4> <spring:message code="Open_position" /> </h4></div>
         <ul class="col-xs-3">
           <c:forEach var="jobCategory" items="${jobCategories }">
             <li><a href="<%=baseUrl%>/client/jobs?id=${jobCategory.id}">${jobCategory.name}</a></li>
@@ -33,11 +34,11 @@
 </div>
 <div class="part-two container-fluid">
     <ul class="title">
-        <li>Job Number</li>
-        <li>Date</li>
-        <li>Position</li>
-        <li>Location</li>
-        <li>Description</li>
+        <li><spring:message code="Job_Number" /> </li>
+        <li> <spring:message code="Date" /> </li>
+        <li> <spring:message code="Position" /> </li>
+        <li> <spring:message code="Location" /> </li>
+        <li> <spring:message code="Description" /> </li>
     </ul>
     <ul class="content">
         <li>${currentJob.jobNumber }</li>
