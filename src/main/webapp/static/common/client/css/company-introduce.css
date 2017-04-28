@@ -48,6 +48,13 @@ li>a:hover{
 .part_two .clients li{
         padding-left: 0;
     }
+.about-color{
+	color:#ca3726;
+}
+.about-pic{
+    display: block;
+}   
+    
 @media screen and (max-width: 767px){
     .part_two .phone-company{
     display: block;
