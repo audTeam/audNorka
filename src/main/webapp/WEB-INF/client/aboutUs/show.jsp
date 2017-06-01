@@ -25,7 +25,7 @@
     <c:import url="../shared/_banner.jsp" />
     <section class="part_two">
         <div class="row">
-            <div class="col-md-2 col-xs-12 col-xs-offset-1 col-md-offset-0 pc-company">
+            <div class="col-md-3 col-xs-12 col-xs-offset-1 col-md-offset-0 pc-company">
                 <ul class="company-service">
                     <li class="title-text"><spring:message code="Our_Service" /></li>
                 <c:forEach var="companyService" items="${companyServices}">
@@ -36,7 +36,7 @@
                 </c:forEach>
                 </ul>
             </div>
-            <div class="col-md-6 col-xs-12 col-xs-offset-1 col-md-offset-1 company-video">
+            <div class="col-md-5 col-xs-12 col-xs-offset-1 col-md-offset-1 company-video">
                 <ul>
                     <li class="title-text company-profile"><spring:message code="Company_Profile" /></li>
                     <li class="content-text">${historyIntroduce.companyHistory} </li>

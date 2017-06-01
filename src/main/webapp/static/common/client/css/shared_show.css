@@ -223,7 +223,7 @@ footer .footer-text{
 }
 .footer-text span{
     font-size: 12px;
-    color:#505050;
+    color:#a1a1a1;
 }
 .footer-text .footer-pic{
     position: relative;
@@ -235,8 +235,8 @@ footer .footer-text{
 /*ÐÞ¸Ä*/
 
 @font-face { 
-	font-family: HelveticaNeueLight; 
-	src: url('../Fonts/Helvetica_Neue.ttf'); 
+	font-family:HelveticaNeueLight; 
+	src:url('../Fonts/Helvetica_Neue.ttf'); 
 } 
 .navbar-default{
     background-color: transparent;
@@ -247,7 +247,7 @@ footer .footer-text{
 }
 
 *{
-    font-family: "HelveticaNeueLight";
+    font-family:HelveticaNeueLight;
 }
 .glyphicon-search:before{
     content: url("../images/sites/Path_35.png") !important;
@@ -256,11 +256,11 @@ footer .footer-text{
 h1,h2,h3,h4,h5,h6{
     margin: 0;
     padding: 0;
-    font-family: "HelveticaNeueLight";
+    font-family:HelveticaNeueLight;
 }
 h5,h6{
     font-weight: 100;
-    font-family: "HelveticaNeueLight";
+    font-family:HelveticaNeueLight;
 }
 h5{
     margin-top: 10px;
