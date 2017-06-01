@@ -45,6 +45,9 @@ footer{
     width:1280px;
     margin: 0 auto;
 }
+.carousel-caption{
+	left:155px !important;
+}
 }
 
 .navbar-brand{
@@ -225,7 +228,7 @@ footer .footer-text{
 .footer-text .footer-pic{
     position: relative;
     top: -30px;
-    left: 14%;
+    left: 230px;
 }
 
 

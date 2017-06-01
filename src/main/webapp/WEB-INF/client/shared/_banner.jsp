@@ -5,9 +5,8 @@
 	String baseUrl = request.getContextPath();
 %>
 <div class="row">
-    <div class="col-xs-12">
-        <section>
-            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <div class="col-xs-12 myslides">
+            <div id="carousel-example-generic" class="carousel slide " data-ride="carousel">
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
                   <c:forEach var="banner" items="${banners}" varStatus="status">
@@ -35,6 +34,5 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div>
-        </section>
     </div>
 </div>
