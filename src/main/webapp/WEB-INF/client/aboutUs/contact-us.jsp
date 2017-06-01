@@ -18,7 +18,7 @@
 <title>联系我们</title>
 <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Gy1azRsvQiyGnMGymKTOvjaTrllOwN1W"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=0hZwZLTDtP2Ap7XOA1sSZUN4GaohG2ud"></script>
 </head>
 <body>
 <jsp:include page="../shared/_header.jsp"></jsp:include>
@@ -74,9 +74,11 @@
         <ul class="col-md-4 col-md-offset-2 col-xs-12 content-ul">
             <li style="color: #ca3726"> <spring:message code="Our_Office" /> </li>
             <li style="font-weight: bold;"></li>
-            <li>${contactUsPage.content }</li>
+            <li>${contactUsPage.address }</li>
             <li><spring:message code="Tel" /> :${contactUsPage.tel }</li>
             <li id="allmap"></li>
+            <div id="latitude" class="hidden" data-latitude="${contactUsPage.latitude}"></div>
+            <div id="longitude" class="hidden" data-longitude="${contactUsPage.longitude}"></div>
         </ul>
     </div>
 </div>

@@ -11,7 +11,6 @@ $(function(){
         	var pp = new BMap.Point(parseFloat(longitude), parseFloat(latitude));
         	map.centerAndZoom(pp, 18);
 			map.addOverlay(new BMap.Marker(pp));    //添加标注
-        	//map.setCurrentCity("成都");
         }else{
     		map.centerAndZoom("北京",12);                   // 初始化地图,设置城市和地图级别。        	
         }
