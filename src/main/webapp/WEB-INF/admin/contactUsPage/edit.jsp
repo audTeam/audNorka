@@ -13,6 +13,11 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <c:import url="../shared/_stylesheet.jsp"></c:import>
   <link type="text/css" href="<%=baseUrl%>/static/lib/bower_components/bootstrap-fileinput/css/fileinput.min.css"></link>
+  <style type="text/css">
+	#l-map{height:300px;width:100%;}
+	#r-result{width:100%;}
+  </style>
+  <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=0hZwZLTDtP2Ap7XOA1sSZUN4GaohG2ud"></script>
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -53,9 +58,19 @@
 				      <input type="text" name="tel" value="${contactUsPage.tel}" class="form-control"> 
 				    </div>
 				  </div>
+				 <div class="form-group">
+				    <label class="col-md-2 control-label">公司位置</label>
+				    <div class="col-md-9">
+	                  <div id="r-result"><input type="text" id="suggestId" size="20" value="" style="width:100%;" /></div>
+				      <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>
+				      <div id="l-map"></div>
+				      <input id="latitude" name="latitude" value="${contactUsPage.latitude}" type="hidden">
+				      <input id="longitude" name="longitude" value="${contactUsPage.longitude}" type="hidden">
+				    </div>
+				  </div>
 				  <div class="form-group">
 				    <label class="col-md-2 control-label">联系我们介绍</label>
-				    <div class="col-md-9"> 
+				    <div class="col-md-9">
 				      <script id="container" name="content" type="text/plain" style="height:500px; width: 100%;">${contactUsPage.content}</script>
 				    </div>
 				  </div>
@@ -81,14 +96,11 @@
 <!-- ./wrapper -->
 
 <!-- REQUIRED JS SCRIPTS -->
-
 <c:import url="../shared/_javascript.jsp"></c:import>
 <script src="<%=baseUrl%>/static/lib/bower_components/AdminLTE/dist/js/app.min.js"></script>
 <script src="<%=baseUrl%>/static/lib/bower_components/bootstrap-fileinput/js/fileinput.min.js" type="text/javascript"></script>
 <script src="<%=baseUrl%>/static/lib/bower_components/bootstrap-fileinput/js/locales/zh.js"  type="text/javascript"></script>
 <script src="<%=baseUrl%>/static/common/admin/js/banner_image_upload.js"  type="text/javascript"></script>
-<script type="text/javascript">
-   UM.getEditor('container');
-</script>
+<script src="<%=baseUrl%>/static/common/admin/js/contact_us_page.js"  type="text/javascript"></script>
 </body>
 </html>

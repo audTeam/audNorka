@@ -3,6 +3,7 @@ package com.aud.aop;
 import java.util.Date;
 
 import org.aspectj.lang.JoinPoint;
+//import org.aspectj.lang.JoinPoint;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.aud.mapper.LogMapper;
@@ -26,11 +27,6 @@ public class AccessLog {
 		log.setMethodName(j.getSignature().getName());
 		log.setExecuteTime(System.currentTimeMillis()-startData);
 
-/*		StringBuilder sb=new StringBuilder("");
-		for(Object object : j.getArgs()){
-			sb.append(object);
-		}
-        log.setParameters(sb.toString());*/
         
         log.setCreateAt(new Date());
         logMapper.insertSelective(log);

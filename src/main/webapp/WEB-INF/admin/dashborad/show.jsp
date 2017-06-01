@@ -101,16 +101,16 @@
               <div class="box-body">
                 <table class="table table-striped table-hover">
                   <tr>
-                    <td>id</td>
                     <td>名字</td>
+                    <td>城市</td>
                     <td>email</td>
                     <td>留言</td>
                     <td>操作</td>
                   </tr>
                   <c:forEach var="leaveMessage" items="${pages.list}">
                    <tr>
-                    <td>${leaveMessage.id}</td>
-                    <td>${leaveMessage.name}</td>
+                    <td>${leaveMessage.firstName} ${leaveMessage.lastName}</td>
+                    <td>${leaveMessage.country} ${leaveMessage.city}</td>
                     <td>${leaveMessage.email}</td>
                     <td><a href="${pageContext.request.contextPath}/admin/leaveMessages/${leaveMessage.id}">${fn:substring(leaveMessage.message, 0, 12)}...</a></td>
                     <td>

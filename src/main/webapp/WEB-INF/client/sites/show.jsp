@@ -11,6 +11,7 @@
 <meta charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=320,maximum-scale=1.3,user-scalable=no">
+<meta name="baidu-site-verification" content="NSAF3fd6Tn" />
 <link rel="stylesheet" href="<%=baseUrl%>/static/lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/shared_show.css">
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/sites_show.css">

@@ -2,6 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%String baseUrl = request.getContextPath(); %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,19 +38,19 @@
           <div class="row">
             <div class="col-md-12" style="margin:15px;">
               <div class="col-md-3" style="text-align:right;font-weight:bold;font-size:16px;">名字:</div>
-              <div class="col-md-8">${leaveMessage.name}</div>
+              <div class="col-md-8">${leaveMessage.firstName} ${leaveMessage.lastName}</div>
             </div>
             <div class="col-md-12" style="margin:15px;">
               <div class="col-md-3" style="text-align:right;font-size:18px;font-weight:bold;">email:</div>
               <div class="col-md-8">${leaveMessage.email}</div>
             </div>
             <div class="col-md-12" style="margin:15px;">
-              <div class="col-md-3" style="text-align:right;font-weight:bold;font-size:16px;">留言时间:</div>
-              <div class="col-md-8">${leaveMessage.createdAt}</div>
+              <div class="col-md-3" style="text-align:right;font-size:18px;font-weight:bold;">国家城市:</div>
+              <div class="col-md-8">${leaveMessage.country} ${leaveMessage.city}</div>
             </div>
             <div class="col-md-12" style="margin:15px;">
-              <div class="col-md-3" style="text-align:right;font-weight:bold;font-size:16px;">电话号码:</div>
-              <div class="col-md-8">${leaveMessage.phoneNumber}</div>
+              <div class="col-md-3" style="text-align:right;font-weight:bold;font-size:16px;">留言时间:</div>
+              <div class="col-md-8"><fmt:formatDate value="${leaveMessage.createdAt}" pattern="yyyy-M-d"/></div>
             </div>
             <div class="col-md-12" style="margin:15px;">
               <div class="col-md-3" style="text-align:right;font-weight:bold;font-size:16px;">留言:</div>
