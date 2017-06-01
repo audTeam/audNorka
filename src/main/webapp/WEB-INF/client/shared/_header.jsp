@@ -66,7 +66,7 @@
           </div>
           <div id="" class="collapse navbar-collapse" >
             <ul class="nav navbar-nav ul_one">
-              <li><a href="<%=baseUrl%>"><span data-tag="0" class="home-color"><spring:message code="home" /></span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic home-pic"/></li>
+              <li><a href="<%=baseUrl%>/"><span data-tag="0" class="home-color"><spring:message code="home" /></span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic home-pic"/></li>
               <li><a href="<%=baseUrl%>/client/projects"><span data-tag="1" class="project-color"><spring:message code="projects" /></span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic project-pic"/></li>
               <li><a href="<%=baseUrl%>/client/aboutUs"><span data-tag="2" class="about-color"><spring:message code="aboutAud" /></span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic about-pic"/></li>
               <li><a href="<%=baseUrl%>/client/news"><span data-tag="3" class="new-color"><spring:message code="news" /></span></a><img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic new-pic"/></li>
