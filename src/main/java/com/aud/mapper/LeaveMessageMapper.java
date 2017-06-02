@@ -16,5 +16,8 @@ public interface LeaveMessageMapper {
     int updateByPrimaryKeySelective(LeaveMessage record);
 
     int updateByPrimaryKey(LeaveMessage record);
+
     List<LeaveMessage> all();
+
+    Long count();
 }

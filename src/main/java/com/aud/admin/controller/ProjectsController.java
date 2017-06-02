@@ -5,6 +5,7 @@ import java.util.Locale;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,6 +27,10 @@ public class ProjectsController {
 	@Autowired
 	private ImageMapper imageMapper;
 
+    @ModelAttribute
+    public void setCurrentModule(ModelMap model) {  
+       model.addAttribute("currentModule", "22");  
+    }
 	@RequestMapping(value = "/{id}/delete", method = RequestMethod.POST)
 	public String delete(@PathVariable("id") int id, @PathVariable("caseId") int caseId) {
 		this.projectMapper.deleteByPrimaryKey(id);

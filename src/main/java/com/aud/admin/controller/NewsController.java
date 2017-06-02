@@ -1,5 +1,4 @@
 package com.aud.admin.controller;
-import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -9,13 +8,13 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.aud.mapper.NavMenuMapper;
 import com.aud.mapper.NewsMapper;
 import com.aud.pojo.News;
 import com.aud.service.ImageService;
@@ -25,12 +24,15 @@ import com.github.pagehelper.PageInfo;
 @RequestMapping("/admin/news")
 public class NewsController {
     @Autowired
-    private NavMenuMapper navMenuMapper;
-    @Autowired
     private NewsMapper newsMapper;
 	@Autowired
 	private ImageService imageService;
-	
+
+    @ModelAttribute
+    public void setCurrentModule(ModelMap model) {  
+       model.addAttribute("currentModule", "4");
+    }
+
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String index(ModelMap model,	
     		@RequestParam(value="pageNo", required=false, defaultValue="1") Integer pageNo,

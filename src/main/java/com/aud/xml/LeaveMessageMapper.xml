@@ -19,6 +19,9 @@
     id, first_name, message, email, created_at, is_read, phone_number, lang, last_name, 
     city, country, name
   </sql>
+  <select id="count" resultType="java.lang.Long">
+    select count(*) from leave_messages
+  </select>
   <select id="all" resultMap="BaseResultMap" parameterType="java.lang.Integer">
     select * from leave_messages
   </select>

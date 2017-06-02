@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -48,15 +49,12 @@ public class AboutUsController {
 			model.addAttribute("historyIntroduce", new HistoryIntroduce());
 		}
 		model.addAttribute("cooperations", this.cooperationMapper.all());
+		model.addAttribute("currentModule", "32");
 		return "admin/historyIntroduce/edit";
 	}
 
 	@RequestMapping(value = "/historyIntroduce/update", method = RequestMethod.POST)
 	public String update(HistoryIntroduce historyIntroduce, Locale locale){
-		/*if(file!=null&&!serviceFile.isEmpty()){
-			historyIntroduce.setServiceHeadImg(imageService.uploadFile(serviceFile));
-		}
-		*/
 		List<HistoryIntroduce> all = this.historyIntroduceMapper.all(locale.getLanguage());
 		historyIntroduce.setId(all.get(0).getId());
 		historyIntroduce.setLang(locale.getLanguage());
@@ -83,6 +81,7 @@ public class AboutUsController {
 	@RequestMapping(value = "/historyIntroduce/cooperations/{id}/edit", method = RequestMethod.GET)
 	public String editCooperation(@PathVariable("id") int id, ModelMap model) {
 		model.addAttribute("cooperation", this.cooperationMapper.selectByPrimaryKey(id));
+		model.addAttribute("currentModule", "32");
 		return "admin/cooperations/edit";
 	}
 

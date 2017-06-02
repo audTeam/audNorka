@@ -6,6 +6,7 @@ import java.util.Locale;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -17,7 +18,10 @@ import com.aud.pojo.ContactUsPage;
 public class ContactUsPageController {
 	@Autowired
 	private ContactUsPageMapper contactUsPageMapper;
-
+    @ModelAttribute
+    public void setCurrentModule(ModelMap model) {  
+       model.addAttribute("currentModule", "6");
+    }
 	@RequestMapping(value="/edit", method = RequestMethod.GET)
 	public String edit(ModelMap model, Locale locale) {
 		List<ContactUsPage> contactUsPages = this.contactUsPageMapper.all(locale.getLanguage());

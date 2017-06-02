@@ -8,15 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.aud.mapper.BannerMapper;
 import com.aud.mapper.HistoryIntroduceMapper;
 import com.aud.mapper.JobCategoryMapper;
-import com.aud.pojo.Banner;
 import com.aud.pojo.HistoryIntroduce;
 import com.aud.pojo.JobCategory;
 import com.aud.service.ImageService;
@@ -30,6 +29,11 @@ public class JobCategoriesController {
 	private HistoryIntroduceMapper historyIntroduceMapper;
 	@Autowired
 	private ImageService imageService;
+
+    @ModelAttribute
+    public void setCurrentModule(ModelMap model) {  
+       model.addAttribute("currentModule", "5");
+    }
 
 	@RequestMapping(value = "/new", method = RequestMethod.GET)
 	public String newPage(ModelMap model) {

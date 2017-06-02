@@ -48,44 +48,44 @@
       <!-- Your Page Content Here -->
       <div class="box">
         <div class="box-body">
-          <div class="row hidden">
+          <div class="row">
             <div class="col-md-4">
               <!-- small box -->
               <div class="small-box bg-aqua">
                 <div class="inner">
-                  <h3>150</h3>
-                  <p>新闻浏览量</p>
+                  <h3>${logsCount}</h3>
+                  <p>总访问量</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-bag"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <!-- <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a> -->
               </div>
             </div>
             <div class="col-md-4">
               <!-- small box -->
               <div class="small-box bg-green">
                 <div class="inner">
-                  <h3>100</h3>
-                  <p>总访问量</p>
+                  <h3>${leaveMessageCount}</h3>
+                  <p>留言量</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-bag"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <!-- <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a> -->
               </div>
             </div>
             <div class="col-md-4">
               <!-- small box -->
               <div class="small-box bg-yellow">
                 <div class="inner">
-                  <h3>150</h3>
-                  <p>留言</p>
+                  <h3>${space}</h3>
+                  <p>磁盘空间</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-bag"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <!-- <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a> -->
               </div>
             </div>
           </div>
