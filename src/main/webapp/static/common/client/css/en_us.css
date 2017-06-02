@@ -1,0 +1,7 @@
+@font-face { 
+	font-family:HelveticaNeueLight; 
+	src:url('../Fonts/Helvetica_Neue.ttf'); 
+}
+*{
+    font-family:HelveticaNeueLight;
+}

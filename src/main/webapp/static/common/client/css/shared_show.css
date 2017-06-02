@@ -231,13 +231,6 @@ footer .footer-text{
     left: 230px;
 }
 
-
-/*ÐÞ¸Ä*/
-
-@font-face { 
-	font-family:HelveticaNeueLight; 
-	src:url('../Fonts/Helvetica_Neue.ttf'); 
-} 
 .navbar-default{
     background-color: transparent;
     border-color: #fff;
@@ -246,9 +239,6 @@ footer .footer-text{
     border:none;
 }
 
-*{
-    font-family:HelveticaNeueLight;
-}
 .glyphicon-search:before{
     content: url("../images/sites/Path_35.png") !important;
 }

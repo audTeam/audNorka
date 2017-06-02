@@ -4,6 +4,12 @@
 	String baseUrl = request.getContextPath();
 %>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<c:if test="${pageContext.response.locale=='zh_CN'}">
+  <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/zh_cn.css">
+</c:if>
+<c:if test="${pageContext.response.locale=='en_US'}">
+  <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/en_us.css">
+</c:if>
 <header>
   <div class="container-fluid">
     <div class="row">
