@@ -44,7 +44,7 @@
                     <p class="col-md-2 col-xs-4 position"> <spring:message code="Position" /> </p>
                     <p class="col-md-2 position phone-position"> <spring:message code="Department" /> </p>
                     <p class="col-md-2 col-xs-4 position"> <spring:message code="Location" /> </p>
-                    <p class="col-md-3 position phone-position"> <spring:message code="Location" /> </p>
+                    <p class="col-md-3 position phone-position"> <spring:message code="DetailLocation" /> </p>
                 </div>
                 <div class="row position-content">
                   <c:forEach var="job" items="${currentJobs}">

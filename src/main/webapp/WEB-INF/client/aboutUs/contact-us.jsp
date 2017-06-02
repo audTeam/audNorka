@@ -45,11 +45,11 @@
                 <input type="email" name="email" class="form-control" id="inputEmail">
               </div>
               <div class="form-group">
-                <label for="inputFirstName"> <spring:message code="First_Name" /> :</label>
+                <label for="inputFirstName"> <spring:message code="Last_Name" /> :</label>
                 <input type="text" class="form-control" id="inputFirstName" name="firstName">
               </div>
               <div class="form-group">
-                <label for="inputLastName"><spring:message code="Last_Name" />:</label>
+                <label for="inputLastName"><spring:message code="First_Name" />:</label>
                 <input type="text" class="form-control" id="inputLastName" name="lastName">
               </div>
               <div class="form-group">

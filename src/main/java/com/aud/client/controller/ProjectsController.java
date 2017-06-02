@@ -22,6 +22,8 @@ import com.aud.mapper.ImageMapper;
 import com.aud.mapper.ProjectMapper;
 import com.aud.mapper.TeamMemberMapper;
 import com.aud.mapper.TeamMemberProjectMapper;
+import com.aud.pojo.Banner;
+import com.aud.pojo.Image;
 import com.aud.pojo.Project;
 import com.aud.pojo.TeamMemberProject;
 import com.github.pagehelper.PageHelper;
@@ -98,7 +100,18 @@ public class ProjectsController extends BaseController {
 	public String show(@PathVariable("id") int id, ModelMap model, Locale locale){
 		Project project = this.projectMapper.selectByPrimaryKey(id);
 		model.addAttribute("project", project);
-		model.addAttribute("images", this.imageMapper.selectByResourceId(id));
+		
+		List<Banner> banners = new ArrayList<>();
+		List<Image> images = this.imageMapper.selectByResourceId(id);
+		model.addAttribute("images", images);
+		for(Image image:images){
+			Banner banner = new Banner();
+			banner.setImgUrl(image.getImgUrl());
+			banner.setName(project.getName());
+			banner.setAddress(project.getAddress());
+			banners.add(banner);
+		}
+		model.addAttribute("banners", banners);
 
 		List<Map<String, Object>> collection = new ArrayList<Map<String, Object>>();
 

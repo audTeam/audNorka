@@ -10,7 +10,7 @@
     <section class="container-fluid phone-footer">
         <div class="footer-text">
             <img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="footer-pic"/>
-            <span>Copyright2003-2017 上海域达建筑设计咨询有限公司 沪ICP备17022347号-1 <a href="<%=baseUrl%>/admin/sessions/new">管理员登录</a></span>
+            <span>Copyright&copy;2003-2017 上海域达建筑设计咨询有限公司 沪ICP备17022347号-1 <a href="<%=baseUrl%>/admin/sessions/new">管理员登录</a></span>
         </div>
     </section>
 </footer> 

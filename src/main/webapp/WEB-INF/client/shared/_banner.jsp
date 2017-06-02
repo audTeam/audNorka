@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%
 	String baseUrl = request.getContextPath();
 %>
@@ -24,6 +25,7 @@
                     </div>
                   </c:forEach>
                 </div>
+                <c:if test="${fn:length(banners)>1}">
                 <!-- Controls -->
                 <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
                     <span class="icon-prev"></span>
@@ -33,6 +35,7 @@
                     <span class="icon-next"></span>
                     <span class="sr-only">Next</span>
                 </a>
+                </c:if>
             </div>
     </div>
 </div>

@@ -16,8 +16,8 @@
  <div class="form-group">
     <label class="col-md-2 control-label">服务详情</label>
     <div class="col-md-9">
-      <textarea rows="5" name="content" class="form-control">${companyService.content}</textarea>
-      <!-- <input type="text" name="content" value="${companyService.content}" class="form-control"> --> 
+      <script id="container" type="text/plain" name="content" style="height:200px; width: 100%;">${companyService.content}</script>
+      <!-- <textarea rows="5" name="content" class="form-control">${companyService.content}</textarea> -->
     </div>
   </div>
   <c:if test="${companyService.imgUrl != null}">

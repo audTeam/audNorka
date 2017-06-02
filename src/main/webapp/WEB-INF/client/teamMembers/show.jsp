@@ -42,11 +42,11 @@
                 </li>
                 <li>
                     <h6 class="bold-text"><spring:message code="WORK_EXPERIENCE" /></h6>
-                    <h6>${teamMember.educationBackground }</h6>
+                    <h6>${teamMember.workExperience }</h6>
                 </li>
                 <li>
-                    <h6 class="bold-text"><spring:message code="WORK_EXPERIENCE" /></h6>
-                    <h6>${teamMember.workExperience }</h6>
+                    <h6 class="bold-text"><spring:message code="MEMBERSHIP" /></h6>
+                    <h6>${teamMember.membership }</h6>
                 </li>
                 <li class="key-project"><spring:message code="Key_Projects" /></li>
                 <li><h6>${teamMember.keyProject }</h6></li>

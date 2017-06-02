@@ -13,6 +13,7 @@ function initFileInput(ctrlName, uploadUrl) {
         extra: {id: $(this).data("image-id")}
       });
 	});
+
 	control.fileinput({
 		language: 'zh', //设置语言
 		uploadUrl: uploadUrl, //上传的地址

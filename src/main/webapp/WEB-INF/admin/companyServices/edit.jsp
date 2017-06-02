@@ -66,5 +66,8 @@
 <script src="<%=baseUrl%>/static/lib/bower_components/bootstrap-fileinput/js/fileinput.min.js" type="text/javascript"></script>
 <script src="<%=baseUrl%>/static/lib/bower_components/bootstrap-fileinput/js/locales/zh.js"  type="text/javascript"></script>
 <script src="<%=baseUrl%>/static/common/admin/js/banner_image_upload.js"  type="text/javascript"></script>
+<script type="text/javascript">
+   UM.getEditor('container');
+</script>
 </body>
 </html>
