@@ -29,7 +29,7 @@
           </c:when>
         </c:choose>
           <i class="fa fa-circle text-success"></i>
-                        切换为${pageContext.response.locale=='zh_CN'?'英语版':'中文版本'}
+                        切换为${pageContext.response.locale=='zh_CN'?'英语':'中文'}
         </a>
       </div>
     </div>
@@ -49,8 +49,8 @@
     <ul class="sidebar-menu">
       <li class="${currentModule=='7'?'active':''}">
         <a href="<%=baseUrl%>/admin/dashborad">
-          <i class="fa fa-envelope-o" aria-hidden="true"></i>
-          <span>客户留言</span>
+          <i class="fa fa-home" aria-hidden="true"></i>
+          <span>首页</span>
         </a>
       </li>
       <li <c:if test="${fn:contains(currentUrl, 'banners')}">class="active"</c:if> >
