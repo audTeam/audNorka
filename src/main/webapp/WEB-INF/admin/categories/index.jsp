@@ -68,7 +68,7 @@
                     <td>${jobCategory.name}</td>
                     <td>
                       <a class="btn btn-default" href="<%=baseUrl%>/admin/categories/${jobCategory.id}/edit">编辑</a>
-                      <a class="btn btn-info" href="<%=baseUrl%>/admin/categories/${jobCategory.id}/jobs">配置分类</a>
+                      <a class="btn btn-info" href="<%=baseUrl%>/admin/categories/${jobCategory.id}/jobs">配置职位</a>
                       <form action="<%=baseUrl%>/admin/categories/${jobCategory.id}/delete" method="POST" style="display: inline;">
                         <!-- <input type="hidden" name="_method" value="DELETE"> -->
                         <button class="btn btn-danger" type="submit">删除</button>

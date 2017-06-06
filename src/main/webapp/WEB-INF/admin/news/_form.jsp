@@ -35,6 +35,7 @@
   <div class="form-group">
     <label class="col-md-2 control-label">新闻内容</label>
     <div class="col-md-9">
+      <span id="helpBlock2" class="help-block">图片上传宽度为650px以内，大小1M以内</span>
       <script id="container" type="text/plain" name="content" style="height:500px; width: 100%;">${news.content}</script>
     </div>
   </div>
