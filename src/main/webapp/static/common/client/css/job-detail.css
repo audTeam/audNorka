@@ -33,6 +33,9 @@ footer .footer-text{
 .part-two{
     padding-top: 30px;
 }
+ul.content{
+    width: 850px;
+}
 .title,.content{
     float: left;
     font-weight: bold;
