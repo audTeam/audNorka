@@ -22,33 +22,33 @@
     </div>
   </div>
   <div class="form-group">
-    <label class="control-label col-md-2">client</label>
+    <label class="control-label col-md-2">客户</label>
     <div class="col-md-9">
       <input type="text" class="form-control" name="client" value="${project.client}">
     </div>
   </div>
   <div class="form-group">
-    <label class="control-label col-md-2">size</label>
+    <label class="control-label col-md-2">占地面积</label>
     <div class="col-md-9">
       <input type="text" class="form-control" name="size" value="${project.size}">
     </div>
   </div>
   <div class="form-group">
-    <label class="control-label col-md-2">location</label>
+    <label class="control-label col-md-2">项目地址</label>
     <div class="col-md-9">
       <input type="text" class="form-control" name="location" value="${project.location}">
     </div>
   </div>
   <div class="form-group">
-    <label class="control-label col-md-2">scope</label>
+    <label class="control-label col-md-2">领域</label>
     <div class="col-md-9">
       <input type="text" class="form-control" name="scope" value="${project.scope}">
     </div>
   </div>
   <div class="form-group">
-    <label class="control-label col-md-2">service</label>
+    <label class="control-label col-md-2">服务</label>
     <div class="col-md-9">
-      <input type="text" class="form-control" name="service" value="${project.service}">
+      <script id="service-container" type="text/plain" name="service" style="height:200px; width: 100%;">${project.service}</script>
     </div>
   </div>
   <div class="form-group">
@@ -59,7 +59,7 @@
         <!-- <input type='hidden' name='imgUrls' class="imagePaths" data-image-id="${image.id }" data-image-path="${pageContext.request.contextPath}/${image.imgUrl}" value="${image.imgUrl}"> -->
         <input type='hidden' class="imagePaths" data-image-id="${image.id }" data-image-path="<%=application.getInitParameter("imageServer") %>/${image.imgUrl}">
       </c:forEach>
-      <p class="help-block">支持jpg、jpeg、png、gif格式，宽度1280px，高度500px</p>
+      <p class="help-block">支持jpg、jpeg、png、gif格式，宽度1280px，高度730px</p>
     </div>
   </div> 
   <div class="form-group">

@@ -2,6 +2,7 @@ package com.aud.admin.controller;
 
 import java.util.Locale;
 
+import org.apache.maven.shared.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -15,6 +16,7 @@ import com.aud.mapper.NavMenuMapper;
 import com.aud.mapper.ProjectMapper;
 import com.aud.pojo.Image;
 import com.aud.pojo.Project;
+import com.aud.tool.Utils;
 import com.google.gson.Gson;
 
 @Controller("adminProjects")
@@ -34,7 +36,6 @@ public class ProjectsController {
 	@RequestMapping(value = "/{id}/delete", method = RequestMethod.POST)
 	public String delete(@PathVariable("id") int id, @PathVariable("caseId") int caseId) {
 		this.projectMapper.deleteByPrimaryKey(id);
-		this.projectMapper.deleteByNavMenuId(caseId);
 		return "redirect:/admin/projectCases/" + caseId;
 	}
 
@@ -48,6 +49,8 @@ public class ProjectsController {
 	@RequestMapping(value = "/{id}/update", method = RequestMethod.POST)
 	public String update(@PathVariable("caseId") int caseId, @PathVariable("id") int id, Project project,
 			String[] imgUrls) {
+		project.setContent(Utils.replaceFontFamily(project.getContent()));
+		project.setService(Utils.replaceFontFamily(project.getService()));
 		this.projectMapper.updateByPrimaryKeySelective(project);
 		if (imgUrls != null) {
 			for (String imgUrl : imgUrls) {
@@ -69,6 +72,8 @@ public class ProjectsController {
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public String create(@PathVariable("caseId") int caseId, Project project, String[] imgUrls, Locale locale) {
 		project.setLang(locale.getLanguage());
+		project.setContent(Utils.replaceFontFamily(project.getContent()));
+		project.setService(Utils.replaceFontFamily(project.getService()));
 		this.projectMapper.insertSelective(project);
 		int projectId = this.projectMapper.getMaxId();
 		if(imgUrls!=null){

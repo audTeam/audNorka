@@ -30,10 +30,10 @@
                         <li class="title-text"><spring:message code="Information"/></li>
                         <li>
                             <ul class="left-inf">
-                                <li>Client:</li>
-                                <li>Size:</li>
-                                <li>Location:</li>
-                                <li>Scope:</li>
+                                <li><spring:message code="Client" />:</li>
+                                <li><spring:message code="Size" />:</li>
+                                <li><spring:message code="Location" />:</li>
+                                <li><spring:message code="Scope" />:</li>
                             </ul>
                             <ul class="right-inf">
                                 <li>${project.client }</li>

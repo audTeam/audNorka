@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.aud.mapper.ContactUsPageMapper;
 import com.aud.pojo.ContactUsPage;
+import com.aud.tool.Utils;
 
 @Controller("ContactUsPageMapper")
 @RequestMapping("/admin/contactUsPage")
@@ -35,6 +36,7 @@ public class ContactUsPageController {
 	
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String update(Locale locale, ModelMap model, ContactUsPage contactUsPage){
+		contactUsPage.setContent(Utils.replaceFontFamily(contactUsPage.getContent()));
 		contactUsPage.setLang(locale.getLanguage());
 		if(contactUsPage.getId()!=null&&contactUsPage.getId()>0){
 			contactUsPageMapper.updateByPrimaryKeySelective(contactUsPage);

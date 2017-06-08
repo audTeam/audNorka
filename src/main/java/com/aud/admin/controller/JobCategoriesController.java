@@ -19,6 +19,7 @@ import com.aud.mapper.JobCategoryMapper;
 import com.aud.pojo.HistoryIntroduce;
 import com.aud.pojo.JobCategory;
 import com.aud.service.ImageService;
+import com.aud.tool.Utils;
 
 @Controller
 @RequestMapping("/admin/categories")
@@ -77,6 +78,7 @@ public class JobCategoriesController {
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public String create(JobCategory jobCategory, Locale locale){
 		jobCategory.setLang(locale.getLanguage());
+		jobCategory.setContent(Utils.replaceFontFamily(jobCategory.getContent()));
 		this.jobCategoryMapper.insertSelective(jobCategory);
 		return "redirect:/admin/categories";
 	}
@@ -89,6 +91,7 @@ public class JobCategoriesController {
 	
 	@RequestMapping(value = "/{id}/update", method = RequestMethod.POST)
 	public String update(@PathVariable("id") int id, JobCategory jobCategory, ModelMap model){
+		jobCategory.setContent(Utils.replaceFontFamily(jobCategory.getContent()));
 		this.jobCategoryMapper.updateByPrimaryKeySelective(jobCategory);
 		return "redirect:/admin/categories";
 	}

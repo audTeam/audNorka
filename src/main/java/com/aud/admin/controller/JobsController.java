@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.aud.mapper.JobCategoryMapper;
 import com.aud.mapper.JobMapper;
 import com.aud.pojo.Job;
+import com.aud.tool.Utils;
 
 @Controller("adminJobs")
 @RequestMapping("/admin/categories/{categoryId}/jobs")
@@ -51,6 +52,7 @@ public class JobsController {
 
 	@RequestMapping(value = "/{id}/update", method = RequestMethod.POST)
 	public String update(@PathVariable("id") int id, @PathVariable("categoryId") int categoryId, Job job){
+		job.setDescription(Utils.replaceFontFamily(job.getDescription()));
 		this.jobMapper.updateByPrimaryKeySelective(job);
 		return "redirect:/admin/categories/"+categoryId+"/jobs";
 	}
@@ -63,6 +65,7 @@ public class JobsController {
 
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public String create(Job job, @PathVariable("categoryId") int categoryId, Locale locale){
+		job.setDescription(Utils.replaceFontFamily(job.getDescription()));
 		job.setCategoryId(categoryId);
 		job.setCreatedAt(new Date());
 		job.setLang(locale.getLanguage());

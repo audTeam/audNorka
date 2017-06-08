@@ -5,6 +5,7 @@ import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.codehaus.plexus.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -58,6 +59,9 @@ public class AboutUsController {
 		List<HistoryIntroduce> all = this.historyIntroduceMapper.all(locale.getLanguage());
 		historyIntroduce.setId(all.get(0).getId());
 		historyIntroduce.setLang(locale.getLanguage());
+		if(StringUtils.isNotBlank(historyIntroduce.getCompanyHistory())){
+			historyIntroduce.setCompanyHistory(historyIntroduce.getCompanyHistory().replace("font-family", "font-bak-family"));
+		}
 		this.historyIntroduceMapper.updateByPrimaryKeySelective(historyIntroduce);
 		return "redirect:/admin/aboutUs/historyIntroduce";
 	}

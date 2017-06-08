@@ -63,6 +63,7 @@
 <script src="<%=baseUrl%>/static/common/admin/js/multi_image_upload.js" type="text/javascript"></script>
 <script type="text/javascript">
    UM.getEditor('container');
+   UM.getEditor('service-container');
 </script>
 </body>
 </html>

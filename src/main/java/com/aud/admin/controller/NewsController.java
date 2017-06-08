@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.aud.mapper.NewsMapper;
 import com.aud.pojo.News;
 import com.aud.service.ImageService;
+import com.aud.tool.Utils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 @Controller("adminNews")
@@ -72,13 +73,15 @@ public class NewsController {
             news.setHeadImg(imageService.uploadFile(file));	
             imageService.deleteFile(oldNews.getHeadImg());
         }
+    	news.setContent(Utils.replaceFontFamily(news.getContent()));
         this.newsMapper.updateByPrimaryKeySelective(news);
         return "redirect:/admin/news";
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)
     public String create(News news,MultipartFile file, HttpServletRequest request, Locale locale) {
-        news.setPublishAt(new Date());
+    	news.setContent(Utils.replaceFontFamily(news.getContent()));
+    	news.setPublishAt(new Date());
         news.setHeadImg(imageService.uploadFile(file));
         news.setLang(locale.getLanguage());
         this.newsMapper.insertSelective(news);

@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.aud.mapper.CompanyServiceMapper;
 import com.aud.pojo.CompanyService;
 import com.aud.service.ImageService;
+import com.aud.tool.Utils;
 
 @Controller("companyService")
 @RequestMapping("/admin/companyServices")
@@ -43,6 +44,7 @@ public class CompanyServicesController {
 	public String create(CompanyService companyService, MultipartFile file, Locale locale){
 		companyService.setLang(locale.getLanguage());
 		companyService.setImgUrl(imageService.uploadFile(file));
+		companyService.setContent(Utils.replaceFontFamily(companyService.getContent()));
 		this.companyServiceMapper.insertSelective(companyService);
 		return "redirect:/admin/companyServices";
 	}
@@ -60,6 +62,7 @@ public class CompanyServicesController {
 			companyService.setImgUrl(imageService.uploadFile(file));
 			imageService.deleteFile(oldCompanyService.getImgUrl());
 		}
+		companyService.setContent(Utils.replaceFontFamily(companyService.getContent()));
 		this.companyServiceMapper.updateByPrimaryKeySelective(companyService);
 		return "redirect:/admin/companyServices";
 	}
