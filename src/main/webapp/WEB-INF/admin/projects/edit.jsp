@@ -25,8 +25,9 @@
       <h1>编辑项目</h1>
       <ol class="breadcrumb">
         <li><a href="<%=baseUrl%>/admin/dashborad"><i class="fa fa-dashboard"></i> 首页</a></li>
-        <li><a href="<%=baseUrl%>/admin/projectCases">分类列表</a></li>
-        <li><a href="<%=baseUrl%>/admin/projectCases/${project.navMenuId}">案例详情</a></li>
+        <li><a href="<%=baseUrl%>/admin/projectCases">${firstNavMenu.name}</a></li>
+        <li><a href="<%=baseUrl%>/admin/projectCases/${firstNavMenu.id}/projectSecondNavMenus">${secondNavMenu.name}</a></li>
+        <li><a href="<%=baseUrl%>/admin/projectCases/${firstNavMenu.id}/projectSecondNavMenus/${secondNavMenu.id}">三级分类列表</a></li>
         <li class="active">编辑项目</li>
       </ol>
     </section>
@@ -40,7 +41,7 @@
           <div class="row">
             <div class="col-md-12">
               <c:import url="_form.jsp">
-                <c:param name="actionUrl" value="${pageContext.request.contextPath}/admin/projectCases/${project.navMenuId}/projects/${project.id}/update"></c:param>
+                <c:param name="actionUrl" value="${pageContext.request.contextPath}/admin/projectCases/${secondNavMenu.id}/projects/${project.id}/update"></c:param>
                 <c:param name="method" value="PATCH"></c:param>
               </c:import>
             </div>

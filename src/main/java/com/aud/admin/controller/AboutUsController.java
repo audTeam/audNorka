@@ -55,22 +55,22 @@ public class AboutUsController {
 	}
 
 	@RequestMapping(value = "/historyIntroduce/update", method = RequestMethod.POST)
-	public String update(HistoryIntroduce historyIntroduce, Locale locale){
+	public String update(HistoryIntroduce historyIntroduce, Locale locale) {
 		List<HistoryIntroduce> all = this.historyIntroduceMapper.all(locale.getLanguage());
 		historyIntroduce.setId(all.get(0).getId());
 		historyIntroduce.setLang(locale.getLanguage());
-		if(StringUtils.isNotBlank(historyIntroduce.getCompanyHistory())){
-			historyIntroduce.setCompanyHistory(historyIntroduce.getCompanyHistory().replace("font-family", "font-bak-family"));
+		if (StringUtils.isNotBlank(historyIntroduce.getCompanyHistory())) {
+			historyIntroduce
+					.setCompanyHistory(historyIntroduce.getCompanyHistory().replace("font-family", "font-bak-family"));
 		}
 		this.historyIntroduceMapper.updateByPrimaryKeySelective(historyIntroduce);
 		return "redirect:/admin/aboutUs/historyIntroduce";
 	}
 
 	@RequestMapping(value = "/historyIntroduce/cooperations", method = RequestMethod.POST)
-	public String addCooperation(Cooperation cooperation, MultipartFile file, HttpServletRequest request, Locale locale) {
-		if(file!=null&&!file.isEmpty()){
-			cooperation.setLogoUrl(imageService.uploadFile(file));	
-		}
+	public String addCooperation(Cooperation cooperation, MultipartFile file, HttpServletRequest request,
+			Locale locale) {
+		cooperation.setLogoUrl(imageService.uploadFile(file));
 		cooperation.setLang(locale.getLanguage());
 		this.cooperationMapper.insertSelective(cooperation);
 		return "redirect:/admin/aboutUs/historyIntroduce";
@@ -90,9 +90,10 @@ public class AboutUsController {
 	}
 
 	@RequestMapping(value = "/historyIntroduce/cooperations/{id}/update", method = RequestMethod.POST)
-	public String updateCooperation(@PathVariable("id") int id, Cooperation cooperation, ModelMap model, MultipartFile file, HttpServletRequest request, Locale locale) {
-		if(file!=null&&!file.isEmpty()){
-			cooperation.setLogoUrl(imageService.uploadFile(file));	
+	public String updateCooperation(@PathVariable("id") int id, Cooperation cooperation, ModelMap model,
+			MultipartFile file, HttpServletRequest request, Locale locale) {
+		if (file != null && !file.isEmpty()) {
+			cooperation.setLogoUrl(imageService.uploadFile(file));
 		}
 		cooperation.setLang(locale.getLanguage());
 		this.cooperationMapper.updateByPrimaryKeySelective(cooperation);

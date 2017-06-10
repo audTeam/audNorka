@@ -8,7 +8,7 @@
     <!-- <input type="hidden" name="_method" value="PUT"> -->
     <input type="hidden" name="id" value="${project.id}">
   </c:if>
-  <input type="hidden" name="navMenuId" value="${menu.id}">
+  <input type="hidden" name="navMenuId" value="${secondNavMenu.id}">
   <div class="form-group">
     <label class="control-label col-md-2">案例名称</label>
     <div class="col-md-9">
@@ -34,7 +34,7 @@
     </div>
   </div>
   <div class="form-group">
-    <label class="control-label col-md-2">项目地址</label>
+    <label class="control-label col-md-2">项目详细地址</label>
     <div class="col-md-9">
       <input type="text" class="form-control" name="location" value="${project.location}">
     </div>

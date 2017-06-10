@@ -1,6 +1,7 @@
 package com.aud.service.impl;
 
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.aud.service.ImageService;
@@ -26,7 +27,7 @@ public class ImageServiceImpl implements ImageService {
 
 	@Override
 	public boolean deleteFile(String imageUrl) {
-		if(imageUrl==null||imageUrl.equals("")){
+		if(StringUtils.isEmpty(imageUrl)){
 			return false;
 		}
 		FastDFSClient fastDFSClient = null;

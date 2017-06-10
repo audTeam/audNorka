@@ -36,10 +36,10 @@
                                     <a href="<%=baseUrl%>/client/projects"><spring:message code="projects" /></a>
                                     <ul class="secondNav">
                                     	<c:forEach var="projectNavMenu" items="${projectNavMenus}">
-								          <li><a href="#">${projectNavMenu.secondNavMenu.name}</a>
+								          <li><a href="<%=baseUrl%>/client/projectCases/${projectNavMenu.id}">${projectNavMenu.secondNavMenu.name}</a>
 								            <ul class="thirdNav">
 								              <c:forEach var="thridNavMenu" items="${projectNavMenu.thridNavMenu }">
-								                <li><a href="<%=baseUrl%>/client/projects/${thridNavMenu.id}">${thridNavMenu.name}</a></li>
+								                <li><a href="<%=baseUrl%>/client/projectCases/${projectNavMenu.id}/${thridNavMenu.id}">${thridNavMenu.name}</a></li>
 								              </c:forEach>
 								            </ul></li>
 								        </c:forEach>
@@ -99,10 +99,10 @@
      <ul class="nav navbar-nav ul_two" data-tag="1"></ul> <!--HOME导航 -->
      <ul class="nav navbar-nav ul_two" data-tag="2"> <!--PROJECTS导航 -->
        <c:forEach var="projectNavMenu" items="${projectNavMenus}">
-          <li><a href="#" class="second-nav">${projectNavMenu.secondNavMenu.name}</a>
+          <li><a href="<%=baseUrl%>/client/projectCases/${projectNavMenu.secondNavMenu.id}" class="second-nav">${projectNavMenu.secondNavMenu.name}</a>
             <ul class="nav ul-three">
               <c:forEach var="thridNavMenu" items="${projectNavMenu.thridNavMenu }">
-                <li><a href="<%=baseUrl%>/client/projects/${thridNavMenu.id}">${thridNavMenu.name}</a></li>
+                <li><a href="<%=baseUrl%>/client/projectCases/${projectNavMenu.secondNavMenu.id}/${thridNavMenu.id}">${thridNavMenu.name}</a></li>
               </c:forEach>
             </ul></li>
         </c:forEach>

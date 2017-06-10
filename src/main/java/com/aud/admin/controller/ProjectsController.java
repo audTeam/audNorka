@@ -15,6 +15,7 @@ import com.aud.mapper.ImageMapper;
 import com.aud.mapper.NavMenuMapper;
 import com.aud.mapper.ProjectMapper;
 import com.aud.pojo.Image;
+import com.aud.pojo.NavMenu;
 import com.aud.pojo.Project;
 import com.aud.tool.Utils;
 import com.google.gson.Gson;
@@ -36,12 +37,17 @@ public class ProjectsController {
 	@RequestMapping(value = "/{id}/delete", method = RequestMethod.POST)
 	public String delete(@PathVariable("id") int id, @PathVariable("caseId") int caseId) {
 		this.projectMapper.deleteByPrimaryKey(id);
-		return "redirect:/admin/projectCases/" + caseId;
+		NavMenu secondNavMenu = this.navMenuMapper.selectByPrimaryKey(caseId);
+		NavMenu firstNavMenu = this.navMenuMapper.selectByPrimaryKey(secondNavMenu.getParentNav());
+		return "redirect:/admin/projectCases/" + firstNavMenu.getId()+"/projectSecondNavMenus/"+ caseId;
 	}
 
 	@RequestMapping(value = "/{id}/edit", method = RequestMethod.GET)
-	public String edit(@PathVariable("id") int id, ModelMap model) {
+	public String edit(@PathVariable("id") int id, ModelMap model,@PathVariable("caseId") int caseId) {
 		model.addAttribute("project", this.projectMapper.selectByPrimaryKey(id));
+		NavMenu secondNavMenu = this.navMenuMapper.selectByPrimaryKey(caseId);
+		model.addAttribute("firstNavMenu", this.navMenuMapper.selectByPrimaryKey(secondNavMenu.getParentNav()));
+		model.addAttribute("secondNavMenu", secondNavMenu);
 		model.addAttribute("images", this.imageMapper.selectByResourceId(id));
 		return "admin/projects/edit";
 	}
@@ -60,12 +66,16 @@ public class ProjectsController {
 				this.imageMapper.insertSelective(image);
 			}
 		}
-		return "redirect:/admin/projectCases/" + caseId;
+		NavMenu secondNavMenu = this.navMenuMapper.selectByPrimaryKey(caseId);
+		NavMenu firstNavMenu = this.navMenuMapper.selectByPrimaryKey(secondNavMenu.getParentNav());
+		return "redirect:/admin/projectCases/" + firstNavMenu.getId()+"/projectSecondNavMenus/"+ caseId;
 	}
 
 	@RequestMapping(value = "/new", method = RequestMethod.GET)
 	public String newPage(@PathVariable("caseId") int caseId, ModelMap model) {
-		model.addAttribute("menu", this.navMenuMapper.selectByPrimaryKey(caseId));
+		NavMenu secondNavMenu = this.navMenuMapper.selectByPrimaryKey(caseId);
+		model.addAttribute("firstNavMenu", this.navMenuMapper.selectByPrimaryKey(secondNavMenu.getParentNav()));
+		model.addAttribute("secondNavMenu", secondNavMenu);
 		return "admin/projects/new";
 	}
 
@@ -74,6 +84,7 @@ public class ProjectsController {
 		project.setLang(locale.getLanguage());
 		project.setContent(Utils.replaceFontFamily(project.getContent()));
 		project.setService(Utils.replaceFontFamily(project.getService()));
+		project.setNavMenuId(caseId);
 		this.projectMapper.insertSelective(project);
 		int projectId = this.projectMapper.getMaxId();
 		if(imgUrls!=null){
@@ -84,7 +95,8 @@ public class ProjectsController {
 			this.imageMapper.insertSelective(image);
 		  }
 		}
-		
-		return "redirect:/admin/projectCases/" + caseId;
+		NavMenu secondNavMenu = this.navMenuMapper.selectByPrimaryKey(caseId);
+		NavMenu firstNavMenu = this.navMenuMapper.selectByPrimaryKey(secondNavMenu.getParentNav());
+		return "redirect:/admin/projectCases/" + firstNavMenu.getId()+"/projectSecondNavMenus/"+ caseId;
 	}
 }

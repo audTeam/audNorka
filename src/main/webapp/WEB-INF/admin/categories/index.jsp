@@ -35,10 +35,10 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>分类列表</h1>
+      <h1>职位分类列表</h1>
       <ol class="breadcrumb">
         <li><a href="<%=baseUrl%>/admin/dashborad"><i class="fa fa-dashboard"></i> 首页</a></li>
-        <li class="active">分类列表</li>
+        <li class="active">职位分类列表</li>
       </ol>
     </section>
 
@@ -67,7 +67,7 @@
                     <td>${status.index+1}</td>
                     <td>${jobCategory.name}</td>
                     <td>
-                      <a class="btn btn-default" href="<%=baseUrl%>/admin/categories/${jobCategory.id}/edit">编辑</a>
+                      <a class="btn btn-default" href="<%=baseUrl%>/admin/categories/${jobCategory.id}/edit">编辑分类名称</a>
                       <a class="btn btn-info" href="<%=baseUrl%>/admin/categories/${jobCategory.id}/jobs">配置职位</a>
                       <form action="<%=baseUrl%>/admin/categories/${jobCategory.id}/delete" method="POST" style="display: inline;">
                         <!-- <input type="hidden" name="_method" value="DELETE"> -->

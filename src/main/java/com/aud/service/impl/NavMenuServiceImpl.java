@@ -46,4 +46,9 @@ public class NavMenuServiceImpl implements INavMenuService {
 		return navMenuMapper.updateByPrimaryKeySelective(record);
 	}
 
+	@Override
+	public int deleteByParentId(int parentId) {
+		return navMenuMapper.deleteByParentId(parentId);
+	}
+
 }

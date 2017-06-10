@@ -8,4 +8,6 @@ public interface INavMenuService {
     int insertSelective(NavMenu record);
 
     int updateByPrimaryKeySelective(NavMenu record);
+    
+    int deleteByParentId(int parentId);
 }

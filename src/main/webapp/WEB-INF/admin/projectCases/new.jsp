@@ -25,7 +25,7 @@
       <h1>新增案例分类</h1>
       <ol class="breadcrumb">
         <li><a href="<%=baseUrl%>/admin/dashborad"><i class="fa fa-dashboard"></i> 首页</a></li>
-        <li><a href="<%=baseUrl%>/admin/projectCases">分类列表</a></li>
+        <li><a href="<%=baseUrl%>/admin/projectCases">一级分类列表</a></li>
         <li class="active">新增分类</li>
       </ol>
     </section>

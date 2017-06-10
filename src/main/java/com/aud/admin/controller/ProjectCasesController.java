@@ -48,13 +48,14 @@ public class ProjectCasesController {
 			@RequestParam(value="pageNo", required=false, defaultValue="1") Integer pageNo,
 			@RequestParam(value="pageSize", required=false, defaultValue="10") Integer pageSize,
 			Locale locale){
-		
+
 		PageHelper.startPage(pageNo, pageSize);
 	    List<Project> list = this.projectMapper.getByNavMenuId(id, locale.getLanguage());
 	    PageInfo<Project> page = new PageInfo<Project>(list);
         
 		model.addAttribute("navMenu", this.navMenuMapper.selectByPrimaryKey(id));
 		model.addAttribute("pages", page);
+
 		return "admin/projectCases/show";
 	}
 	
@@ -85,6 +86,7 @@ public class ProjectCasesController {
 	
 	@RequestMapping(value = "/{id}/delete", method=RequestMethod.POST)
 	public String delete(@PathVariable("id") int id){
+		this.navMenuService.deleteByParentId(id);
 		this.navMenuService.deleteByPrimaryKey(id);
 		this.projectMapper.deleteByNavMenuId(id);
 		return "redirect:/admin/projectCases";

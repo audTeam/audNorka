@@ -20,10 +20,10 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>公司基本信息</h1>
+      <h1>公司简介</h1>
       <ol class="breadcrumb">
         <li><a href="<%=baseUrl%>/admin/dashborad"><i class="fa fa-dashboard"></i> 首页</a></li>
-        <li class="active">公司基本信息</li>
+        <li class="active">公司简介</li>
       </ol>
     </section>
     <!-- Main content -->

@@ -2,6 +2,8 @@ package com.aud.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.aud.pojo.Project;
 
 public interface ProjectMapper {
@@ -28,4 +30,6 @@ public interface ProjectMapper {
 
 	List<Project> all(String lang);
 	//-----------此处以下为新增内容-------------
+
+	List<Project> getByNavMenuIds(@Param("navIds")List<Integer> navId, @Param("lang")String language);
 }

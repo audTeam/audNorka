@@ -22,13 +22,12 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>
-        Page Header
-        <small>Optional description</small>
-      </h1>
+      <h1>新增案例分类</h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-        <li class="active">Here</li>
+        <li><a href="<%=baseUrl%>/admin/dashborad"><i class="fa fa-dashboard"></i> 首页</a></li>
+        <li><a href="<%=baseUrl%>/admin/projectCases">${firstNavMenu.name}</a></li>
+        <li><a href="<%=baseUrl%>/admin/projectCases/${firstNavMenu.id}/projectSecondNavMenus">二级分类列表</a></li>
+        <li class="active">新增分类</li>
       </ol>
     </section>
 
@@ -38,7 +37,13 @@
       <!-- Your Page Content Here -->
       <div class="box">
         <div class="box-body">
-          44444444444444
+          <div class="row">
+            <div class="col-md-12">
+              <c:import url="_form.jsp">
+                <c:param name="actionUrl" value="${pageContext.request.contextPath}/admin/projectCases/${firstNavMenu.id}/projectSecondNavMenus"></c:param>
+              </c:import>
+            </div>
+          </div>
         </div>
       </div>
 

@@ -20,4 +20,8 @@ public interface NavMenuMapper {
     List<NavMenu> all();
 
     List<NavMenu> allNavMenuByParentNav(int parentNav, String lang);
+
+	int deleteByParentId(int parentId);
+
+    List<NavMenu> selectByParentId(Integer id);
 }

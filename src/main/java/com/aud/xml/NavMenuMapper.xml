@@ -19,12 +19,22 @@
   <select id="all" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select * from navmenus
   </select>
+  <select id="selectByParentId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select 
+    <include refid="Base_Column_List" />
+    from navmenus
+    where parent_nav = #{id,jdbcType=INTEGER}
+  </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
     select 
     <include refid="Base_Column_List" />
     from navmenus
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <delete id="deleteByParentId" parameterType="java.lang.Integer" >
+    delete from navmenus
+    where parent_nav = #{id,jdbcType=INTEGER}
+  </delete>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from navmenus
     where id = #{id,jdbcType=INTEGER}

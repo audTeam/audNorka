@@ -8,8 +8,9 @@
     <input name="_method" value="PATCH" type="hidden">
     <input type="hidden" name="id" value="${navMenu.id}">
   </c:if>
+  <input class="hidden" type="hidden" name="parentNav" value="${firstNavMenu.id}">
   <div class="form-group">
-    <label class="col-md-2 control-label">一级分组</label>
+    <label class="col-md-2 control-label">二级分类名称</label>
     <div class="col-md-9">
       <input class="form-control" type="text" name="name" value="${navMenu.name}">
     </div>

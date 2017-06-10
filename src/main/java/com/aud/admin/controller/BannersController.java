@@ -61,13 +61,11 @@ public class BannersController {
 		this.bannerMapper.updateByPrimaryKeySelective(banner);
 		return "redirect:/admin/banners";
 	}
-	
+
 	@RequestMapping(value = "/{id}/delete", method = RequestMethod.POST)
 	public String delete(@PathVariable("id") int id) {
 		Banner banner = bannerMapper.selectByPrimaryKey(id);
-		if(banner.getImgUrl()!=null){
-			imageService.deleteFile(banner.getImgUrl());
-		}
+		imageService.deleteFile(banner.getImgUrl());
 		this.bannerMapper.deleteByPrimaryKey(id);
 		return "redirect:/admin/banners";
 	}

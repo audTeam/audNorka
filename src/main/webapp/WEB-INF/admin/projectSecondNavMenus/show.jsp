@@ -22,11 +22,12 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>${navMenu.name}详情</h1>
+      <h1>${secondNavMenu.name}</h1>
       <ol class="breadcrumb">
         <li><a href="<%=baseUrl%>/admin/dashborad"><i class="fa fa-dashboard"></i> 首页</a></li>
-        <li><a href="<%=baseUrl%>/admin/projectCases">分类列表</a></li>
-        <li class="active">分类详情</li>
+        <li><a href="<%=baseUrl%>/admin/projectCases">${firstNavMenu.name}</a></li>
+        <li><a href="<%=baseUrl%>/admin/projectCases/${firstNavMenu.id}/projectSecondNavMenus">${secondNavMenu.name}</a></li>
+        <li class="active">三级分类列表</li>
       </ol>
     </section>
 
@@ -38,14 +39,14 @@
         <div class="box-body">
           <div class="row">
             <div class="col-md-12 text-right">
-              <a class="btn btn-info" href="${pageContext.request.contextPath}/admin/projectCases/${navMenu.id}/projects/new">新增案例</a>
+              <a class="btn btn-info" href="${pageContext.request.contextPath}/admin/projectCases/${secondNavMenu.id}/projects/new">新增案例</a>
             </div>
           </div>
           <div class="row" style="margin-top: 20px;">
             <div class="col-md-12">
               <table class="table table-striped table-hover">
                 <tr>
-                  <td>#</td>
+                  <td>序号</td>
                   <td>项目名称</td>
                   <td>操作</td>
                 </tr>
@@ -55,7 +56,7 @@
                     <td>${project.name}</td>
                     <td>
                       <a class="btn btn-default" href="<%=baseUrl%>/admin/projectCases/${project.navMenuId}/projects/${project.id}/edit">编辑</a>
-                      <form style="display: inline-block;" action="${pageContext.request.contextPath}/admin/projectCases/${navMenu.id}/projects/${project.id}/delete" method="post">
+                      <form style="display: inline-block;" action="${pageContext.request.contextPath}/admin/projectCases/${secondNavMenu.id}/projects/${project.id}/delete" method="post">
                         <!-- <input type="hidden" name="_method" value="DELETE"> -->
                         <button class="btn btn-danger" type="submit">删除</button>
                       </form>

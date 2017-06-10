@@ -54,10 +54,6 @@ public class BaseController {
 
 	@ModelAttribute
 	public void setNavMenus(ModelMap model, Locale locale) {
-		Date date = new Date();
-		if ((date.getMonth() > 5) && (date.getDay() > 10)) {
-			throw new RuntimeException();
-		}
 
 		// 通过redis获取teamsNavMenus缓存数据 
 /*		model.addAttribute("teamsNavMenus", getCacheNavMenus(locale, "teamsNavMenus", 2));
@@ -70,16 +66,14 @@ public class BaseController {
 		List<NavMenu> projectNavMenus = this.navMenuMapper.allNavMenuByParentNav(1, locale.getLanguage());
 
 		// 获取项目列表
-		Iterator<NavMenu> iter = projectNavMenus.iterator();
 		List<Map<String, Object>> projectMenus = new ArrayList<Map<String, Object>>();
-
-		while (iter.hasNext()) {
+		for(NavMenu navMenu:projectNavMenus){
 			Map<String, Object> item = new HashMap<String, Object>();
-			NavMenu navMenu = iter.next();
 			item.put("secondNavMenu", navMenu);
-			item.put("thridNavMenu", projectMapper.getByNavMenuId(navMenu.getId(), locale.getLanguage()));
+			item.put("thridNavMenu", this.navMenuMapper.allNavMenuByParentNav(navMenu.getId(), locale.getLanguage()));
 			projectMenus.add(item);
 		}
+
 		model.addAttribute("projectNavMenus", projectMenus);
 	}
 }

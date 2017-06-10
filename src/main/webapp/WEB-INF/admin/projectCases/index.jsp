@@ -23,10 +23,10 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>案例分类列表</h1>
+      <h1>编辑分类名称</h1>
       <ol class="breadcrumb">
         <li><a href="<%=baseUrl%>/admin/dashborad"><i class="fa fa-dashboard"></i> 首页</a></li>
-        <li class="active">分类列表</li>
+        <li class="active">一级分类列表</li>
       </ol>
     </section>
 
@@ -44,8 +44,8 @@
           <div class="col-md-12">
             <table class="table table-striped table-hover">
               <tr>
-                <td>#</td>
-                <td>分组名称</td>
+                <td>序号</td>
+                <td>一级分组</td>
                 <td>操作</td>
               </tr>
               <c:forEach var="navMenu" items="${pages.list}" varStatus="status">
@@ -53,10 +53,9 @@
                   <td>${status.index+1}</td>
                   <td>${navMenu.name}</td>
                   <td>
-                    <a href="<%=baseUrl%>/admin/projectCases/${navMenu.id}/edit" class="btn btn-default">编辑</a>
-                    <a href="<%=baseUrl%>/admin/projectCases/${navMenu.id}" class="btn btn-info">项目管理</a>
+                    <a href="<%=baseUrl%>/admin/projectCases/${navMenu.id}/edit" class="btn btn-default">编辑分类名称</a>
+                    <a href="<%=baseUrl%>/admin/projectCases/${navMenu.id}/projectSecondNavMenus" class="btn btn-info">配置二级分类</a>
                     <form action="<%=baseUrl%>/admin/projectCases/${navMenu.id}/delete" style="display: inline-block;" method="post">
-                      <!-- <input type="hidden" name="_method" value="DELETE"> -->
                       <button class="btn btn-danger" type="submit">删除</button>
                     </form>
                 </tr>

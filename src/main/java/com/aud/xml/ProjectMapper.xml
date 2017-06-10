@@ -30,6 +30,14 @@
     select * from projects
     where nav_menu_id = #{0,jdbcType=INTEGER} and lang = #{1, jdbcType=INTEGER}
   </select>
+  <select id="getByNavMenuIds" resultMap="ResultMapWithBLOBs">
+    select * from projects
+    where nav_menu_id in
+    <foreach item="item" index="index" collection="navIds" open="(" separator="," close=")">
+      #{item}
+    </foreach> 
+    and lang = #{lang}
+  </select>
   <select id="getMaxId" resultType="java.lang.Integer">
     select id from projects ORDER BY id DESC LIMIT 0, 1
   </select>
