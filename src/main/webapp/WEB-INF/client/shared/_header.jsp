@@ -59,7 +59,7 @@
                                     <div class="search-form">
                                         <div class="search-input clearfix">
                                             <label class="pull-left"><span class="glyphicon glyphicon-search2"></span></label>
-                                            <input type="text" class="form-control pull-left" placeholder="Search AUD">
+                                            <input type="text" class="pull-left" placeholder="Search AUD">
                                         </div>
                                     </div>
                                 </li>
@@ -117,7 +117,7 @@
       <div class="search-form">
          <form class="search-input clearfix">
              <label class="pull-right"><span class="glyphicon glyphicon-search"></span></label>
-             <input type="text" id="bdcsMain" class="form-control pull-right" style="border:1px solid #fff;">
+             <input type="text" id="bdcsMain" class="pull-right" style="border:1px solid #fff;">
          </form>
       </div>
    </nav>
