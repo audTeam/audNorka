@@ -16,9 +16,11 @@
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/shared_show.css">
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/phone.css">
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/job-detail.css">
+<!--[if lt IE 9]>
 <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
 <title>招聘信息详情</title>
+<![endif]-->
 </head>
 <body>
 <jsp:include page="../shared/_header.jsp"></jsp:include>
@@ -33,7 +35,7 @@
     </div>
 </div>
 <div class="part-two container-fluid">
-    <ul class="title">
+    <ul class="title hidden-xs">
         <li><spring:message code="Job_Number" /> </li>
         <li> <spring:message code="Date" /> </li>
         <li> <spring:message code="Position" /> </li>
@@ -49,8 +51,9 @@
     </ul>
 </div>
 <jsp:include page="../shared/_footer.jsp"></jsp:include>
-<script src="bower_components/jquery/dist/jquery.min.js"></script>
-<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="js/index.js"></script>
+<script src="<%=baseUrl%>/static/lib/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="<%=baseUrl%>/static/lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<%=baseUrl%>/static/common/client/js/shared_js.js"></script>
+<!-- <script src="js/index.js"></script> -->
 </body>
 </html>

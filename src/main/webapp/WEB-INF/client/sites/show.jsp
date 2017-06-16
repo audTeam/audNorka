@@ -14,10 +14,9 @@
 <meta name="baidu-site-verification" content="NSAF3fd6Tn" />
 <link rel="stylesheet" href="<%=baseUrl%>/static/lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/shared_show.css">
-<link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/sites_show.css">
-<link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/home-color.css">
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/phone.css">
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/index-pic.css">
+
 <title><spring:message code="home" /> </title>
 <!--[if lt IE 9]>
       <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -33,5 +32,6 @@
 </body>
 <script type="text/javascript" src="<%=baseUrl%>/static/lib/bower_components/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="<%=baseUrl%>/static/lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<%=baseUrl%>/static/common/client/js/shared_js.js"></script>
 <script type="text/javascript" src="<%=baseUrl%>/static/common/client/js/sites_show.js"></script>
 </html>

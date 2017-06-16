@@ -11,12 +11,13 @@
 <meta name="viewport" content="width=320,maximum-scale=1.3,user-scalable=no">
 <link rel="stylesheet" href="<%=baseUrl%>/static/lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/shared_show.css">
-<link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/sites_show.css">
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/phone.css">
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/project.css">
 <title>案例详情</title>
+<!--[if lt IE 9]>
 <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
 </head>
 <body>
     <jsp:include page="../shared/_header.jsp"></jsp:include>
@@ -24,8 +25,8 @@
        <c:import url="../shared/_banner.jsp"></c:import>
         <section class="part_two">
             <div class="row">
-                <div class="col-xs-12 pic-title col-md-offset-3 col-xs-offset-1"><p>${project.name}</p></div>
-                <div class="col-md-3 col-xs-12 col-xs-offset-1 col-md-offset-0">
+                <div class="col-xs-11 pic-title col-md-offset-3 col-xs-offset-1"><p>${project.name}</p></div>
+                <div class="col-md-3 col-xs-11 col-xs-offset-1 col-md-offset-0">
                     <ul class="info">
                         <li class="title-text"><spring:message code="Information"/></li>
                         <li>
@@ -48,10 +49,12 @@
                         <li>${project.service }</li>
                     </ul>
                 </div>
-                <div class="col-md-6 col-xs-12 col-xs-offset-1 col-md-offset-0">
+                <div class="col-md-6 col-xs-11 col-xs-offset-1 col-md-offset-0">
                     <ul>
                         <li class="title-text"><spring:message code="concept" /> </li>
-                        <li class="content-text">${project.content }</li>
+                        <li class="content-text">
+                        ${project.content }
+                        </li>
                     </ul>
                     <ul class="team">
                         <li class="title-text"><spring:message code="Team" /> </li>
@@ -65,7 +68,7 @@
                         </c:forEach>
                     </ul>
                 </div>
-                <div class="col-md-2 col-xs-12 col-xs-offset-1 col-md-offset-1 similar-ul">
+                <div class="col-md-2 col-xs-11 col-xs-offset-1 col-md-offset-1 similar-ul">
                     <ul class="similar">
                         <li class="title-text"><spring:message code="Similar" /> </li>
                         <c:forEach var="project" items="${collection}">
@@ -88,5 +91,6 @@
 </body>
 <script type="text/javascript" src="<%=baseUrl%>/static/lib/bower_components/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="<%=baseUrl%>/static/lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<%=baseUrl%>/static/common/client/js/shared_js.js"></script>
 <script type="text/javascript" src="<%=baseUrl%>/static/common/client/js/sites_show.js"></script>
 </html>

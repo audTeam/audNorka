@@ -13,7 +13,6 @@
 }
 .part-one .all-case div{
     padding-top: 16px;
-    padding-bottom: 16px;
 }
 .part-one .all-case div>a{
     font-size: 15px;
@@ -37,4 +36,21 @@ h6{
 }
 .project-pic{
     display: block;
+}
+@media screen and (max-width: 767px){
+	.part-one{
+	    margin-top: 0px;
+	}
+	h5{
+        position: absolute;
+        top:130px;
+        left:30px;
+	    color: #fff;
+	}
+	h6{
+        position: absolute;
+        top:120px;
+        left:30px;
+	    color: #fff;
+	}
 }

@@ -16,8 +16,10 @@
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/phone.css">
 <link rel="stylesheet" href="<%=baseUrl%>/static/common/client/css/contact-us.css">
 <title>联系我们</title>
-<script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-<script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+<!--[if lt IE 9]>
+  <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=0hZwZLTDtP2Ap7XOA1sSZUN4GaohG2ud"></script>
 </head>
 <body>
@@ -88,5 +90,6 @@
 <script type="text/javascript" src="<%=baseUrl%>/static/lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<%=baseUrl%>/static/common/client/js/sites_show.js"></script>
 <script type="text/javascript" src="<%=baseUrl%>/static/common/client/js/countryCity.js"></script>
+<script type="text/javascript" src="<%=baseUrl%>/static/common/client/js/shared_js.js"></script>
 <script type="text/javascript" src="<%=baseUrl%>/static/common/client/js/map.js"></script>
 </html>

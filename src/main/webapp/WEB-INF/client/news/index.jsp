@@ -86,5 +86,6 @@
 <script type="text/javascript" src="<%=baseUrl%>/static/lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<%=baseUrl%>/static/common/client/js/sites_show.js"></script>
 <script type="text/javascript" src="<%=baseUrl%>/static/common/client/js/news.js"></script>
+<script type="text/javascript" src="<%=baseUrl%>/static/common/client/js/shared_js.js"></script>
 <script type="text/javascript" src="<%=baseUrl%>/static/common/client/js/news_show.js"></script>
 </html>

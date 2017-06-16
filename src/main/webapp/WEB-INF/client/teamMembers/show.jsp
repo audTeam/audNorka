@@ -55,17 +55,24 @@
         <div class="col-md-12 contact-work">
             <div class="col-md-12 key-project"><spring:message code="Featured_Work" /></div>
             <c:forEach var="relateProject" items="${projects}">
-              <div class="col-md-2 work-pic">
+              <div class="col-md-2 work-pic pic-block-box">
                 <a href="<%= baseUrl%>/client/projects/${relateProject.project.id}">
-                  <img src="<%= application.getInitParameter("imageServer") %>/${relateProject.images[0].imgUrl}" alt="pic" class="img-responsive"></a>
-                  <a href="<%= baseUrl%>/client/projects/${project.id}"><h5>${relateProject.project.name }</h5></a><h6>${relateProject.project.address }</h6></div>
+                  <img src="<%= application.getInitParameter("imageServer") %>/${relateProject.images[0].imgUrl}" alt="pic" class="img-responsive">
+                </a>
+                <a href="<%= baseUrl%>/client/projects/${project.id}">
+                  <img class="title-icon" src="<%= baseUrl%>/static/common/client/images/sites/right.png">
+                  <h5>${relateProject.project.name }</h5>
+                </a>
+                <h6>${relateProject.project.address }</h6>
+              </div>
             </c:forEach>
         </div>
     </div>
 </div>
-    <jsp:include page="../shared/_footer.jsp"></jsp:include>
+<jsp:include page="../shared/_footer.jsp"></jsp:include>
 </body>
 <script type="text/javascript" src="<%=baseUrl%>/static/lib/bower_components/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="<%=baseUrl%>/static/lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<%=baseUrl%>/static/common/client/js/shared_js.js"></script>
 <script type="text/javascript" src="<%=baseUrl%>/static/common/client/js/sites_show.js"></script>
 </html>
