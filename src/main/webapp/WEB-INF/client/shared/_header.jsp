@@ -24,7 +24,7 @@
             </button>
 
             <a class="navbar-brand" href="<%=baseUrl%>/">
-              <img alt="Brand" src="<%=baseUrl%>/static/common/client/images/sites/Group_65.png"></a>
+              <img class="img-responsive" src="<%=baseUrl%>/static/common/client/images/sites/Group_65.png"></a>
           </div>
           <div id="" class="collapse navbar-collapse">
             <ul class="nav navbar-nav ul_one">
@@ -66,9 +66,17 @@
                 <img src="<%=baseUrl%>/static/common/client/images/sites/triangle.png" alt="pic" class="flg-pic contact-pic" /></li>
             </ul>
           </nav>
-          <div class="change-language" style="height: 100%;">
-            <a href="${pageContext.request.contextPath}/sites?lang=en_US">EN</a>
-            <a href="${pageContext.request.contextPath}/sites?lang=zh_CN">中文</a>
+          <div class="change-language">
+            <c:choose>
+              <c:when test="${pageContext.response.locale=='zh_CN'}">
+                <a href="${pageContext.request.contextPath}/sites?lang=en_US">EN</a>
+              </c:when>
+              <c:when test="${pageContext.response.locale=='en_US'}">
+                <a href="${pageContext.request.contextPath}/sites?lang=zh_CN">中文</a>
+              </c:when>
+             </c:choose>
+           <!-- <a href="${pageContext.request.contextPath}/sites?lang=en_US">EN</a>
+            <a href="${pageContext.request.contextPath}/sites?lang=zh_CN">中文</a> -->
           </div>
         </div>
       </div>

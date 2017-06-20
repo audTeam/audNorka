@@ -164,7 +164,7 @@ ul {
 .change-language {
     position: absolute;
     right: 1%;
-    top: 10px;
+    top: 30px;
     font-size: 13px;
     color: #000;
 }
@@ -196,7 +196,7 @@ ul {
 /*footer*/
 footer .footer-text {
     position: relative;
-    top: -25px;
+    top: -30px;
     text-align: center;
     border-top: 1px solid #ca3726;
     padding-top: 15px;
@@ -273,7 +273,13 @@ h5 {
         width: 1280px;
         margin: 0 auto;
     }
-
+	.change-language {
+	    position: absolute;
+	    right: 10%;
+	    top: 20px;
+	    font-size: 13px;
+	    color: #000;
+	}
     .carousel-caption {
         left: 155px !important;
     }
@@ -283,7 +289,13 @@ h5 {
     .nav_two {
         display: none;
     }
-
+	.change-language {
+	    position: absolute;
+	    right: 1%;
+	    top: 20px;
+	    font-size: 13px;
+	    color: #000;
+	}
     .nav_one {
         background-color: #ca3726 !important;
     }
@@ -319,7 +331,7 @@ h5 {
     }
 
     .navbar-brand {
-        margin-left: 6%;
+        margin-left: 10%;
     }
 }
 /* 自定义媒体查询 */

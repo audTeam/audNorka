@@ -25,7 +25,7 @@
        <c:import url="../shared/_banner.jsp"></c:import>
         <section class="part_two">
             <div class="row">
-                <div class="col-xs-11 pic-title col-md-offset-3 col-xs-offset-1"><p>${project.name}</p></div>
+                <div class="pic-title col-xs-9 col-md-offset-3 col-xs-offset-1"><p>${project.name}</p></div>
                 <div class="col-md-3 col-xs-11 col-xs-offset-1 col-md-offset-0">
                     <ul class="info">
                         <li class="title-text"><spring:message code="Information"/></li>
