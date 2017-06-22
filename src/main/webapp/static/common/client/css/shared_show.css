@@ -48,10 +48,10 @@ ul {
 }
 
 .ul_two {
-    display: none;
+    display: none; 
     position: absolute;
-    left: 155px;
-    top: -1px;
+    left: 191px;
+    top: 2px;
     z-index: 999;
 }
 

@@ -1,7 +1,7 @@
 $(function(){
 	var audBrandWidth = $('#aud-brand').width();
 	var totalWidth = $('#aud-brand-bg').width();
-	$('#aud-bg').width(totalWidth-audBrandWidth);
+	$('#aud-bg').width(totalWidth-audBrandWidth-2);
 
 	var url = location.href;
 	var url1=url.indexOf("teamMembers")>0;
