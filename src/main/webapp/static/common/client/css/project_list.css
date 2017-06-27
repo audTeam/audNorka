@@ -37,6 +37,9 @@ h6{
 .project-pic{
     display: block;
 }
+.pic-block-box a img{
+	height:169px;
+}
 @media screen and (max-width: 767px){
 	.part-one{
 	    margin-top: 0px;
@@ -52,5 +55,8 @@ h6{
         top:120px;
         left:30px;
 	    color: #fff;
+	}
+	.pic-block-box a img{
+		height:auto !important;
 	}
 }

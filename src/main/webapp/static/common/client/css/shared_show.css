@@ -50,7 +50,7 @@ ul {
 .ul_two {
     display: none; 
     position: absolute;
-    left: 191px;
+    left: 157px;
     top: 2px;
     z-index: 999;
 }
@@ -273,10 +273,14 @@ h5 {
         width: 1280px;
         margin: 0 auto;
     }
+    .nav_two{
+    	width:1280px;
+    	margin: 0 auto;
+    }
 	.change-language {
 	    position: absolute;
 	    right: 10%;
-	    top: 20px;
+	    top: 32px;
 	    font-size: 13px;
 	    color: #000;
 	}
@@ -292,7 +296,7 @@ h5 {
 	.change-language {
 	    position: absolute;
 	    right: 1%;
-	    top: 20px;
+	    top: 26px;
 	    font-size: 13px;
 	    color: #000;
 	}

@@ -28,7 +28,7 @@
               <c:forEach var="item" items="${collection }">
                 <div class="col-md-3 col-xs-12 pic-block-box">
                   <a href="<%=baseUrl%>/client/projects/${item.project.id}">
-                    <img src="<%=application.getInitParameter("imageServer")%>/${item.images[0].imgUrl}" alt="pic" class="img-responsive" style="height:169px">
+                    <img src="<%=application.getInitParameter("imageServer")%>/${item.images[0].imgUrl}" alt="pic" class="img-responsive">
                   </a>
                   <a href="<%=baseUrl%>/client/projects/${item.project.id}">
                     <img class="title-icon" src="<%= baseUrl%>/static/common/client/images/sites/right.png">
