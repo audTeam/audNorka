@@ -210,7 +210,7 @@ footer .footer-text {
 .footer-text .footer-pic {
     position: relative;
     top: -30px;
-    left: 230px;
+    left: 254px;
 }
 
 .navbar-default {
@@ -343,23 +343,24 @@ h5 {
 @media (max-width: 768px) {
 	.pic-block-box{
 	  margin-top: 10px;
+	  position:relative;
 	}
 	.pic-block-box h5{
         position: absolute;
-        top:120px;
-        left:30px;
+        bottom:47px;
+        left:40px;
 	    color: #fff;
 	}
 	.pic-block-box h6{
         position: absolute;
-        top:150px;
-        left:30px;
+        bottom:32px;
+        left:40px;
 	    color: #fff;
 	}
 	.pic-block-box a .title-icon{
         position: absolute;
-        top:130px;
-        left:20px;
+        bottom:50px;
+        left:30px;
 	}
 }
 

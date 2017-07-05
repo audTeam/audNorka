@@ -24,7 +24,7 @@
     <div class="main container-fluid">
     <div class="row">
       <c:forEach var="teamMember" items="${teamMembers}">
-        <div class="col-md-4 work-pic pic-block-box">
+        <div class="col-md-4 col-xs-12 work-pic pic-block-box">
           <a href="<%=baseUrl%>/client/teamMembers/${teamMember.id}">
             <img src="<%=application.getInitParameter("imageServer") %>/${teamMember.imgUrl}" alt="pic" class="img-responsive">
           </a>

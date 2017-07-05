@@ -6,6 +6,7 @@
 }
 .part-one .all-case .view_more{
     text-align: center;
+    padding-bottom:10px;
 }
 .part-one .all-case .view_more a{
     color: #ca3726;
@@ -44,7 +45,7 @@ h6{
 	.part-one{
 	    margin-top: 0px;
 	}
-	h5{
+	/* h5{
         position: absolute;
         top:130px;
         left:30px;
@@ -55,7 +56,7 @@ h6{
         top:120px;
         left:30px;
 	    color: #fff;
-	}
+	} */
 	.pic-block-box a img{
 		height:auto !important;
 	}
