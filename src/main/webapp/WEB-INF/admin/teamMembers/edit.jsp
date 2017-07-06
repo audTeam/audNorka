@@ -65,6 +65,7 @@
 <script src="<%=baseUrl%>/static/common/admin/js/file_upload.js" type="text/javascript"></script>
 <script type="text/javascript">
    UM.getEditor('container');
+   UM.getEditor('keyProjectContainer');
 </script>
 </body>
 </html>

@@ -92,6 +92,7 @@ public class ProjectsController extends BaseController {
 		}
 		model.addAttribute("collection", collection);
 		model.addAttribute("banners", this.bannerMapper.all("projectBanners", locale.getLanguage()));
+		model.addAttribute("loadMoreUrl", "/client/projects/loadMore");
 		
 		return "client/projects/index";
 	}

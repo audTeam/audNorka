@@ -27,8 +27,6 @@ import com.github.pagehelper.PageInfo;
 @RequestMapping("/admin/teamMembers")
 public class TeamMembersController {
     @Autowired
-    private NavMenuMapper navMenuMapper;
-    @Autowired
     private TeamMemberMapper teamMemberMapper;
     @Autowired
     private ProjectMapper projectMapper;
@@ -78,6 +76,7 @@ public class TeamMembersController {
         teamMember.setLang(local.getLanguage());
         teamMember.setCreatedAt(new Date());
         teamMember.setBrief(Utils.replaceFontFamily(teamMember.getBrief()));
+    	teamMember.setKeyProject(Utils.replaceFontFamily(teamMember.getKeyProject()));
         this.teamMemberMapper.insertSelective(teamMember);
         int userId = this.teamMemberMapper.getMaxId();
         if(projectIds!=null){
@@ -97,6 +96,7 @@ public class TeamMembersController {
             teamMember.setImgUrl(imageService.uploadFile(file));
     	}
     	teamMember.setUpdatedAt(new Date());
+    	teamMember.setKeyProject(Utils.replaceFontFamily(teamMember.getKeyProject()));
     	teamMember.setBrief(Utils.replaceFontFamily(teamMember.getBrief()));
         this.teamMemberMapper.updateByPrimaryKeySelective(teamMember);
         this.teamMemberProjectMapper.deletedByTeamMemberId(id);

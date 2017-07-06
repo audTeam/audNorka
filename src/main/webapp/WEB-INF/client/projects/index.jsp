@@ -21,6 +21,7 @@
 <body>
     <jsp:include page="../shared/_header.jsp"></jsp:include>
     <div id="base-url" data-base-url="<%=baseUrl%>" class="hidden"></div>
+    <div id="load-more-url" data-load-more-url="${loadMoreUrl}" class="hidden"></div>
     <div class="main container-fluid">
         <c:import url="../shared/_banner.jsp"></c:import>
         <section class="part-one">

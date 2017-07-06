@@ -28,7 +28,7 @@
     </div>
   </div>
   <div class="form-group">
-    <label class="control-label col-md-2">占地面积</label>
+    <label class="control-label col-md-2">建筑面积</label>
     <div class="col-md-9">
       <input type="text" class="form-control" name="size" value="${project.size}">
     </div>

@@ -21,8 +21,9 @@ $(function(){
 		onLoadMoreButtonClicked: function(){
       projectIndex.pageNo += 1;
       var baseUrl = $("#base-url").data("base-url");
+      var loadMoreUrl = $("#load-more-url").data('load-more-url');
       var host = window.location.host;
-      var url = "http://"+host+"/"+baseUrl+"/client/projects/loadMore?pageNo="+projectIndex.pageNo;
+      var url = "http://"+host+"/"+baseUrl+loadMoreUrl+"?pageNo="+projectIndex.pageNo;
 
 			$.getJSON(url,{},function(data,status,xhr){
         if(projectIndex.pageNo==data.page.pages){

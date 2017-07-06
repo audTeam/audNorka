@@ -41,7 +41,7 @@
   <div class="form-group">
     <label class="control-label col-md-2">重点项目</label>
     <div class="col-md-9">
-      <input type="text" class="form-control" name="keyProject" value="${teamMember.keyProject}">
+      <script id="keyProjectContainer" name="keyProject" type="text/plain" style="height:100px; width: 100%;">${teamMember.keyProject}</script>
     </div>
   </div>
   <div class="form-group">
@@ -82,7 +82,7 @@
   <div class="form-group">
     <label class="control-label col-md-2">简介</label>
     <div class="col-md-9">
-      <script id="container" name="brief" type="text/plain" name="brief" style="height:500px; width: 100%;">${teamMember.brief}</script>
+      <script id="container" name="brief" type="text/plain" style="height:500px; width: 100%;">${teamMember.brief}</script>
     </div>
   </div>
   <div class="form-group">

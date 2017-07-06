@@ -67,7 +67,7 @@
             </div>
             <div class="col-md-12">
               <c:import url="../shared/_page.jsp">
-                <c:param name="pageUrl" value="${pageContext.request.contextPath}/admin/projectCases/${navMenu.id}"></c:param>
+                <c:param name="pageUrl" value="${pageContext.request.contextPath}/admin/projectCases/${firstNavMenu.id}/projectSecondNavMenus/${secondNavMenu.id }"></c:param>
               </c:import>
             </div>
           </div>
