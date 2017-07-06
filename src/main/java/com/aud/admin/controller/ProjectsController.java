@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.aud.mapper.ImageMapper;
 import com.aud.mapper.NavMenuMapper;
 import com.aud.mapper.ProjectMapper;
+import com.aud.mapper.TeamMemberProjectMapper;
 import com.aud.pojo.Image;
 import com.aud.pojo.NavMenu;
 import com.aud.pojo.Project;
@@ -29,6 +30,8 @@ public class ProjectsController {
 	private ProjectMapper projectMapper;
 	@Autowired
 	private ImageMapper imageMapper;
+    @Autowired
+    private TeamMemberProjectMapper teamMemberProjectMapper;
 
     @ModelAttribute
     public void setCurrentModule(ModelMap model) {  
@@ -39,6 +42,7 @@ public class ProjectsController {
 		this.projectMapper.deleteByPrimaryKey(id);
 		NavMenu secondNavMenu = this.navMenuMapper.selectByPrimaryKey(caseId);
 		NavMenu firstNavMenu = this.navMenuMapper.selectByPrimaryKey(secondNavMenu.getParentNav());
+		this.teamMemberProjectMapper.deletedByProjectId(id);
 		return "redirect:/admin/projectCases/" + firstNavMenu.getId()+"/projectSecondNavMenus/"+ caseId;
 	}
 

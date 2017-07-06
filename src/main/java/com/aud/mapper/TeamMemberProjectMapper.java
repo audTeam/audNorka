@@ -8,6 +8,8 @@ public interface TeamMemberProjectMapper {
     int deleteByPrimaryKey(Integer id);
     
     int deletedByTeamMemberId(int teamMemberId);
+    
+    int deletedByProjectId(int teamMemberId);
 
     int insert(TeamMemberProject record);
 

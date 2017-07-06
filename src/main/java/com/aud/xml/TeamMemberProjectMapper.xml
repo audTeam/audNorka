@@ -48,6 +48,10 @@
 		from team_member_projects
 		where id = #{id,jdbcType=INTEGER}
 	</select>
+	<delete id="deletedByProjectId" parameterType="java.lang.Integer">
+		delete from team_member_projects
+		where project_id = #{projectId,jdbcType=INTEGER}
+	</delete>
 	<delete id="deletedByTeamMemberId" parameterType="java.lang.Integer">
 		delete from team_member_projects
 		where team_member_id = #{teamMemberId,jdbcType=INTEGER}

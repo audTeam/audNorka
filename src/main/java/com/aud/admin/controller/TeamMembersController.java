@@ -52,10 +52,10 @@ public class TeamMembersController {
 
         return "admin/teamMembers/index";
     }
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/{id}", method = RequestMethod.POST)
     public String delete(@PathVariable("id") int id) {
         this.teamMemberMapper.deleteByPrimaryKey(id);
-        
+        this.teamMemberProjectMapper.deletedByTeamMemberId(id);
         return "redirect:/admin/teamMembers";
     }
 
