@@ -55,7 +55,7 @@
         <div class="col-md-12 contact-work">
             <div class="col-md-12 key-project"><spring:message code="Featured_Work" /></div>
             <c:forEach var="relateProject" items="${projects}">
-              <div class="col-md-2 work-pic pic-block-box">
+              <div class="col-md-3 work-pic pic-block-box" style="margin-top: 15px;">
                 <a href="<%= baseUrl%>/client/projects/${relateProject.project.id}">
                   <img src="<%= application.getInitParameter("imageServer") %>/${relateProject.images[0].imgUrl}" alt="pic" class="img-responsive">
                 </a>

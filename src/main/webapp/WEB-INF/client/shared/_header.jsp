@@ -67,14 +67,15 @@
             </ul>
           </nav>
           <div class="change-language">
-            <c:choose>
+          <!-- 暂时隐藏中英文切换 -->
+            <!-- <c:choose>
               <c:when test="${pageContext.response.locale=='zh_CN'}">
                 <a href="${pageContext.request.contextPath}/sites?lang=en_US">EN</a>
               </c:when>
               <c:when test="${pageContext.response.locale=='en_US'}">
                 <a href="${pageContext.request.contextPath}/sites?lang=zh_CN">中文</a>
               </c:when>
-             </c:choose>
+             </c:choose> -->
            <!-- <a href="${pageContext.request.contextPath}/sites?lang=en_US">EN</a>
             <a href="${pageContext.request.contextPath}/sites?lang=zh_CN">中文</a> -->
           </div>

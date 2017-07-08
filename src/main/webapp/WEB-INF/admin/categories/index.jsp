@@ -100,7 +100,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title" id="myModalLabel">头图管理</h4>
       </div>
       <div class="modal-body">
 		<form class="form-horizontal" method="post" action="<%=baseUrl%>/admin/categories/headImg/update" id="uploadForm" enctype="multipart/form-data">
@@ -117,7 +117,7 @@
 			    <div id="uploadFileDiv" class="col-md-10">
 			      <input id="pdFile" name="jobPic" type="file">
 			      <div id="fileError" class="help-block"></div>
-			      <!-- <p class="help-block">支持jpg、jpeg、png、gif格式，大小不超过2.0M，宽x高:980x524</p> -->
+			      <p class="help-block">支持jpg、jpeg、png、gif格式，宽度1280px，高度500px</p>
 			      <br />
 			    </div>
 			  </div>

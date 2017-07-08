@@ -102,7 +102,7 @@
                 <div id="uploadFileDiv" class="col-md-9">
                   <input id="pdFileLogo" name="file" type="file">
                   <div id="fileError" class="help-block"></div>
-                  <p class="help-block"></p>
+                  <p class="help-block">支持jpg、jpeg、png、gif格式，宽度155px，高度48px</p>
                  </div>
               </div>
             </form>

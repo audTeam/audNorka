@@ -27,7 +27,6 @@ public class SitesController extends BaseController {
 
     @RequestMapping(value = "", method=RequestMethod.GET)
     public String show(ModelMap model, Locale locale){
-
         model.addAttribute("banners", this.bannerMapper.all("sites", locale.getLanguage()));
 
         return "client/sites/show";

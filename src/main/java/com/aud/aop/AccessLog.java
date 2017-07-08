@@ -22,6 +22,9 @@ public class AccessLog {
 		if(j.getSignature().getName().equals("setNavMenus")){
 			return;
 		}
+		if(j.getSignature().getName().equals("setCurrentModule")){
+			return;
+		}
 		Log log = new Log();
 		log.setClassName(j.getSignature().getDeclaringTypeName());
 		log.setMethodName(j.getSignature().getName());
